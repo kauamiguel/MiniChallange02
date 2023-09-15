@@ -12,7 +12,7 @@ class AppointmentsVM {
     
     var view: UIViewController?
     
-    func adssad(){
+    func buttonFuncionality(){
         view?.navigationController?.pushViewController(MaternityCardViewController(), animated: true)
     }
 }

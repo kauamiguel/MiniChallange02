@@ -116,8 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				ABC98BA12AB3F53D005214E5 /* AppointmentsView.swift */,
-				ABC98B9B2AB3E677005214E5 /* AppointmentsViewController.swift */,
 				ABC98BBB2AB4DBD6005214E5 /* AppointmentsVM.swift */,
+				ABC98B9B2AB3E677005214E5 /* AppointmentsViewController.swift */,
 				ABC98BB22AB3FC46005214E5 /* MaternityCard */,
 			);
 			path = Appointments;

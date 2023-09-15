@@ -13,7 +13,6 @@ class AppointmentsView: UIView {
   
     func setUpAppointmentsView(vc: AppointmentsViewController){
         
-        
         vc.view.backgroundColor = .white
     }
     

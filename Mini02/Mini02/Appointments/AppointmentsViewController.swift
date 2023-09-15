@@ -9,18 +9,18 @@ import UIKit
 
 class AppointmentsViewController: UIViewController {
 
-    let appointmentViewManager = AppointmentsView()
-
+    var appointmentViewModelManager: AppointmentsVM?
+    var appointmentViewManager: AppointmentsView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        appointmentViewManager.setUpAppointmentsView(vc: self)
-        appointmentViewManager.justARandomButton(vc: self, action: #selector(buttonAction))
-        
+       
+        appointmentViewManager?.setUpAppointmentsView(vc: self)
+        appointmentViewManager?.justARandomButton(vc: self, action: #selector(buttonAction))
+  
     }
-
     
-  @objc  func buttonAction(){
-        self.navigationController?.pushViewController(MaternityCardViewController(), animated: true)
+  @objc func buttonAction(){
+      appointmentViewModelManager?.buttonFuncionality()
     }
 }

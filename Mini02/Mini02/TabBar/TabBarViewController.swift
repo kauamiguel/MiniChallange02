@@ -20,15 +20,14 @@ class TabBarViewController: UITabBarController {
     
     func setUpTabBarViewModel(){
        
-        
-        
-        var appointmentsViewController = AppointmentsViewController()
-        var appointmentsViewModel = AppointmentsVM()
-        var appointmentsView = AppointmentsView()
-//
-//        appointmentsViewModel.view = appointmentsViewController
-//        appointmentsViewController.TES
-        
+        let appointmentsViewController = AppointmentsViewController()
+        let appointmentsViewModel = AppointmentsVM()
+        let appointmentsView = AppointmentsView()
+
+        appointmentsViewModel.view = appointmentsViewController
+       
+        appointmentsViewController.appointmentViewModelManager = appointmentsViewModel
+        appointmentsViewController.appointmentViewManager = appointmentsView
         
         
         let rootViewController1 = UINavigationController(rootViewController: appointmentsViewController)
