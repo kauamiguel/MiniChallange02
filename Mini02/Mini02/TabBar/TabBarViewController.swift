@@ -16,6 +16,6 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         
         tbViewManager.setUpTabBarView(tb: self)
-        tbVmManager.setUpTabBarVM(tb: self)
+        tbVmManager.setUpTabBarViewModel(tb: self)
     }
 }

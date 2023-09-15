@@ -8,6 +8,10 @@
 import UIKit
 
 class AppointmentsViewModel: UIControl {
+    
 
-
+    
+    func buttonAction(vc: AppointmentsViewController){
+       vc.navigationController?.pushViewController(MaternityCardViewController(), animated: true)
+    }
 }

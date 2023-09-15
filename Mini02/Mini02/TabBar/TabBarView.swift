@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class TabBarView: UIView{
+class TabBarView: UIView {  // everything that is UI
     func setUpTabBarView(tb: TabBarViewController){
 
         tb.tabBar.tintColor = .label
