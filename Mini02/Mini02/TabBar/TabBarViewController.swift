@@ -25,7 +25,6 @@ class TabBarViewController: UITabBarController {
         let appointmentsView = AppointmentsView()
 
         appointmentsViewModel.view = appointmentsViewController
-       
         appointmentsViewController.appointmentViewModelManager = appointmentsViewModel
         appointmentsViewController.appointmentViewManager = appointmentsView
         

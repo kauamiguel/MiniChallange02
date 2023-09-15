@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecurrentDataView: UIControl {
+class RecurrentDataView: UIView {
 
     
 }

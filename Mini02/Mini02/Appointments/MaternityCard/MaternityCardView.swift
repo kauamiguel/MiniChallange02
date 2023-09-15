@@ -7,6 +7,6 @@
 
 import UIKit
 
-class MaternityCardViewModel: UIControl {
+class MaternityCardView: UIView {
 
 }
