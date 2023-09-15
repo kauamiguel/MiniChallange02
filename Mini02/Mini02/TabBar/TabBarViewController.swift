@@ -20,7 +20,18 @@ class TabBarViewController: UITabBarController {
     
     func setUpTabBarViewModel(){
        
-        let rootViewController1 = UINavigationController(rootViewController: AppointmentsViewController())
+        
+        
+        var appointmentsViewController = AppointmentsViewController()
+        var appointmentsViewModel = AppointmentsVM()
+        var appointmentsView = AppointmentsView()
+//
+//        appointmentsViewModel.view = appointmentsViewController
+//        appointmentsViewController.TES
+        
+        
+        
+        let rootViewController1 = UINavigationController(rootViewController: appointmentsViewController)
         let rootViewController2 = UINavigationController(rootViewController: RecurrentDataViewController())
         let rootViewController3 = UINavigationController(rootViewController: ProfileViewController())
         

@@ -21,6 +21,7 @@
 		ABC98BAF2AB3F630005214E5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BAE2AB3F630005214E5 /* ProfileViewController.swift */; };
 		ABC98BB42AB3FCAA005214E5 /* MaternityCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BB32AB3FCAA005214E5 /* MaternityCardViewController.swift */; };
 		ABC98BB62AB3FCC2005214E5 /* MaternityCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BB52AB3FCC2005214E5 /* MaternityCardViewModel.swift */; };
+		ABC98BBC2AB4DBD6005214E5 /* AppointmentsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BBB2AB4DBD6005214E5 /* AppointmentsVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		ABC98BAE2AB3F630005214E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		ABC98BB32AB3FCAA005214E5 /* MaternityCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardViewController.swift; sourceTree = "<group>"; };
 		ABC98BB52AB3FCC2005214E5 /* MaternityCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardViewModel.swift; sourceTree = "<group>"; };
+		ABC98BBB2AB4DBD6005214E5 /* AppointmentsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			children = (
 				ABC98BA12AB3F53D005214E5 /* AppointmentsView.swift */,
 				ABC98B9B2AB3E677005214E5 /* AppointmentsViewController.swift */,
+				ABC98BBB2AB4DBD6005214E5 /* AppointmentsVM.swift */,
 				ABC98BB22AB3FC46005214E5 /* MaternityCard */,
 			);
 			path = Appointments;
@@ -220,6 +223,7 @@
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
 				ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */,
 				ABC98BA82AB3F5E0005214E5 /* RecurrentDataView.swift in Sources */,
+				ABC98BBC2AB4DBD6005214E5 /* AppointmentsVM.swift in Sources */,
 				ABC98BAF2AB3F630005214E5 /* ProfileViewController.swift in Sources */,
 				ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */,
 				ABC98BB62AB3FCC2005214E5 /* MaternityCardViewModel.swift in Sources */,
