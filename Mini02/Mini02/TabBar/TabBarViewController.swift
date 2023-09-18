@@ -18,7 +18,7 @@ class TabBarViewController: UITabBarController {
         setUpTabBarViewModel()
     }
     
-    func setUpTabBarViewModel(){
+   private func setUpTabBarViewModel(){
        
         let appointmentsViewController = AppointmentsViewController()
         let appointmentsViewModel = AppointmentsVM()
