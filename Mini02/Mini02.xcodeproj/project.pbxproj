@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6253AF422AB6677100FB82C4 /* PacientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253AF412AB6677100FB82C4 /* PacientModel.swift */; };
+		6253AF442AB6694C00FB82C4 /* PersonalBGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253AF432AB6694C00FB82C4 /* PersonalBGModel.swift */; };
+		6253AF462AB66F2000FB82C4 /* FamilyBGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253AF452AB66F2000FB82C4 /* FamilyBGModel.swift */; };
+		6253AF482AB670B100FB82C4 /* VacinesBGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253AF472AB670B100FB82C4 /* VacinesBGModel.swift */; };
 		ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98B7E2AB3D9C5005214E5 /* AppDelegate.swift */; };
 		ABC98B812AB3D9C5005214E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98B802AB3D9C5005214E5 /* SceneDelegate.swift */; };
 		ABC98B882AB3D9C6005214E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC98B872AB3D9C6005214E5 /* Assets.xcassets */; };
@@ -29,6 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6253AF412AB6677100FB82C4 /* PacientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacientModel.swift; sourceTree = "<group>"; };
+		6253AF432AB6694C00FB82C4 /* PersonalBGModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalBGModel.swift; sourceTree = "<group>"; };
+		6253AF452AB66F2000FB82C4 /* FamilyBGModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyBGModel.swift; sourceTree = "<group>"; };
+		6253AF472AB670B100FB82C4 /* VacinesBGModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacinesBGModel.swift; sourceTree = "<group>"; };
 		ABC98B7B2AB3D9C5005214E5 /* Mini02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABC98B7E2AB3D9C5005214E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABC98B802AB3D9C5005214E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +71,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6253AF402AB6675100FB82C4 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				6253AF412AB6677100FB82C4 /* PacientModel.swift */,
+				6253AF432AB6694C00FB82C4 /* PersonalBGModel.swift */,
+				6253AF452AB66F2000FB82C4 /* FamilyBGModel.swift */,
+				6253AF472AB670B100FB82C4 /* VacinesBGModel.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
 		ABC98B722AB3D9C5005214E5 = {
 			isa = PBXGroup;
 			children = (
@@ -82,7 +101,11 @@
 		ABC98B7D2AB3D9C5005214E5 /* Mini02 */ = {
 			isa = PBXGroup;
 			children = (
+
 				ABC98BC22AB83EC8005214E5 /* Onboard */,
+
+				6253AF402AB6675100FB82C4 /* DataModels */,
+
 				ABC98B962AB3E36E005214E5 /* TabBar */,
 				ABC98B9F2AB3F32E005214E5 /* Appointments */,
 				ABC98BA02AB3F338005214E5 /* RecurrentData */,
@@ -257,13 +280,20 @@
 				ABC98BBF2AB83BD6005214E5 /* Constrains.swift in Sources */,
 				ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */,
 				ABC98BB62AB3FCC2005214E5 /* MaternityCardView.swift in Sources */,
+				6253AF442AB6694C00FB82C4 /* PersonalBGModel.swift in Sources */,
 				ABC98BB42AB3FCAA005214E5 /* MaternityCardViewController.swift in Sources */,
 				ABC98B942AB3DC9C005214E5 /* TabBarViewController.swift in Sources */,
+				6253AF482AB670B100FB82C4 /* VacinesBGModel.swift in Sources */,
+				6253AF462AB66F2000FB82C4 /* FamilyBGModel.swift in Sources */,
 				ABC98B9A2AB3E458005214E5 /* TabBarView.swift in Sources */,
 				ABC98B812AB3D9C5005214E5 /* SceneDelegate.swift in Sources */,
 				ABC98BC62AB83FD0005214E5 /* RegisterViewController.swift in Sources */,
 				ABC98BA22AB3F53D005214E5 /* AppointmentsView.swift in Sources */,
+
 				ABC98BC42AB83EED005214E5 /* RegisterView.swift in Sources */,
+
+				6253AF422AB6677100FB82C4 /* PacientModel.swift in Sources */,
+
 				ABC98B9C2AB3E677005214E5 /* AppointmentsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
