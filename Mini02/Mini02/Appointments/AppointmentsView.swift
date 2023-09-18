@@ -36,8 +36,5 @@ class AppointmentsView: UIView {
             button.heightAnchor.constraint(equalToConstant: 80),
             button.widthAnchor.constraint(equalToConstant: 200)
         ])
-        
-        
     }
-    
 }
