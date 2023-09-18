@@ -7,6 +7,21 @@
 
 import UIKit
 
-class MaternityCardView: UIView {
+class MaternityCardView: UICollectionViewCell {
 
+    private var vm =  ProfileView()
+    
+    static let identifier = "default"
+    
+    func setUpCell(){
+        self.backgroundColor = .purple
+        
+        
+    }
+    
+    func configure(with view: UIView){
+        setUpCell()
+     
+    }
+    
 }

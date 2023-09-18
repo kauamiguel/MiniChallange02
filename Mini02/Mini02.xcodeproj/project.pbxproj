@@ -26,6 +26,7 @@
 		ABC98BC12AB83C8D005214E5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC02AB83C8D005214E5 /* TextField.swift */; };
 		ABC98BC42AB83EED005214E5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC32AB83EED005214E5 /* RegisterView.swift */; };
 		ABC98BC62AB83FD0005214E5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC52AB83FD0005214E5 /* RegisterViewController.swift */; };
+		ABC98BCD2AB8C442005214E5 /* MaternityCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BCC2AB8C442005214E5 /* MaternityCardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		ABC98BC02AB83C8D005214E5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		ABC98BC32AB83EED005214E5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		ABC98BC52AB83FD0005214E5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		ABC98BCC2AB8C442005214E5 /* MaternityCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				ABC98BB52AB3FCC2005214E5 /* MaternityCardView.swift */,
+				ABC98BCC2AB8C442005214E5 /* MaternityCardViewModel.swift */,
 				ABC98BB32AB3FCAA005214E5 /* MaternityCardViewController.swift */,
 			);
 			path = MaternityCard;
@@ -264,6 +267,7 @@
 				ABC98BC62AB83FD0005214E5 /* RegisterViewController.swift in Sources */,
 				ABC98BA22AB3F53D005214E5 /* AppointmentsView.swift in Sources */,
 				ABC98BC42AB83EED005214E5 /* RegisterView.swift in Sources */,
+				ABC98BCD2AB8C442005214E5 /* MaternityCardViewModel.swift in Sources */,
 				ABC98B9C2AB3E677005214E5 /* AppointmentsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
