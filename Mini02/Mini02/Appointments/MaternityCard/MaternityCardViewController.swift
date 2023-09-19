@@ -13,17 +13,21 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     private lazy var bloodView = BloodView()
     private lazy var ultrasoundView = UltrasoundView()
   
+    
         private lazy var cells: [(view: UIView, id: String)] = [(defaultView, DefaultView.id),
                                                                 (bloodView, BloodView.id),
                                                                 (ultrasoundView, UltrasoundView.id)]
     init(){
+        
         let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.estimatedItemSize = .zero
         super.init(collectionViewLayout: layout)
         collectionView.backgroundColor = .white
         setupCollectionView()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+
+        
     }
 
     private func setupCollectionView(){
@@ -31,13 +35,17 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     }
    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        cells.count
+        
+                cells.count
     }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cells[indexPath.row].id, for: indexPath) as? MaternityCardCell else { return UICollectionViewCell() }
         cell.setUpcell(view: cells[indexPath.row].view)
         return cell
     }
+    
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

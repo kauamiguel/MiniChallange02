@@ -8,7 +8,7 @@
 import UIKit
 
 class MaternityCardCell: UICollectionViewCell {
-
+  
     var view = UIView()
     
     func setUpcell(view: UIView){

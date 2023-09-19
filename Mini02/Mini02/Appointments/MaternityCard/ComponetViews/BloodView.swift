@@ -10,7 +10,7 @@ import UIKit
 class BloodView: UIView {
 
     static let id = "BloodCell"
-    
+//    lazy var size = UIScreen.main.bounds.size
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,6 +19,14 @@ class BloodView: UIView {
     
     func setUpView(){
 
+        let roudedBackGround = UIView()
+        roudedBackGround.layer.cornerRadius = 10
+        roudedBackGround.backgroundColor = .gray
+        
+//        addSubview(roudedBackGround)
+//
+//
+//        roudedBackGround.anchorWithContantValues(top: self.safeAreaLayoutGuide.topAnchor, left: self.safeAreaLayoutGuide.leadingAnchor,right: self.safeAreaLayoutGuide.trailingAnchor,bottom: self.safeAreaLayoutGuide.bottomAnchor, leftPadding: 1 ,rightPadding: -1, width: size.width - size.width * 0.06, height: 400)
         
         let questionlabel1 = UILabel()
         questionlabel1.text = "BloodView"

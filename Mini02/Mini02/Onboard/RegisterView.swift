@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class RegisterView: UIView{
+class RegisterView: UIView {
     
     func setUpRegisterView(vc: RegisterViewController){
         
@@ -23,8 +23,8 @@ class RegisterView: UIView{
         topLabel.font = topLabel.font.withSize(30)
         vc.view.addSubview(topLabel)
         
-        topLabel.centerX(inView: vc.view)
-        topLabel.anchorWithContantValues(top: vc.view.safeAreaLayoutGuide.topAnchor)
+//        topLabel.centerX(inView: vc.view)
+//        topLabel.anchorWithContantValues(top: vc.view.safeAreaLayoutGuide.topAnchor)
         
         // 1
        
@@ -35,14 +35,14 @@ class RegisterView: UIView{
 
         vc.view.addSubview(questionlabel1)
         
-        questionlabel1.anchorWithContantValues(top: topLabel.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 50 ,leftPadding: 50, rightPadding: -20, height: 35)
+//        questionlabel1.anchorWithContantValues(top: topLabel.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 50 ,leftPadding: 50, rightPadding: -20, height: 35)
         
         let textField1 = UITextField().textField(withPlaceholder: "", size: 20)
         textField1.textColor = .black
         
         vc.view.addSubview(textField1)
 
-        textField1.anchorWithContantValues(top: questionlabel1.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 2 ,leftPadding: 50, rightPadding: -50, height: 35)
+//        textField1.anchorWithContantValues(top: questionlabel1.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 2 ,leftPadding: 50, rightPadding: -50, height: 35)
        
         // 2
         let questionlabel2 = UILabel()
