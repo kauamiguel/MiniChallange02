@@ -8,9 +8,6 @@
 import UIKit
 
 class AppointmentListView: UITableView {
-    
-    
-    
     func setUpListView(vc: AppointementsListVC){
         vc.view.backgroundColor = .white
     }
@@ -18,7 +15,7 @@ class AppointmentListView: UITableView {
     //MARK: setup list function
     func setupList(vc:AppointementsListVC){
         //UI SETUP
-        self.backgroundColor = .blue
+        self.backgroundColor = .systemBackground
         
         //SET THE IDENTIFIER FOR CREATING NEW CELLS ON THIS LIST
         self.register(AppointmentListCell.self, forCellReuseIdentifier: AppointmentListCell.identifier)

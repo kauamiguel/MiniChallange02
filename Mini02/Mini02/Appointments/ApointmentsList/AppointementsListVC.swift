@@ -20,8 +20,6 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
             fatalError("The consequences of XGH")
         }
         
-        cell.textLabel?.text = indexPath.row.description
-        
         return cell
     }
     
