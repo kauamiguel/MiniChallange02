@@ -24,7 +24,8 @@ extension UIView {
                 bottomPadding: CGFloat = 0,
                 width: CGFloat? = nil,
                 height: CGFloat? = nil){
-      translatesAutoresizingMaskIntoConstraints = false
+   
+        translatesAutoresizingMaskIntoConstraints = false
         
         if let top = top{
             topAnchor.constraint(equalTo: top, constant: topPadding).isActive = true
@@ -45,7 +46,6 @@ extension UIView {
         if let width = width{
             widthAnchor.constraint(equalToConstant: width).isActive = true
         }
-        
     }
     
     func anchorWithMultiplayerValues(top: NSLayoutYAxisAnchor? = nil,
@@ -79,9 +79,7 @@ extension UIView {
         if let width = width{
             widthAnchor.constraint(equalToConstant: width).isActive = true
         }
-        
     }
-        
 }
 
 
