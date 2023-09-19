@@ -15,5 +15,6 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
        
         registerViewManager.setUpRegisterView(vc: self)
+        registerViewManager.delegate = self
     }
 }
