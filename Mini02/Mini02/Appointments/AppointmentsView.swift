@@ -12,7 +12,6 @@ class AppointmentsView: UIView {
     // everything that is UI
   
     func setUpAppointmentsView(vc: AppointmentsViewController){
-        
         vc.view.backgroundColor = .white
     }
     
@@ -20,12 +19,14 @@ class AppointmentsView: UIView {
         
         let button = UIButton()
         
+        
         button.setTitle("Consulta 1", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .gray
         button.layer.cornerRadius = 10
         
         button.addTarget(AppointmentsViewController(), action: action, for: .touchUpInside)
+        
         
         vc.view.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
