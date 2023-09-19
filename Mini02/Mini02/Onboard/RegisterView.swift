@@ -8,7 +8,13 @@
 import Foundation
 import UIKit
 
+protocol RegisterViewDelegate: AnyObject {
+    func nextButtonTapped()
+}
+
 class RegisterView: UIView{
+    
+    weak var delegate: RegisterViewDelegate?
     
     func setUpRegisterView(vc: RegisterViewController){
         
@@ -24,7 +30,7 @@ class RegisterView: UIView{
         vc.view.addSubview(topLabel)
         
         topLabel.centerX(inView: vc.view)
-        topLabel.anchorWithContantValues(top: vc.view.safeAreaLayoutGuide.topAnchor)
+        topLabel.anchorWithConstantValues(top: vc.view.safeAreaLayoutGuide.topAnchor)
         
         // 1
        
@@ -35,14 +41,14 @@ class RegisterView: UIView{
 
         vc.view.addSubview(questionlabel1)
         
-        questionlabel1.anchorWithContantValues(top: topLabel.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 50 ,leftPadding: 50, rightPadding: -20, height: 35)
+        questionlabel1.anchorWithConstantValues(top: topLabel.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 50 ,leftPadding: 50, rightPadding: -20, height: 35)
         
         let textField1 = UITextField().textField(withPlaceholder: "", size: 20)
         textField1.textColor = .black
         
         vc.view.addSubview(textField1)
 
-        textField1.anchorWithContantValues(top: questionlabel1.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 2 ,leftPadding: 50, rightPadding: -50, height: 35)
+        textField1.anchorWithConstantValues(top: questionlabel1.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 2 ,leftPadding: 50, rightPadding: -50, height: 35)
        
         // 2
         let questionlabel2 = UILabel()
@@ -52,14 +58,14 @@ class RegisterView: UIView{
 
         vc.view.addSubview(questionlabel2)
         
-        questionlabel2.anchorWithContantValues(top: textField1.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 5 ,leftPadding: 50, rightPadding: -20, height: 35)
+        questionlabel2.anchorWithConstantValues(top: textField1.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 5 ,leftPadding: 50, rightPadding: -20, height: 35)
         
         let textField2 = UITextField().textField(withPlaceholder: "", size: 20)
         textField2.textColor = .black
         
         vc.view.addSubview(textField2)
 
-        textField2.anchorWithContantValues(top: questionlabel2.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 2 ,leftPadding: 50, rightPadding: -50, height: 35)
+        textField2.anchorWithConstantValues(top: questionlabel2.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 2 ,leftPadding: 50, rightPadding: -50, height: 35)
 
         // 3
         let questionlabel3 = UILabel()
@@ -69,8 +75,22 @@ class RegisterView: UIView{
 
         vc.view.addSubview(questionlabel3)
         
-        questionlabel3.anchorWithContantValues(top: textField2.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 5 ,leftPadding: 50, rightPadding: -20, height: 35)
+        questionlabel3.anchorWithConstantValues(top: textField2.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 5 ,leftPadding: 50, rightPadding: -20, height: 35)
+        
+        let nextButton = UIButton()
+        nextButton.setTitle("Seguinte", for: .normal)
+        nextButton.setTitleColor(.white, for: .normal)
+        nextButton.backgroundColor = .lightGray
+        nextButton.layer.cornerRadius = 10
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+        nextButton.translatesAutoresizingMaskIntoConstraints = true
+        
+        vc.view.addSubview(nextButton)
+        nextButton.anchorWithConstantValues(left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor,bottom: vc.view.safeAreaLayoutGuide.bottomAnchor,leftPadding: 10, rightPadding: -10, bottomPadding: -60, height: 45)
+    }
     
+    @objc private func nextButtonTapped() {
+        self.delegate?.nextButtonTapped()
     }
 }
 
