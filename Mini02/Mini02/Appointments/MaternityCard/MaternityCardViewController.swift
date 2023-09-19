@@ -20,12 +20,12 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
-        view.backgroundColor = .white
+        collectionView.backgroundColor = .white
         setupCollectionView()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
     }
-    
+
     private func setupCollectionView(){
        cells.forEach { collectionView.register(MaternityCardCell.self, forCellWithReuseIdentifier: $0.id) }
     }

@@ -22,7 +22,7 @@ class UltrasoundView: UIView {
         
         let questionlabel1 = UILabel()
         questionlabel1.text = "UltrasoundView"
-        questionlabel1.textColor = .white
+        questionlabel1.textColor = .black
         questionlabel1.font = questionlabel1.font.withSize(20)
         
         addSubview(questionlabel1)
