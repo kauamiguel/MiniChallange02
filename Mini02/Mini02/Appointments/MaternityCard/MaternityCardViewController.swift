@@ -7,58 +7,40 @@
 
 import UIKit
 
-class MaternityCardViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+class MaternityCardViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     
-    private lazy var views: [UIView] = [ProfileView()]
-    
-    
-    private let collectionView: UICollectionView = {
-        
+    private lazy var defaultView = DefaultView()
+    private lazy var bloodView = BloodView()
+    private lazy var ultrasoundView = UltrasoundView()
+  
+        private lazy var cells: [(view: UIView, id: String)] = [(defaultView, DefaultView.id),
+                                                                (bloodView, BloodView.id),
+                                                                (ultrasoundView, UltrasoundView.id)]
+    init(){
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
-        collectionView.register(MaternityCardView.self, forCellWithReuseIdentifier: MaternityCardView.identifier)
-        return collectionView
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setUpUI()
-            
-        
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        super.init(collectionViewLayout: layout)
         view.backgroundColor = .white
-        
+        setupCollectionView()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
     }
     
-    func setUpUI(){
-        
-        self.view.addSubview(collectionView)
-        
-        collectionView.anchorWithContantValues(top: self.view.topAnchor, left: self.view.leadingAnchor, right: self.view.trailingAnchor, bottom: self.view.bottomAnchor)
-        
+    private func setupCollectionView(){
+       cells.forEach { collectionView.register(MaternityCardCell.self, forCellWithReuseIdentifier: $0.id) }
     }
    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
-        //        views.count
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        cells.count
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MaternityCardView.identifier, for: indexPath) as? MaternityCardView else {
-            fatalError("dequee maternityCard")
-        }
-        let view = self.views[indexPath.row]
-        cell.configure(with: view)
-        
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cells[indexPath.row].id, for: indexPath) as? MaternityCardCell else { return UICollectionViewCell() }
+        cell.setUpcell(view: cells[indexPath.row].view)
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 500, height: 500)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
