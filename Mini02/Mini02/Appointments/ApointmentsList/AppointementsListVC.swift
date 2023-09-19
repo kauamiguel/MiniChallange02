@@ -7,12 +7,27 @@
 
 import UIKit
 
-class AppointementsListVC: UIViewController {
-
+class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
+    
+    var AppointementListViewManager:AppointmentListView?
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = AppointementListViewManager?.dequeueReusableCell(withIdentifier:  AppointmentListCell.identifier, for: indexPath) as? AppointmentListCell else{
+            fatalError("The consequences of XGH")
+        }
+        
+        cell.textLabel?.text = indexPath.row.description
+        
+        return cell
+    }
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        //AppointementListViewManager?.setUpListView(vc: self)
+        AppointementListViewManager?.setupList(vc: self)
     }
     
 }

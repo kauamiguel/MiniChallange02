@@ -7,15 +7,42 @@
 
 import UIKit
 
-class AppointmentListView: UITableViewCell {
+class AppointmentListView: UITableView {
     
-    //UI SETUP
+    
+    
+    func setUpListView(vc: AppointementsListVC){
+        vc.view.backgroundColor = .white
+    }
+    
+    //MARK: setup list function
     func setupList(vc:AppointementsListVC){
-        self.backgroundColor = .systemBackground
+        //UI SETUP
+        self.backgroundColor = .blue
         
+        //SET THE IDENTIFIER FOR CREATING NEW CELLS ON THIS LIST
+        self.register(AppointmentListCell.self, forCellReuseIdentifier: AppointmentListCell.identifier)
+        
+        
+        //ADD VIEW TO VIEW CONTROLLER
+        vc.view.addSubview(self)
+        
+        //CONSTRAINTS SET UP
+        self.anchorWithContantValues(
+            top:vc.view.topAnchor,
+            left: vc.view.leadingAnchor,
+            right: vc.view.trailingAnchor,
+            bottom: vc.view.bottomAnchor
+        )
+        
+        //ASSIGN A DELEGATE AND DATA SOURCE OF LIST
+        self.delegate = vc
+        self.dataSource = vc
+        
+   
     }
     
     
-    //CONSTRAINTS SET UP
+    
 
 }
