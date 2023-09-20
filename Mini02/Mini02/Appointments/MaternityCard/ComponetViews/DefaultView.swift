@@ -43,15 +43,15 @@ class DefaultView: UIView{
         
         addSubview(roudedBackGround)
         
-        roudedBackGround.anchorWithContantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: (size.width - size.width * 0.03).rounded() ,height: size.height - size.height * 0.5)
+        roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: (size.width - size.width * 0.03).rounded() ,height: size.height - size.height * 0.5)
         
         roudedBackGround.addSubview(questionLabel1)
         
-        questionLabel1.anchorWithContantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor, topPadding: 10,leftPadding: 10)
+        questionLabel1.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor, topPadding: 10,leftPadding: 10)
         
         roudedBackGround.addSubview(textField)
         
-        textField.anchorWithContantValues(top: questionLabel1.bottomAnchor,left: questionLabel1.leadingAnchor ,width: 200)
+        textField.anchorWithConstantValues(top: questionLabel1.bottomAnchor,left: questionLabel1.leadingAnchor ,width: 200)
         
     }
     
