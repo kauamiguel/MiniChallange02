@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol SizeDelegate: AnyObject {
-    func didPassSizeValue(_ size: CGSize)
-}
-
 class MaternityCardViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     
     private lazy var defaultView = DefaultView()
