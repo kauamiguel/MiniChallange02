@@ -14,10 +14,9 @@ class AppointmentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        appointmentViewManager?.setUpAppointmentsView(vc: self)
-        appointmentViewManager?.justARandomButton(vc: self, action: #selector(buttonAction))
-  
+        
+        appointmentViewManager?.setupView(vc: self, action: #selector(buttonAction))
+        
     }
     
   @objc func buttonAction(){
