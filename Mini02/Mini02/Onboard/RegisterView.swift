@@ -77,6 +77,15 @@ class RegisterView: UIView{
         
         questionlabel3.anchorWithConstantValues(top: textField2.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 5 ,leftPadding: 50, rightPadding: -20, height: 35)
         
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.calendar = .current
+        datePicker.setDate(Calendar.current.date(byAdding: .year, value: -18, to: Date())!, animated: false)
+        vc.view.addSubview(datePicker)
+        datePicker.anchorWithConstantValues(top: questionlabel3.bottomAnchor, topPadding: 10, height: 120)
+        datePicker.centerX(inView: vc.view)
+        
         let nextButton = UIButton()
         nextButton.setTitle("Seguinte", for: .normal)
         nextButton.setTitleColor(.white, for: .normal)
@@ -86,7 +95,8 @@ class RegisterView: UIView{
         nextButton.translatesAutoresizingMaskIntoConstraints = true
         
         vc.view.addSubview(nextButton)
-        nextButton.anchorWithConstantValues(left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor,bottom: vc.view.safeAreaLayoutGuide.bottomAnchor,leftPadding: 10, rightPadding: -10, bottomPadding: -60, height: 45)
+        nextButton.centerX(inView: vc.view)
+        nextButton.anchorWithConstantValues(left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor,bottom: vc.view.safeAreaLayoutGuide.bottomAnchor,leftPadding: 14, rightPadding: -14, bottomPadding: -60, height: 45)
     }
     
     @objc private func nextButtonTapped() {
