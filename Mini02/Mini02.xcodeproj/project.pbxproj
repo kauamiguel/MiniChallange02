@@ -29,6 +29,7 @@
 		ABC98BC12AB83C8D005214E5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC02AB83C8D005214E5 /* TextField.swift */; };
 		ABC98BC42AB83EED005214E5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC32AB83EED005214E5 /* RegisterView.swift */; };
 		ABC98BC62AB83FD0005214E5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC52AB83FD0005214E5 /* RegisterViewController.swift */; };
+		CE6B8BAC2ABB6760003282C1 /* Vaccines.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B8BAB2ABB6760003282C1 /* Vaccines.swift */; };
 		E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */; };
 		E8135BB22ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB12ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift */; };
 		E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */; };
@@ -65,6 +66,7 @@
 		ABC98BC02AB83C8D005214E5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		ABC98BC32AB83EED005214E5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		ABC98BC52AB83FD0005214E5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CE6B8BAB2ABB6760003282C1 /* Vaccines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccines.swift; sourceTree = "<group>"; };
 		E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettings.swift; sourceTree = "<group>"; };
 		E8135BB12ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterViewController+RegisterViewDelegate.swift"; sourceTree = "<group>"; };
 		E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		ABC98B7D2AB3D9C5005214E5 /* Mini02 */ = {
 			isa = PBXGroup;
 			children = (
+				CE6B8BAA2ABB6741003282C1 /* Model */,
 				ABC98BC22AB83EC8005214E5 /* Onboard */,
 				ABC98B962AB3E36E005214E5 /* TabBar */,
 				ABC98B9F2AB3F32E005214E5 /* Appointments */,
@@ -222,6 +225,14 @@
 			path = Onboard;
 			sourceTree = "<group>";
 		};
+		CE6B8BAA2ABB6741003282C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE6B8BAB2ABB6760003282C1 /* Vaccines.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E8135BB02ABA1B3300E722FA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */,
+				CE6B8BAC2ABB6760003282C1 /* Vaccines.swift in Sources */,
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
 				ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */,
 				E8135BBE2ABA1C0400E722FA /* ThirdOnboardingViewController.swift in Sources */,
