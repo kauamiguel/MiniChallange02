@@ -15,7 +15,7 @@ extension UITextField{
     func textField(withPlaceholder placeHolder: String, size: CGFloat) -> UITextField{
         let tf = UITextField()
         tf.font = UIFont.systemFont(ofSize: size)
-        tf.backgroundColor = .gray
+        tf.backgroundColor = .red
         tf.attributedPlaceholder = NSAttributedString(string: placeHolder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         return tf
     }
