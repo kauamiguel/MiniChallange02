@@ -7,45 +7,52 @@
 
 import UIKit
 
-class DefaultView: UIView {
+class DefaultView: UIView{
     
     static let id = "DefaultCell"
-//    lazy var size = UIScreen.main.bounds.size
+    lazy var size = UIScreen.main.bounds.size // get the size of the screen portrait need more logic for landscape
     
+    let roudedBackGround: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 10
+        view.backgroundColor = .gray
+        return view
+    }()
+    
+    
+    let questionLabel1: UILabel = {
+        let label = UILabel()
+        label.text = "DefaultView"
+        label.textColor = .black
+        label.font = label.font.withSize(20)
+        return label
+    }()
+    
+    let textField: UITextField = {
+        let textField = UITextField().textField(withPlaceholder: "", size: 20)
+        textField.textColor = .red
+        return textField
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
-
     }
     
     func setUpView(){
         
-        let roudedBackGround = UIView()
-        roudedBackGround.layer.cornerRadius = 10
-        roudedBackGround.backgroundColor = .gray
-        
         addSubview(roudedBackGround)
         
-//
-//        roudedBackGround.anchorWithContantValues(top: self.safeAreaLayoutGuide.topAnchor, left: self.safeAreaLayoutGuide.leadingAnchor,right: self.safeAreaLayoutGuide.trailingAnchor,bottom: self.safeAreaLayoutGuide.bottomAnchor, leftPadding: 1 ,rightPadding: -1, width: 400 , height: 400)
+        roudedBackGround.anchorWithContantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: (size.width - size.width * 0.03).rounded() ,height: size.height - size.height * 0.5)
         
-
+        roudedBackGround.addSubview(questionLabel1)
         
-        let questionlabel1 = UILabel()
-        questionlabel1.text = "DefaultView"
-        questionlabel1.textColor = .black
-        questionlabel1.font = questionlabel1.font.withSize(20)
+        questionLabel1.anchorWithContantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor, topPadding: 10,leftPadding: 10)
         
-        addSubview(questionlabel1)
+        roudedBackGround.addSubview(textField)
         
-        questionlabel1.anchorWithContantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor,right: roudedBackGround.trailingAnchor, bottom: roudedBackGround.bottomAnchor)
+        textField.anchorWithContantValues(top: questionLabel1.bottomAnchor,left: questionLabel1.leadingAnchor ,width: 200)
         
-//        let textField1 = UITextField().textField(withPlaceholder: "", size: 20)
-//        textField1.textColor = .black
-//
-////        addSubview(textField1)
-//
-//        textField1.anchorWithContantValues(top: questionlabel1.bottomAnchor, left: self.safeAreaLayoutGuide.leadingAnchor,right: self.safeAreaLayoutGuide.trailingAnchor, topPadding: 2 ,leftPadding: 50, rightPadding: -50, height: 35)
     }
     
     public required init?(coder: NSCoder) {

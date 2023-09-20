@@ -8,14 +8,11 @@
 import UIKit
 
 class MaternityCardCell: UICollectionViewCell {
-  
-    var view = UIView()
     
     func setUpcell(view: UIView){
-        self.view = view
-        
+      
         contentView.addSubview(view)
-        view.anchorWithContantValues(top: self.topAnchor,left: self.leadingAnchor,right: self.trailingAnchor, bottom: self.bottomAnchor)
+        view.anchorWithContantValues(top: contentView.topAnchor, left: contentView.leadingAnchor, right: contentView.trailingAnchor, bottom: contentView.bottomAnchor)
     }
     
     
