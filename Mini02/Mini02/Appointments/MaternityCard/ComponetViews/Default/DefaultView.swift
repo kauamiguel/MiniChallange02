@@ -10,7 +10,8 @@ import UIKit
 class DefaultView: UIView{
     
     static let id = "DefaultCell"
-    lazy var size = UIScreen.main.bounds.size // get the size of the screen portrait need more logic for landscape
+    
+    let defaultViewSize = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded() ,height:  UIScreen.main.bounds.size.height - UIScreen.main.bounds.size.height * 0.5) // get the size of the screen portrait need more logic for landscape
     
     let roudedBackGround: UIView = {
         let view = UIView()
@@ -18,7 +19,6 @@ class DefaultView: UIView{
         view.backgroundColor = .gray
         return view
     }()
-    
     
     let questionLabel1: UILabel = {
         let label = UILabel()
@@ -43,7 +43,9 @@ class DefaultView: UIView{
         
         addSubview(roudedBackGround)
         
-        roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: (size.width - size.width * 0.03).rounded() ,height: size.height - size.height * 0.5)
+        roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: defaultViewSize.width ,height: defaultViewSize.height)
+        
+        self.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor,right: roudedBackGround.trailingAnchor,bottom: roudedBackGround.bottomAnchor)
         
         roudedBackGround.addSubview(questionLabel1)
         

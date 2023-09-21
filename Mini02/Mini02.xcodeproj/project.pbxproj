@@ -32,6 +32,8 @@
 		ABFA04DB2ABB7EEF00D31DEA /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04DA2ABB7EEF00D31DEA /* DefaultViewController.swift */; };
 		ABFA04E02ABB802D00D31DEA /* BloodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04DF2ABB802D00D31DEA /* BloodViewController.swift */; };
 		ABFA04E32ABB809700D31DEA /* UltrasoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E22ABB809700D31DEA /* UltrasoundViewController.swift */; };
+		ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */; };
+		ABFA04E72ABCBE0000D31DEA /* MaternityCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */; };
 		E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */; };
 		E8135BB22ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB12ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift */; };
 		E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */; };
@@ -71,6 +73,8 @@
 		ABFA04DA2ABB7EEF00D31DEA /* DefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
 		ABFA04DF2ABB802D00D31DEA /* BloodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodViewController.swift; sourceTree = "<group>"; };
 		ABFA04E22ABB809700D31DEA /* UltrasoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltrasoundViewController.swift; sourceTree = "<group>"; };
+		ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardViewModel.swift; sourceTree = "<group>"; };
+		ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardModel.swift; sourceTree = "<group>"; };
 		E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettings.swift; sourceTree = "<group>"; };
 		E8135BB12ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterViewController+RegisterViewDelegate.swift"; sourceTree = "<group>"; };
 		E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingView.swift; sourceTree = "<group>"; };
@@ -194,8 +198,10 @@
 		ABC98BB22AB3FC46005214E5 /* MaternityCard */ = {
 			isa = PBXGroup;
 			children = (
+				ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */,
 				ABC98BB52AB3FCC2005214E5 /* MaternityCardCell.swift */,
 				ABC98BB32AB3FCAA005214E5 /* MaternityCardViewController.swift */,
+				ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */,
 				AB7852EC2AB9F92A00566EF9 /* ComponetViews */,
 			);
 			path = MaternityCard;
@@ -240,8 +246,8 @@
 		ABFA04DD2ABB800000D31DEA /* Blood */ = {
 			isa = PBXGroup;
 			children = (
-				ABFA04DF2ABB802D00D31DEA /* BloodViewController.swift */,
 				AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */,
+				ABFA04DF2ABB802D00D31DEA /* BloodViewController.swift */,
 			);
 			path = Blood;
 			sourceTree = "<group>";
@@ -337,6 +343,7 @@
 				E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */,
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
 				ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */,
+				ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */,
 				E8135BBE2ABA1C0400E722FA /* ThirdOnboardingViewController.swift in Sources */,
 				ABC98BA82AB3F5E0005214E5 /* RecurrentDataView.swift in Sources */,
 				ABC98BC12AB83C8D005214E5 /* TextField.swift in Sources */,
@@ -359,6 +366,7 @@
 				AB7852F02AB9F95200566EF9 /* BloodView.swift in Sources */,
 				ABC98BC62AB83FD0005214E5 /* RegisterViewController.swift in Sources */,
 				E8135BB82ABA1BDE00E722FA /* SecondOnboardingView.swift in Sources */,
+				ABFA04E72ABCBE0000D31DEA /* MaternityCardModel.swift in Sources */,
 				AB7852EE2AB9F94600566EF9 /* DefaultView.swift in Sources */,
 				ABC98BA22AB3F53D005214E5 /* AppointmentsView.swift in Sources */,
 				E8135BBC2ABA1BF500E722FA /* ThirdOnboardingView.swift in Sources */,

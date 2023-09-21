@@ -11,7 +11,8 @@ class UltrasoundView: UIView {
 
     static let id = "UltrasoundCell"
     
-    lazy var size = UIScreen.main.bounds.size // get the size of the screen portrait need more logic for landscape
+    let ultrasoundViewSize = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded() ,height:  UIScreen.main.bounds.size.height - UIScreen.main.bounds.size.height * 0.5) // get the size of the screen portrait need more logic for landscape// get the size of the screen portrait need more logic for landscape
+    
     
     let roudedBackGround: UIView = {
         let view = UIView()
@@ -44,9 +45,11 @@ class UltrasoundView: UIView {
         
         addSubview(roudedBackGround)
         
-        roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: (size.width - size.width * 0.03).rounded() ,height: size.height - size.height * 0.5)
+        roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor,width: ultrasoundViewSize.width ,height: ultrasoundViewSize.height)
         
         roudedBackGround.addSubview(questionLabel1)
+        
+        self.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: ultrasoundViewSize.width ,height: ultrasoundViewSize.height)
         
         questionLabel1.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor, topPadding: 10,leftPadding: 10)
         
