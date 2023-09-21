@@ -34,6 +34,10 @@
 		ABFA04E32ABB809700D31DEA /* UltrasoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E22ABB809700D31DEA /* UltrasoundViewController.swift */; };
 		ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */; };
 		ABFA04E72ABCBE0000D31DEA /* MaternityCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */; };
+		ABFA04ED2ABCCF7500D31DEA /* AppointmentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */; };
+		ABFA04EE2ABCCF7500D31DEA /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */; };
+		ABFA04EF2ABCCF7500D31DEA /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EB2ABCCF7500D31DEA /* ListView.swift */; };
+		ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */; };
 		E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */; };
 		E8135BB22ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB12ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift */; };
 		E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */; };
@@ -75,6 +79,10 @@
 		ABFA04E22ABB809700D31DEA /* UltrasoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltrasoundViewController.swift; sourceTree = "<group>"; };
 		ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardViewModel.swift; sourceTree = "<group>"; };
 		ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardModel.swift; sourceTree = "<group>"; };
+		ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointmentListCell.swift; path = Mini02/AppointmentsList/AppointmentListCell.swift; sourceTree = "<group>"; };
+		ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListViewController.swift; path = Mini02/AppointmentsList/ListViewController.swift; sourceTree = "<group>"; };
+		ABFA04EB2ABCCF7500D31DEA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListView.swift; path = Mini02/AppointmentsList/ListView.swift; sourceTree = "<group>"; };
+		ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointementsTableController.swift; path = Mini02/AppointmentsList/AppointementsTableController.swift; sourceTree = "<group>"; };
 		E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettings.swift; sourceTree = "<group>"; };
 		E8135BB12ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterViewController+RegisterViewDelegate.swift"; sourceTree = "<group>"; };
 		E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingView.swift; sourceTree = "<group>"; };
@@ -110,6 +118,10 @@
 		ABC98B722AB3D9C5005214E5 = {
 			isa = PBXGroup;
 			children = (
+				ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */,
+				ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */,
+				ABFA04EB2ABCCF7500D31DEA /* ListView.swift */,
+				ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */,
 				ABC98B7D2AB3D9C5005214E5 /* Mini02 */,
 				ABC98B7C2AB3D9C5005214E5 /* Products */,
 			);
@@ -126,8 +138,6 @@
 		ABC98B7D2AB3D9C5005214E5 /* Mini02 */ = {
 			isa = PBXGroup;
 			children = (
-				CE8A5DF22ABCCC4D009FD981 /* AppointmentsList */,
-				CE6B8BAA2ABB6741003282C1 /* Model */,
 				ABC98BC22AB83EC8005214E5 /* Onboard */,
 				ABC98B962AB3E36E005214E5 /* TabBar */,
 				ABC98B9F2AB3F32E005214E5 /* Appointments */,
@@ -341,14 +351,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABFA04ED2ABCCF7500D31DEA /* AppointmentListCell.swift in Sources */,
+				ABFA04EE2ABCCF7500D31DEA /* ListViewController.swift in Sources */,
+				ABFA04EF2ABCCF7500D31DEA /* ListView.swift in Sources */,
+				ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */,
 				ABFA04DB2ABB7EEF00D31DEA /* DefaultViewController.swift in Sources */,
 				E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */,
-				CE6B8BAC2ABB6760003282C1 /* Vaccines.swift in Sources */,
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
 				ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */,
 				ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */,
 				E8135BBE2ABA1C0400E722FA /* ThirdOnboardingViewController.swift in Sources */,
-				CE8A5DF02ABCCC12009FD981 /* ListViewController.swift in Sources */,
 				ABC98BA82AB3F5E0005214E5 /* RecurrentDataView.swift in Sources */,
 				ABC98BC12AB83C8D005214E5 /* TextField.swift in Sources */,
 				ABC98BBC2AB4DBD6005214E5 /* AppointmentsVM.swift in Sources */,
@@ -357,14 +369,11 @@
 				ABC98BBF2AB83BD6005214E5 /* Constrains.swift in Sources */,
 				AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */,
 				E8135BBA2ABA1BE700E722FA /* SecondOnboardingViewController.swift in Sources */,
-				CE8A5DF12ABCCC12009FD981 /* AppointmentListCell.swift in Sources */,
 				E8135BB22ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift in Sources */,
 				E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */,
 				E8135BC02ABA1D0000E722FA /* OnboardingViewController.swift in Sources */,
 				ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */,
-				CE8A5DEF2ABCCC12009FD981 /* AppointementsTableController.swift in Sources */,
 				ABC98BB62AB3FCC2005214E5 /* MaternityCardCell.swift in Sources */,
-				CE8A5DEE2ABCCC12009FD981 /* ListView.swift in Sources */,
 				ABC98BB42AB3FCAA005214E5 /* MaternityCardViewController.swift in Sources */,
 				E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */,
 				ABC98B942AB3DC9C005214E5 /* TabBarViewController.swift in Sources */,
