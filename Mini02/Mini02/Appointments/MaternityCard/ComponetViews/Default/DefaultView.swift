@@ -1,5 +1,5 @@
 //
-//  ultrasoundView.swift
+//  DefaultView.swift
 //  Mini02
 //
 //  Created by Gabriel Eirado on 19/09/23.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class UltrasoundView: UIView {
-
-    static let id = "UltrasoundCell"
+class DefaultView: UIView{
     
-    lazy var size = UIScreen.main.bounds.size // get the size of the screen portrait need more logic for landscape
+    static let id = "DefaultCell"
+    
+    let defaultViewSize = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded() ,height:  UIScreen.main.bounds.size.height - UIScreen.main.bounds.size.height * 0.5) // get the size of the screen portrait need more logic for landscape
     
     let roudedBackGround: UIView = {
         let view = UIView()
@@ -20,10 +20,9 @@ class UltrasoundView: UIView {
         return view
     }()
     
-    
     let questionLabel1: UILabel = {
         let label = UILabel()
-        label.text = "UltrasoundView"
+        label.text = "DefaultView"
         label.textColor = .black
         label.font = label.font.withSize(20)
         return label
@@ -44,7 +43,9 @@ class UltrasoundView: UIView {
         
         addSubview(roudedBackGround)
         
-        roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: (size.width - size.width * 0.03).rounded() ,height: size.height - size.height * 0.5)
+        roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: defaultViewSize.width ,height: defaultViewSize.height)
+        
+        self.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor,right: roudedBackGround.trailingAnchor,bottom: roudedBackGround.bottomAnchor)
         
         roudedBackGround.addSubview(questionLabel1)
         

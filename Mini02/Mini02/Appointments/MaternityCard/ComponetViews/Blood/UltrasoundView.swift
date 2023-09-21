@@ -1,5 +1,5 @@
 //
-//  BloodView.swift
+//  ultrasoundView.swift
 //  Mini02
 //
 //  Created by Gabriel Eirado on 19/09/23.
@@ -7,22 +7,24 @@
 
 import UIKit
 
-class BloodView: UIView {
+class UltrasoundView: UIView {
 
-    static let id = "BloodCell"
-    lazy var size = UIScreen.main.bounds.size // get the size of the screen portrait need more logic for landscape
+    static let id = "UltrasoundCell"
+    
+    let ultrasoundViewSize = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded() ,height:  UIScreen.main.bounds.size.height - UIScreen.main.bounds.size.height * 0.5) // get the size of the screen portrait need more logic for landscape// get the size of the screen portrait need more logic for landscape
+    
     
     let roudedBackGround: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 10
-        view.backgroundColor = .gray
+        view.backgroundColor = .cyan
         return view
     }()
     
     
     let questionLabel1: UILabel = {
         let label = UILabel()
-        label.text = "BloodView"
+        label.text = "UltrasoundView"
         label.textColor = .black
         label.font = label.font.withSize(20)
         return label
@@ -43,9 +45,11 @@ class BloodView: UIView {
         
         addSubview(roudedBackGround)
         
-        roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: (size.width - size.width * 0.03).rounded() ,height: size.height - size.height * 0.5)
+        roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor,width: ultrasoundViewSize.width ,height: ultrasoundViewSize.height)
         
         roudedBackGround.addSubview(questionLabel1)
+        
+        self.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: ultrasoundViewSize.width ,height: ultrasoundViewSize.height)
         
         questionLabel1.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor, topPadding: 10,leftPadding: 10)
         
@@ -59,5 +63,4 @@ class BloodView: UIView {
         super.init(coder: coder)
         setUpView()
     }
-
 }

@@ -29,11 +29,11 @@
 		ABC98BC12AB83C8D005214E5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC02AB83C8D005214E5 /* TextField.swift */; };
 		ABC98BC42AB83EED005214E5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC32AB83EED005214E5 /* RegisterView.swift */; };
 		ABC98BC62AB83FD0005214E5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC52AB83FD0005214E5 /* RegisterViewController.swift */; };
-		CE6B8BAC2ABB6760003282C1 /* Vaccines.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B8BAB2ABB6760003282C1 /* Vaccines.swift */; };
-		CE8A5DEE2ABCCC12009FD981 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A5DEA2ABCCC12009FD981 /* ListView.swift */; };
-		CE8A5DEF2ABCCC12009FD981 /* AppointementsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A5DEB2ABCCC12009FD981 /* AppointementsTableController.swift */; };
-		CE8A5DF02ABCCC12009FD981 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A5DEC2ABCCC12009FD981 /* ListViewController.swift */; };
-		CE8A5DF12ABCCC12009FD981 /* AppointmentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A5DED2ABCCC12009FD981 /* AppointmentListCell.swift */; };
+		ABFA04DB2ABB7EEF00D31DEA /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04DA2ABB7EEF00D31DEA /* DefaultViewController.swift */; };
+		ABFA04E02ABB802D00D31DEA /* BloodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04DF2ABB802D00D31DEA /* BloodViewController.swift */; };
+		ABFA04E32ABB809700D31DEA /* UltrasoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E22ABB809700D31DEA /* UltrasoundViewController.swift */; };
+		ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */; };
+		ABFA04E72ABCBE0000D31DEA /* MaternityCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */; };
 		E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */; };
 		E8135BB22ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB12ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift */; };
 		E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */; };
@@ -70,11 +70,11 @@
 		ABC98BC02AB83C8D005214E5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		ABC98BC32AB83EED005214E5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		ABC98BC52AB83FD0005214E5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		CE6B8BAB2ABB6760003282C1 /* Vaccines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccines.swift; sourceTree = "<group>"; };
-		CE8A5DEA2ABCCC12009FD981 /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
-		CE8A5DEB2ABCCC12009FD981 /* AppointementsTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointementsTableController.swift; sourceTree = "<group>"; };
-		CE8A5DEC2ABCCC12009FD981 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		CE8A5DED2ABCCC12009FD981 /* AppointmentListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentListCell.swift; sourceTree = "<group>"; };
+		ABFA04DA2ABB7EEF00D31DEA /* DefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
+		ABFA04DF2ABB802D00D31DEA /* BloodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodViewController.swift; sourceTree = "<group>"; };
+		ABFA04E22ABB809700D31DEA /* UltrasoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltrasoundViewController.swift; sourceTree = "<group>"; };
+		ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardViewModel.swift; sourceTree = "<group>"; };
+		ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardModel.swift; sourceTree = "<group>"; };
 		E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettings.swift; sourceTree = "<group>"; };
 		E8135BB12ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterViewController+RegisterViewDelegate.swift"; sourceTree = "<group>"; };
 		E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingView.swift; sourceTree = "<group>"; };
@@ -100,9 +100,9 @@
 		AB7852EC2AB9F92A00566EF9 /* ComponetViews */ = {
 			isa = PBXGroup;
 			children = (
-				AB7852ED2AB9F94600566EF9 /* DefaultView.swift */,
-				AB7852EF2AB9F95100566EF9 /* BloodView.swift */,
-				AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */,
+				ABFA04DC2ABB7FEA00D31DEA /* Default */,
+				ABFA04DD2ABB800000D31DEA /* Blood */,
+				ABFA04DE2ABB801400D31DEA /* Ultrasound */,
 			);
 			path = ComponetViews;
 			sourceTree = "<group>";
@@ -200,8 +200,10 @@
 		ABC98BB22AB3FC46005214E5 /* MaternityCard */ = {
 			isa = PBXGroup;
 			children = (
+				ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */,
 				ABC98BB52AB3FCC2005214E5 /* MaternityCardCell.swift */,
 				ABC98BB32AB3FCAA005214E5 /* MaternityCardViewController.swift */,
+				ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */,
 				AB7852EC2AB9F92A00566EF9 /* ComponetViews */,
 			);
 			path = MaternityCard;
@@ -234,25 +236,32 @@
 			path = Onboard;
 			sourceTree = "<group>";
 		};
-		CE6B8BAA2ABB6741003282C1 /* Model */ = {
+		ABFA04DC2ABB7FEA00D31DEA /* Default */ = {
 			isa = PBXGroup;
 			children = (
-				CE6B8BAB2ABB6760003282C1 /* Vaccines.swift */,
+				AB7852ED2AB9F94600566EF9 /* DefaultView.swift */,
+				ABFA04DA2ABB7EEF00D31DEA /* DefaultViewController.swift */,
 			);
-			path = Model;
+			path = Default;
 			sourceTree = "<group>";
 		};
-		CE8A5DF22ABCCC4D009FD981 /* AppointmentsList */ = {
+		ABFA04DD2ABB800000D31DEA /* Blood */ = {
 			isa = PBXGroup;
 			children = (
-				CE8A5DEB2ABCCC12009FD981 /* AppointementsTableController.swift */,
-				CE8A5DED2ABCCC12009FD981 /* AppointmentListCell.swift */,
-				CE8A5DEA2ABCCC12009FD981 /* ListView.swift */,
-				CE8A5DEC2ABCCC12009FD981 /* ListViewController.swift */,
+				AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */,
+				ABFA04DF2ABB802D00D31DEA /* BloodViewController.swift */,
 			);
-			name = AppointmentsList;
-			path = Mini02/AppointmentsList;
-			sourceTree = SOURCE_ROOT;
+			path = Blood;
+			sourceTree = "<group>";
+		};
+		ABFA04DE2ABB801400D31DEA /* Ultrasound */ = {
+			isa = PBXGroup;
+			children = (
+				AB7852EF2AB9F95100566EF9 /* BloodView.swift */,
+				ABFA04E22ABB809700D31DEA /* UltrasoundViewController.swift */,
+			);
+			path = Ultrasound;
+			sourceTree = "<group>";
 		};
 		E8135BB02ABA1B3300E722FA /* Extensions */ = {
 			isa = PBXGroup;
@@ -290,7 +299,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					ABC98B7A2AB3D9C5005214E5 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -332,16 +341,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABFA04DB2ABB7EEF00D31DEA /* DefaultViewController.swift in Sources */,
 				E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */,
 				CE6B8BAC2ABB6760003282C1 /* Vaccines.swift in Sources */,
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
 				ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */,
+				ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */,
 				E8135BBE2ABA1C0400E722FA /* ThirdOnboardingViewController.swift in Sources */,
 				CE8A5DF02ABCCC12009FD981 /* ListViewController.swift in Sources */,
 				ABC98BA82AB3F5E0005214E5 /* RecurrentDataView.swift in Sources */,
 				ABC98BC12AB83C8D005214E5 /* TextField.swift in Sources */,
 				ABC98BBC2AB4DBD6005214E5 /* AppointmentsVM.swift in Sources */,
 				ABC98BAF2AB3F630005214E5 /* ProfileViewController.swift in Sources */,
+				ABFA04E32ABB809700D31DEA /* UltrasoundViewController.swift in Sources */,
 				ABC98BBF2AB83BD6005214E5 /* Constrains.swift in Sources */,
 				AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */,
 				E8135BBA2ABA1BE700E722FA /* SecondOnboardingViewController.swift in Sources */,
@@ -361,10 +373,12 @@
 				AB7852F02AB9F95200566EF9 /* BloodView.swift in Sources */,
 				ABC98BC62AB83FD0005214E5 /* RegisterViewController.swift in Sources */,
 				E8135BB82ABA1BDE00E722FA /* SecondOnboardingView.swift in Sources */,
+				ABFA04E72ABCBE0000D31DEA /* MaternityCardModel.swift in Sources */,
 				AB7852EE2AB9F94600566EF9 /* DefaultView.swift in Sources */,
 				ABC98BA22AB3F53D005214E5 /* AppointmentsView.swift in Sources */,
 				E8135BBC2ABA1BF500E722FA /* ThirdOnboardingView.swift in Sources */,
 				ABC98BC42AB83EED005214E5 /* RegisterView.swift in Sources */,
+				ABFA04E02ABB802D00D31DEA /* BloodViewController.swift in Sources */,
 				ABC98B9C2AB3E677005214E5 /* AppointmentsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +433,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -479,6 +494,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
