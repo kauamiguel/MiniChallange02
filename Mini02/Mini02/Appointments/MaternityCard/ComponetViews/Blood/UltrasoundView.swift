@@ -21,7 +21,6 @@ class UltrasoundView: UIView {
         return view
     }()
     
-    
     let questionLabel1: UILabel = {
         let label = UILabel()
         label.text = "UltrasoundView"
