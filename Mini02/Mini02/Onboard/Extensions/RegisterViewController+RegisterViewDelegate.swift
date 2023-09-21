@@ -6,12 +6,19 @@
 //
 
 import Foundation
+import UIKit
 
 extension RegisterViewController: RegisterViewDelegate {
     func nextButtonTapped() {
-        ApplicationSettings.hideOnboardingOnStart()
+        
         let tabBarViewController = TabBarViewController()
-        tabBarViewController.modalPresentationStyle = .fullScreen
-        self.present(tabBarViewController, animated: true)
+//        tabBarViewController.modalPresentationStyle = .fullScreen
+//        self.isModalInPresentation = false
+//        self.present(tabBarViewController, animated: true)
+     
+        
+        
+        ApplicationSettings.hideOnboardingOnStart()
+//       (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(vc: TabBarViewController())
     }
 }

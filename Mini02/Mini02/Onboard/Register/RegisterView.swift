@@ -92,7 +92,6 @@ class RegisterView: UIView{
         nextButton.backgroundColor = .lightGray
         nextButton.layer.cornerRadius = 10
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
-        nextButton.translatesAutoresizingMaskIntoConstraints = true
         
         vc.view.addSubview(nextButton)
         nextButton.centerX(inView: vc.view)

@@ -230,10 +230,10 @@
 			isa = PBXGroup;
 			children = (
 				E8135BB02ABA1B3300E722FA /* Extensions */,
-				ABFA04F32ABCD09800D31DEA /* Register */,
 				ABFA04F22ABCD07B00D31DEA /* FirstOnboarding */,
 				ABFA04F42ABCD0A900D31DEA /* SecondOnboarding */,
 				ABFA04F52ABCD0C900D31DEA /* ThirdOnboarding */,
+				ABFA04F32ABCD09800D31DEA /* Register */,
 				E8135BBF2ABA1D0000E722FA /* OnboardingViewController.swift */,
 			);
 			path = Onboard;

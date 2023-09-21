@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         window.makeKeyAndVisible()
-        window.rootViewController = MaternityCardViewController()
+        window.rootViewController = getMainViewController()
         
         self.window = window
     }
@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         window.rootViewController = vc
-        UIView.transition(with: window, duration: 0.5, options: .curveEaseIn, animations: nil)
+        UIView.transition(with: window, duration: 0.5, options: .showHideTransitionViews, animations: nil)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -65,7 +65,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate {
     private final func getMainViewController() -> UIViewController {
-        if ApplicationSettings.shoudDisplayOnboarding() {
+        if !ApplicationSettings.shoudDisplayOnboarding() {
             return OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         } else {
             return TabBarViewController()
