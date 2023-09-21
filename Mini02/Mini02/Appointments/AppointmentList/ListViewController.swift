@@ -8,12 +8,12 @@
 import UIKit
 
 class ListViewController: UIViewController {
-    var ListViewManager: ListView?
+    var listViewManager: ListView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        guard let view = ListViewManager else {
+        guard let view = listViewManager else {
             fatalError("no view was passed")
         }
         

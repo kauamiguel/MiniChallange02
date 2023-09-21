@@ -8,98 +8,126 @@
 import Foundation
 import UIKit
 
-protocol RegisterViewDelegate: AnyObject {
-    func nextButtonTapped()
-}
+
 
 class RegisterView: UIView{
+
+    let nextButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Seguinte", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .lightGray
+        button.layer.cornerRadius = 10
+        return button
+    }()
     
-    weak var delegate: RegisterViewDelegate?
+    var topLabel : UILabel = {
+        let label = UILabel()
+        label.text = "Dados da gestante"
+        label.textColor = .black
+        label.font = label.font.withSize(30)
+        return label
+    }()
     
-    func setUpRegisterView(vc: RegisterViewController){
+    let questionlabel1 : UILabel = {
+        let label = UILabel()
+        label.text = "Nome da gestante:"
+        label.textColor = .black
+        label.font = label.font.withSize(20)
+        return label
+    }()
+    
+   
+    let textField1 : UITextField = {
+        let text = UITextField().textField(withPlaceholder: "", size: 20)
+        text.textColor = .black
+        return text
+    }()
+    
+    let questionlabel2 : UILabel = {
+        let label = UILabel()
+        label.text = "Como gostaria de ser chamada:"
+        label.textColor = .black
+        label.font = label.font.withSize(20)
+        return label
+    }()
+    
+    let textField2 : UITextField  = {
+        let text = UITextField().textField(withPlaceholder: "", size: 20)
+        text.textColor = .black
+        return text
+    }()
+    
+    let questionlabel3 : UILabel = {
+        let label = UILabel()
+        label.text = "Data de nascimento:"
+        label.textColor = .black
+        label.font = label.font.withSize(20)
+        return label
+    }()
+    
+    let datePicker : UIDatePicker = {
+        let date = UIDatePicker()
+        date.datePickerMode = .date
+        date.preferredDatePickerStyle = .wheels
+        date.calendar = .current
+        date.setDate(Calendar.current.date(byAdding: .year, value: -18, to: Date())!, animated: false)
+        return date
+    }()
+    
+    
+    func setUpRegisterView(vc: UIViewController, action : Selector){
         
         vc.view.backgroundColor = .white
-        
-        //Title
-        
-        let topLabel = UILabel()
-        
-        topLabel.text = "Dados da gestante"
-        topLabel.textColor = .black
-        topLabel.font = topLabel.font.withSize(30)
+    
+        //Top label
         vc.view.addSubview(topLabel)
         
         topLabel.centerX(inView: vc.view)
         topLabel.anchorWithConstantValues(top: vc.view.safeAreaLayoutGuide.topAnchor)
+    
         
-        // 1
-       
-        let questionlabel1 = UILabel()
-        questionlabel1.text = "Nome da gestante:"
-        questionlabel1.textColor = .black
-        questionlabel1.font = topLabel.font.withSize(20)
-
+        //Questions label constrains
         vc.view.addSubview(questionlabel1)
         
         questionlabel1.anchorWithConstantValues(top: topLabel.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 50 ,leftPadding: 50, rightPadding: -20, height: 35)
-        
-        let textField1 = UITextField().textField(withPlaceholder: "", size: 20)
-        textField1.textColor = .black
-        
+     
+       
+        //First text feields Constrains
         vc.view.addSubview(textField1)
 
         textField1.anchorWithConstantValues(top: questionlabel1.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 2 ,leftPadding: 50, rightPadding: -50, height: 35)
-       
-        // 2
-        let questionlabel2 = UILabel()
-        questionlabel2.text = "Como gostaria de ser chamada:"
-        questionlabel2.textColor = .black
-        questionlabel2.font = topLabel.font.withSize(20)
+        
 
+        //Questions label constrains
         vc.view.addSubview(questionlabel2)
         
         questionlabel2.anchorWithConstantValues(top: textField1.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 5 ,leftPadding: 50, rightPadding: -20, height: 35)
+  
         
-        let textField2 = UITextField().textField(withPlaceholder: "", size: 20)
-        textField2.textColor = .black
-        
+        //Second text feields Constrains
         vc.view.addSubview(textField2)
 
         textField2.anchorWithConstantValues(top: questionlabel2.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 2 ,leftPadding: 50, rightPadding: -50, height: 35)
 
-        // 3
-        let questionlabel3 = UILabel()
-        questionlabel3.text = "Data de nascimento:"
-        questionlabel3.textColor = .black
-        questionlabel3.font = topLabel.font.withSize(20)
-
+        
+        //Question label Constrains
         vc.view.addSubview(questionlabel3)
         
         questionlabel3.anchorWithConstantValues(top: textField2.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 5 ,leftPadding: 50, rightPadding: -20, height: 35)
+
         
-        let datePicker = UIDatePicker()
-        datePicker.datePickerMode = .date
-        datePicker.preferredDatePickerStyle = .wheels
-        datePicker.calendar = .current
-        datePicker.setDate(Calendar.current.date(byAdding: .year, value: -18, to: Date())!, animated: false)
+        //Data picker Constrains
         vc.view.addSubview(datePicker)
         datePicker.anchorWithConstantValues(top: questionlabel3.bottomAnchor, topPadding: 10, height: 120)
         datePicker.centerX(inView: vc.view)
         
-        let nextButton = UIButton()
-        nextButton.setTitle("Seguinte", for: .normal)
-        nextButton.setTitleColor(.white, for: .normal)
-        nextButton.backgroundColor = .lightGray
-        nextButton.layer.cornerRadius = 10
-        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         
+        //Buttons constrains
+        self.nextButton.addTarget(vc, action: action, for: .touchUpInside)
         vc.view.addSubview(nextButton)
         nextButton.centerX(inView: vc.view)
-        nextButton.anchorWithConstantValues(left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor,bottom: vc.view.safeAreaLayoutGuide.bottomAnchor,leftPadding: 14, rightPadding: -14, bottomPadding: -60, height: 45)
-    }
-    
-    @objc private func nextButtonTapped() {
-        self.delegate?.nextButtonTapped()
+        nextButton.anchorWithConstantValues(bottom: vc.view.safeAreaLayoutGuide.bottomAnchor,leftPadding: 14, rightPadding: -14, bottomPadding: -60, height: 45)
     }
 }
 
