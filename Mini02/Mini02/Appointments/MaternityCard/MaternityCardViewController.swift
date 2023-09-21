@@ -9,7 +9,6 @@ import UIKit
 
 class MaternityCardViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     
-    lazy var size = UIScreen.main.bounds.size
     private lazy var managerVM = MaternityCardViewModel()
     
     private lazy var defaultView = DefaultView()
