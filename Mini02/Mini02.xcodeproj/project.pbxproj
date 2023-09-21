@@ -79,10 +79,10 @@
 		ABFA04E22ABB809700D31DEA /* UltrasoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltrasoundViewController.swift; sourceTree = "<group>"; };
 		ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardViewModel.swift; sourceTree = "<group>"; };
 		ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardModel.swift; sourceTree = "<group>"; };
-		ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointmentListCell.swift; path = Mini02/AppointmentsList/AppointmentListCell.swift; sourceTree = "<group>"; };
-		ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListViewController.swift; path = Mini02/AppointmentsList/ListViewController.swift; sourceTree = "<group>"; };
-		ABFA04EB2ABCCF7500D31DEA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListView.swift; path = Mini02/AppointmentsList/ListView.swift; sourceTree = "<group>"; };
-		ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointementsTableController.swift; path = Mini02/AppointmentsList/AppointementsTableController.swift; sourceTree = "<group>"; };
+		ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListCell.swift; sourceTree = "<group>"; };
+		ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		ABFA04EB2ABCCF7500D31DEA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointementsTableController.swift; sourceTree = "<group>"; };
 		E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettings.swift; sourceTree = "<group>"; };
 		E8135BB12ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterViewController+RegisterViewDelegate.swift"; sourceTree = "<group>"; };
 		E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingView.swift; sourceTree = "<group>"; };
@@ -118,10 +118,6 @@
 		ABC98B722AB3D9C5005214E5 = {
 			isa = PBXGroup;
 			children = (
-				ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */,
-				ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */,
-				ABFA04EB2ABCCF7500D31DEA /* ListView.swift */,
-				ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */,
 				ABC98B7D2AB3D9C5005214E5 /* Mini02 */,
 				ABC98B7C2AB3D9C5005214E5 /* Products */,
 			);
@@ -184,6 +180,7 @@
 				ABC98BA12AB3F53D005214E5 /* AppointmentsView.swift */,
 				ABC98BBB2AB4DBD6005214E5 /* AppointmentsVM.swift */,
 				ABC98B9B2AB3E677005214E5 /* AppointmentsViewController.swift */,
+				ABFA04F12ABCD03B00D31DEA /* AppointmentList */,
 				ABC98BB22AB3FC46005214E5 /* MaternityCard */,
 			);
 			path = Appointments;
@@ -233,14 +230,10 @@
 			isa = PBXGroup;
 			children = (
 				E8135BB02ABA1B3300E722FA /* Extensions */,
-				ABC98BC32AB83EED005214E5 /* RegisterView.swift */,
-				ABC98BC52AB83FD0005214E5 /* RegisterViewController.swift */,
-				E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */,
-				E8135BB52ABA1BAC00E722FA /* FirstOnboardingViewController.swift */,
-				E8135BB72ABA1BDE00E722FA /* SecondOnboardingView.swift */,
-				E8135BB92ABA1BE700E722FA /* SecondOnboardingViewController.swift */,
-				E8135BBB2ABA1BF500E722FA /* ThirdOnboardingView.swift */,
-				E8135BBD2ABA1C0400E722FA /* ThirdOnboardingViewController.swift */,
+				ABFA04F32ABCD09800D31DEA /* Register */,
+				ABFA04F22ABCD07B00D31DEA /* FirstOnboarding */,
+				ABFA04F42ABCD0A900D31DEA /* SecondOnboarding */,
+				ABFA04F52ABCD0C900D31DEA /* ThirdOnboarding */,
 				E8135BBF2ABA1D0000E722FA /* OnboardingViewController.swift */,
 			);
 			path = Onboard;
@@ -271,6 +264,53 @@
 				ABFA04E22ABB809700D31DEA /* UltrasoundViewController.swift */,
 			);
 			path = Ultrasound;
+			sourceTree = "<group>";
+		};
+		ABFA04F12ABCD03B00D31DEA /* AppointmentList */ = {
+			isa = PBXGroup;
+			children = (
+				ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */,
+				ABFA04EB2ABCCF7500D31DEA /* ListView.swift */,
+				ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */,
+				ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */,
+			);
+			path = AppointmentList;
+			sourceTree = "<group>";
+		};
+		ABFA04F22ABCD07B00D31DEA /* FirstOnboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */,
+				ABC98BC52AB83FD0005214E5 /* RegisterViewController.swift */,
+			);
+			path = FirstOnboarding;
+			sourceTree = "<group>";
+		};
+		ABFA04F32ABCD09800D31DEA /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				ABC98BC32AB83EED005214E5 /* RegisterView.swift */,
+				E8135BB52ABA1BAC00E722FA /* FirstOnboardingViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		ABFA04F42ABCD0A900D31DEA /* SecondOnboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E8135BB72ABA1BDE00E722FA /* SecondOnboardingView.swift */,
+				E8135BB92ABA1BE700E722FA /* SecondOnboardingViewController.swift */,
+			);
+			path = SecondOnboarding;
+			sourceTree = "<group>";
+		};
+		ABFA04F52ABCD0C900D31DEA /* ThirdOnboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E8135BBB2ABA1BF500E722FA /* ThirdOnboardingView.swift */,
+				E8135BBD2ABA1C0400E722FA /* ThirdOnboardingViewController.swift */,
+			);
+			path = ThirdOnboarding;
 			sourceTree = "<group>";
 		};
 		E8135BB02ABA1B3300E722FA /* Extensions */ = {
