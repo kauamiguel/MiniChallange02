@@ -13,6 +13,8 @@ class AppointmentsVM {
     var view: UIViewController?
     
     func buttonFuncionality(){
-        view?.navigationController?.pushViewController(MaternityCardViewController(), animated: true)
+        let listController = ListViewController()
+        listController.ListViewManager = ListView()
+        view?.navigationController?.pushViewController(listController, animated: true)
     }
 }
