@@ -18,7 +18,7 @@ class ListViewController: UIViewController {
             fatalError("no view was passed")
         }
         
-            view.controller = self
+        view.controller = self
         view.setupView(action: #selector(GoToNextScene))
     }
     
