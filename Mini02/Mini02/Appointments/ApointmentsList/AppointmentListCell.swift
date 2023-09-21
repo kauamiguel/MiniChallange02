@@ -44,14 +44,14 @@ class AppointmentListCell: UITableViewCell {
         
         
         
-        titleLabel.anchorWithContantValues(
+        titleLabel.anchorWithConstantValues(
             top: self.topAnchor,
             left: self.leadingAnchor,
             bottom: self.bottomAnchor,
             leftPadding: 30
         )
         
-        dateLabel.anchorWithContantValues(
+        dateLabel.anchorWithConstantValues(
             top: self.topAnchor,
             right: self.trailingAnchor,
             bottom: self.bottomAnchor,

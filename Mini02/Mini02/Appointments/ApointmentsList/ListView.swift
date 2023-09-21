@@ -32,7 +32,7 @@ class ListView: UIView {
  
         
         // Cofnigure list constraints
-        list.anchorWithContantValues(
+        list.anchorWithConstantValues(
             top: header.bottomAnchor,
             left: vc.view.leadingAnchor,
             right: vc.view.trailingAnchor,
@@ -85,7 +85,7 @@ class ListView: UIView {
         btn.tintColor = .black
         
         //This contrainst set the size of the button
-        btn.anchorWithContantValues(width: 48, height: 48)
+        btn.anchorWithConstantValues(width: 48, height: 48)
         return btn
     }
     
@@ -114,7 +114,7 @@ class ListView: UIView {
 
         
         //Set Stack view constrains
-        Hstack.anchorWithContantValues(
+        Hstack.anchorWithConstantValues(
             top: vc.view.topAnchor,
             left: vc.view.leadingAnchor,
             right: vc.view.trailingAnchor,
