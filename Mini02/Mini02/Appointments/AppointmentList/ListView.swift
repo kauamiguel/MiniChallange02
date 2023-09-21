@@ -14,7 +14,7 @@ class ListView: UIView {
     
     
     //MARK: Setup View Stack
-    func setupView(){
+    func setupView(action: Selector){
         //Initialize elements
         let header = createHeader()
         let list = setupList()
@@ -83,6 +83,7 @@ class ListView: UIView {
         btn.contentMode = .scaleAspectFill // Set content mode to scaleAspectFill
         btn.setBackgroundImage(UIImage(systemName: "plus.circle"), for: .normal)
         btn.tintColor = .black
+        
         
         //This contrainst set the size of the button
         btn.anchorWithConstantValues(width: 48, height: 48)

@@ -8,7 +8,7 @@
 import UIKit
 
 class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
-
+    
     var AppointementListViewManager:UITableView?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
