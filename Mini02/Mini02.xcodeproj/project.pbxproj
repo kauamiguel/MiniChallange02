@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6203CBE52AB8EA2100ADAB00 /* AppointmentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6203CBE42AB8EA2100ADAB00 /* AppointmentListCell.swift */; };
-		6253AF4B2AB8CB4000FB82C4 /* AppointmentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253AF4A2AB8CB4000FB82C4 /* AppointmentListView.swift */; };
-		6253AF4D2AB8CD8000FB82C4 /* AppointementsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253AF4C2AB8CD8000FB82C4 /* AppointementsListVC.swift */; };
+		6203CBEE2ABAA91600ADAB00 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6203CBED2ABAA91600ADAB00 /* ListView.swift */; };
+		6203CBF02ABAB3F700ADAB00 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6203CBEF2ABAB3F700ADAB00 /* ListViewController.swift */; };
+		6253AF4D2AB8CD8000FB82C4 /* AppointementsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253AF4C2AB8CD8000FB82C4 /* AppointementsTableController.swift */; };
 		ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98B7E2AB3D9C5005214E5 /* AppDelegate.swift */; };
 		ABC98B812AB3D9C5005214E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98B802AB3D9C5005214E5 /* SceneDelegate.swift */; };
 		ABC98B882AB3D9C6005214E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC98B872AB3D9C6005214E5 /* Assets.xcassets */; };
@@ -33,8 +34,9 @@
 
 /* Begin PBXFileReference section */
 		6203CBE42AB8EA2100ADAB00 /* AppointmentListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListCell.swift; sourceTree = "<group>"; };
-		6253AF4A2AB8CB4000FB82C4 /* AppointmentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListView.swift; sourceTree = "<group>"; };
-		6253AF4C2AB8CD8000FB82C4 /* AppointementsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointementsListVC.swift; sourceTree = "<group>"; };
+		6203CBED2ABAA91600ADAB00 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		6203CBEF2ABAB3F700ADAB00 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		6253AF4C2AB8CD8000FB82C4 /* AppointementsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointementsTableController.swift; sourceTree = "<group>"; };
 		ABC98B7B2AB3D9C5005214E5 /* Mini02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABC98B7E2AB3D9C5005214E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABC98B802AB3D9C5005214E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,8 +75,9 @@
 			isa = PBXGroup;
 			children = (
 				6203CBE42AB8EA2100ADAB00 /* AppointmentListCell.swift */,
-				6253AF4A2AB8CB4000FB82C4 /* AppointmentListView.swift */,
-				6253AF4C2AB8CD8000FB82C4 /* AppointementsListVC.swift */,
+				6253AF4C2AB8CD8000FB82C4 /* AppointementsTableController.swift */,
+				6203CBED2ABAA91600ADAB00 /* ListView.swift */,
+				6203CBEF2ABAB3F700ADAB00 /* ListViewController.swift */,
 			);
 			path = ApointmentsList;
 			sourceTree = "<group>";
@@ -267,23 +270,24 @@
 			files = (
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
 				ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */,
+				6203CBEE2ABAA91600ADAB00 /* ListView.swift in Sources */,
 				ABC98BA82AB3F5E0005214E5 /* RecurrentDataView.swift in Sources */,
 				ABC98BC12AB83C8D005214E5 /* TextField.swift in Sources */,
 				ABC98BBC2AB4DBD6005214E5 /* AppointmentsVM.swift in Sources */,
 				ABC98BAF2AB3F630005214E5 /* ProfileViewController.swift in Sources */,
 				ABC98BBF2AB83BD6005214E5 /* Constrains.swift in Sources */,
 				ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */,
-				6253AF4B2AB8CB4000FB82C4 /* AppointmentListView.swift in Sources */,
 				ABC98BB62AB3FCC2005214E5 /* MaternityCardView.swift in Sources */,
 				ABC98BB42AB3FCAA005214E5 /* MaternityCardViewController.swift in Sources */,
 				ABC98B942AB3DC9C005214E5 /* TabBarViewController.swift in Sources */,
 				ABC98B9A2AB3E458005214E5 /* TabBarView.swift in Sources */,
 				ABC98B812AB3D9C5005214E5 /* SceneDelegate.swift in Sources */,
 				ABC98BC62AB83FD0005214E5 /* RegisterViewController.swift in Sources */,
+				6203CBF02ABAB3F700ADAB00 /* ListViewController.swift in Sources */,
 				ABC98BA22AB3F53D005214E5 /* AppointmentsView.swift in Sources */,
 				ABC98BC42AB83EED005214E5 /* RegisterView.swift in Sources */,
 				ABC98B9C2AB3E677005214E5 /* AppointmentsViewController.swift in Sources */,
-				6253AF4D2AB8CD8000FB82C4 /* AppointementsListVC.swift in Sources */,
+				6253AF4D2AB8CD8000FB82C4 /* AppointementsTableController.swift in Sources */,
 				6203CBE52AB8EA2100ADAB00 /* AppointmentListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

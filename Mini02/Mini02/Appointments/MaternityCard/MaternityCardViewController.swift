@@ -11,7 +11,6 @@ class MaternityCardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(AppointmentListView())
 //        view.backgroundColor = .systemPink
     }
     

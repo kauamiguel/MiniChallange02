@@ -39,7 +39,13 @@ class AppointmentListView: UITableView {
    
     }
     
-    
+    func setupTitle(vc){
+        var title = UILabel()
+        
+        title.text = "Consulta"
+        title.font = .systemFont(ofSize: 18, weight: .regular)
+        
+    }
     
 
 }

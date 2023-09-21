@@ -13,8 +13,8 @@ class AppointmentsVM {
     var view: UIViewController?
     
     func buttonFuncionality(){
-        let list = AppointementsListVC()
-        list.AppointementListViewManager = AppointmentListView()
+        let list = ListViewController()
+        list.ListViewManager = ListView()
         view?.navigationController?.pushViewController(list, animated: true)
     }
 }

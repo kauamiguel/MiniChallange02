@@ -8,11 +8,11 @@
 import UIKit
 
 class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
-    
-    var AppointementListViewManager:AppointmentListView?
+
+    var AppointementListViewManager:UITableView?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -20,12 +20,13 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
             fatalError("The consequences of XGH")
         }
         
+        self.AppointementListViewManager?.rowHeight = 53
+        
         return cell
     }
     
     override func viewDidLoad() {
-        //AppointementListViewManager?.setUpListView(vc: self)
-        AppointementListViewManager?.setupList(vc: self)
+   
     }
     
 }

@@ -57,6 +57,8 @@ class AppointmentListCell: UITableViewCell {
             bottom: self.bottomAnchor,
             rightPadding: -30
         )
+        
+        
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
