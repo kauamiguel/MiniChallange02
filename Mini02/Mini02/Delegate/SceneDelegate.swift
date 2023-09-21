@@ -19,9 +19,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         window.makeKeyAndVisible()
-        window.rootViewController = getMainViewController()
+        window.rootViewController = MaternityCardViewController()
         
         self.window = window
+    }
+    
+    
+    func changeRootViewController(vc: UIViewController){
+        guard let window = window else{
+            return
+        }
+        
+        window.rootViewController = vc
+        UIView.transition(with: window, duration: 0.5, options: .curveEaseIn, animations: nil)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

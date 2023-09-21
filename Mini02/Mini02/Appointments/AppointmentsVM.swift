@@ -13,6 +13,6 @@ class AppointmentsVM {
     var view: UIViewController?
     
     func buttonFuncionality(){
-        view?.navigationController?.pushViewController(MaternityCardViewController(), animated: true)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(vc: MaternityCardViewController())
     }
 }

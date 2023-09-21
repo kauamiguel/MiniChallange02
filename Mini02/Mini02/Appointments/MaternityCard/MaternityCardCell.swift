@@ -13,6 +13,7 @@ class MaternityCardCell: UICollectionViewCell {
       
         contentView.addSubview(view)
         view.anchorWithConstantValues(top: contentView.topAnchor, left: contentView.leadingAnchor, right: contentView.trailingAnchor, bottom: contentView.bottomAnchor)
+        
     }
     
     

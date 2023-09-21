@@ -27,8 +27,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         setupCollectionView()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        collectionView.dragInteractionEnabled = true
-
+        
     }
     //register the cell to the indentifiers
     private func setupCollectionView(){
@@ -37,24 +36,31 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     // how many cell will be
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cells.count
+   
     }
     //call the function and create the cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cells[indexPath.row].id, for: indexPath) as? MaternityCardCell else { return UICollectionViewCell() }
         cell.setUpcell(view: cells[indexPath.row].view)
+        
+       
         return cell
     }
+    
+    
+    
   
     // move items
    
-    override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
+//    override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
    
-    override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedItem = cells.remove(at: sourceIndexPath.item)
-        cells.insert(movedItem, at: destinationIndexPath.item)
-    }
+//    override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+//        let movedItem = cells.remove(at: sourceIndexPath.item)
+//        
+//        cells.insert(movedItem, at: destinationIndexPath.item)
+//    }
     
 //    override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
 //        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
@@ -67,17 +73,18 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
 //        return configuration
 //    }
     
-    func collectionView(_ collectionView: UICollectionView, contextMenuInteraction: UIContextMenuInteraction, willEndFor configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionAnimating?) {
-        animator?.addAnimations { [weak self] in
-            self?.collectionView.updateInteractiveMovementTargetPosition(contextMenuInteraction.location(in: collectionView))
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, contextMenuInteraction: UIContextMenuInteraction, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionAnimating?) {
+//        animator?.addAnimations { [weak self] in
+//            self?.collectionView.updateInteractiveMovementTargetPosition(contextMenuInteraction.location(in: MaternityCardCell()))
+//            
+//        }
+//    }
     
-    func collectionView(_ collectionView: UICollectionView, contextMenuInteraction: UIContextMenuInteraction, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
-        animator.addCompletion { [weak self] in
-            self?.collectionView.endInteractiveMovement()
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, contextMenuInteraction: UIContextMenuInteraction, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
+//        animator.addCompletion { [weak self] in
+//            self?.collectionView.endInteractiveMovement()
+//        }
+//    }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -1,5 +1,5 @@
 //
-//  ultrasoundView.swift
+//  BloodView.swift
 //  Mini02
 //
 //  Created by Gabriel Eirado on 19/09/23.
@@ -7,23 +7,22 @@
 
 import UIKit
 
-class UltrasoundView: UIView {
+class BloodView: UIView {
 
-    static let id = "UltrasoundCell"
-    
+    static let id = "BloodCell"
     lazy var size = UIScreen.main.bounds.size // get the size of the screen portrait need more logic for landscape
     
     let roudedBackGround: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 10
-        view.backgroundColor = .gray
+        view.backgroundColor = .systemRed
         return view
     }()
     
     
     let questionLabel1: UILabel = {
         let label = UILabel()
-        label.text = "UltrasoundView"
+        label.text = "BloodView"
         label.textColor = .black
         label.font = label.font.withSize(20)
         return label
@@ -60,4 +59,5 @@ class UltrasoundView: UIView {
         super.init(coder: coder)
         setUpView()
     }
+
 }
