@@ -9,8 +9,6 @@ import UIKit
 
 class MaternityCardViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     
-    private lazy var managerVM = MaternityCardViewModel()
-    
     private lazy var defaultView = DefaultView()
     private lazy var bloodView = BloodView()
     private lazy var ultrasoundView = UltrasoundView()
@@ -54,7 +52,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cells[indexPath.row].id, for: indexPath) as? MaternityCardCell else { return UICollectionViewCell() }
         cell.setUpcell(view: cells[indexPath.row].view)
         
-       
         return cell
     }
     
@@ -66,7 +63,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         return sizesForcells[indexPath.row]
     }
-    
     // move items
    
     override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
