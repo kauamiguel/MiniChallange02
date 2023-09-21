@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6220F7CB2ABCD32A00CB5230 /* AppointmentsListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220F7CA2ABCD32A00CB5230 /* AppointmentsListVM.swift */; };
 		AB7852EE2AB9F94600566EF9 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852ED2AB9F94600566EF9 /* DefaultView.swift */; };
 		AB7852F02AB9F95200566EF9 /* BloodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852EF2AB9F95100566EF9 /* BloodView.swift */; };
 		AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6220F7CA2ABCD32A00CB5230 /* AppointmentsListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsListVM.swift; sourceTree = "<group>"; };
 		AB7852ED2AB9F94600566EF9 /* DefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
 		AB7852EF2AB9F95100566EF9 /* BloodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodView.swift; sourceTree = "<group>"; };
 		AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltrasoundView.swift; sourceTree = "<group>"; };
@@ -270,9 +272,10 @@
 			isa = PBXGroup;
 			children = (
 				ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */,
+				ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */,
 				ABFA04EB2ABCCF7500D31DEA /* ListView.swift */,
 				ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */,
-				ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */,
+				6220F7CA2ABCD32A00CB5230 /* AppointmentsListVM.swift */,
 			);
 			path = AppointmentList;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				ABC98B9A2AB3E458005214E5 /* TabBarView.swift in Sources */,
 				ABC98B812AB3D9C5005214E5 /* SceneDelegate.swift in Sources */,
 				AB7852F02AB9F95200566EF9 /* BloodView.swift in Sources */,
+				6220F7CB2ABCD32A00CB5230 /* AppointmentsListVM.swift in Sources */,
 				ABC98BC62AB83FD0005214E5 /* RegisterViewController.swift in Sources */,
 				E8135BB82ABA1BDE00E722FA /* SecondOnboardingView.swift in Sources */,
 				ABFA04E72ABCBE0000D31DEA /* MaternityCardModel.swift in Sources */,
