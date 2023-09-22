@@ -36,7 +36,6 @@ class RegisterView: UIView{
         label.font = label.font.withSize(20)
         return label
     }()
-    
    
     let textField1 : UITextField = {
         let text = UITextField().textField(withPlaceholder: "", size: 20)
@@ -90,36 +89,36 @@ class RegisterView: UIView{
         //Questions label constrains
         vc.view.addSubview(questionlabel1)
         
-        questionlabel1.anchorWithConstantValues(top: topLabel.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 50 ,leftPadding: 50, rightPadding: -20, height: 35)
+        questionlabel1.anchorWithConstantValues(top: topLabel.bottomAnchor, topPadding: -40, height: 35)
      
        
         //First text feields Constrains
         vc.view.addSubview(textField1)
 
-        textField1.anchorWithConstantValues(top: questionlabel1.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 2 ,leftPadding: 50, rightPadding: -50, height: 35)
+        textField1.anchorWithConstantValues(top: questionlabel1.bottomAnchor, height: 35)
         
 
         //Questions label constrains
         vc.view.addSubview(questionlabel2)
         
-        questionlabel2.anchorWithConstantValues(top: textField1.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 5 ,leftPadding: 50, rightPadding: -20, height: 35)
+        questionlabel2.anchorWithConstantValues(top: textField1.bottomAnchor, height: 35)
   
         
         //Second text feields Constrains
         vc.view.addSubview(textField2)
 
-        textField2.anchorWithConstantValues(top: questionlabel2.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 2 ,leftPadding: 50, rightPadding: -50, height: 35)
+        textField2.anchorWithConstantValues(top: questionlabel2.bottomAnchor, topPadding: -2, height: 35)
 
         
         //Question label Constrains
         vc.view.addSubview(questionlabel3)
         
-        questionlabel3.anchorWithConstantValues(top: textField2.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor,right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 5 ,leftPadding: 50, rightPadding: -20, height: 35)
+        questionlabel3.anchorWithConstantValues(top: textField2.bottomAnchor, height: 35)
 
         
         //Data picker Constrains
         vc.view.addSubview(datePicker)
-        datePicker.anchorWithConstantValues(top: questionlabel3.bottomAnchor, topPadding: 10, height: 120)
+        datePicker.anchorWithConstantValues(top: questionlabel3.bottomAnchor, topPadding: -10, height: 120)
         datePicker.centerX(inView: vc.view)
         
         
@@ -127,7 +126,7 @@ class RegisterView: UIView{
         self.nextButton.addTarget(vc, action: action, for: .touchUpInside)
         vc.view.addSubview(nextButton)
         nextButton.centerX(inView: vc.view)
-        nextButton.anchorWithConstantValues(bottom: vc.view.safeAreaLayoutGuide.bottomAnchor,leftPadding: 14, rightPadding: -14, bottomPadding: -60, height: 45)
+        nextButton.anchorWithConstantValues(bottom: vc.view.safeAreaLayoutGuide.bottomAnchor, bottomPadding: 20, height: 45)
     }
 }
 
