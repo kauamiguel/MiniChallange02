@@ -11,7 +11,7 @@ import UIKit
 extension RegisterViewController: RegisterViewDelegate {
     func nextButtonTapped() {
         
-        let tabBarViewController = TabBarViewController()
+//        let tabBarViewController = TabBarViewController()
 //        tabBarViewController.modalPresentationStyle = .fullScreen
 //        self.isModalInPresentation = false
 //        self.present(tabBarViewController, animated: true)
