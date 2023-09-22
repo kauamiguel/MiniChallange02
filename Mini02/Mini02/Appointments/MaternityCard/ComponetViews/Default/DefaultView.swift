@@ -66,8 +66,6 @@ class DefaultView: UIView{
         roudedBackGround.addSubview(checkBoxRed)
         checkBoxRed.anchorWithConstantValues(right: checkBox.trailingAnchor, rightPadding: 50)
         checkBoxRed.setupButton()
-
-        
     }
     
     public required init?(coder: NSCoder) {
