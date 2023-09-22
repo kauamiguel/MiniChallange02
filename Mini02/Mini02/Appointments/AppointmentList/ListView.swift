@@ -14,10 +14,12 @@ class ListView: UIView {
     
     
     //MARK: Setup View Stack
-    func setupView(){
+    func setupView(action: Selector){
         //Initialize elements
         let header = createHeader()
         let list = setupList()
+        let title = setupTitle()
+        let btn = AddButton()
         
         //Checks for a view controller
         guard let vc = controller else{
@@ -29,7 +31,10 @@ class ListView: UIView {
         
         // Add List to the view
         vc.view.addSubview(list)
- 
+        //Add elements to the Stack view
+        header.addArrangedSubview(title)
+        header.addArrangedSubview(btn)
+
         
         // Cofnigure list constraints
         list.anchorWithConstantValues(
@@ -39,7 +44,9 @@ class ListView: UIView {
             bottom: vc.view.bottomAnchor,
             topPadding: vc.view.bounds.height * 0.02
         )
-    
+        
+        //Sets target for button
+        btn.addTarget(vc, action: action, for: .touchUpInside)
     }
     
     //MARK: Title setup function
@@ -84,6 +91,7 @@ class ListView: UIView {
         btn.setBackgroundImage(UIImage(systemName: "plus.circle"), for: .normal)
         btn.tintColor = .black
         
+    
         //This contrainst set the size of the button
         btn.anchorWithConstantValues(width: 48, height: 48)
         return btn
@@ -91,8 +99,6 @@ class ListView: UIView {
     
     //MARK: cretes header -> Title and button
     func createHeader() -> UIStackView{
-        let title = setupTitle()
-        let btn = AddButton()
         let Hstack = UIStackView()
         
         //Check for a controller
@@ -107,11 +113,6 @@ class ListView: UIView {
         Hstack.axis = .horizontal
         Hstack.distribution = .fillProportionally
         Hstack.alignment = .firstBaseline
-        
-        //Add elements to the Stack view
-        Hstack.addArrangedSubview(title)
-        Hstack.addArrangedSubview(btn)
-
         
         //Set Stack view constrains
         Hstack.anchorWithConstantValues(

@@ -14,8 +14,12 @@ class AppointmentsVM {
     
     func buttonFuncionality(){
         let listController = ListViewController()
-        listController.listViewManager = ListView()
         
+
+        listController.listViewManager = ListView()
+        listController.AppoimentListViewModelManager = AppointmentsListVM(view: listController)
+
+
         view?.navigationController?.pushViewController(listController, animated: true)
     }
 }
