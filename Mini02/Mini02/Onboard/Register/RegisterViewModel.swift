@@ -14,8 +14,8 @@ class RegisterViewModel{
     func buttonFuncionality(){
         let tabBarViewController = TabBarViewController()
         tabBarViewController.modalPresentationStyle = .fullScreen
-        self.view?.present(tabBarViewController, animated: true)
-//        let vc = TabBarViewController()
-//        self.view?.navigationController?.pushViewController(vc, animated: true)
+//        self.view?.present(tabBarViewController, animated: true)
+        let vc = TabBarViewController()
+        self.view?.navigationController?.pushViewController(vc, animated: true)
     }
 }
