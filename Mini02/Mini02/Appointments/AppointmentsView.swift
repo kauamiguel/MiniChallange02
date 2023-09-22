@@ -78,7 +78,7 @@ class AppointmentsView: UIView {
         label.text = "A+ , 30 anos , Gravidez sem risco"
         label.textColor = .black
         label.textAlignment = .center
-        label.font = UIFont(name: "systemFont", size: 10)
+        label.font = label.font.withSize(10)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
