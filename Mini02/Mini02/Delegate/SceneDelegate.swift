@@ -62,7 +62,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
-
 extension SceneDelegate {
     private final func getMainViewController() -> UIViewController {
         if ApplicationSettings.shoudDisplayOnboarding() {
