@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-class CheckBoxComponentRed: UIButton {
+class CheckBoxComponentRedView: UIButton {
 
     private var image: UIImage{
         return checked ? UIImage(named: "checkBoxRed")! :  UIImage(named: "Property 1=Default")!

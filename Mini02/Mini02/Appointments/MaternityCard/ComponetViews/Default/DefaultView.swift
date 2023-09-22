@@ -39,9 +39,9 @@ class DefaultView: UIView{
         setUpView()
     }
     
-    let checkBox = CheckBoxComponentGreen()
-    let checkBoxRed = CheckBoxComponentRed()
-    
+    let checkBox = CheckBoxComponentGreenView()
+    let checkBoxRed = CheckBoxComponentRedView()
+    let label = LabelComponentView()
     func setUpView(){
         
         addSubview(roudedBackGround)
@@ -63,9 +63,13 @@ class DefaultView: UIView{
         checkBox.centerX(inView: self)
         checkBox.setupButton()
         
+        checkBoxRed.setupButton()
         roudedBackGround.addSubview(checkBoxRed)
         checkBoxRed.anchorWithConstantValues(right: checkBox.trailingAnchor, rightPadding: 50)
-        checkBoxRed.setupButton()
+        
+        label.setupLabel(labelText: "ALOOOOO", labelType: .title, labelColor: .black)
+        roudedBackGround.addSubview(label)
+        label.anchorWithConstantValues(top: checkBox.bottomAnchor)
     }
     
     public required init?(coder: NSCoder) {

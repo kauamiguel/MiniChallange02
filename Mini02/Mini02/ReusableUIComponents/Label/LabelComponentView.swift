@@ -8,22 +8,8 @@
 import Foundation
 import UIKit
 
-class LabelComponent: UILabel{
+class LabelComponentView: UILabel{
 
-    enum labelTypeEnum {
-        case H1
-        case H2
-        case H3
-    }
-    
-    enum colorStyle {
-        case black
-        case grey1
-        case grey2
-        case grey3
-        case white
-    }
-    
     public private(set) var labelText: String? //For Title Text
     public private(set) var labelType: labelTypeEnum? //For Label Type (H1,H2,H3)
     public private(set) var labelColor: colorStyle? // For Label Color
@@ -37,7 +23,6 @@ class LabelComponent: UILabel{
         self.configureLabelStyle() //Setup Label Style
         self.configureLabelColor() //Setup Label Color
 
-        self.translatesAutoresizingMaskIntoConstraints = false //For AutoLayout
         let attributedString = NSMutableAttributedString(string: labelText)
         self.attributedText = attributedString //Setup Label to AttributedString for custom font
     }
@@ -45,30 +30,32 @@ class LabelComponent: UILabel{
     private func configureLabelColor() {
         switch labelColor {
         case .black:
-            self.textColor = UIColor(named: "black")
+            self.textColor = .black
         case .grey1:
-            self.textColor = UIColor(named: "grey1")
+            self.textColor = .gray
         case .grey2:
-            self.textColor = UIColor(named: "grey2")
+            self.textColor = .gray
         case .grey3:
-            self.textColor = UIColor(named: "grey3")
+            self.textColor = .gray
         case .white:
-            self.textColor = UIColor(named: "white")
+            self.textColor = .white
         default:
-            self.textColor = UIColor(named: "white")
+            self.textColor = .white
         }
     }
         
     private func configureLabelStyle() {
         switch labelType {
-        case .H1:
-            self.font = UIFont(name: "Poppins-Bold", size: 24)
-        case .H2:
-            self.font = UIFont(name: "Poppins-Bold", size: 16)
-        case .H3:
-            self.font = UIFont(name: "Poppins-Bold", size: 12)
+        case .title:
+            self.font = UIFont(name: "", size: 24)
+        case .subTitle:
+            self.font = UIFont(name: "", size: 20)
+        case .medicText:
+            self.font = UIFont(name: "", size: 16)
+        case .smalText:
+            self.font = UIFont(name: "", size: 10)
         default:
-            self.font = UIFont(name: "Poppins-Bold", size: 12)
+            self.font = UIFont(name: "", size: 10)
         }
     }
 }
