@@ -52,6 +52,7 @@ struct Pacient:PacientInfo{
     //This struct has all the family background information data
     var familyBG = FamilyBG()
     
-    
+    //This array will have all the blood exams
+    var bloodExams: [BloodExam]
     
 }
