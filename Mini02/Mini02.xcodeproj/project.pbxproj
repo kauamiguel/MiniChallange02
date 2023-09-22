@@ -13,10 +13,6 @@
 		AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */; };
 		ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreen.swift */; };
 		ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRed.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRed.swift */; };
-		ABAD4F372ABE133A007BEC32 /* PersonalBGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F332ABE133A007BEC32 /* PersonalBGModel.swift */; };
-		ABAD4F382ABE133A007BEC32 /* PacientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F342ABE133A007BEC32 /* PacientModel.swift */; };
-		ABAD4F392ABE133A007BEC32 /* FamilyBGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F352ABE133A007BEC32 /* FamilyBGModel.swift */; };
-		ABAD4F3C2ABE13BE007BEC32 /* Vaccines.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F3B2ABE13BE007BEC32 /* Vaccines.swift */; };
 		ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98B7E2AB3D9C5005214E5 /* AppDelegate.swift */; };
 		ABC98B812AB3D9C5005214E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98B802AB3D9C5005214E5 /* SceneDelegate.swift */; };
 		ABC98B882AB3D9C6005214E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC98B872AB3D9C6005214E5 /* Assets.xcassets */; };
@@ -64,10 +60,6 @@
 		AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltrasoundView.swift; sourceTree = "<group>"; };
 		ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentGreen.swift; sourceTree = "<group>"; };
 		ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentRed.swift; sourceTree = "<group>"; };
-		ABAD4F332ABE133A007BEC32 /* PersonalBGModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalBGModel.swift; sourceTree = "<group>"; };
-		ABAD4F342ABE133A007BEC32 /* PacientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacientModel.swift; sourceTree = "<group>"; };
-		ABAD4F352ABE133A007BEC32 /* FamilyBGModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyBGModel.swift; sourceTree = "<group>"; };
-		ABAD4F3B2ABE13BE007BEC32 /* Vaccines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vaccines.swift; sourceTree = "<group>"; };
 		ABC98B7B2AB3D9C5005214E5 /* Mini02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABC98B7E2AB3D9C5005214E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABC98B802AB3D9C5005214E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,18 +138,6 @@
 			);
 			path = ReusableUIComponents;
 			sourceTree = "<group>";
-		};
-		ABAD4F322ABE133A007BEC32 /* DataModels */ = {
-			isa = PBXGroup;
-			children = (
-				ABAD4F332ABE133A007BEC32 /* PersonalBGModel.swift */,
-				ABAD4F342ABE133A007BEC32 /* PacientModel.swift */,
-				ABAD4F352ABE133A007BEC32 /* FamilyBGModel.swift */,
-				ABAD4F3B2ABE13BE007BEC32 /* Vaccines.swift */,
-			);
-			name = DataModels;
-			path = Mini02/DataModels;
-			sourceTree = SOURCE_ROOT;
 		};
 		ABC98B722AB3D9C5005214E5 = {
 			isa = PBXGroup;
@@ -275,7 +255,6 @@
 		ABC98BC22AB83EC8005214E5 /* Onboard */ = {
 			isa = PBXGroup;
 			children = (
-				ABAD4F322ABE133A007BEC32 /* DataModels */,
 				E8135BB02ABA1B3300E722FA /* Extensions */,
 				ABFA04F22ABCD07B00D31DEA /* FirstOnboarding */,
 				ABFA04F42ABCD0A900D31DEA /* SecondOnboarding */,
@@ -442,7 +421,6 @@
 				ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */,
 				ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreen.swift in Sources */,
 				E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */,
-				ABAD4F392ABE133A007BEC32 /* FamilyBGModel.swift in Sources */,
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
 				ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */,
 				ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */,
@@ -453,14 +431,11 @@
 				ABC98BAF2AB3F630005214E5 /* ProfileViewController.swift in Sources */,
 				ABC98BBF2AB83BD6005214E5 /* Constrains.swift in Sources */,
 				AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */,
-				ABAD4F382ABE133A007BEC32 /* PacientModel.swift in Sources */,
 				E8135BBA2ABA1BE700E722FA /* SecondOnboardingViewController.swift in Sources */,
-				ABAD4F3C2ABE13BE007BEC32 /* Vaccines.swift in Sources */,
 				E8135BB22ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift in Sources */,
 				E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */,
 				E8135BC02ABA1D0000E722FA /* OnboardingViewController.swift in Sources */,
 				ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */,
-				ABAD4F372ABE133A007BEC32 /* PersonalBGModel.swift in Sources */,
 				ABC98BB62AB3FCC2005214E5 /* MaternityCardCell.swift in Sources */,
 				ABC98BB42AB3FCAA005214E5 /* MaternityCardViewController.swift in Sources */,
 				E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */,
