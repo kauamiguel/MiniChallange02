@@ -56,6 +56,8 @@ class BloodView: UIView {
         
         textField.anchorWithConstantValues(top: questionLabel1.bottomAnchor,left: questionLabel1.leadingAnchor ,width: 200)
         
+        
+        
     }
     
     public required init?(coder: NSCoder) {

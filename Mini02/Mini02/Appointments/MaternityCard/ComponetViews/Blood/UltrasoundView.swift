@@ -40,6 +40,7 @@ class UltrasoundView: UIView {
         setUpView()
     }
     
+    
     func setUpView(){
         
         addSubview(roudedBackGround)

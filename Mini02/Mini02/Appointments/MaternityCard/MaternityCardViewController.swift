@@ -18,6 +18,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                                                             (bloodView, BloodView.id),
                                                             (ultrasoundView, UltrasoundView.id)]
     
+    private var vm = MaternityCardViewModel()
+    
     init(){
         
         let layout = UICollectionViewFlowLayout()
@@ -31,14 +33,19 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     override func viewDidLoad() {
         
-        
-        
         setupCollectionView()
         
         collectionView.backgroundColor = .white
         
         self.hidesBottomBarWhenPushed = true
         
+       
+        
+        
+    }
+    
+    func printt(){
+        print(defaultView.checkBox.checked.description)
     }
     
     //register the cell to the indentifiers
@@ -78,16 +85,16 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         cells.insert(movedItem, at: destinationIndexPath.row)
     }
     
-    override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
-            return UIMenu(title: "", children: [
-                UIAction(title: "Move", image: UIImage(systemName: "arrow.right.circle.fill")) { [weak self] _ in
-                    self?.collectionView.beginInteractiveMovementForItem(at: indexPath)
-                }
-            ])
-        }
-        return configuration
-    }
+//    override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+//        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+//            return UIMenu(title: "", children: [
+//                UIAction(title: "Move", image: UIImage(systemName: "arrow.right.circle.fill")) { [weak self] _ in
+//                    self?.collectionView.beginInteractiveMovementForItem(at: indexPath)
+//                }
+//            ])
+//        }
+//        return configuration
+//    }
     
     func collectionView(_ collectionView: UICollectionView, contextMenuInteraction: UIContextMenuInteraction, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionAnimating?) {
         animator?.addAnimations { [weak self] in
