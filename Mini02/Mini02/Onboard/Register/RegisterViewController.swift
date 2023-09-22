@@ -10,11 +10,16 @@ import UIKit
 class RegisterViewController: UIViewController {
     
     let registerViewManager = RegisterView()  // need to refactor later
-
+    let registerViewModel = RegisterViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        registerViewManager.setUpRegisterView(vc: self)
-        registerViewManager.delegate = self
+        registerViewManager.setUpRegisterView(vc: self, action: #selector(nextTapped))
+    }
+    
+    @objc func nextTapped() {
+        self.registerViewModel.view = self
+        self.registerViewModel.buttonFuncionality()
     }
 }
