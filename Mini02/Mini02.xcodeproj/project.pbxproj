@@ -12,8 +12,11 @@
 		AB7852EE2AB9F94600566EF9 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852ED2AB9F94600566EF9 /* DefaultView.swift */; };
 		AB7852F02AB9F95200566EF9 /* BloodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852EF2AB9F95100566EF9 /* BloodView.swift */; };
 		AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */; };
-		ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreen.swift */; };
-		ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRed.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRed.swift */; };
+		ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */; };
+		ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */; };
+		ABAD4F412ABE1C99007BEC32 /* LabelComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F402ABE1C99007BEC32 /* LabelComponentView.swift */; };
+		ABAD4F452ABE22C1007BEC32 /* LabelComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F442ABE22C1007BEC32 /* LabelComponentModel.swift */; };
+		ABAD4F472ABE2B1A007BEC32 /* AppointmentsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F462ABE2B1A007BEC32 /* AppointmentsVM.swift */; };
 		ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98B7E2AB3D9C5005214E5 /* AppDelegate.swift */; };
 		ABC98B812AB3D9C5005214E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98B802AB3D9C5005214E5 /* SceneDelegate.swift */; };
 		ABC98B882AB3D9C6005214E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC98B872AB3D9C6005214E5 /* Assets.xcassets */; };
@@ -28,7 +31,6 @@
 		ABC98BAF2AB3F630005214E5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BAE2AB3F630005214E5 /* ProfileViewController.swift */; };
 		ABC98BB42AB3FCAA005214E5 /* MaternityCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BB32AB3FCAA005214E5 /* MaternityCardViewController.swift */; };
 		ABC98BB62AB3FCC2005214E5 /* MaternityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BB52AB3FCC2005214E5 /* MaternityCardCell.swift */; };
-		ABC98BBC2AB4DBD6005214E5 /* AppointmentsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BBB2AB4DBD6005214E5 /* AppointmentsVM.swift */; };
 		ABC98BBF2AB83BD6005214E5 /* Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BBE2AB83BD6005214E5 /* Constrains.swift */; };
 		ABC98BC12AB83C8D005214E5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC02AB83C8D005214E5 /* TextField.swift */; };
 		ABC98BC42AB83EED005214E5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC32AB83EED005214E5 /* RegisterView.swift */; };
@@ -40,7 +42,6 @@
 		ABFA04EF2ABCCF7500D31DEA /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EB2ABCCF7500D31DEA /* ListView.swift */; };
 		ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */; };
 		E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */; };
-		E8135BB22ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB12ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift */; };
 		E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */; };
 		E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB52ABA1BAC00E722FA /* FirstOnboardingViewController.swift */; };
 		E8135BB82ABA1BDE00E722FA /* SecondOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB72ABA1BDE00E722FA /* SecondOnboardingView.swift */; };
@@ -48,6 +49,7 @@
 		E8135BBC2ABA1BF500E722FA /* ThirdOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BBB2ABA1BF500E722FA /* ThirdOnboardingView.swift */; };
 		E8135BBE2ABA1C0400E722FA /* ThirdOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BBD2ABA1C0400E722FA /* ThirdOnboardingViewController.swift */; };
 		E8135BC02ABA1D0000E722FA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BBF2ABA1D0000E722FA /* OnboardingViewController.swift */; };
+		E8135C262ABE180300E722FA /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135C252ABE180300E722FA /* RegisterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,8 +62,11 @@
 		AB7852ED2AB9F94600566EF9 /* DefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
 		AB7852EF2AB9F95100566EF9 /* BloodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodView.swift; sourceTree = "<group>"; };
 		AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltrasoundView.swift; sourceTree = "<group>"; };
-		ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentGreen.swift; sourceTree = "<group>"; };
-		ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentRed.swift; sourceTree = "<group>"; };
+		ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentGreenView.swift; sourceTree = "<group>"; };
+		ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentRedView.swift; sourceTree = "<group>"; };
+		ABAD4F402ABE1C99007BEC32 /* LabelComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponentView.swift; sourceTree = "<group>"; };
+		ABAD4F442ABE22C1007BEC32 /* LabelComponentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponentModel.swift; sourceTree = "<group>"; };
+		ABAD4F462ABE2B1A007BEC32 /* AppointmentsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsVM.swift; sourceTree = "<group>"; };
 		ABC98B7B2AB3D9C5005214E5 /* Mini02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABC98B7E2AB3D9C5005214E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABC98B802AB3D9C5005214E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +83,6 @@
 		ABC98BAE2AB3F630005214E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		ABC98BB32AB3FCAA005214E5 /* MaternityCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardViewController.swift; sourceTree = "<group>"; };
 		ABC98BB52AB3FCC2005214E5 /* MaternityCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardCell.swift; sourceTree = "<group>"; };
-		ABC98BBB2AB4DBD6005214E5 /* AppointmentsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsVM.swift; sourceTree = "<group>"; };
 		ABC98BBE2AB83BD6005214E5 /* Constrains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constrains.swift; sourceTree = "<group>"; };
 		ABC98BC02AB83C8D005214E5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		ABC98BC32AB83EED005214E5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -90,7 +94,6 @@
 		ABFA04EB2ABCCF7500D31DEA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointementsTableController.swift; sourceTree = "<group>"; };
 		E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettings.swift; sourceTree = "<group>"; };
-		E8135BB12ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterViewController+RegisterViewDelegate.swift"; sourceTree = "<group>"; };
 		E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingView.swift; sourceTree = "<group>"; };
 		E8135BB52ABA1BAC00E722FA /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
 		E8135BB72ABA1BDE00E722FA /* SecondOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingView.swift; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 		E8135BBB2ABA1BF500E722FA /* ThirdOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdOnboardingView.swift; sourceTree = "<group>"; };
 		E8135BBD2ABA1C0400E722FA /* ThirdOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdOnboardingViewController.swift; sourceTree = "<group>"; };
 		E8135BBF2ABA1D0000E722FA /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		E8135C252ABE180300E722FA /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,10 +140,28 @@
 		ABAD4F2C2ABD25E8007BEC32 /* ReusableUIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreen.swift */,
-				ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRed.swift */,
+				ABAD4F422ABE2275007BEC32 /* CheckBox */,
+				ABAD4F432ABE2299007BEC32 /* Label */,
 			);
 			path = ReusableUIComponents;
+			sourceTree = "<group>";
+		};
+		ABAD4F422ABE2275007BEC32 /* CheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */,
+				ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */,
+			);
+			path = CheckBox;
+			sourceTree = "<group>";
+		};
+		ABAD4F432ABE2299007BEC32 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				ABAD4F442ABE22C1007BEC32 /* LabelComponentModel.swift */,
+				ABAD4F402ABE1C99007BEC32 /* LabelComponentView.swift */,
+			);
+			path = Label;
 			sourceTree = "<group>";
 		};
 		ABC98B722AB3D9C5005214E5 = {
@@ -207,7 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				ABC98BA12AB3F53D005214E5 /* AppointmentsView.swift */,
-				ABC98BBB2AB4DBD6005214E5 /* AppointmentsVM.swift */,
+				ABAD4F462ABE2B1A007BEC32 /* AppointmentsVM.swift */,
 				ABC98B9B2AB3E677005214E5 /* AppointmentsViewController.swift */,
 				ABFA04F12ABCD03B00D31DEA /* AppointmentList */,
 				ABC98BB22AB3FC46005214E5 /* MaternityCard */,
@@ -258,7 +280,6 @@
 		ABC98BC22AB83EC8005214E5 /* Onboard */ = {
 			isa = PBXGroup;
 			children = (
-				E8135BB02ABA1B3300E722FA /* Extensions */,
 				ABFA04F22ABCD07B00D31DEA /* FirstOnboarding */,
 				ABFA04F42ABCD0A900D31DEA /* SecondOnboarding */,
 				ABFA04F52ABCD0C900D31DEA /* ThirdOnboarding */,
@@ -308,7 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */,
-				ABC98BC52AB83FD0005214E5 /* RegisterViewController.swift */,
+				E8135BB52ABA1BAC00E722FA /* FirstOnboardingViewController.swift */,
 			);
 			path = FirstOnboarding;
 			sourceTree = "<group>";
@@ -316,8 +337,9 @@
 		ABFA04F32ABCD09800D31DEA /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				ABC98BC52AB83FD0005214E5 /* RegisterViewController.swift */,
 				ABC98BC32AB83EED005214E5 /* RegisterView.swift */,
-				E8135BB52ABA1BAC00E722FA /* FirstOnboardingViewController.swift */,
+				E8135C252ABE180300E722FA /* RegisterViewModel.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -338,14 +360,6 @@
 				E8135BBD2ABA1C0400E722FA /* ThirdOnboardingViewController.swift */,
 			);
 			path = ThirdOnboarding;
-			sourceTree = "<group>";
-		};
-		E8135BB02ABA1B3300E722FA /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E8135BB12ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,7 +436,8 @@
 				ABFA04EE2ABCCF7500D31DEA /* ListViewController.swift in Sources */,
 				ABFA04EF2ABCCF7500D31DEA /* ListView.swift in Sources */,
 				ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */,
-				ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreen.swift in Sources */,
+				ABAD4F472ABE2B1A007BEC32 /* AppointmentsVM.swift in Sources */,
+				ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift in Sources */,
 				E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */,
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
 				62FA7C3A2ABE17160083F6E0 /* BloodExamModel.swift in Sources */,
@@ -431,12 +446,10 @@
 				E8135BBE2ABA1C0400E722FA /* ThirdOnboardingViewController.swift in Sources */,
 				ABC98BA82AB3F5E0005214E5 /* RecurrentDataView.swift in Sources */,
 				ABC98BC12AB83C8D005214E5 /* TextField.swift in Sources */,
-				ABC98BBC2AB4DBD6005214E5 /* AppointmentsVM.swift in Sources */,
 				ABC98BAF2AB3F630005214E5 /* ProfileViewController.swift in Sources */,
 				ABC98BBF2AB83BD6005214E5 /* Constrains.swift in Sources */,
 				AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */,
 				E8135BBA2ABA1BE700E722FA /* SecondOnboardingViewController.swift in Sources */,
-				E8135BB22ABA1B4D00E722FA /* RegisterViewController+RegisterViewDelegate.swift in Sources */,
 				E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */,
 				E8135BC02ABA1D0000E722FA /* OnboardingViewController.swift in Sources */,
 				ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */,
@@ -444,10 +457,13 @@
 				ABC98BB42AB3FCAA005214E5 /* MaternityCardViewController.swift in Sources */,
 				E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */,
 				ABC98B942AB3DC9C005214E5 /* TabBarViewController.swift in Sources */,
+				ABAD4F452ABE22C1007BEC32 /* LabelComponentModel.swift in Sources */,
 				ABC98B9A2AB3E458005214E5 /* TabBarView.swift in Sources */,
 				ABC98B812AB3D9C5005214E5 /* SceneDelegate.swift in Sources */,
+				ABAD4F412ABE1C99007BEC32 /* LabelComponentView.swift in Sources */,
 				AB7852F02AB9F95200566EF9 /* BloodView.swift in Sources */,
-				ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRed.swift in Sources */,
+				E8135C262ABE180300E722FA /* RegisterViewModel.swift in Sources */,
+				ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift in Sources */,
 				6220F7CB2ABCD32A00CB5230 /* AppointmentsListVM.swift in Sources */,
 				ABC98BC62AB83FD0005214E5 /* RegisterViewController.swift in Sources */,
 				E8135BB82ABA1BDE00E722FA /* SecondOnboardingView.swift in Sources */,

@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         window.makeKeyAndVisible()
-        window.rootViewController = TabBarViewController()
+        window.rootViewController = getMainViewController()
         
         self.window = window
     }
@@ -62,10 +62,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
-
 extension SceneDelegate {
     private final func getMainViewController() -> UIViewController {
-        if !ApplicationSettings.shoudDisplayOnboarding() {
+        if ApplicationSettings.shoudDisplayOnboarding() {
             return OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         } else {
             return TabBarViewController()

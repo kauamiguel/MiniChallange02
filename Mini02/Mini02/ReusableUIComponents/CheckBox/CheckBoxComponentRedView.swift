@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-class CheckBoxComponentRed: UIButton {
+class CheckBoxComponentRedView: UIButton {
 
     private var image: UIImage{
         return checked ? UIImage(named: "checkBoxRed")! :  UIImage(named: "Property 1=Default")!
@@ -22,7 +22,6 @@ class CheckBoxComponentRed: UIButton {
     }
     
     func setupButton(){
-        
         backgroundColor = .clear
         layoutSubviews()
         self.addTarget(self, action: #selector(buttonfunc), for: .touchUpInside)
@@ -36,5 +35,9 @@ class CheckBoxComponentRed: UIButton {
 
     @objc func buttonfunc() {
         checked = !checked
+    }
+    
+    func getBoolleanValue() -> Bool{
+        return checked
     }
 }
