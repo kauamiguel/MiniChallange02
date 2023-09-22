@@ -9,9 +9,6 @@ import UIKit
 
 class MaternityCardViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     
-    lazy var size = UIScreen.main.bounds.size
-    private lazy var managerVM = MaternityCardViewModel()
-    
     private lazy var defaultView = DefaultView()
     private lazy var bloodView = BloodView()
     private lazy var ultrasoundView = UltrasoundView()
@@ -20,6 +17,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     private lazy var cells: [(view: UIView, id: String)] = [(defaultView, DefaultView.id),
                                                             (bloodView, BloodView.id),
                                                             (ultrasoundView, UltrasoundView.id)]
+    
+    private var vm = MaternityCardViewModel()
     
     init(){
         
@@ -39,6 +38,14 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         collectionView.backgroundColor = .white
         
         self.hidesBottomBarWhenPushed = true
+        
+       
+        
+        
+    }
+    
+    func printt(){
+        print(defaultView.checkBox.checked.description)
     }
     
     //register the cell to the indentifiers
@@ -55,7 +62,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cells[indexPath.row].id, for: indexPath) as? MaternityCardCell else { return UICollectionViewCell() }
         cell.setUpcell(view: cells[indexPath.row].view)
         
-       
         return cell
     }
     
@@ -67,7 +73,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         return sizesForcells[indexPath.row]
     }
-    
     // move items
    
     override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {

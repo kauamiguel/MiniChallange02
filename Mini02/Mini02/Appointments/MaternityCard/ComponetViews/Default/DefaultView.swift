@@ -39,6 +39,9 @@ class DefaultView: UIView{
         setUpView()
     }
     
+    let checkBox = CheckBoxComponentGreen()
+    let checkBoxRed = CheckBoxComponentRed()
+    
     func setUpView(){
         
         addSubview(roudedBackGround)
@@ -54,6 +57,16 @@ class DefaultView: UIView{
         roudedBackGround.addSubview(textField)
         
         textField.anchorWithConstantValues(top: questionLabel1.bottomAnchor,left: questionLabel1.leadingAnchor ,width: 200)
+        
+        roudedBackGround.addSubview(checkBox)
+        checkBox.anchorWithConstantValues(top: textField.bottomAnchor)
+        checkBox.centerX(inView: self)
+        checkBox.setupButton()
+        
+        roudedBackGround.addSubview(checkBoxRed)
+        checkBoxRed.anchorWithConstantValues(right: checkBox.trailingAnchor, rightPadding: 50)
+        checkBoxRed.setupButton()
+
         
     }
     

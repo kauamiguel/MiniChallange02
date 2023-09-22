@@ -8,7 +8,11 @@
 import UIKit
 
 class ListViewController: UIViewController {
+
     var listViewManager: ListView?
+
+    var AppoimentListViewModelManager:AppointmentsListVM?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +21,11 @@ class ListViewController: UIViewController {
             fatalError("no view was passed")
         }
         
-            view.controller = self
-            view.setupView()
-        
-        // Do any additional setup after loading the view.
+        view.controller = self
+        view.setupView(action: #selector(GoToNextScene))
+    }
+    
+    @objc func GoToNextScene(){
+        AppoimentListViewModelManager?.AddAppointment()
     }
 }
