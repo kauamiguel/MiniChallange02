@@ -44,6 +44,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
     }
     
+    
     func printt(){
         print(defaultView.checkBox.checked.description)
     }
@@ -113,4 +114,3 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         fatalError("init(coder:) has not been implemented")
     }
 }
-

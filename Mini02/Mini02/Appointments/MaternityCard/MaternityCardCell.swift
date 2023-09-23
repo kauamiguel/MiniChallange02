@@ -13,4 +13,8 @@ class MaternityCardCell: UICollectionViewCell {
         contentView.addSubview(view)
         view.anchorWithConstantValues(top: contentView.topAnchor, left: contentView.leadingAnchor, right: contentView.trailingAnchor, bottom: contentView.bottomAnchor)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        contentView.endEditing(true)
+    }
 }
