@@ -46,6 +46,14 @@ enum VdrlExam:String{
     
 }
 
+//MARK: UREA EXAM STRUCT
+struct ureaExam{
+    /* The most commonly used measure to express blood urea levels
+     is milligrams of urea per deciliter of blood (mg/dL).*/
+    var mg:Int
+    var dL:Float
+}
+
 // MARK: FULL BLOOD EXAMS INFOS
 struct BloodExam{
     var bloodType: BloodType
@@ -57,9 +65,33 @@ struct BloodExam{
      below that is not confirmed and other exams are made to check*/
     var syphilis:Bool
     
+    /*Is positive if the mother has a Negative Rh,
+     the baby has a positive Rh and mother is on the second
+     pregnancy*/
     var tci: Bool
+    
     var tcd: Bool
     
+    var urea:ureaExam
+    var creatine:Float
+    
+    var ht:Float // level of hemoglobines in the blood?
+    var hb:Float // level of red blood cells?
+    
+    /*Adults: Approximately 4,000 to 11,000 white
+     blood cells per microliter (µL) of blood.*/
+    var whiteCells: Int
+    
+    var platelets:Int
+    
+    /*In fasting (before eating): Less than 95, between 95 and
+     125 considered pre-diabetes. over that is considered diabete positive*/
+    var glucose:Int 
+    
+    /* First test is the HBsAg to see if pacient is infected,
+     after there are other similiar exams, check later with the
+     doctor. Also if pacient has vacine this has to be false */
+    var hepatiteB:Bool
     
     
 }

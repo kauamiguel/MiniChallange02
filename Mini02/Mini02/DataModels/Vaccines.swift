@@ -16,6 +16,6 @@ class Vaccines{
     var hepatiteB : [DoseVaccines]?
     var influenza : DoseVaccines?
     var antitetanic : [DoseVaccines]?
-    var gripe : DoseVaccines?
+    var flue : DoseVaccines?
     var dTpa : DoseVaccines?
 }
