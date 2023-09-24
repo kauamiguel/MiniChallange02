@@ -14,7 +14,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     private lazy var ultrasoundView = UltrasoundView()
     
     
-    private lazy var cells: [(view: UIView, id: String)] = [(defaultView, DefaultView.id),
+    private lazy var cells: [(view: UIView, id: String)] = [
                                                             (bloodView, BloodView.id),
                                                             (ultrasoundView, UltrasoundView.id)]
     
@@ -39,24 +39,73 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         self.hidesBottomBarWhenPushed = true
         
-       
-        
-        
     }
     
-    func printt(){
-        print(defaultView.checkBox.checked.description)
+    
+    private func addNewDefaultViewCell(defaultView : DefaultView? = nil) {
+        var hasView = false
+        
+        for object in cells{
+            if type(of: object.view) == DefaultView.self{
+                hasView = true
+                print("Ja existe esse elemento")
+                break
+            }
+        }
+        
+        if let _ = defaultView, hasView == false{
+            cells.append((view: defaultView!, id: DefaultView.id))
+            setupCollectionView()
+        }
+
+    }
+    
+    private func addNewBloodViewCell(bloodView : BloodView? = nil) {
+        var hasView = false
+        
+        for object in cells{
+            if type(of: object.view) == BloodView.self{
+                hasView = true
+                print("Ja existe esse elemento")
+                break
+            }
+        }
+        
+        if let _ = bloodView, hasView == false{
+            cells.append((view: bloodView!, id: BloodView.id))
+            setupCollectionView()
+        }
+
+    }
+    
+    private func addNewUltrassonViewCell(ultrassonView : UltrasoundView? = nil) {
+        var hasView = false
+        
+        for object in cells{
+            if type(of: object.view) == UltrasoundView.self{
+                hasView = true
+                print("Ja existe esse elemento")
+                break
+            }
+        }
+        
+        if let _ = ultrassonView, hasView == false{
+            cells.append((view: ultrassonView!, id: UltrasoundView.id))
+            setupCollectionView()
+        }
+
     }
     
     //register the cell to the indentifiers
     private func setupCollectionView(){
         cells.forEach { collectionView.register(MaternityCardCell.self, forCellWithReuseIdentifier: $0.id) }
     }
+    
     // how many cell will be
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cells.count
-        
     }
+    
     //call the function and create the cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cells[indexPath.row].id, for: indexPath) as? MaternityCardCell else { return UICollectionViewCell() }
@@ -67,14 +116,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
          
-        let sizesForcells = [defaultView.defaultViewSize,
-                             bloodView.bloodViewViewSize,
-                             ultrasoundView.ultrasoundViewSize]
-        
-        return sizesForcells[indexPath.row]
+        return CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded() ,height:  UIScreen.main.bounds.size.height - UIScreen.main.bounds.size.height * 0.5)
     }
+    
     // move items
-   
     override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -85,16 +130,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         cells.insert(movedItem, at: destinationIndexPath.row)
     }
     
-//    override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-//        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
-//            return UIMenu(title: "", children: [
-//                UIAction(title: "Move", image: UIImage(systemName: "arrow.right.circle.fill")) { [weak self] _ in
-//                    self?.collectionView.beginInteractiveMovementForItem(at: indexPath)
-//                }
-//            ])
-//        }
-//        return configuration
-//    }
     
     func collectionView(_ collectionView: UICollectionView, contextMenuInteraction: UIContextMenuInteraction, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionAnimating?) {
         animator?.addAnimations { [weak self] in

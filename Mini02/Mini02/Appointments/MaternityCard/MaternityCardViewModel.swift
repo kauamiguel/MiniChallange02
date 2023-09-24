@@ -11,8 +11,5 @@ import UIKit
 
 class MaternityCardViewModel{
     
-    
-    
-    
-  
+
 }
