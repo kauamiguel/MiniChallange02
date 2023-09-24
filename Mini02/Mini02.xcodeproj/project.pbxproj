@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6220F7CB2ABCD32A00CB5230 /* AppointmentsListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220F7CA2ABCD32A00CB5230 /* AppointmentsListVM.swift */; };
+		62D39EAD2ABF1CCC003CF99F /* UtrasoundExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */; };
 		62FA7C3A2ABE17160083F6E0 /* BloodExamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FA7C392ABE17160083F6E0 /* BloodExamModel.swift */; };
 		AB7852EE2AB9F94600566EF9 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852ED2AB9F94600566EF9 /* DefaultView.swift */; };
 		AB7852F02AB9F95200566EF9 /* BloodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852EF2AB9F95100566EF9 /* BloodView.swift */; };
@@ -58,6 +59,7 @@
 		62C9AEBA2ABE11B100008825 /* PacientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacientModel.swift; sourceTree = "<group>"; };
 		62C9AEBB2ABE11B100008825 /* FamilyBGModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyBGModel.swift; sourceTree = "<group>"; };
 		62C9AEBE2ABE121B00008825 /* Vaccines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccines.swift; sourceTree = "<group>"; };
+		62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtrasoundExam.swift; sourceTree = "<group>"; };
 		62FA7C392ABE17160083F6E0 /* BloodExamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodExamModel.swift; sourceTree = "<group>"; };
 		AB7852ED2AB9F94600566EF9 /* DefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
 		AB7852EF2AB9F95100566EF9 /* BloodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				62C9AEBA2ABE11B100008825 /* PacientModel.swift */,
 				62C9AEBB2ABE11B100008825 /* FamilyBGModel.swift */,
 				62FA7C392ABE17160083F6E0 /* BloodExamModel.swift */,
+				62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				ABC98BBF2AB83BD6005214E5 /* Constrains.swift in Sources */,
 				AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */,
 				E8135BBA2ABA1BE700E722FA /* SecondOnboardingViewController.swift in Sources */,
+				62D39EAD2ABF1CCC003CF99F /* UtrasoundExam.swift in Sources */,
 				E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */,
 				E8135BC02ABA1D0000E722FA /* OnboardingViewController.swift in Sources */,
 				ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */,
