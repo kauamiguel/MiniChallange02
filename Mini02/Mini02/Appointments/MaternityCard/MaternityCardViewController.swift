@@ -14,7 +14,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     private lazy var ultrasoundView = UltrasoundView()
     
     
-    private lazy var cells: [(view: UIView, id: String)] = [(defaultView, DefaultView.id),
+    private lazy var cells: [(view: UIView, id: String)] = [
                                                             (bloodView, BloodView.id),
                                                             (ultrasoundView, UltrasoundView.id)]
     
@@ -39,8 +39,15 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         self.hidesBottomBarWhenPushed = true
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Adicionar", style: .plain, target: self, action: #selector(addNewItem))
+        
     }
     
+    //Adicionar dados dinamicamente na celula
+    @objc func addNewItem(){
+        addNewDefaultViewCell(defaultView: DefaultView())
+        collectionView.reloadData()
+    }
     
     private func addNewDefaultViewCell(defaultView : DefaultView? = nil) {
         var hasView = false
