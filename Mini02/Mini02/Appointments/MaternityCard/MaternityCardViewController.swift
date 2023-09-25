@@ -123,7 +123,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        return CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded() ,height:  UIScreen.main.bounds.size.height - UIScreen.main.bounds.size.height * 0.5)
+        let itemSize = [defaultView.defaultViewSize, bloodView.bloodViewViewSize, ultrasoundView.ultrasoundViewSize]
+        return itemSize[indexPath.row]
     }
     // move items
    
