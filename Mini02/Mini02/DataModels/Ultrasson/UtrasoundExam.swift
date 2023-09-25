@@ -11,6 +11,8 @@ struct IdadeGestacional{
     var semanas:Int
     var dias:Int
 }
+
+
 enum Placenta:String{
     case anterior = "Anterior"
     case posterior = "Posterior"
@@ -21,6 +23,7 @@ enum Placenta:String{
     case marginal = "Marginal"
     case central = "Central"
 }
+
 enum FetalPosition:String{
     case cefalica = "Cefálica"
     case pelvica = "Pélvica"
@@ -41,5 +44,4 @@ struct UltrasoundExam{
     // TODO: need to check how the liquid (ILA) is registered
     
     var fetalPosition:FetalPosition // TODO: need to check this one too
-    
 }

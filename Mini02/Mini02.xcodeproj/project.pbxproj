@@ -42,6 +42,7 @@
 		ABFA04EE2ABCCF7500D31DEA /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */; };
 		ABFA04EF2ABCCF7500D31DEA /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EB2ABCCF7500D31DEA /* ListView.swift */; };
 		ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */; };
+		CED32A7C2AC20BC700DFC2EC /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CED32A7A2AC20BC700DFC2EC /* CoreDataModel.xcdatamodeld */; };
 		E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */; };
 		E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */; };
 		E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB52ABA1BAC00E722FA /* FirstOnboardingViewController.swift */; };
@@ -95,6 +96,7 @@
 		ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		ABFA04EB2ABCCF7500D31DEA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointementsTableController.swift; sourceTree = "<group>"; };
+		CED32A7B2AC20BC700DFC2EC /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettings.swift; sourceTree = "<group>"; };
 		E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingView.swift; sourceTree = "<group>"; };
 		E8135BB52ABA1BAC00E722FA /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
@@ -120,12 +122,12 @@
 		62C9AEB82ABE11B100008825 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
-				62C9AEBE2ABE121B00008825 /* Vaccines.swift */,
-				62C9AEB92ABE11B100008825 /* PersonalBGModel.swift */,
-				62C9AEBA2ABE11B100008825 /* PacientModel.swift */,
-				62C9AEBB2ABE11B100008825 /* FamilyBGModel.swift */,
-				62FA7C392ABE17160083F6E0 /* BloodExamModel.swift */,
-				62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */,
+				CED32A822AC2114000DFC2EC /* Ultrasson */,
+				CED32A812AC2113500DFC2EC /* BloodExam */,
+				CED32A802AC2112A00DFC2EC /* FamilyBG */,
+				CED32A7F2AC2112000DFC2EC /* Pacient */,
+				CED32A7E2AC2111200DFC2EC /* PersonalBG */,
+				CED32A7D2AC2110800DFC2EC /* Vaccines */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -186,6 +188,7 @@
 		ABC98B7D2AB3D9C5005214E5 /* Mini02 */ = {
 			isa = PBXGroup;
 			children = (
+				CED32A792AC20BB800DFC2EC /* CoreData */,
 				62C9AEB82ABE11B100008825 /* DataModels */,
 				ABC98BC22AB83EC8005214E5 /* Onboard */,
 				ABC98B962AB3E36E005214E5 /* TabBar */,
@@ -365,6 +368,62 @@
 			path = ThirdOnboarding;
 			sourceTree = "<group>";
 		};
+		CED32A792AC20BB800DFC2EC /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CED32A7A2AC20BC700DFC2EC /* CoreDataModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		CED32A7D2AC2110800DFC2EC /* Vaccines */ = {
+			isa = PBXGroup;
+			children = (
+				62C9AEBE2ABE121B00008825 /* Vaccines.swift */,
+			);
+			path = Vaccines;
+			sourceTree = "<group>";
+		};
+		CED32A7E2AC2111200DFC2EC /* PersonalBG */ = {
+			isa = PBXGroup;
+			children = (
+				62C9AEB92ABE11B100008825 /* PersonalBGModel.swift */,
+			);
+			path = PersonalBG;
+			sourceTree = "<group>";
+		};
+		CED32A7F2AC2112000DFC2EC /* Pacient */ = {
+			isa = PBXGroup;
+			children = (
+				62C9AEBA2ABE11B100008825 /* PacientModel.swift */,
+			);
+			path = Pacient;
+			sourceTree = "<group>";
+		};
+		CED32A802AC2112A00DFC2EC /* FamilyBG */ = {
+			isa = PBXGroup;
+			children = (
+				62C9AEBB2ABE11B100008825 /* FamilyBGModel.swift */,
+			);
+			path = FamilyBG;
+			sourceTree = "<group>";
+		};
+		CED32A812AC2113500DFC2EC /* BloodExam */ = {
+			isa = PBXGroup;
+			children = (
+				62FA7C392ABE17160083F6E0 /* BloodExamModel.swift */,
+			);
+			path = BloodExam;
+			sourceTree = "<group>";
+		};
+		CED32A822AC2114000DFC2EC /* Ultrasson */ = {
+			isa = PBXGroup;
+			children = (
+				62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */,
+			);
+			path = Ultrasson;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -460,6 +519,7 @@
 				ABC98BB62AB3FCC2005214E5 /* MaternityCardCell.swift in Sources */,
 				ABC98BB42AB3FCAA005214E5 /* MaternityCardViewController.swift in Sources */,
 				E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */,
+				CED32A7C2AC20BC700DFC2EC /* CoreDataModel.xcdatamodeld in Sources */,
 				ABC98B942AB3DC9C005214E5 /* TabBarViewController.swift in Sources */,
 				ABAD4F452ABE22C1007BEC32 /* LabelComponentModel.swift in Sources */,
 				ABC98B9A2AB3E458005214E5 /* TabBarView.swift in Sources */,
@@ -686,6 +746,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CED32A7A2AC20BC700DFC2EC /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CED32A7B2AC20BC700DFC2EC /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = CED32A7B2AC20BC700DFC2EC /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ABC98B732AB3D9C5005214E5 /* Project object */;
 }

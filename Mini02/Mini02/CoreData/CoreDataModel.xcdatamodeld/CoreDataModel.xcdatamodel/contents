@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="22G91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="BloodExam" representedClassName="BloodExam" syncable="YES" codeGenerationType="class">
+        <attribute name="bloodType" optional="YES" attributeType="String"/>
+        <attribute name="creatine" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="glucose" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="hb" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="hepatiteB" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="hiv" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="ht" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="platelets" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="syphilis" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="tcd" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="tci" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="vdrlExam" optional="YES" attributeType="String"/>
+        <attribute name="whiteCells" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="pacient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pacient" inverseName="bloodExam" inverseEntity="Pacient"/>
+        <relationship name="toxoplasmosis" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ToxoplasmosisModel" inverseName="bloodExam" inverseEntity="ToxoplasmosisModel"/>
+        <relationship name="urea" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Urea" inverseName="bloodExam" inverseEntity="Urea"/>
+    </entity>
+    <entity name="FamilyBackGround" representedClassName="FamilyBackGround" syncable="YES" codeGenerationType="class">
+        <attribute name="diabetes" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="heartCondition" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="hypertension" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="other" optional="YES" attributeType="String"/>
+        <attribute name="tabagism" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="urinaryInfection" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="pacient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pacient" inverseName="familyBG" inverseEntity="Pacient"/>
+    </entity>
+    <entity name="Idadegestacional" representedClassName="Idadegestacional" syncable="YES" codeGenerationType="class">
+        <attribute name="dias" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="semana" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="ultrasound" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Utrasound" inverseName="idadeGestacional" inverseEntity="Utrasound"/>
+    </entity>
+    <entity name="Pacient" representedClassName="Pacient" syncable="YES" codeGenerationType="class">
+        <attribute name="age" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="nickName" optional="YES" attributeType="String"/>
+        <attribute name="secondName" optional="YES" attributeType="String"/>
+        <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="bloodExam" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BloodExam" inverseName="pacient" inverseEntity="BloodExam"/>
+        <relationship name="familyBG" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FamilyBackGround" inverseName="pacient" inverseEntity="FamilyBackGround"/>
+        <relationship name="personalBG" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PersonalBackGround" inverseName="pacient" inverseEntity="PersonalBackGround"/>
+        <relationship name="ultrassound" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Utrasound" inverseName="pacient" inverseEntity="Utrasound"/>
+    </entity>
+    <entity name="PersonalBackGround" representedClassName="PersonalBackGround" syncable="YES" codeGenerationType="class">
+        <attribute name="diabetes" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="heartCondition" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="hypertension" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="tabagism" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="urinaryInfection" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="pacient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pacient" inverseName="personalBG" inverseEntity="Pacient"/>
+    </entity>
+    <entity name="ToxoplasmosisModel" representedClassName="ToxoplasmosisModel" syncable="YES" codeGenerationType="class">
+        <attribute name="igg" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="igm" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="bloodExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BloodExam" inverseName="toxoplasmosis" inverseEntity="BloodExam"/>
+    </entity>
+    <entity name="Urea" representedClassName="Urea" syncable="YES" codeGenerationType="class">
+        <attribute name="dL" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="mg" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="bloodExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BloodExam" inverseName="urea" inverseEntity="BloodExam"/>
+    </entity>
+    <entity name="Utrasound" representedClassName="Utrasound" syncable="YES" codeGenerationType="class">
+        <attribute name="fetalPosition" optional="YES" attributeType="String"/>
+        <attribute name="ig" optional="YES" attributeType="String"/>
+        <attribute name="placenta" optional="YES" attributeType="String"/>
+        <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="idadeGestacional" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idadegestacional" inverseName="ultrasound" inverseEntity="Idadegestacional"/>
+        <relationship name="pacient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pacient" inverseName="ultrassound" inverseEntity="Pacient"/>
+    </entity>
+</model>

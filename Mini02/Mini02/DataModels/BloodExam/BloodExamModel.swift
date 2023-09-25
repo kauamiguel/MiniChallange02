@@ -47,7 +47,7 @@ enum VdrlExam:String{
 }
 
 //MARK: UREA EXAM STRUCT
-struct ureaExam{
+struct UreaExam{
     /* The most commonly used measure to express blood urea levels
      is milligrams of urea per deciliter of blood (mg/dL).*/
     var mg:Int
@@ -55,7 +55,7 @@ struct ureaExam{
 }
 
 // MARK: FULL BLOOD EXAMS INFOS
-struct BloodExam{
+struct BloodExamModel{
     var bloodType: BloodType
     var toxoplasmosis:Toxoplasmosis
     var hiv:Bool
@@ -72,7 +72,7 @@ struct BloodExam{
     
     var tcd: Bool
     
-    var urea:ureaExam
+    var urea:UreaExam
     var creatine:Float
     
     var ht:Float // level of hemoglobines in the blood?

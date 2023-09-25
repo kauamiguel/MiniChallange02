@@ -21,7 +21,7 @@ struct PersonalBG: BackgroundInfo{
     
     var urinaryInfection : Bool = false
     
-    var other : [String:Bool]?
+    var other : [String]?
 }
 
 
