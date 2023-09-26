@@ -47,6 +47,8 @@
 		CE427B132AC3517F00FE169E /* FamilyBG.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE427B122AC3517F00FE169E /* FamilyBG.swift */; };
 		CED2E4032AC34C8D0044A777 /* CoreDataFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2E4022AC34C8D0044A777 /* CoreDataFunctions.swift */; };
 		CED32A7C2AC20BC700DFC2EC /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CED32A7A2AC20BC700DFC2EC /* CoreDataModel.xcdatamodeld */; };
+		CEF8B91C2AC3628500AABA6E /* PacientModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8B91A2AC3628500AABA6E /* PacientModel+CoreDataClass.swift */; };
+		CEF8B91D2AC3628500AABA6E /* PacientModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8B91B2AC3628500AABA6E /* PacientModel+CoreDataProperties.swift */; };
 		E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */; };
 		E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */; };
 		E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB52ABA1BAC00E722FA /* FirstOnboardingViewController.swift */; };
@@ -102,6 +104,8 @@
 		CE427B122AC3517F00FE169E /* FamilyBG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyBG.swift; sourceTree = "<group>"; };
 		CED2E4022AC34C8D0044A777 /* CoreDataFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFunctions.swift; sourceTree = "<group>"; };
 		CED32A7B2AC20BC700DFC2EC /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		CEF8B91A2AC3628500AABA6E /* PacientModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PacientModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CEF8B91B2AC3628500AABA6E /* PacientModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PacientModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettings.swift; sourceTree = "<group>"; };
 		E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingView.swift; sourceTree = "<group>"; };
 		E8135BB52ABA1BAC00E722FA /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +181,8 @@
 		ABC98B722AB3D9C5005214E5 = {
 			isa = PBXGroup;
 			children = (
+				CEF8B91A2AC3628500AABA6E /* PacientModel+CoreDataClass.swift */,
+				CEF8B91B2AC3628500AABA6E /* PacientModel+CoreDataProperties.swift */,
 				ABC98B7D2AB3D9C5005214E5 /* Mini02 */,
 				ABC98B7C2AB3D9C5005214E5 /* Products */,
 			);
@@ -521,6 +527,7 @@
 				ABC98BBF2AB83BD6005214E5 /* Constrains.swift in Sources */,
 				AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */,
 				E8135BBA2ABA1BE700E722FA /* SecondOnboardingViewController.swift in Sources */,
+				CEF8B91D2AC3628500AABA6E /* PacientModel+CoreDataProperties.swift in Sources */,
 				62D39EAD2ABF1CCC003CF99F /* UtrasoundExam.swift in Sources */,
 				E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */,
 				E8135BC02ABA1D0000E722FA /* OnboardingViewController.swift in Sources */,
@@ -540,6 +547,7 @@
 				ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift in Sources */,
 				6220F7CB2ABCD32A00CB5230 /* AppointmentsListVM.swift in Sources */,
 				ABC98BC62AB83FD0005214E5 /* RegisterViewController.swift in Sources */,
+				CEF8B91C2AC3628500AABA6E /* PacientModel+CoreDataClass.swift in Sources */,
 				E8135BB82ABA1BDE00E722FA /* SecondOnboardingView.swift in Sources */,
 				ABFA04E72ABCBE0000D31DEA /* MaternityCardModel.swift in Sources */,
 				AB7852EE2AB9F94600566EF9 /* DefaultView.swift in Sources */,

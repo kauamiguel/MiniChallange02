@@ -23,6 +23,14 @@ class CoreDataFunctions{
         }
     }
     
+    func fetchPacient(){
+        do{
+            pacient = try context.fetch(PacientModel.fetchRequest()).first
+        }catch{
+            print("Error fetching of the pacient")
+        }
+    }
+    
     
     func addPersonalInfo(firstName : String, secondName : String, nickName : String, age : Int, height : Float , weight : Float){
         

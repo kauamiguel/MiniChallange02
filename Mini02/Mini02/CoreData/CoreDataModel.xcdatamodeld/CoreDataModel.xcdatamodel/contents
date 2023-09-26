@@ -32,7 +32,7 @@
         <attribute name="semana" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="ultrasound" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UltraSoundModel" inverseName="idadeGestacional" inverseEntity="UltraSoundModel"/>
     </entity>
-    <entity name="PacientModel" representedClassName="PacientModel" syncable="YES" codeGenerationType="class">
+    <entity name="PacientModel" representedClassName="PacientModel" syncable="YES">
         <attribute name="age" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String"/>
         <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
