@@ -2,7 +2,15 @@
 //  AboutViewController.swift
 //  Mini02
 //
-//  Created by Fabio Freitas on 26/09/23.
+//  Created by Fabio Freitas on 25/09/23.
 //
 
-import Foundation
+import UIKit
+
+class AboutViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let aboutView = AboutView()
+        aboutView.setupAbout(controller: self)
+    }
+}
