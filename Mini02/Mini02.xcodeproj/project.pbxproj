@@ -320,7 +320,7 @@
 		ABFA04DD2ABB800000D31DEA /* Blood */ = {
 			isa = PBXGroup;
 			children = (
-				AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */,
+				AB7852EF2AB9F95100566EF9 /* BloodView.swift */,
 			);
 			path = Blood;
 			sourceTree = "<group>";
@@ -328,7 +328,7 @@
 		ABFA04DE2ABB801400D31DEA /* Ultrasound */ = {
 			isa = PBXGroup;
 			children = (
-				AB7852EF2AB9F95100566EF9 /* BloodView.swift */,
+				AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */,
 			);
 			path = Ultrasound;
 			sourceTree = "<group>";

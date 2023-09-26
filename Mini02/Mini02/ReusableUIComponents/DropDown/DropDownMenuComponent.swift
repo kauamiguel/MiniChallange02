@@ -5,94 +5,101 @@
 //  Created by Gabriel Eirado on 25/09/23.
 //
 
-import Foundation
+
 import UIKit
 
-protocol dropDownProtocol {
-    func dropDownPressed(string : String)
-}
-
-class DropDownMenuComponent: UIButton, dropDownProtocol {
+class DropDownButton: UIButton, UITableViewDelegate, UITableViewDataSource {
+    private var dropDownOptions = [String]()
+    private var tableView: UITableView!
+    private var heightConstraint: NSLayoutConstraint?
+    private var isOpen = false
     
-    func dropDownPressed(string: String) {
-        self.setTitle(string, for: .normal)
-        self.dismissDropDown()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUpButton()
     }
     
-    var dropView = DropDownMenuComponentView()
-    
-    var height = NSLayoutConstraint()
-    
-    
-    func setUpDropDown(){
-        
+    func setUpButton() {
         self.backgroundColor = UIColor.darkGray
+        print("function called")
+        tableView = UITableView()
+        tableView.backgroundColor = UIColor.darkGray
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        dropView = DropDownMenuComponentView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
-        dropView.delegate = self
-        dropView.translatesAutoresizingMaskIntoConstraints = false
-        self.addTarget(self, action: #selector(touch), for: .touchUpInside)
-        print("ä")
+        self.addSubview(tableView)
+        
+        heightConstraint = tableView.heightAnchor.constraint(equalToConstant: 0)
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: self.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            heightConstraint!,
+        ])
+        
+        addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
     
-    override func didMoveToSuperview() {
-        self.superview?.addSubview(dropView)
-        self.superview?.bringSubviewToFront(dropView)
-        dropView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        dropView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        dropView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        height = dropView.heightAnchor.constraint(equalToConstant: 0)
+    @objc private func didTapButton() {
+        isOpen.toggle()
+        tableView.reloadData()
+        print("hi")
         
-    }
-    
-    var isOpen = false
-   @objc func touch(){
-       print("toque")
-        if isOpen == false {
-            
-            isOpen = true
-            
-            NSLayoutConstraint.deactivate([self.height])
-            
-            if self.dropView.tableView.contentSize.height > 150 {
-                self.height.constant = 150
+        if isOpen {
+            NSLayoutConstraint.deactivate([heightConstraint!])
+            if self.dropDownOptions.count > 0 {
+                heightConstraint?.constant = CGFloat(self.dropDownOptions.count) * 44.0 // 44.0 is the default row height
             } else {
-                self.height.constant = self.dropView.tableView.contentSize.height
+                heightConstraint?.constant = 0
             }
-            
-            
-            NSLayoutConstraint.activate([self.height])
+            NSLayoutConstraint.activate([heightConstraint!])
             
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
-                self.dropView.layoutIfNeeded()
-                self.dropView.center.y += self.dropView.frame.height / 2
+                self.superview?.layoutIfNeeded()
             }, completion: nil)
-            
         } else {
-            isOpen = false
+            NSLayoutConstraint.deactivate([heightConstraint!])
+            heightConstraint?.constant = 0
+            NSLayoutConstraint.activate([heightConstraint!])
             
-            NSLayoutConstraint.deactivate([self.height])
-            self.height.constant = 0
-            NSLayoutConstraint.activate([self.height])
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
-                self.dropView.center.y -= self.dropView.frame.height / 2
-                self.dropView.layoutIfNeeded()
+                self.superview?.layoutIfNeeded()
             }, completion: nil)
-            
         }
     }
     
-    func dismissDropDown() {
+    func setDropDownOptions(_ options: [String]) {
+        dropDownOptions = options
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return isOpen ? dropDownOptions.count : 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = dropDownOptions[indexPath.row]
+        cell.backgroundColor = UIColor.darkGray
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.setTitle(dropDownOptions[indexPath.row], for: .normal)
         isOpen = false
-        NSLayoutConstraint.deactivate([self.height])
-        self.height.constant = 0
-        NSLayoutConstraint.activate([self.height])
+        tableView.reloadData()
+        
+        NSLayoutConstraint.deactivate([heightConstraint!])
+        heightConstraint?.constant = 0
+        NSLayoutConstraint.activate([heightConstraint!])
+        
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
-            self.dropView.center.y -= self.dropView.frame.height / 2
-            self.dropView.layoutIfNeeded()
+            self.superview?.layoutIfNeeded()
         }, completion: nil)
     }
     
-
-    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

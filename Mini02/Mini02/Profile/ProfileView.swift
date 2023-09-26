@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileView: UIControl {
+class ProfileView: UIView {
     
     
   

@@ -43,7 +43,7 @@ class DefaultView: UIView{
     let picker = PickerComponent(data: ["cleber", "rogerio", "Chris"])
     
     // drop down menu
-    let dropDown = DropDownMenuComponent()
+//    let dropDown = DropDownMenuComponent()
     
     
     // stacks
