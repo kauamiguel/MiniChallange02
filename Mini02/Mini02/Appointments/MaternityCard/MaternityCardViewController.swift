@@ -45,7 +45,9 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     //Adicionar dados dinamicamente na celula
     @objc func addNewItem(){
-        addNewDefaultViewCell(defaultView: DefaultView())
+        let mySheetVC = ModalVC()
+        mySheetVC.modalPresentationStyle = .custom
+        present(mySheetVC, animated: true, completion: nil)
         collectionView.reloadData()
     }
     
