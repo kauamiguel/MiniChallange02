@@ -30,7 +30,7 @@ protocol PacientInfo{
     
     var age : Int { get }
     var height : Float { get  }
-    var weight : Float { get } //If over 35 OR under 15 -> HIGH RISK PREGNACY
+    var weight : Float { get }
     
     var personalBG:PersonalBG {get}
     var familyBG:FamilyBG {get}
@@ -40,11 +40,11 @@ protocol PacientInfo{
 struct Pacient:PacientInfo{
     var firstName : String
     var secondName : String
-    var nickName : String?  
+    var nickName : String? // How the pacient likes to be called
     
-    var age : Int
+    var age : Int //If over 35 OR under 15 -> HIGH RISK PREGNACY
     var height : Float
-    var weight : Float //If over 35 OR under 15 -> HIGH RISK PREGNACY
+    var weight : Float
     
     //This struct has all the personal background information data
     var personalBG = PersonalBG()
@@ -55,4 +55,6 @@ struct Pacient:PacientInfo{
     //This array will have all the blood exams
     var bloodExams: [BloodExam]
     
+    //This array will have all the US exams
+    var USoundExams: [UltrasoundExam]
 }
