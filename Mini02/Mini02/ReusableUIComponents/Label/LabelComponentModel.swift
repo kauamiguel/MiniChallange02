@@ -12,7 +12,7 @@ enum labelTypeEnum {
     case title
     case subTitle
     case medicText
-    case smalText
+    case smallText
 }
 
 enum colorStyle {

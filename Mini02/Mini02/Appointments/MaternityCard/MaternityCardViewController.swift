@@ -14,9 +14,9 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     private lazy var ultrasoundView = UltrasoundView()
     
     
-    private lazy var cells: [(view: UIView, id: String)] = [
-                                                            (bloodView, BloodView.id),
-                                                            (ultrasoundView, UltrasoundView.id)]
+    private var cells: [CellInfo] = []
+    
+    
     
     private var vm = MaternityCardViewModel()
     
@@ -26,9 +26,15 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
         
+        cells = [
+            CellInfo(view: defaultView, size: defaultView.defaultViewSize, id: DefaultView.id),
+            CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id),
+            CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundViewSize, id: UltrasoundView.id)
+        ]
+        
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-       
+        
     }
     
     override func viewDidLoad() {
@@ -61,10 +67,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         }
         
         if let _ = defaultView, hasView == false{
-            cells.append((view: defaultView!, id: DefaultView.id))
+            //            cells.append((view: defaultView!, id: DefaultView.id))
             setupCollectionView()
         }
-
+        
     }
     
     private func addNewBloodViewCell(bloodView : BloodView? = nil) {
@@ -79,10 +85,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         }
         
         if let _ = bloodView, hasView == false{
-            cells.append((view: bloodView!, id: BloodView.id))
+            //            cells.append((view: bloodView!, id: BloodView.id))
             setupCollectionView()
         }
-
+        
     }
     
     private func addNewUltrassonViewCell(ultrassonView : UltrasoundView? = nil) {
@@ -97,10 +103,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         }
         
         if let _ = ultrassonView, hasView == false{
-            cells.append((view: ultrassonView!, id: UltrasoundView.id))
+            //            cells.append((view: ultrassonView!, id: UltrasoundView.id))
             setupCollectionView()
         }
-
+        
     }
     
     
@@ -122,20 +128,25 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        let itemSize = [defaultView.defaultViewSize, bloodView.bloodViewViewSize, ultrasoundView.ultrasoundViewSize]
-        return itemSize[indexPath.row]
+        
+        return cells[indexPath.row].size
     }
     // move items
-   
+    
     override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
         return true
     }
-   
+    
     override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedItem = cells.remove(at: sourceIndexPath.row)
         
+        collectionView.performBatchUpdates({ // this makes the changes work faster
+        // Move the cell
+        let movedItem = cells.remove(at: sourceIndexPath.row)
         cells.insert(movedItem, at: destinationIndexPath.row)
+            
+        }, completion: { [weak self] _ in
+            self?.collectionView.reloadData() // Reload data after updates
+         })
     }
     
     
@@ -151,7 +162,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             self?.collectionView.endInteractiveMovement()
         }
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

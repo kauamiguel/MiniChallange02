@@ -279,9 +279,9 @@
 			isa = PBXGroup;
 			children = (
 				ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */,
+				ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */,
 				ABC98BB52AB3FCC2005214E5 /* MaternityCardCell.swift */,
 				ABC98BB32AB3FCAA005214E5 /* MaternityCardViewController.swift */,
-				ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */,
 				AB7852EC2AB9F92A00566EF9 /* ComponetViews */,
 			);
 			path = MaternityCard;
