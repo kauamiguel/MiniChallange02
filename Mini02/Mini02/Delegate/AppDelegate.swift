@@ -33,8 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var persistenceContainer : NSPersistentContainer = {
        let container = NSPersistentContainer(name: "CoreDataModel")
         container.loadPersistentStores { persistenceDescriptor, error in
-            if let error = error{
-                print("Error loading container : \(error)")
+            if let error = error as NSError?{
+                fatalError("Error load Coredata \(error)")
             }
         }
         return container

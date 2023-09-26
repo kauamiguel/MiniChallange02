@@ -11,13 +11,15 @@ import UIKit
 
 
 class CoreDataFunctions{
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistenceContainer.viewContext
     
-    var pacient : PacientModel?
+    var pacient  = [PacientModel]()
     
     func saveContext() {
         do{
             try context.save()
+            fetchPacient()
         }catch{
             print("Error saving the context")
         }
@@ -25,14 +27,14 @@ class CoreDataFunctions{
     
     func fetchPacient(){
         do{
-            pacient = try context.fetch(PacientModel.fetchRequest()).first
+            pacient = try context.fetch(PacientModel.fetchRequest())
         }catch{
             print("Error fetching of the pacient")
         }
     }
     
     
-    func addPersonalInfo(firstName : String, secondName : String, nickName : String, age : Int, height : Float , weight : Float){
+    func addPersonalInfo(firstName : String, secondName : String, nickName : String, age : Int, height : Float , weight : Float, personalBG : PersonalBG){
         
         let pacientSaved = PacientModel(context: context)
         pacientSaved.nickName = nickName
@@ -47,7 +49,7 @@ class CoreDataFunctions{
     
     func addBloodExam(bloodExam : BloodExamModel){
         let newExame = BloodExam(context: context)
-        let pacientSaved = PacientModel(context: context)
+        let pacientSaved = pacient.first
         let toxoPlasm = ToxoplasmosisModel(context: context)
         let urea = Urea(context: context)
         
@@ -82,13 +84,13 @@ class CoreDataFunctions{
         newExame.pacient = pacientSaved
         
         //Add the current exam to pacient set of exams
-        pacientSaved.bloodExam = NSSet(object: newExame)
+        pacientSaved!.bloodExam = NSSet(object: newExame)
         
         saveContext()
     }
     
     func addUltraSoundExam(ultraSound : UltrasoundExam){
-        let savedPacient = PacientModel(context: context)
+        let pacientSaved = pacient.first
         let ultraSoundModel = UltraSoundModel(context: context)
         let  idadeGestacional = Idadegestacional(context: context)
         
@@ -103,36 +105,35 @@ class CoreDataFunctions{
         
         //Assign the relationChip of each class
         ultraSoundModel.idadeGestacional = idadeGestacional
-               
-        savedPacient.ultrassound = NSSet(object: ultraSoundModel)
+        
+        pacientSaved!.ultrassound = NSSet(object: ultraSoundModel)
         
         saveContext()
     }
     
     func assignPersonalBG(personalBG : PersonalBG){
-        let personal = PersonalBackGround(context: context)
-        let savedPacient = PacientModel(context: context)
+        let personalBackGround = PersonalBackGround(context: context)
+        let savedPacient = pacient.first
         
-        personal.diabetes = personalBG.diabetes
-        personal.tabagism = personalBG.tabagism
-        personal.hypertension = personalBG.hypertension
-        personal.heartCondition = personalBG.heartCondition
-        personal.urinaryInfection = personalBG.urinaryInfection
+        personalBackGround.diabetes = personalBG.diabetes
+        personalBackGround.tabagism = personalBG.tabagism
+        personalBackGround.hypertension = personalBG.hypertension
+        personalBackGround.heartCondition = personalBG.heartCondition
+        personalBackGround.urinaryInfection = personalBG.urinaryInfection
         
         //TODO
-        
         //Adicionar o campo other
-//        personal.other = personalBG.other
+        //        personal.other = personalBG.other
+        
         
         //Adding the relationChip
-        savedPacient.personalBG = personal
-        
+        savedPacient?.personalBG = personalBackGround 
         saveContext()
     }
     
     func assignFamilylBG(familyBG : FamilyBG){
         let family = FamilyBackGround(context: context)
-        let savedPacient = PacientModel(context: context)
+        let savedPacient = pacient.first
         
         family.diabetes = family.diabetes
         family.tabagism = family.tabagism
@@ -141,12 +142,12 @@ class CoreDataFunctions{
         family.urinaryInfection = family.urinaryInfection
         
         //TODO
-        
         //Adicionar o campo other
-//        personal.other = personalBG.other
+        //        personal.other = personalBG.other
+        
         
         //Adding the relationChip
-        savedPacient.familyBG = family
+        savedPacient!.familyBG = family
         
         saveContext()
     }

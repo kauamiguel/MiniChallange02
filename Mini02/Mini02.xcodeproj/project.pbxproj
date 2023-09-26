@@ -181,8 +181,6 @@
 		ABC98B722AB3D9C5005214E5 = {
 			isa = PBXGroup;
 			children = (
-				CEF8B91A2AC3628500AABA6E /* PacientModel+CoreDataClass.swift */,
-				CEF8B91B2AC3628500AABA6E /* PacientModel+CoreDataProperties.swift */,
 				ABC98B7D2AB3D9C5005214E5 /* Mini02 */,
 				ABC98B7C2AB3D9C5005214E5 /* Products */,
 			);
@@ -382,6 +380,7 @@
 		CED32A792AC20BB800DFC2EC /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				CEF8B9412AC37C6D00AABA6E /* PacientFilesCoreData */,
 				CED32A7A2AC20BC700DFC2EC /* CoreDataModel.xcdatamodeld */,
 				CED2E4022AC34C8D0044A777 /* CoreDataFunctions.swift */,
 			);
@@ -434,6 +433,15 @@
 				62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */,
 			);
 			path = Ultrasson;
+			sourceTree = "<group>";
+		};
+		CEF8B9412AC37C6D00AABA6E /* PacientFilesCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CEF8B91A2AC3628500AABA6E /* PacientModel+CoreDataClass.swift */,
+				CEF8B91B2AC3628500AABA6E /* PacientModel+CoreDataProperties.swift */,
+			);
+			path = PacientFilesCoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

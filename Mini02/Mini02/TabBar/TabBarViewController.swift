@@ -8,7 +8,7 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-
+    
     let tbViewManager = TabBarView()
     
     override func viewDidLoad() {
@@ -16,6 +16,7 @@ class TabBarViewController: UITabBarController {
         
         tbViewManager.setUpTabBarView(tb: self)
         setUpTabBarViewModel()
+        
     }
     
    private func setUpTabBarViewModel(){
