@@ -10,6 +10,7 @@ import Foundation
 
 // Any of these is considered as a high risk pregnacy
 struct PersonalBG: BackgroundInfo{
+  
     
     var tabagism : Bool = false
     
@@ -21,7 +22,7 @@ struct PersonalBG: BackgroundInfo{
     
     var urinaryInfection : Bool = false
     
-    var other : [String]?
+    var other: [String : Bool]?
 }
 
 

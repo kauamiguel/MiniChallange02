@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct FamilyBG: BackgroundInfo{
+struct FamilyBG: BackgroundInfo{    
+    
     var tabagism: Bool = false
     
     var hypertension: Bool = false
@@ -18,6 +19,6 @@ struct FamilyBG: BackgroundInfo{
     
     var urinaryInfection: Bool = false
     
-    var other: [String]?
+    var other: [String : Bool]?
     
 }

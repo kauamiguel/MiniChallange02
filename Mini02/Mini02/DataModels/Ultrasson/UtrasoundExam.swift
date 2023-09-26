@@ -31,7 +31,6 @@ enum FetalPosition:String{
 }
 
 struct UltrasoundExam{
-    
     /*this one will be calculated with the Date
      of last menstruation or the US exam with the
      baby weight(not sure)*/

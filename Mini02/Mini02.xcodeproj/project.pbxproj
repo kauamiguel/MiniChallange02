@@ -42,6 +42,10 @@
 		ABFA04EE2ABCCF7500D31DEA /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */; };
 		ABFA04EF2ABCCF7500D31DEA /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EB2ABCCF7500D31DEA /* ListView.swift */; };
 		ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */; };
+		CE427B0F2AC3510400FE169E /* Pacient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE427B0E2AC3510400FE169E /* Pacient.swift */; };
+		CE427B112AC3513A00FE169E /* PersonalBG.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE427B102AC3513A00FE169E /* PersonalBG.swift */; };
+		CE427B132AC3517F00FE169E /* FamilyBG.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE427B122AC3517F00FE169E /* FamilyBG.swift */; };
+		CED2E4032AC34C8D0044A777 /* CoreDataFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2E4022AC34C8D0044A777 /* CoreDataFunctions.swift */; };
 		CED32A7C2AC20BC700DFC2EC /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CED32A7A2AC20BC700DFC2EC /* CoreDataModel.xcdatamodeld */; };
 		E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */; };
 		E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */; };
@@ -56,9 +60,6 @@
 
 /* Begin PBXFileReference section */
 		6220F7CA2ABCD32A00CB5230 /* AppointmentsListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsListVM.swift; sourceTree = "<group>"; };
-		62C9AEB92ABE11B100008825 /* PersonalBGModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalBGModel.swift; sourceTree = "<group>"; };
-		62C9AEBA2ABE11B100008825 /* PacientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacientModel.swift; sourceTree = "<group>"; };
-		62C9AEBB2ABE11B100008825 /* FamilyBGModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyBGModel.swift; sourceTree = "<group>"; };
 		62C9AEBE2ABE121B00008825 /* Vaccines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccines.swift; sourceTree = "<group>"; };
 		62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtrasoundExam.swift; sourceTree = "<group>"; };
 		62FA7C392ABE17160083F6E0 /* BloodExamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodExamModel.swift; sourceTree = "<group>"; };
@@ -96,6 +97,10 @@
 		ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		ABFA04EB2ABCCF7500D31DEA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointementsTableController.swift; sourceTree = "<group>"; };
+		CE427B0E2AC3510400FE169E /* Pacient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pacient.swift; sourceTree = "<group>"; };
+		CE427B102AC3513A00FE169E /* PersonalBG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalBG.swift; sourceTree = "<group>"; };
+		CE427B122AC3517F00FE169E /* FamilyBG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyBG.swift; sourceTree = "<group>"; };
+		CED2E4022AC34C8D0044A777 /* CoreDataFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFunctions.swift; sourceTree = "<group>"; };
 		CED32A7B2AC20BC700DFC2EC /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettings.swift; sourceTree = "<group>"; };
 		E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingView.swift; sourceTree = "<group>"; };
@@ -372,6 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				CED32A7A2AC20BC700DFC2EC /* CoreDataModel.xcdatamodeld */,
+				CED2E4022AC34C8D0044A777 /* CoreDataFunctions.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -387,7 +393,7 @@
 		CED32A7E2AC2111200DFC2EC /* PersonalBG */ = {
 			isa = PBXGroup;
 			children = (
-				62C9AEB92ABE11B100008825 /* PersonalBGModel.swift */,
+				CE427B102AC3513A00FE169E /* PersonalBG.swift */,
 			);
 			path = PersonalBG;
 			sourceTree = "<group>";
@@ -395,7 +401,7 @@
 		CED32A7F2AC2112000DFC2EC /* Pacient */ = {
 			isa = PBXGroup;
 			children = (
-				62C9AEBA2ABE11B100008825 /* PacientModel.swift */,
+				CE427B0E2AC3510400FE169E /* Pacient.swift */,
 			);
 			path = Pacient;
 			sourceTree = "<group>";
@@ -403,7 +409,7 @@
 		CED32A802AC2112A00DFC2EC /* FamilyBG */ = {
 			isa = PBXGroup;
 			children = (
-				62C9AEBB2ABE11B100008825 /* FamilyBGModel.swift */,
+				CE427B122AC3517F00FE169E /* FamilyBG.swift */,
 			);
 			path = FamilyBG;
 			sourceTree = "<group>";
@@ -496,6 +502,7 @@
 			files = (
 				ABFA04ED2ABCCF7500D31DEA /* AppointmentListCell.swift in Sources */,
 				ABFA04EE2ABCCF7500D31DEA /* ListViewController.swift in Sources */,
+				CED2E4032AC34C8D0044A777 /* CoreDataFunctions.swift in Sources */,
 				ABFA04EF2ABCCF7500D31DEA /* ListView.swift in Sources */,
 				ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */,
 				ABAD4F472ABE2B1A007BEC32 /* AppointmentsVM.swift in Sources */,
@@ -503,6 +510,8 @@
 				E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */,
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
 				62FA7C3A2ABE17160083F6E0 /* BloodExamModel.swift in Sources */,
+				CE427B0F2AC3510400FE169E /* Pacient.swift in Sources */,
+				CE427B132AC3517F00FE169E /* FamilyBG.swift in Sources */,
 				ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */,
 				ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */,
 				E8135BBE2ABA1C0400E722FA /* ThirdOnboardingViewController.swift in Sources */,
@@ -522,6 +531,7 @@
 				CED32A7C2AC20BC700DFC2EC /* CoreDataModel.xcdatamodeld in Sources */,
 				ABC98B942AB3DC9C005214E5 /* TabBarViewController.swift in Sources */,
 				ABAD4F452ABE22C1007BEC32 /* LabelComponentModel.swift in Sources */,
+				CE427B112AC3513A00FE169E /* PersonalBG.swift in Sources */,
 				ABC98B9A2AB3E458005214E5 /* TabBarView.swift in Sources */,
 				ABC98B812AB3D9C5005214E5 /* SceneDelegate.swift in Sources */,
 				ABAD4F412ABE1C99007BEC32 /* LabelComponentView.swift in Sources */,

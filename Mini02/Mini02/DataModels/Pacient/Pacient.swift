@@ -53,7 +53,7 @@ struct Pacient:PacientInfo{
     var familyBG = FamilyBG()
     
     //This array will have all the blood exams
-    var bloodExams: [BloodExam]
+    var bloodExams: [BloodExamModel]
     
     //This array will have all the US exams
     var USoundExams: [UltrasoundExam]
