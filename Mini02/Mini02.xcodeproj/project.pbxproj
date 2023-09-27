@@ -45,6 +45,8 @@
 		ABFA04EE2ABCCF7500D31DEA /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */; };
 		ABFA04EF2ABCCF7500D31DEA /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EB2ABCCF7500D31DEA /* ListView.swift */; };
 		ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */; };
+		CE9F79072AC4A0D70081AB5A /* PregnantDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F79062AC4A0D70081AB5A /* PregnantDataViewController.swift */; };
+		CE9F79092AC4A1200081AB5A /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F79082AC4A1200081AB5A /* RoundedCorners.swift */; };
 		E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */; };
 		E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */; };
 		E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB52ABA1BAC00E722FA /* FirstOnboardingViewController.swift */; };
@@ -54,13 +56,11 @@
 		E8135BBE2ABA1C0400E722FA /* ThirdOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BBD2ABA1C0400E722FA /* ThirdOnboardingViewController.swift */; };
 		E8135BC02ABA1D0000E722FA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BBF2ABA1D0000E722FA /* OnboardingViewController.swift */; };
 		E8135C262ABE180300E722FA /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135C252ABE180300E722FA /* RegisterViewModel.swift */; };
-		E8E0D6402AC36EB7003CE5CD /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D63F2AC36EB7003CE5CD /* RoundedCorners.swift */; };
 		E8E0D6452AC36F05003CE5CD /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6442AC36F05003CE5CD /* ProfileViewModel.swift */; };
 		E8E0D6472AC36F1A003CE5CD /* ProfileListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6462AC36F1A003CE5CD /* ProfileListCell.swift */; };
 		E8E0D6492AC36F37003CE5CD /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6482AC36F37003CE5CD /* AboutView.swift */; };
 		E8E0D64B2AC36F41003CE5CD /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64A2AC36F41003CE5CD /* AboutViewController.swift */; };
 		E8E0D64D2AC36F55003CE5CD /* PregnantDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */; };
-		E8E0D64F2AC36F64003CE5CD /* PregnantDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64E2AC36F64003CE5CD /* PregnantDataViewController.swift */; };
 		E8E0D6512AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6502AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +109,8 @@
 		ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		ABFA04EB2ABCCF7500D31DEA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointementsTableController.swift; sourceTree = "<group>"; };
+		CE9F79062AC4A0D70081AB5A /* PregnantDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PregnantDataViewController.swift; path = Mini02/Profile/PregnantData/PregnantDataViewController.swift; sourceTree = "<group>"; };
+		CE9F79082AC4A1200081AB5A /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundedCorners.swift; path = Mini02/Utility/RoundedCorners.swift; sourceTree = "<group>"; };
 		E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettings.swift; sourceTree = "<group>"; };
 		E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingView.swift; sourceTree = "<group>"; };
 		E8135BB52ABA1BAC00E722FA /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +205,8 @@
 		ABC98B722AB3D9C5005214E5 = {
 			isa = PBXGroup;
 			children = (
+				CE9F79082AC4A1200081AB5A /* RoundedCorners.swift */,
+				CE9F79062AC4A0D70081AB5A /* PregnantDataViewController.swift */,
 				ABC98B7D2AB3D9C5005214E5 /* Mini02 */,
 				ABC98B7C2AB3D9C5005214E5 /* Products */,
 			);
@@ -500,6 +504,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9F79092AC4A1200081AB5A /* RoundedCorners.swift in Sources */,
+				CE9F79072AC4A0D70081AB5A /* PregnantDataViewController.swift in Sources */,
 				ABFA04ED2ABCCF7500D31DEA /* AppointmentListCell.swift in Sources */,
 				ABFA04EE2ABCCF7500D31DEA /* ListViewController.swift in Sources */,
 				ABAD4F542AC45DDE007BEC32 /* DropDownComponentView.swift in Sources */,
