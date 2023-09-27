@@ -50,7 +50,7 @@ class BloodView: UIView{
         setUpView()
     }
     
-    var button = DropDownButton()
+    var button = DropDownMenuComponent()
 
     
     func setUpView() {
@@ -64,20 +64,16 @@ class BloodView: UIView{
 
        
 
-        // Position the dropdown button below the textField
+       
         
-        button.setTitle("Colors", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setDropDownOptions(["alo", "hi", "yo"])
+        button.setTitle("Select", for: .normal)
+        button.setupButton()
+        button.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd" , "fffffff"]
+     
+        roudedBackGround.addSubview(button)
+    
+        button.anchorWithConstantValues(top: questionLabel1.bottomAnchor,left: roudedBackGround.leadingAnchor, leftPadding: 50 ,width: 100)
         
-        //Add Button to the View Controller
-        self.addSubview(button)
-        
-        button.anchorWithConstantValues(top: questionLabel1.bottomAnchor,width: 200)
-        
-        roudedBackGround.addSubview(textField)
-
-        textField.anchorWithConstantValues(top: button.bottomAnchor, width: 200)
 
     }
 }

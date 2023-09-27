@@ -8,98 +8,89 @@
 
 import UIKit
 
-class DropDownButton: UIButton, UITableViewDelegate, UITableViewDataSource {
-    private var dropDownOptions = [String]()
-    private var tableView: UITableView!
-    private var heightConstraint: NSLayoutConstraint?
-    private var isOpen = false
+protocol dropDownProtocol {
+    func selectedOption(options : String)
+}
+
+class DropDownMenuComponent: UIButton, dropDownProtocol {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setUpButton()
-    }
+    var tableBarView = DropDownComponentView()
+    var selectedOption: String?
+    var height = NSLayoutConstraint()
     
-    func setUpButton() {
+    func setupButton(){
         self.backgroundColor = UIColor.darkGray
-        print("function called")
-        tableView = UITableView()
-        tableView.backgroundColor = UIColor.darkGray
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addSubview(tableView)
-        
-        heightConstraint = tableView.heightAnchor.constraint(equalToConstant: 0)
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            heightConstraint!,
-        ])
-        
-        addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        tableBarView.delegate = self
+        tableBarView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    @objc private func didTapButton() {
-        isOpen.toggle()
-        tableView.reloadData()
-        print("hi")
-        
-        if isOpen {
-            NSLayoutConstraint.deactivate([heightConstraint!])
-            if self.dropDownOptions.count > 0 {
-                heightConstraint?.constant = CGFloat(self.dropDownOptions.count) * 44.0 // 44.0 is the default row height
+    override func didMoveToSuperview() {
+        self.superview?.addSubview(tableBarView)
+        self.superview?.bringSubviewToFront(tableBarView)
+        tableBarView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        tableBarView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        tableBarView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        height = tableBarView.heightAnchor.constraint(equalToConstant: 0)
+    }
+    
+    var isOpen = false
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isOpen == false {
+            
+            isOpen = true
+            
+            NSLayoutConstraint.deactivate([self.height])
+            
+            if self.tableBarView.tableView.contentSize.height > 150 {
+                self.height.constant = 150
             } else {
-                heightConstraint?.constant = 0
+                self.height.constant = self.tableBarView.tableView.contentSize.height
             }
-            NSLayoutConstraint.activate([heightConstraint!])
+            
+            
+            NSLayoutConstraint.activate([self.height])
             
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
-                self.superview?.layoutIfNeeded()
+                self.tableBarView.layoutIfNeeded()
+                self.tableBarView.center.y += self.tableBarView.frame.height / 2
             }, completion: nil)
+            
         } else {
-            NSLayoutConstraint.deactivate([heightConstraint!])
-            heightConstraint?.constant = 0
-            NSLayoutConstraint.activate([heightConstraint!])
+            isOpen = false
             
+            NSLayoutConstraint.deactivate([self.height])
+            self.height.constant = 0
+            NSLayoutConstraint.activate([self.height])
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
-                self.superview?.layoutIfNeeded()
+                self.tableBarView.center.y -= self.tableBarView.frame.height / 2
+                self.tableBarView.layoutIfNeeded()
             }, completion: nil)
+            
         }
     }
     
-    func setDropDownOptions(_ options: [String]) {
-        dropDownOptions = options
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isOpen ? dropDownOptions.count : 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = dropDownOptions[indexPath.row]
-        cell.backgroundColor = UIColor.darkGray
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.setTitle(dropDownOptions[indexPath.row], for: .normal)
+    func dismissDropDown() {
         isOpen = false
-        tableView.reloadData()
-        
-        NSLayoutConstraint.deactivate([heightConstraint!])
-        heightConstraint?.constant = 0
-        NSLayoutConstraint.activate([heightConstraint!])
-        
+        NSLayoutConstraint.deactivate([self.height])
+        self.height.constant = 0
+        NSLayoutConstraint.activate([self.height])
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
-            self.superview?.layoutIfNeeded()
+            self.tableBarView.center.y -= self.tableBarView.frame.height / 2
+            self.tableBarView.layoutIfNeeded()
         }, completion: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    
+    func selectedOption(options string: String){
+        self.setTitle(string, for: .normal)
+        self.dismissDropDown()
+
+        self.selectedOption = string
     }
+    
+    
 }
+
+
+
