@@ -10,6 +10,7 @@ import UIKit
 class TabBarViewController: UITabBarController {
     
     let tbViewManager = TabBarView()
+    let coreData = CoreDataFunctions()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,12 @@ class TabBarViewController: UITabBarController {
     }
     
    private func setUpTabBarViewModel(){
+       
+       //Testes
+       coreData.fetchPacient()
+       coreData.addBloodExam(bloodExam: BloodExamModel(bloodType: .ABNegative, toxoplasmosis: .init(igm: true, igg: true), hiv: false, vdrl: .four, syphilis: false, tci: true, tcd: true, urea: UreaExam(mg: 10, dL: 15.2), creatine: 10.2, ht: 1.1, hb: 1.1, whiteCells: 1, platelets: 2, glucose: 3, hepatiteB: false))
+       print(coreData.pacient.first?.bloodExam)
+       
        
         let appointmentsViewController = AppointmentsViewController()
         let appointmentsViewModel = AppointmentsVM()

@@ -15,6 +15,7 @@ class CoreDataFunctions{
     let context = (UIApplication.shared.delegate as! AppDelegate).persistenceContainer.viewContext
     
     var pacient  = [PacientModel]()
+    var bloodExamHistory : [BloodExamModel]?
     
     func saveContext() {
         do{
@@ -31,6 +32,10 @@ class CoreDataFunctions{
         }catch{
             print("Error fetching of the pacient")
         }
+    }
+    
+    func getPacientInfo() -> PacientModel{
+        return pacient.first!
     }
     
     
