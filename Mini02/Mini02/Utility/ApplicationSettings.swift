@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 fileprivate let onboardingStorageKey = "seen.onboard.setting"
-
+fileprivate let imgKey = "someimgkey.temp"
 final class ApplicationSettings {
     private static let userDefaultsStorage = UserDefaults(suiteName: "temp.testing.mini.2")!
     
@@ -18,5 +19,13 @@ final class ApplicationSettings {
     
     static func hideOnboardingOnStart() {
         userDefaultsStorage.set(true, forKey: onboardingStorageKey)
+    }
+    
+    static func saveImage(img: UIImage) {
+        userDefaultsStorage.set(img.pngData(), forKey: imgKey)
+    }
+    
+    static func loadImageData() -> Data? {
+        return userDefaultsStorage.data(forKey: imgKey)
     }
 }
