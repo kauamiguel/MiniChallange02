@@ -62,6 +62,7 @@
 		E8E0D64D2AC36F55003CE5CD /* PregnantDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */; };
 		E8E0D64F2AC36F64003CE5CD /* PregnantDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64E2AC36F64003CE5CD /* PregnantDataViewController.swift */; };
 		E8E0D6512AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6502AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift */; };
+		E8E0D6552AC49327003CE5CD /* PregnantDataViewController+UIImagePickerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6542AC49327003CE5CD /* PregnantDataViewController+UIImagePickerControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,7 @@
 		E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnantDataView.swift; sourceTree = "<group>"; };
 		E8E0D64E2AC36F64003CE5CD /* PregnantDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnantDataViewController.swift; sourceTree = "<group>"; };
 		E8E0D6502AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift"; sourceTree = "<group>"; };
+		E8E0D6542AC49327003CE5CD /* PregnantDataViewController+UIImagePickerControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PregnantDataViewController+UIImagePickerControllerDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				E8E0D6502AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift */,
+				E8E0D6542AC49327003CE5CD /* PregnantDataViewController+UIImagePickerControllerDelegate.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				ABAD4F4D2AC21514007BEC32 /* DropDownMenuComponent.swift in Sources */,
 				ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */,
 				ABAD4F472ABE2B1A007BEC32 /* AppointmentsVM.swift in Sources */,
+				E8E0D6552AC49327003CE5CD /* PregnantDataViewController+UIImagePickerControllerDelegate.swift in Sources */,
 				ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift in Sources */,
 				E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */,
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
@@ -696,6 +700,7 @@
 				DEVELOPMENT_TEAM = 6FXWX5Z987;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini02/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Acessar a galeria para escolher a foto do perfil";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -723,6 +728,7 @@
 				DEVELOPMENT_TEAM = 6FXWX5Z987;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini02/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Acessar a galeria para escolher a foto do perfil";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
