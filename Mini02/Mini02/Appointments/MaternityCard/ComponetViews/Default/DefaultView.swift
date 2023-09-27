@@ -364,16 +364,16 @@ class DefaultView: UIView{
         title.setupLabel(labelText: "Dados de rotina", labelType: .title, labelColor: .black)
         title.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor, topPadding: 15 ,leftPadding: 20)
         
-//        
-//        bcfDropDown.setupButton()
-//        bcfDropDown.setTitle("BCF", for: .normal)
-//        bcfDropDown.tableBarView.setupDropDownOptions = ["leve", "moderado", "grave"]
-// 
-//        roudedBackGround.addSubview(bcfDropDown)
-//        roudedBackGround.bringSubviewToFront(bcfDropDown)
-//        bcfDropDown.isUserInteractionEnabled = true
-//        
-//        bcfDropDown.anchorWithConstantValues(top: title.bottomAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 30, width: 150)
+        
+        bcfDropDown.setupButton()
+        bcfDropDown.setTitle("BCF", for: .normal)
+        bcfDropDown.tableBarView.setupDropDownOptions = ["leve", "moderado", "grave"]
+ 
+        roudedBackGround.addSubview(bcfDropDown)
+        roudedBackGround.bringSubviewToFront(bcfDropDown)
+        bcfDropDown.isUserInteractionEnabled = true
+        
+        bcfDropDown.anchorWithConstantValues(top: title.bottomAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 30, width: 150)
         
         
 //        edemaDropDown.setupButton()

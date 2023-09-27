@@ -65,14 +65,14 @@ class BloodView: UIView{
        
 
        
-//        
-//        button.setTitle("Select", for: .normal)
-//        button.setupButton()
-//        button.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd" , "fffffff"]
-//     
-//        roudedBackGround.addSubview(button)
-//    
-//        button.anchorWithConstantValues(top: questionLabel1.bottomAnchor,left: roudedBackGround.leadingAnchor, leftPadding: 50 ,width: 100)
+        
+        button.setTitle("Select", for: .normal)
+        button.setupButton()
+        button.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd" , "fffffff"]
+     
+        roudedBackGround.addSubview(button)
+    
+        button.anchorWithConstantValues(top: questionLabel1.bottomAnchor,left: roudedBackGround.leadingAnchor, leftPadding: 50 ,width: 100)
         
 
     }
