@@ -55,15 +55,6 @@ class AppointmentsView: UIView {
         return button
     }()
     
-    lazy var profileButton : UIButton = {
-        let button = UIButton(type: .custom)
-        //Put the correct image nome of the asset
-        //  button.setImage(UIImage(named: image), for: .normal)
-        button.backgroundColor = .gray
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
     let userName : UILabel = {
         let label = UILabel()
         label.text = "Larissa alves"
@@ -97,7 +88,6 @@ class AppointmentsView: UIView {
         Vstack.addArrangedSubview(firstTremesterButton)
         Vstack.addArrangedSubview(secondTremesterButton)
         Vstack.addArrangedSubview(thirdTremesterButton)
-        vc.view.addSubview(profileButton)
         vc.view.addSubview(userName)
         vc.view.addSubview(userInfo)
         
@@ -109,8 +99,10 @@ class AppointmentsView: UIView {
         secondTremesterButton.anchorWithConstantValues(width: 200, height: 80)
         thirdTremesterButton.anchorWithConstantValues(width: 200, height: 80)
         
+        let profileButton = ProfileImageButton(controller: vc)
+        vc.view.addSubview(profileButton)
         profileButton.centerX(inView: vc.view)
-        profileButton.anchorWithConstantValues(top: vc.view.safeAreaLayoutGuide.topAnchor, width: 50, height: 50)
+        profileButton.anchorWithConstantValues(top: vc.view.safeAreaLayoutGuide.topAnchor, width: profileButton.defaultSize, height: profileButton.defaultSize)
         userName.centerX(inView: vc.view)
         userName.anchorWithConstantValues(top: profileButton.bottomAnchor, topPadding: 5)
         

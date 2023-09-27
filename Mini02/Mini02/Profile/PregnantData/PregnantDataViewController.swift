@@ -8,12 +8,11 @@
 import UIKit
 
 class PregnantDataViewController: UIViewController {
+    private lazy var pregnantData = PregnantDataView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let pregnantData = PregnantDataView()
         pregnantData.setupPregnantData(vc: self)
     }
-
 }
 
