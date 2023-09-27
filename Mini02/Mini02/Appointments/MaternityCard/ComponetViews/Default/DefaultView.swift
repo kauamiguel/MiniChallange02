@@ -365,8 +365,6 @@ class DefaultView: UIView{
         title.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor, topPadding: 15 ,leftPadding: 20)
         
         
-        
-        
         bcfDropDown.setupButton()
         bcfDropDown.setTitle("BCF", for: .normal)
         bcfDropDown.tableBarView.setupDropDownOptions = ["leve", "moderado", "grave"]
@@ -379,15 +377,15 @@ class DefaultView: UIView{
         bcfDropDown.anchorWithConstantValues(top: title.bottomAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 30, width: 150)
         
         
-        edemaDropDown.setupButton()
-        edemaDropDown.setTitle("Edema", for: .normal)
-        edemaDropDown.tableBarView.setupDropDownOptions = ["leve", "moderado", "grave"]
-       
-        roudedBackGround.addSubview(edemaDropDown)
-        roudedBackGround.bringSubviewToFront(edemaDropDown)
-
-        
-        edemaDropDown.anchorWithConstantValues(top: title.bottomAnchor, left: bcfDropDown.trailingAnchor, topPadding: 20 ,leftPadding: 30,width: 150)
+//        edemaDropDown.setupButton()
+//        edemaDropDown.setTitle("Edema", for: .normal)
+//        edemaDropDown.tableBarView.setupDropDownOptions = ["leve", "moderado", "grave"]
+//       
+//        roudedBackGround.addSubview(edemaDropDown)
+//        roudedBackGround.bringSubviewToFront(edemaDropDown)
+//
+//        
+//        edemaDropDown.anchorWithConstantValues(top: title.bottomAnchor, left: bcfDropDown.trailingAnchor, topPadding: 20 ,leftPadding: 30,width: 150)
         
         
 //        roudedBackGround.addSubview(pickerHStack)
