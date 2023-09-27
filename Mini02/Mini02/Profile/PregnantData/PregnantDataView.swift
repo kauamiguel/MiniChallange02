@@ -61,7 +61,7 @@ class PregnantDataView: UIView {
     
     private lazy var divider: UIView = {
        let view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .separator
         return view
     }()
     
@@ -101,11 +101,11 @@ class PregnantDataView: UIView {
         return label
     }()
     
-    private var emergencyContactRelationField: UITextField = {
-       var field = UITextField()
-        field.backgroundColor = .systemGray
-        return field
-    }()
+//    private var emergencyContactRelationField: UITextField = {
+//       var field = UITextField()
+//        field.backgroundColor = .systemGray
+//        return field
+//    }()
     
     private let profileButtonWidth: CGFloat = 54
     private lazy var profileButton: UIButton = {
@@ -212,8 +212,14 @@ class PregnantDataView: UIView {
     func setupEmergencyRelation(vc: UIViewController) {
         contentView.addSubview(emergencyContactRelationLabel)
         emergencyContactRelationLabel.anchorWithConstantValues(top: emergencyContactPhoneField.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 20, leftPadding: 50)
-        contentView.addSubview(emergencyContactRelationField)
-        emergencyContactRelationField.anchorWithConstantValues(top: emergencyContactRelationLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: 50, rightPadding: -50, height: 34)
+        let dropdownRelation = DropDownMenuComponent()
+        dropdownRelation.setTitle("Selecionar", for: .normal)
+        dropdownRelation.setupButton()
+        dropdownRelation.tableBarView.setupDropDownOptions = [
+            "Companheiro", "Familiar", "Amigo", "Outro(a)"
+        ]
+        contentView.addSubview(dropdownRelation)
+        dropdownRelation.anchorWithConstantValues(top: emergencyContactRelationLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: 50, rightPadding: -50, height: 34)
     }
 
     func setupPregnantData(vc: UIViewController) {
