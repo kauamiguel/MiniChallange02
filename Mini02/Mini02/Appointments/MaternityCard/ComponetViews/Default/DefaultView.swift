@@ -38,6 +38,8 @@ class DefaultView: UIView{
     // checkBox
     let checkBox = CheckBoxComponentGreenView()
     let checkBoxRed = CheckBoxComponentRedView()
+    let bcfDropDown = DropDownMenuComponent()
+    let edemaDropDown = DropDownMenuComponent()
     
     // number picker
     let picker = PickerComponent(data: ["cleber", "rogerio", "Chris"])
@@ -347,8 +349,6 @@ class DefaultView: UIView{
         return stackView
     }()
     
-    
-    
     func setUpView(){
         
         addSubview(roudedBackGround)
@@ -365,17 +365,42 @@ class DefaultView: UIView{
         title.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor, topPadding: 15 ,leftPadding: 20)
         
         
-        roudedBackGround.addSubview(pickerHStack)
-        pickerHStack.anchorWithConstantValues(top: title.bottomAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 30)
-        textField2.anchorWithConstantValues(width: 50, height: 20)
-        pickerHStack.addArrangedSubview(textField2)
-        textField2.inputView = picker
+        
+        
+        bcfDropDown.setupButton()
+        bcfDropDown.setTitle("BCF", for: .normal)
+        bcfDropDown.tableBarView.setupDropDownOptions = ["leve", "moderado", "grave"]
+ 
+       
+        roudedBackGround.addSubview(bcfDropDown)
+        roudedBackGround.bringSubviewToFront(bcfDropDown)
+        bcfDropDown.isUserInteractionEnabled = true
+        
+        bcfDropDown.anchorWithConstantValues(top: title.bottomAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 30, width: 150)
+        
+        
+        edemaDropDown.setupButton()
+        edemaDropDown.setTitle("Edema", for: .normal)
+        edemaDropDown.tableBarView.setupDropDownOptions = ["leve", "moderado", "grave"]
+       
+        roudedBackGround.addSubview(edemaDropDown)
+        roudedBackGround.bringSubviewToFront(edemaDropDown)
+
+        
+        edemaDropDown.anchorWithConstantValues(top: title.bottomAnchor, left: bcfDropDown.trailingAnchor, topPadding: 20 ,leftPadding: 30,width: 150)
+        
+        
+//        roudedBackGround.addSubview(pickerHStack)
+//        pickerHStack.anchorWithConstantValues(top: title.bottomAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 30)
+//        textField2.anchorWithConstantValues(width: 50, height: 20)
+//        pickerHStack.addArrangedSubview(textField2)
+//        textField2.inputView = picker
         
         /* ----------------------------------------------------------ANTECEDENTES------------------------------------------------------------- */
         
         roudedBackGround.addSubview(antecedentesLabel)
         antecedentesLabel.setupLabel(labelText: "Antecedentes Familiares", labelType: .title, labelColor: .black)
-        antecedentesLabel.anchorWithConstantValues(top: textField2.topAnchor, left: roudedBackGround.leadingAnchor, topPadding: 25 ,leftPadding: 20)
+        antecedentesLabel.anchorWithConstantValues(top: bcfDropDown.bottomAnchor, left: roudedBackGround.leadingAnchor, topPadding: 25 ,leftPadding: 20)
         
         
         /* ----------------------------------------------------------HStack1------------------------------------------------------------- */

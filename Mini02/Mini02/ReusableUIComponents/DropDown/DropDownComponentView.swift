@@ -20,13 +20,14 @@ class DropDownComponentView: UIView, UITableViewDelegate, UITableViewDataSource 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        tableView.backgroundColor = UIColor.darkGray
-        self.backgroundColor = UIColor.darkGray
-        
+        tableView.backgroundColor = .darkGray
+        tableView.layer.zPosition = 1
+        self.backgroundColor = .darkGray
+        self.layer.zPosition = 1
         
         tableView.delegate = self
         tableView.dataSource = self
-        
+       
         self.addSubview(tableView)
         
         tableView.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor, right: self.trailingAnchor, bottom: self.bottomAnchor)
@@ -49,6 +50,7 @@ class DropDownComponentView: UIView, UITableViewDelegate, UITableViewDataSource 
         
         cell.textLabel?.text = setupDropDownOptions[indexPath.row]
         cell.backgroundColor = UIColor.darkGray
+        cell.selectionStyle = .default // ask Chris about this
         return cell
     }
     

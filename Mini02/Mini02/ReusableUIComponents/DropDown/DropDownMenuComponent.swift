@@ -18,17 +18,21 @@ class DropDownMenuComponent: UIButton, dropDownProtocol {
     var selectedOption: String?
     var height = NSLayoutConstraint()
     
+    
     func setupButton(){
-        self.backgroundColor = UIColor.darkGray
-        
+        self.backgroundColor = .darkGray
+        self.layer.zPosition = 1
+//        self.layer.cornerRadius = 10
+        self.superview?.isUserInteractionEnabled = true
+        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         tableBarView.delegate = self
         tableBarView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    override func didMoveToSuperview() {
+    override func didMoveToSuperview(){
         self.superview?.addSubview(tableBarView)
         self.superview?.bringSubviewToFront(tableBarView)
-        tableBarView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        tableBarView.anchorWithConstantValues(top: self.bottomAnchor)
         tableBarView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         tableBarView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         height = tableBarView.heightAnchor.constraint(equalToConstant: 0)
@@ -36,9 +40,15 @@ class DropDownMenuComponent: UIButton, dropDownProtocol {
     
     var isOpen = false
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isOpen == false {
+        if !isOpen{
             
             isOpen = true
+            
+//            for subview in self.superview!.subviews {
+//                if subview != self && subview != tableBarView {
+//                    subview.isUserInteractionEnabled = false
+//                }
+//            }
             
             NSLayoutConstraint.deactivate([self.height])
             
@@ -48,25 +58,26 @@ class DropDownMenuComponent: UIButton, dropDownProtocol {
                 self.height.constant = self.tableBarView.tableView.contentSize.height
             }
             
-            
             NSLayoutConstraint.activate([self.height])
             
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.67, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
                 self.tableBarView.layoutIfNeeded()
                 self.tableBarView.center.y += self.tableBarView.frame.height / 2
+               
             }, completion: nil)
             
         } else {
             isOpen = false
-            
+            self.superview?.isUserInteractionEnabled = true
             NSLayoutConstraint.deactivate([self.height])
             self.height.constant = 0
             NSLayoutConstraint.activate([self.height])
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
                 self.tableBarView.center.y -= self.tableBarView.frame.height / 2
                 self.tableBarView.layoutIfNeeded()
-            }, completion: nil)
-            
+            }, completion: { _ in
+                self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+            })
         }
     }
     
@@ -75,17 +86,18 @@ class DropDownMenuComponent: UIButton, dropDownProtocol {
         NSLayoutConstraint.deactivate([self.height])
         self.height.constant = 0
         NSLayoutConstraint.activate([self.height])
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
             self.tableBarView.center.y -= self.tableBarView.frame.height / 2
             self.tableBarView.layoutIfNeeded()
+            self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         }, completion: nil)
+        self.superview?.isUserInteractionEnabled = true
     }
-    
     
     func selectedOption(options string: String){
         self.setTitle(string, for: .normal)
         self.dismissDropDown()
-
+        
         self.selectedOption = string
     }
     
