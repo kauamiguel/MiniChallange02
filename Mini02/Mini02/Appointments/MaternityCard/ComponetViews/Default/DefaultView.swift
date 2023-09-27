@@ -369,7 +369,6 @@ class DefaultView: UIView{
         bcfDropDown.setTitle("BCF", for: .normal)
         bcfDropDown.tableBarView.setupDropDownOptions = ["leve", "moderado", "grave"]
  
-       
         roudedBackGround.addSubview(bcfDropDown)
         roudedBackGround.bringSubviewToFront(bcfDropDown)
         bcfDropDown.isUserInteractionEnabled = true
@@ -398,7 +397,7 @@ class DefaultView: UIView{
         
         roudedBackGround.addSubview(antecedentesLabel)
         antecedentesLabel.setupLabel(labelText: "Antecedentes Familiares", labelType: .title, labelColor: .black)
-        antecedentesLabel.anchorWithConstantValues(top: bcfDropDown.bottomAnchor, left: roudedBackGround.leadingAnchor, topPadding: 25 ,leftPadding: 20)
+        antecedentesLabel.anchorWithConstantValues(top: title.bottomAnchor, left: roudedBackGround.leadingAnchor, topPadding: 25 ,leftPadding: 20)
         
         
         /* ----------------------------------------------------------HStack1------------------------------------------------------------- */
