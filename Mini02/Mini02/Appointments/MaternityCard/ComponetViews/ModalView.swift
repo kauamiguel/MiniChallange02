@@ -37,11 +37,11 @@ class ModalVC:UIViewController{
 
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: bg.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: bg.centerYAnchor),
+            button.centerYAnchor.constraint(equalTo: bg.centerYAnchor)
         ])
         
         
-        
+     
         return bg
     }
     
@@ -83,16 +83,16 @@ class ModalVC:UIViewController{
                 btn.configuration?.image = image
             }
             btn.configuration?.imagePadding = 5
-            //btn.imageView?.frame.size = CGSize(width: 100, height: 100)
             btn.configuration?.titleLineBreakMode = .byWordWrapping
             btn.configuration?.attributedTitle?.font = .systemFont(ofSize: buttonWidth * 0.4 )
             btn.contentVerticalAlignment = .center
             
             btn.imageView?.anchorWithConstantValues(width: buttonWidth,height: buttonWidth)
             btn.imageView?.centerXAnchor.constraint(equalTo: btn.centerXAnchor).isActive = true
-            btn.imageView?.centerYAnchor.constraint(equalTo: btn.centerYAnchor).isActive = true
+//            btn.imageView?.centerYAnchor.constraint(equalTo: btn.centerYAnchor).isActive = true
            
-            btn.titleLabel?.anchorWithConstantValues(top: btn.imageView?.bottomAnchor, topPadding: 5)
+            btn.titleLabel?.anchorWithConstantValues(top: btn.imageView?.bottomAnchor)
+            
             btn.titleLabel?.centerXAnchor.constraint(equalTo: btn.centerXAnchor).isActive = true
             
             btn.imageView?.contentMode = .scaleAspectFit
