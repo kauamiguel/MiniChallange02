@@ -163,6 +163,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -41,15 +41,18 @@ class DropDownMenuComponent: UIButton, dropDownProtocol {
     
     var isOpen = false
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        
+        
         if !isOpen{
             
             isOpen = true
             
-//            for subview in self.superview!.subviews {
-//                if subview != self && subview != tableBarView {
-//                    subview.isUserInteractionEnabled = false
-//                }
-//            }
+            for subview in self.superview!.subviews {
+                if subview != self && subview != tableBarView {
+                    subview.isUserInteractionEnabled = false
+                }
+            }
             
             NSLayoutConstraint.deactivate([self.height])
             
@@ -69,7 +72,11 @@ class DropDownMenuComponent: UIButton, dropDownProtocol {
             
         } else {
             isOpen = false
-            self.superview?.isUserInteractionEnabled = true
+            
+            for subview in self.superview!.subviews {
+                    subview.isUserInteractionEnabled = true
+            }
+            
             NSLayoutConstraint.deactivate([self.height])
             self.height.constant = 0
             NSLayoutConstraint.activate([self.height])
@@ -92,7 +99,9 @@ class DropDownMenuComponent: UIButton, dropDownProtocol {
             self.tableBarView.layoutIfNeeded()
             self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         }, completion: nil)
-        self.superview?.isUserInteractionEnabled = true
+        for subview in self.superview!.subviews {
+                subview.isUserInteractionEnabled = true
+        }
     }
     
     func selectedOption(options string: String){
