@@ -14,8 +14,7 @@ class CoreDataFunctions{
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistenceContainer.viewContext
     
-    var pacient  = [PacientModel]()
-    var bloodExamHistory : [BloodExamModel]?
+    var pacient  : PacientModel?
     
     func saveContext() {
         do{
@@ -26,35 +25,66 @@ class CoreDataFunctions{
         }
     }
     
+    func getBloodExam() -> [BloodExam]{
+        fetchPacient()
+        if let pacient = self.pacient{
+            let examset = pacient.bloodExam as! Set<BloodExam>
+            var examArray = Array(examset)
+            examArray.sort{$0.consultNumber < $1.consultNumber}
+            return examArray
+        }
+        return []
+    }
+    
+    func getBloodUltraSoundExam() -> [UltraSoundModel]{
+        fetchPacient()
+        if let pacient = self.pacient{
+            let examset = pacient.bloodExam as! Set<UltraSoundModel>
+            var examArray = Array(examset)
+            examArray.sort{$0.consultNumber < $1.consultNumber}
+            return examArray
+        }
+        return []
+    }
+    
     func fetchPacient(){
         do{
-            pacient = try context.fetch(PacientModel.fetchRequest())
+            let pacientArray = try context.fetch(PacientModel.fetchRequest())
+            
+            if let pacientFirst = pacientArray.first{
+                self.pacient = pacientFirst
+            }
+            
         }catch{
             print("Error fetching of the pacient")
         }
     }
     
-    func getPacientInfo() -> PacientModel{
-        return pacient.first!
+    //Create a pacient for the first time
+    func createPacient(){
+        self.pacient = PacientModel(context: context)
     }
     
-    
+    //Add personal info to a pacient that alredy exists
     func addPersonalInfo(firstName : String, secondName : String, nickName : String, age : Int, height : Float , weight : Float, personalBG : PersonalBG){
         
-        let pacientSaved = PacientModel(context: context)
-        pacientSaved.nickName = nickName
-        pacientSaved.age = Int64(age)
-        pacientSaved.firstName = firstName
-        pacientSaved.secondName = secondName
-        pacientSaved.height = height
-        pacientSaved.weight = weight
-        
+        createPacient()
+        if let pacient = self.pacient{
+            pacient.nickName = nickName
+            pacient.age = Int64(age)
+            pacient.firstName = firstName
+            pacient.secondName = secondName
+            pacient.height = height
+            pacient.weight = weight
+            self.pacient = pacient
+        }
         saveContext()
     }
     
+    //Add all information about blood exam
     func addBloodExam(bloodExam : BloodExamModel){
         let newExame = BloodExam(context: context)
-        let pacientSaved = pacient.first
+        let pacientSaved = pacient
         let toxoPlasm = ToxoplasmosisModel(context: context)
         let urea = Urea(context: context)
         
@@ -80,22 +110,25 @@ class CoreDataFunctions{
         newExame.platelets = Int64(bloodExam.platelets)
         newExame.glucose = Int64(bloodExam.glucose)
         newExame.hepatiteB = bloodExam.hepatiteB
+        newExame.consultNumber = Int64(bloodExam.consultNumber)
         
         //Assign the relationChip of each class
         newExame.toxoplasmosis = toxoPlasm
-        
         newExame.urea = urea
-        
         newExame.pacient = pacientSaved
         
         //Add the current exam to pacient set of exams
-        pacientSaved!.bloodExam = NSSet(object: newExame)
+        let examset = pacient!.bloodExam as! Set<BloodExam>
+        var examArray = Array(examset)
+        examArray.append(newExame)
+        pacientSaved!.bloodExam = NSSet(array: examArray)
         
         saveContext()
     }
     
+    //Add all information about ultraSound exam
     func addUltraSoundExam(ultraSound : UltrasoundExam){
-        let pacientSaved = pacient.first
+        let pacientSaved = pacient
         let ultraSoundModel = UltraSoundModel(context: context)
         let  idadeGestacional = Idadegestacional(context: context)
         
@@ -107,18 +140,23 @@ class CoreDataFunctions{
         ultraSoundModel.weight = ultraSound.weight
         ultraSoundModel.placenta = ultraSound.placenta.rawValue
         ultraSoundModel.fetalPosition = ultraSound.fetalPosition.rawValue
+        ultraSoundModel.consultNumber = Int64(ultraSound.consultNumber)
         
         //Assign the relationChip of each class
         ultraSoundModel.idadeGestacional = idadeGestacional
         
-        pacientSaved!.ultrassound = NSSet(object: ultraSoundModel)
+        //Add the new Ultrassound exam into the set of ultraSounds
+        let examset = pacient!.bloodExam as! Set<UltraSoundModel>
+        var examArray = Array(examset)
+        examArray.append(ultraSoundModel)
+        pacientSaved!.bloodExam = NSSet(array: examArray)
         
         saveContext()
     }
     
     func assignPersonalBG(personalBG : PersonalBG){
         let personalBackGround = PersonalBackGround(context: context)
-        let savedPacient = pacient.first
+        let savedPacient = pacient
         
         personalBackGround.diabetes = personalBG.diabetes
         personalBackGround.tabagism = personalBG.tabagism
@@ -132,13 +170,13 @@ class CoreDataFunctions{
         
         
         //Adding the relationChip
-        savedPacient?.personalBG = personalBackGround 
+        savedPacient?.personalBG = personalBackGround
         saveContext()
     }
     
     func assignFamilylBG(familyBG : FamilyBG){
         let family = FamilyBackGround(context: context)
-        let savedPacient = pacient.first
+        let savedPacient = pacient
         
         family.diabetes = family.diabetes
         family.tabagism = family.tabagism

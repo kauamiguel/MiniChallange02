@@ -18,14 +18,13 @@ class TabBarViewController: UITabBarController {
         tbViewManager.setUpTabBarView(tb: self)
         setUpTabBarViewModel()
         
+        //Testes
+        let result = coreData.getBloodExam()
+        print(result[0].consultNumber)
+        print(result[1].consultNumber)
     }
     
    private func setUpTabBarViewModel(){
-       
-       //Testes
-       coreData.fetchPacient()
-       coreData.addBloodExam(bloodExam: BloodExamModel(bloodType: .ABNegative, toxoplasmosis: .init(igm: true, igg: true), hiv: false, vdrl: .four, syphilis: false, tci: true, tcd: true, urea: UreaExam(mg: 10, dL: 15.2), creatine: 10.2, ht: 1.1, hb: 1.1, whiteCells: 1, platelets: 2, glucose: 3, hepatiteB: false))
-       print(coreData.pacient.first?.bloodExam)
        
        
         let appointmentsViewController = AppointmentsViewController()

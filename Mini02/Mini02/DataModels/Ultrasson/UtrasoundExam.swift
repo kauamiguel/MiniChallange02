@@ -43,4 +43,6 @@ struct UltrasoundExam{
     // TODO: need to check how the liquid (ILA) is registered
     
     var fetalPosition:FetalPosition // TODO: need to check this one too
+    
+    var consultNumber : Int
 }

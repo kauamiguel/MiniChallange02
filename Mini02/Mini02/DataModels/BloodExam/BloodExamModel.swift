@@ -56,6 +56,8 @@ struct UreaExam{
 
 // MARK: FULL BLOOD EXAMS INFOS
 struct BloodExamModel{
+    
+    var consultNumber : Int
     var bloodType: BloodType
     var toxoplasmosis:Toxoplasmosis
     var hiv:Bool
