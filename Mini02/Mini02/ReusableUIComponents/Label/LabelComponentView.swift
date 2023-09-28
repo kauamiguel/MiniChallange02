@@ -39,6 +39,8 @@ class LabelComponentView: UILabel{
             self.textColor = .gray
         case .white:
             self.textColor = .white
+        case .secondaryColor:
+            self.textColor = UIColor(red: 0.227, green: 0.651, blue: 0.725, alpha: 1)
         default:
             self.textColor = .white
         }
@@ -59,6 +61,8 @@ class LabelComponentView: UILabel{
         case .smallText:
 //            self.font = UIFont(name: "", size: 10)
             self.font = UIFont.systemFont(ofSize: 10)
+            
+    
         default:
 //            self.font = UIFont(name: "", size: 10)
             self.font = UIFont.systemFont(ofSize: 10)

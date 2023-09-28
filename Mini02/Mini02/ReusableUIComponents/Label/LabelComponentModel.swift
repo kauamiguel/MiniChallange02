@@ -21,4 +21,5 @@ enum colorStyle {
     case grey2
     case grey3
     case white
+    case secondaryColor
 }
