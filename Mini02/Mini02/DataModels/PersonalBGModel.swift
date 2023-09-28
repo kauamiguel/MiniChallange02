@@ -9,7 +9,7 @@ import Foundation
 
 
 // Any of these is considered as a high risk pregnacy
-struct PersonalBG: BackgroundInfo{
+struct PersonalBGModel: BackgroundInfo{
     
     var tabagism : Bool = false
     

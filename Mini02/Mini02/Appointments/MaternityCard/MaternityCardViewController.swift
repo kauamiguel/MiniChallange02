@@ -16,8 +16,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     var cells: [CellInfo] = []
     
-    
-    
     private var vm = MaternityCardViewModel()
     
     init(){
@@ -165,6 +163,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         animator.addCompletion { [weak self] in
             self?.collectionView.endInteractiveMovement()
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     required init?(coder: NSCoder) {

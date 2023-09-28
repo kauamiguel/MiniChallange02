@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FamilyBG: BackgroundInfo{
+struct FamilyBGModel: BackgroundInfo{
     var tabagism: Bool = false
     
     var hypertension: Bool = false

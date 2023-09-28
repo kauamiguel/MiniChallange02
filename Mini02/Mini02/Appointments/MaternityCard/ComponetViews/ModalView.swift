@@ -43,7 +43,7 @@ class ModalVC:UIViewController{
         //Position of the buttons on the modal
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: bg.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: bg.centerYAnchor),
+            button.centerYAnchor.constraint(equalTo: bg.centerYAnchor)
         ])
 
     }
@@ -81,17 +81,19 @@ class ModalVC:UIViewController{
             if let image = UIImage(systemName: "pencil.circle.fill")?.withRenderingMode(.alwaysTemplate) {
                 btnConfig.image = image
             }
+
             btnConfig.imagePadding = 5
             
             //Assigns the configuration to the button
             btn.configuration = btnConfig
         
-            //btn.centerY(inView: self.view)
+
             btn.contentVerticalAlignment = .center
             
             //Setting constrains to the image
             btn.imageView?.anchorWithConstantValues(width: buttonWidth,height: buttonWidth)
             btn.imageView?.centerXAnchor.constraint(equalTo: btn.centerXAnchor).isActive = true
+
 
             
             //Setting constrains to the button title

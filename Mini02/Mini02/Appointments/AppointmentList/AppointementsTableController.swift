@@ -9,10 +9,12 @@ import UIKit
 
 class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
     
-    var AppointementListViewManager:UITableView?
+    var AppointementListViewManager: UITableView?
+    let historyView = HistoryView()
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -24,9 +26,24 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
         
         return cell
     }
+
     
-    override func viewDidLoad() {
-   
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+      tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+  
     
 }
