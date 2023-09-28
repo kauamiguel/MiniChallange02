@@ -46,8 +46,15 @@
 		ABFA04EE2ABCCF7500D31DEA /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */; };
 		ABFA04EF2ABCCF7500D31DEA /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EB2ABCCF7500D31DEA /* ListView.swift */; };
 		ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */; };
+		CE8EE3432AC5F512000E89E1 /* Pacient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE3412AC5F512000E89E1 /* Pacient+CoreDataClass.swift */; };
+		CE8EE3442AC5F512000E89E1 /* Pacient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE3422AC5F512000E89E1 /* Pacient+CoreDataProperties.swift */; };
+		CE8EE3462AC5F665000E89E1 /* PersonalBGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE3452AC5F665000E89E1 /* PersonalBGModel.swift */; };
+		CE8EE3482AC5F690000E89E1 /* FamilyBGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE3472AC5F690000E89E1 /* FamilyBGModel.swift */; };
+		CE8EE34B2AC5F7F1000E89E1 /* PacientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE34A2AC5F7F1000E89E1 /* PacientModel.swift */; };
 		CE9F790B2AC4A27A0081AB5A /* PregnantDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F790A2AC4A27A0081AB5A /* PregnantDataViewController.swift */; };
 		CE9F790D2AC4A2830081AB5A /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F790C2AC4A2830081AB5A /* RoundedCorners.swift */; };
+		CEA008AB2AC5F364005F54E5 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEA008A92AC5F364005F54E5 /* CoreDataModel.xcdatamodeld */; };
+		CEA008AD2AC5F373005F54E5 /* CoreDataFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA008AC2AC5F373005F54E5 /* CoreDataFunctions.swift */; };
 		E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */; };
 		E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */; };
 		E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BB52ABA1BAC00E722FA /* FirstOnboardingViewController.swift */; };
@@ -69,9 +76,6 @@
 /* Begin PBXFileReference section */
 		6220F7CA2ABCD32A00CB5230 /* AppointmentsListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsListVM.swift; sourceTree = "<group>"; };
 		6241A15F2AC221D800C7921B /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
-		62C9AEB92ABE11B100008825 /* PersonalBGModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalBGModel.swift; sourceTree = "<group>"; };
-		62C9AEBA2ABE11B100008825 /* PacientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacientModel.swift; sourceTree = "<group>"; };
-		62C9AEBB2ABE11B100008825 /* FamilyBGModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyBGModel.swift; sourceTree = "<group>"; };
 		62C9AEBE2ABE121B00008825 /* Vaccines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccines.swift; sourceTree = "<group>"; };
 		62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtrasoundExam.swift; sourceTree = "<group>"; };
 		62FA7C392ABE17160083F6E0 /* BloodExamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodExamModel.swift; sourceTree = "<group>"; };
@@ -113,8 +117,15 @@
 		ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		ABFA04EB2ABCCF7500D31DEA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointementsTableController.swift; sourceTree = "<group>"; };
+		CE8EE3412AC5F512000E89E1 /* Pacient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pacient+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CE8EE3422AC5F512000E89E1 /* Pacient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pacient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CE8EE3452AC5F665000E89E1 /* PersonalBGModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalBGModel.swift; sourceTree = "<group>"; };
+		CE8EE3472AC5F690000E89E1 /* FamilyBGModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyBGModel.swift; sourceTree = "<group>"; };
+		CE8EE34A2AC5F7F1000E89E1 /* PacientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacientModel.swift; sourceTree = "<group>"; };
 		CE9F790A2AC4A27A0081AB5A /* PregnantDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PregnantDataViewController.swift; sourceTree = "<group>"; };
 		CE9F790C2AC4A2830081AB5A /* RoundedCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
+		CEA008AA2AC5F364005F54E5 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		CEA008AC2AC5F373005F54E5 /* CoreDataFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataFunctions.swift; sourceTree = "<group>"; };
 		E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettings.swift; sourceTree = "<group>"; };
 		E8135BB32ABA1BA300E722FA /* FirstOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingView.swift; sourceTree = "<group>"; };
 		E8135BB52ABA1BAC00E722FA /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
@@ -148,9 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				62C9AEBE2ABE121B00008825 /* Vaccines.swift */,
-				62C9AEB92ABE11B100008825 /* PersonalBGModel.swift */,
-				62C9AEBA2ABE11B100008825 /* PacientModel.swift */,
-				62C9AEBB2ABE11B100008825 /* FamilyBGModel.swift */,
+				CE8EE3452AC5F665000E89E1 /* PersonalBGModel.swift */,
+				CE8EE34A2AC5F7F1000E89E1 /* PacientModel.swift */,
+				CE8EE3472AC5F690000E89E1 /* FamilyBGModel.swift */,
 				62FA7C392ABE17160083F6E0 /* BloodExamModel.swift */,
 				62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */,
 			);
@@ -227,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				ABD5E3F02AC4B20200855964 /* Mini02.entitlements */,
+				CEA008B22AC5F3BD005F54E5 /* CoreData */,
 				62C9AEB82ABE11B100008825 /* DataModels */,
 				ABC98BC22AB83EC8005214E5 /* Onboard */,
 				ABC98B962AB3E36E005214E5 /* TabBar */,
@@ -412,6 +424,25 @@
 			path = ThirdOnboarding;
 			sourceTree = "<group>";
 		};
+		CE8EE3492AC5F704000E89E1 /* PacientFilesCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CE8EE3412AC5F512000E89E1 /* Pacient+CoreDataClass.swift */,
+				CE8EE3422AC5F512000E89E1 /* Pacient+CoreDataProperties.swift */,
+			);
+			path = PacientFilesCoreData;
+			sourceTree = "<group>";
+		};
+		CEA008B22AC5F3BD005F54E5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CE8EE3492AC5F704000E89E1 /* PacientFilesCoreData */,
+				CEA008AC2AC5F373005F54E5 /* CoreDataFunctions.swift */,
+				CEA008A92AC5F364005F54E5 /* CoreDataModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		E8E0D6412AC36ED2003CE5CD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,6 +553,7 @@
 				CE9F790B2AC4A27A0081AB5A /* PregnantDataViewController.swift in Sources */,
 				ABAD4F542AC45DDE007BEC32 /* DropDownComponentView.swift in Sources */,
 				ABFA04EF2ABCCF7500D31DEA /* ListView.swift in Sources */,
+				CE8EE34B2AC5F7F1000E89E1 /* PacientModel.swift in Sources */,
 				ABAD4F4D2AC21514007BEC32 /* DropDownMenuComponent.swift in Sources */,
 				ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */,
 				ABAD4F472ABE2B1A007BEC32 /* AppointmentsVM.swift in Sources */,
@@ -531,11 +563,14 @@
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
 				62FA7C3A2ABE17160083F6E0 /* BloodExamModel.swift in Sources */,
 				ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */,
+				CEA008AD2AC5F373005F54E5 /* CoreDataFunctions.swift in Sources */,
 				E8E0D6472AC36F1A003CE5CD /* ProfileListCell.swift in Sources */,
 				ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */,
 				E8135BBE2ABA1C0400E722FA /* ThirdOnboardingViewController.swift in Sources */,
 				ABC98BA82AB3F5E0005214E5 /* RecurrentDataView.swift in Sources */,
+				CE8EE3432AC5F512000E89E1 /* Pacient+CoreDataClass.swift in Sources */,
 				ABAD4F4B2AC1A4AB007BEC32 /* PickerComponent.swift in Sources */,
+				CE8EE3462AC5F665000E89E1 /* PersonalBGModel.swift in Sources */,
 				E8E0D64B2AC36F41003CE5CD /* AboutViewController.swift in Sources */,
 				ABC98BC12AB83C8D005214E5 /* TextField.swift in Sources */,
 				ABC98BAF2AB3F630005214E5 /* ProfileViewController.swift in Sources */,
@@ -566,10 +601,13 @@
 				E8135BB82ABA1BDE00E722FA /* SecondOnboardingView.swift in Sources */,
 				ABFA04E72ABCBE0000D31DEA /* MaternityCardModel.swift in Sources */,
 				E8E0D6492AC36F37003CE5CD /* AboutView.swift in Sources */,
+				CE8EE3442AC5F512000E89E1 /* Pacient+CoreDataProperties.swift in Sources */,
 				AB7852EE2AB9F94600566EF9 /* DefaultView.swift in Sources */,
 				ABC98BA22AB3F53D005214E5 /* AppointmentsView.swift in Sources */,
+				CE8EE3482AC5F690000E89E1 /* FamilyBGModel.swift in Sources */,
 				E8135BBC2ABA1BF500E722FA /* ThirdOnboardingView.swift in Sources */,
 				ABC98BC42AB83EED005214E5 /* RegisterView.swift in Sources */,
+				CEA008AB2AC5F364005F54E5 /* CoreDataModel.xcdatamodeld in Sources */,
 				ABC98B9C2AB3E677005214E5 /* AppointmentsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -790,6 +828,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CEA008A92AC5F364005F54E5 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CEA008AA2AC5F364005F54E5 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = CEA008AA2AC5F364005F54E5 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ABC98B732AB3D9C5005214E5 /* Project object */;
 }

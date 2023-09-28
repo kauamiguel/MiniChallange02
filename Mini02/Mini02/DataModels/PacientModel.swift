@@ -32,12 +32,12 @@ protocol PacientInfo{
     var height : Float { get  }
     var weight : Float { get }
     
-    var personalBG:PersonalBG {get}
-    var familyBG:FamilyBG {get}
+    var personalBG:PersonalBGModel {get}
+    var familyBG:FamilyBGModel {get}
 }
 
 
-struct Pacient:PacientInfo{
+struct PacientModel:PacientInfo{
     var firstName : String
     var secondName : String
     var nickName : String? // How the pacient likes to be called
@@ -47,10 +47,10 @@ struct Pacient:PacientInfo{
     var weight : Float
     
     //This struct has all the personal background information data
-    var personalBG = PersonalBG()
+    var personalBG = PersonalBGModel()
     
     //This struct has all the family background information data
-    var familyBG = FamilyBG()
+    var familyBG = FamilyBGModel()
     
     //This array will have all the blood exams
     var bloodExams: [BloodExam]

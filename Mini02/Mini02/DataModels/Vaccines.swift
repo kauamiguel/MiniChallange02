@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DoseVaccines {
+struct DoseVaccines { 
     var date : Date
     var isVaccined : Bool
 }
