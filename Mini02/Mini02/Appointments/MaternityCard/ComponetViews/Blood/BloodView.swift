@@ -62,10 +62,7 @@ class BloodView: UIView{
 
         questionLabel1.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor, topPadding: 10, leftPadding: 10)
 
-       
 
-       
-        
         button.setTitle("Select", for: .normal)
         button.setupButton()
         button.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd" , "fffffff"]

@@ -16,7 +16,7 @@ class RegisterView: UIView{
         let label = UILabel()
         label.text = "Dados da gestante"
         label.textColor = .black
-        label.font = label.font.withSize(30)
+        label.font = label.font.withSize(24)
         return label
     }()
     
@@ -75,14 +75,18 @@ class RegisterView: UIView{
     }()
     
     func setUpRegisterView(vc: UIViewController, action : Selector){
-        
         vc.view.backgroundColor = .white
+        
+        let profileImage = ProfileImageButton(mode: .Edit, controller: vc)
+        vc.view.addSubview(profileImage)
+        profileImage.centerX(inView: vc.view)
+        profileImage.anchorWithConstantValues(top: vc.view.safeAreaLayoutGuide.topAnchor, topPadding: 46, width: profileImage.defaultSize, height: profileImage.defaultSize)
     
         //Top label
         vc.view.addSubview(titleLabel)
         
         titleLabel.centerX(inView: vc.view)
-        titleLabel.anchorWithConstantValues(top: vc.view.safeAreaLayoutGuide.topAnchor)
+        titleLabel.anchorWithConstantValues(top: profileImage.bottomAnchor, topPadding: 60)
     
         
         //Questions label constrains

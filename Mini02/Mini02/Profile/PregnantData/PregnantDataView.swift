@@ -21,13 +21,6 @@ class PregnantDataView: UIView {
         return view
     }()
     
-    private lazy var profilePlaceholder: UIView = {
-       let view = UIView()
-        view.backgroundColor = .gray
-        view.layer.cornerRadius = 26
-        return view
-    }()
-    
     private lazy var pregnantNameLabel: UILabel = {
         let label = LabelComponentView()
         label.setupLabel(labelText: "Nome da gestante:", labelType: .subTitle, labelColor: .black)
@@ -68,7 +61,7 @@ class PregnantDataView: UIView {
     
     private lazy var divider: UIView = {
        let view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .separator
         return view
     }()
     
@@ -108,10 +101,15 @@ class PregnantDataView: UIView {
         return label
     }()
     
-    private var emergencyContactRelationField: UITextField = {
-       var field = UITextField()
-        field.backgroundColor = .systemGray
-        return field
+//    private var emergencyContactRelationField: UITextField = {
+//       var field = UITextField()
+//        field.backgroundColor = .systemGray
+//        return field
+//    }()
+    
+    private let profileButtonWidth: CGFloat = 54
+    private lazy var profileButton: UIButton = {
+        return ProfileImageButton(mode: .Edit, controller: self.viewController)
     }()
     
     private func setupScrollView(vc: UIViewController) {
@@ -138,15 +136,37 @@ class PregnantDataView: UIView {
                 ])
     }
     
+    func setupButton(controller vc: UIViewController) {
+        vc.view.addSubview(profileButton)
+        profileButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            profileButton.topAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.topAnchor, constant: 5),
+            profileButton.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor),
+            profileButton.widthAnchor.constraint(equalToConstant: profileButtonWidth),
+            profileButton.heightAnchor.constraint(equalToConstant: profileButtonWidth)
+        ])
+    }
+    
+    func setButtonHandler(handler: Selector) {
+        profileButton.addTarget(.none, action: handler, for: .touchUpInside)
+    }
+    
+    func updateButton(img: UIImage) {
+        profileButton.clipsToBounds = true
+        profileButton.contentMode = .scaleAspectFit
+        profileButton.setImage(img, for: .normal)
+        profileButton.backgroundColor = .systemPink
+    }
+    
     private func setupImage() {
-        contentView.addSubview(profilePlaceholder)
-        profilePlaceholder.centerX(inView: contentView)
-        profilePlaceholder.anchorWithConstantValues(top: contentView.topAnchor, topPadding: 28, width: 54, height: 54)
+        contentView.addSubview(profileButton)
+        profileButton.centerX(inView: contentView)
+        profileButton.anchorWithConstantValues(top: contentView.topAnchor, topPadding: 28, width: profileButtonWidth, height: profileButtonWidth)
     }
     
     private func setupName(vc: UIViewController){
         contentView.addSubview(pregnantNameLabel)
-        pregnantNameLabel.anchorWithConstantValues(top: profilePlaceholder.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 30, leftPadding: 50, rightPadding: -50)
+        pregnantNameLabel.anchorWithConstantValues(top: profileButton.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 30, leftPadding: 50, rightPadding: -50)
         contentView.addSubview(pregnantNameField)
         pregnantNameField.anchorWithConstantValues(top: pregnantNameLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: 50, rightPadding: -50, height: 34)
     }
@@ -192,8 +212,14 @@ class PregnantDataView: UIView {
     func setupEmergencyRelation(vc: UIViewController) {
         contentView.addSubview(emergencyContactRelationLabel)
         emergencyContactRelationLabel.anchorWithConstantValues(top: emergencyContactPhoneField.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 20, leftPadding: 50)
-        contentView.addSubview(emergencyContactRelationField)
-        emergencyContactRelationField.anchorWithConstantValues(top: emergencyContactRelationLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: 50, rightPadding: -50, height: 34)
+        let dropdownRelation = DropDownMenuComponent()
+        dropdownRelation.setTitle("Selecionar", for: .normal)
+        dropdownRelation.setupButton()
+        dropdownRelation.tableBarView.setupDropDownOptions = [
+            "Companheiro", "Familiar", "Amigo", "Outro(a)"
+        ]
+        contentView.addSubview(dropdownRelation)
+        dropdownRelation.anchorWithConstantValues(top: emergencyContactRelationLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: 50, rightPadding: -50, height: 34)
     }
 
     func setupPregnantData(vc: UIViewController) {

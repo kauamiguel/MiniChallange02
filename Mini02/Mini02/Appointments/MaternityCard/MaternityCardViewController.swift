@@ -16,8 +16,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     private var cells: [CellInfo] = []
     
-    
-    
     private var vm = MaternityCardViewModel()
     
     init(){
@@ -51,7 +49,9 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     //Adicionar dados dinamicamente na celula
     @objc func addNewItem(){
-        addNewDefaultViewCell(defaultView: DefaultView())
+        let mySheetVC = ModalVC()
+        mySheetVC.modalPresentationStyle = .custom
+        present(mySheetVC, animated: true, completion: nil)
         collectionView.reloadData()
     }
     
@@ -161,6 +161,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         animator.addCompletion { [weak self] in
             self?.collectionView.endInteractiveMovement()
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     required init?(coder: NSCoder) {
