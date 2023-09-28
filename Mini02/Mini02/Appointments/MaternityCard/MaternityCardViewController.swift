@@ -14,7 +14,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     private lazy var ultrasoundView = UltrasoundView()
     
     
-    private var cells: [CellInfo] = []
+    var cells: [CellInfo] = []
     
     
     
@@ -28,8 +28,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         cells = [
             CellInfo(view: defaultView, size: defaultView.defaultViewSize, id: DefaultView.id),
-            CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id),
-            CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundViewSize, id: UltrasoundView.id)
+            //CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id),
+            //CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundViewSize, id: UltrasoundView.id)
         ]
         
         self.collectionView.dataSource = self
@@ -45,19 +45,19 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         self.hidesBottomBarWhenPushed = true
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Adicionar", style: .plain, target: self, action: #selector(addNewItem))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Adicionar", style: .plain, target: self, action: #selector(openModal))
         
     }
     
     //Adicionar dados dinamicamente na celula
-    @objc func addNewItem(){
+    @objc func openModal(){
         let mySheetVC = ModalVC()
+        mySheetVC.collectionView = self
         mySheetVC.modalPresentationStyle = .custom
         present(mySheetVC, animated: true, completion: nil)
-        collectionView.reloadData()
     }
     
-    private func addNewDefaultViewCell(defaultView : DefaultView? = nil) {
+    @objc func addNewDefaultViewCell(defaultView : DefaultView? = nil) {
         var hasView = false
         
         for object in cells{
@@ -75,7 +75,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
     }
     
-    private func addNewBloodViewCell(bloodView : BloodView? = nil) {
+    @objc func addNewBloodViewCell(bloodView : BloodView? = nil) {
         var hasView = false
         
         for object in cells{
@@ -87,13 +87,13 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         }
         
         if let _ = bloodView, hasView == false{
-            //            cells.append((view: bloodView!, id: BloodView.id))
+            //cells.append((view: bloodView!, id: BloodView.id))
             setupCollectionView()
         }
         
     }
     
-    private func addNewUltrassonViewCell(ultrassonView : UltrasoundView? = nil) {
+    @objc func addNewUltrassonViewCell(ultrassonView : UltrasoundView? = nil) {
         var hasView = false
         
         for object in cells{
@@ -113,8 +113,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     
     //register the cell to the indentifiers
-    private func setupCollectionView(){
+    func setupCollectionView(){
         cells.forEach { collectionView.register(MaternityCardCell.self, forCellWithReuseIdentifier: $0.id) }
+        collectionView.reloadData()
+       
     }
     // how many cell will be
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

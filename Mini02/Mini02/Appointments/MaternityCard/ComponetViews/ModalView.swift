@@ -13,15 +13,19 @@ import UIKit
 
 class ModalVC:UIViewController{
     
-    func setupBG() -> UIView{
+    
+    var collectionView:MaternityCardViewController?
+    
+    func setupBG(){
         let bg = UIView()
         let button = setupButtons()
         
         bg.backgroundColor = .darkGray
         bg.layer.cornerRadius = 37
-        var parent = self.view!
+        let parent = self.view!
         parent.addSubview(bg)
         
+        //Contrains of the modal
         bg.anchorWithConstantValues(
             bottom: parent.bottomAnchor,
             bottomPadding: -parent.frame.height * 0.05,
@@ -34,19 +38,17 @@ class ModalVC:UIViewController{
         bg.addSubview(button)
 
         button.translatesAutoresizingMaskIntoConstraints = false
-
+        
+        
+        //Position of the buttons on the modal
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: bg.centerXAnchor),
             button.centerYAnchor.constraint(equalTo: bg.centerYAnchor),
         ])
-        
-        
-        
-        return bg
+
     }
     
     func setupButtons() -> UIStackView{
-        
         let screenWidth = UIScreen.main.bounds.width
         let buttonWidth = screenWidth * 0.1 // Adjust the proportion as needed
         
@@ -56,44 +58,61 @@ class ModalVC:UIViewController{
         Hstack.distribution = .fillEqually
         Hstack.spacing = screenWidth * 0.01
         
-        
-    //MODAL BUTTON CONFIG
-        var btnConfig = UIButton.Configuration.borderless()
-        btnConfig.titleAlignment = .leading
-        btnConfig.imagePlacement = .top
-        
-        btnConfig.titleLineBreakMode = .byWordWrapping
-       
-        //btnConfig.buttonSize = UIButton.Configuration.Size.medium
         //title:ImageName
         let btnArray:[String] = [
             "Sangue",
-            "Ultrasom",
+            "Ultrassom",
             "Vacinas",
             "Notas"
         ]
         
         for i in 0..<btnArray.count{
             let btn = UIButton()
-            btn.configuration = btnConfig
-            btn.configuration?.title = btnArray[i]
+           
+            //MODAL BUTTON CONFIG
+            var btnConfig = UIButton.Configuration.borderless()
+            btnConfig.titleAlignment = .leading
+            btnConfig.imagePlacement = .top
+            btnConfig.title = btnArray[i]
+            btnConfig.titleLineBreakMode = .byWordWrapping
+            btnConfig.attributedTitle?.font = UIFont.systemFont(ofSize: buttonWidth * 0.3 + 1 )
             
             // Create a template image so it scales without distortion
             if let image = UIImage(systemName: "pencil.circle.fill")?.withRenderingMode(.alwaysTemplate) {
-                btn.configuration?.image = image
+                btnConfig.image = image
             }
-            btn.configuration?.imagePadding = 5
-            //btn.imageView?.frame.size = CGSize(width: 100, height: 100)
-            btn.configuration?.titleLineBreakMode = .byWordWrapping
-            btn.configuration?.attributedTitle?.font = .systemFont(ofSize: buttonWidth * 0.4 )
+            btnConfig.imagePadding = 5
+            
+            //Assigns the configuration to the button
+            btn.configuration = btnConfig
+        
+            //btn.centerY(inView: self.view)
             btn.contentVerticalAlignment = .center
             
+            //Setting constrains to the image
             btn.imageView?.anchorWithConstantValues(width: buttonWidth,height: buttonWidth)
             btn.imageView?.centerXAnchor.constraint(equalTo: btn.centerXAnchor).isActive = true
-            btn.imageView?.centerYAnchor.constraint(equalTo: btn.centerYAnchor).isActive = true
-           
-            btn.titleLabel?.anchorWithConstantValues(top: btn.imageView?.bottomAnchor, topPadding: 5)
+
+            
+            //Setting constrains to the button title
+            btn.titleLabel?.anchorWithConstantValues(top: btn.imageView?.bottomAnchor)
             btn.titleLabel?.centerXAnchor.constraint(equalTo: btn.centerXAnchor).isActive = true
+            
+            
+            switch i{
+            case 0:
+                btn.addTarget(self, action: #selector(addNewBloodViewCell), for: .touchUpInside)
+            case 1:
+                btn.addTarget(self, action: #selector(addNewDefaultViewCell), for: .touchUpInside)
+            case 2:
+                btn.addTarget(self, action: #selector(addNewUltrassonViewCell), for: .touchUpInside)
+            case 3:
+                btn.addTarget(self, action: #selector(addNewDefaultViewCell), for: .touchUpInside)
+            default:
+                print("Something broke")
+            }
+            
+            
             
             btn.imageView?.contentMode = .scaleAspectFit
             
@@ -103,6 +122,7 @@ class ModalVC:UIViewController{
         return Hstack
     }
     
+    //MARK: GESTURE FOR DISMISS FUNCTION
     func setupGestures(){
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(dismissViewController))
         swipeDown.direction = .down
@@ -117,11 +137,9 @@ class ModalVC:UIViewController{
         setupBG()
         setupGestures()
         
-        
-        
-        
     }
     
+    //MARK: DISMISS MODAL ANIMATION
     @objc func dismissViewController() {
         UIView.animate(withDuration: 0.5 ,delay: 0.1, options: [.curveEaseIn]) {
             self.view.frame.origin.y = UIScreen.main.bounds.height
@@ -130,47 +148,73 @@ class ModalVC:UIViewController{
             self.dismiss(animated: false, completion: nil)
         }
     }
-}
-
-class ModalBtn:UIButton{
     
-    var text:String?
-    var img:String?
+    @objc func addNewDefaultViewCell(defaultView : DefaultView? = nil) {
+        var hasView = false
+        
+        for object in collectionView!.cells{
+            if type(of: object.view) == DefaultView.self{
+                hasView = true
+                print("Ja existe esse elemento")
+                break
+            }
+        }
+        
+        if let _ = defaultView, hasView == false{
+            let newView = DefaultView()
+            let newCell = CellInfo(view: newView, size: newView.defaultViewSize, id: BloodView.id)
+            collectionView!.cells.append(newCell)
+            collectionView!.setupCollectionView()
+            
+            let lastItemIndexPath = IndexPath(item: collectionView!.collectionView.numberOfItems(inSection: 0) - 1, section: 0)
+            collectionView!.collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
+        }
+        
+    }
     
-    private let button: UIButton = {
-        let button = UIButton(type: .system)
-        var configuration = UIButton.Configuration.borderless()
-        configuration.title = "Title"
-        configuration.image = UIImage(systemName: "swift")
-        configuration.titleAlignment = .center
-        configuration.imagePlacement = .top
-        button.configuration = configuration
-         // Add any other button customization here
-         return button
-     }()
-     
-
-     override init(frame: CGRect) {
-         super.init(frame: frame)
-         setupUI()
-     }
-     
-     required init?(coder aDecoder: NSCoder) {
-         super.init(coder: aDecoder)
-         setupUI()
-     }
-     
-     private func setupUI() {
-         addSubview(button)
-         
-         // Add constraints to position and size the button, image, and label
-         button.translatesAutoresizingMaskIntoConstraints = false
-      
-         
-         
-         // Add any other customization or addTarget for button actions
-     }
+    @objc func addNewBloodViewCell(bloodView : BloodView? = nil) {
+        var hasView = false
+        
+        for object in collectionView!.cells{
+            if type(of: object.view) == BloodView.self{
+                hasView = true
+                print("Ja existe esse elemento")
+                break
+            }
+        }
+        
+        if let _ = bloodView, hasView == false{
+            let newView = BloodView()
+            let newCell = CellInfo(view: newView, size: newView.bloodViewViewSize, id: BloodView.id)
+            collectionView!.cells.append(newCell)
+            collectionView!.setupCollectionView()
+            
+            let lastItemIndexPath = IndexPath(item: collectionView!.collectionView.numberOfItems(inSection: 0) - 1, section: 0)
+            collectionView!.collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
+        }
+        
+    }
     
-    
+    @objc func addNewUltrassonViewCell(ultrassonView : UltrasoundView? = nil) {
+        var hasView = false
+        
+        for object in collectionView!.cells{
+            if type(of: object.view) == UltrasoundView.self{
+                hasView = true
+                print("Ja existe esse elemento")
+                break
+            }
+        }
+        
+        if let _ = ultrassonView, hasView == false{
+            let newView = UltrasoundView()
+            let newCell = CellInfo(view: newView, size: newView.ultrasoundViewSize, id: BloodView.id)
+            collectionView!.cells.append(newCell)
+            collectionView!.setupCollectionView()
+            let lastItemIndexPath = IndexPath(item: collectionView!.collectionView.numberOfItems(inSection: 0) - 1, section: 0)
+            collectionView!.collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
+        }
+        
+    }
 }
 
