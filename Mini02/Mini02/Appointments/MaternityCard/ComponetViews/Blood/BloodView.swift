@@ -13,7 +13,6 @@ class BloodView: UIView{
     func dropDownPressed(string: String) {
         print("hi")
     }
-    
 
     static let id = "BloodCell"
     
