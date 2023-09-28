@@ -373,18 +373,18 @@ class DefaultView: UIView{
         roudedBackGround.bringSubviewToFront(bcfDropDown)
         bcfDropDown.isUserInteractionEnabled = true
         
-        bcfDropDown.anchorWithConstantValues(top: title.bottomAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 30, width: 150)
+        bcfDropDown.anchorWithConstantValues(top: title.bottomAnchor, left: roudedBackGround.leadingAnchor, topPadding: 20 , leftPadding: 30, width: 150)
         
         
-//        edemaDropDown.setupButton()
-//        edemaDropDown.setTitle("Edema", for: .normal)
-//        edemaDropDown.tableBarView.setupDropDownOptions = ["leve", "moderado", "grave"]
-//       
-//        roudedBackGround.addSubview(edemaDropDown)
-//        roudedBackGround.bringSubviewToFront(edemaDropDown)
-//
-//        
-//        edemaDropDown.anchorWithConstantValues(top: title.bottomAnchor, left: bcfDropDown.trailingAnchor, topPadding: 20 ,leftPadding: 30,width: 150)
+        edemaDropDown.setupButton()
+        edemaDropDown.setTitle("Edema", for: .normal)
+        edemaDropDown.tableBarView.setupDropDownOptions = ["leve", "moderado", "grave"]
+       
+        roudedBackGround.addSubview(edemaDropDown)
+        roudedBackGround.bringSubviewToFront(edemaDropDown)
+
+        
+        edemaDropDown.anchorWithConstantValues(top: title.bottomAnchor, left: bcfDropDown.trailingAnchor, topPadding: 20 ,leftPadding: 30,width: 150)
         
         
 //        roudedBackGround.addSubview(pickerHStack)
@@ -397,7 +397,7 @@ class DefaultView: UIView{
         
         roudedBackGround.addSubview(antecedentesLabel)
         antecedentesLabel.setupLabel(labelText: "Antecedentes Familiares", labelType: .title, labelColor: .black)
-        antecedentesLabel.anchorWithConstantValues(top: title.bottomAnchor, left: roudedBackGround.leadingAnchor, topPadding: 25 ,leftPadding: 20)
+        antecedentesLabel.anchorWithConstantValues(top: edemaDropDown.bottomAnchor, left: roudedBackGround.leadingAnchor, topPadding: 25 ,leftPadding: 20)
         
         
         /* ----------------------------------------------------------HStack1------------------------------------------------------------- */
