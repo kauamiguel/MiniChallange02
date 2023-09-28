@@ -12,6 +12,8 @@ import UIKit
 
 class CoreDataFunctions{
     
+    static var coreDataManagement : CoreDataFunctions = CoreDataFunctions()
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistenceContainer.viewContext
     
     var pacient  : PacientModel?
@@ -26,6 +28,7 @@ class CoreDataFunctions{
     }
     
     func getBloodExam() -> [BloodExam]{
+        
         fetchPacient()
         if let pacient = self.pacient{
             let examset = pacient.bloodExam as! Set<BloodExam>
@@ -37,6 +40,7 @@ class CoreDataFunctions{
     }
     
     func getBloodUltraSoundExam() -> [UltraSoundModel]{
+        
         fetchPacient()
         if let pacient = self.pacient{
             let examset = pacient.bloodExam as! Set<UltraSoundModel>
