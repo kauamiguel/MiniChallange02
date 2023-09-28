@@ -42,17 +42,16 @@ class DropDownMenuComponent: UIButton, dropDownProtocol {
     var isOpen = false
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        
+        for subview in self.superview!.subviews {
+            if subview != self && subview != tableBarView {
+                subview.isUserInteractionEnabled = false
+                
+            }
+        }
         
         if !isOpen{
             
             isOpen = true
-            
-            for subview in self.superview!.subviews {
-                if subview != self && subview != tableBarView {
-                    subview.isUserInteractionEnabled = false
-                }
-            }
             
             NSLayoutConstraint.deactivate([self.height])
             
@@ -74,7 +73,7 @@ class DropDownMenuComponent: UIButton, dropDownProtocol {
             isOpen = false
             
             for subview in self.superview!.subviews {
-                    subview.isUserInteractionEnabled = true
+                subview.isUserInteractionEnabled = true
             }
             
             NSLayoutConstraint.deactivate([self.height])

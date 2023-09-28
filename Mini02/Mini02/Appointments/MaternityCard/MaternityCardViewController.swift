@@ -16,8 +16,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     private var cells: [CellInfo] = []
     
-    
-    
     private var vm = MaternityCardViewModel()
     
     init(){
