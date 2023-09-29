@@ -52,7 +52,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         setupCollectionView()
         
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<", style: .done, target: self, action: #selector(backToView))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<", style: .done, target: self, action: #selector(backToView))
         
         
         collectionView.backgroundColor = UIColor(red: 1.00, green: 0.96, blue: 0.96, alpha: 1.00)
@@ -123,6 +123,9 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
     }
     
+    @objc func backToView(){
+        self.navigationController?.popViewController(animated: true)
+    }
     
     //Adicionar dados dinamicamente na celula
     @objc func openModal(){
