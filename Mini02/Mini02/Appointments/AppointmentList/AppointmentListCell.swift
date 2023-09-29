@@ -14,12 +14,14 @@ class AppointmentListCell: UITableViewCell {
     
     //CELL ATTRIBUTES
     private let titleLabel: UILabel = {
-        let title = UILabel()
+        let title = LabelComponentView()
         
-        title.textColor = .systemGray
+        title.textColor = UIColor(red: 0.227, green: 0.651, blue: 0.725, alpha: 1)
         title.textAlignment = .left
-        title.font = .systemFont (ofSize: 18, weight: .regular)
-        title.text = "Consulta placeholder"
+        title.font = .systemFont (ofSize: 24, weight: .regular)
+        title.text = "Consulta 1"
+        
+        
         
         return title
     }()
@@ -29,11 +31,11 @@ class AppointmentListCell: UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yy"
         
-        date.textColor = .label
+        date.textColor = UIColor(red: 0.70, green: 0.82, blue: 0.84, alpha: 1.00)
         date.textAlignment = .left
-        date.font = .systemFont (ofSize: 10, weight: .light)
+        date.font = .systemFont (ofSize: 16, weight: .light)
         date.text = dateFormatter.string(from: Date())
-        
+      
         return date
     }()
     
@@ -42,8 +44,7 @@ class AppointmentListCell: UITableViewCell {
         self.contentView.addSubview(self.dateLabel)
         
         
-        
-        
+       
         titleLabel.anchorWithConstantValues(
             top: self.topAnchor,
             left: self.leadingAnchor,

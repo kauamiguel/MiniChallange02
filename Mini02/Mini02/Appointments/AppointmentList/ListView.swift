@@ -27,7 +27,7 @@ class ListView: UIView {
         }
         
         //UI view settings
-        vc.view.backgroundColor = .white
+        vc.view.backgroundColor = UIColor(red: 1.00, green: 0.96, blue: 0.96, alpha: 1.00)
         
         // Add List to the view
         vc.view.addSubview(list)
@@ -35,14 +35,18 @@ class ListView: UIView {
         header.addArrangedSubview(title)
         header.addArrangedSubview(btn)
 
-        
+        title.centerY(inView: header)
+        btn.centerY(inView: header)
         // Cofnigure list constraints
         list.anchorWithConstantValues(
             top: header.bottomAnchor,
             left: vc.view.leadingAnchor,
             right: vc.view.trailingAnchor,
             bottom: vc.view.bottomAnchor,
-            topPadding: vc.view.bounds.height * 0.02
+            topPadding: vc.view.bounds.height * 0.06,
+            leftPadding: 21,
+            rightPadding: -21
+            
         )
         
         //Sets target for button
@@ -55,8 +59,9 @@ class ListView: UIView {
         
         //Title UI settings
         title.text = "Consultas"
-        title.font = .systemFont(ofSize: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize, weight: .bold)
-    
+        title.font = .systemFont(ofSize: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize - 5, weight: .bold)
+        title.textColor = UIColor(red: 0.227, green: 0.651, blue: 0.725, alpha: 1)
+        
         return title
     }
     
@@ -69,7 +74,7 @@ class ListView: UIView {
         tableController.AppointementListViewManager = list
         
         //UI SETUP
-        list.backgroundColor = .systemBackground
+        list.backgroundColor = .clear
         
         //SET THE IDENTIFIER FOR CREATING NEW CELLS ON THIS LIST
         list.register(AppointmentListCell.self, forCellReuseIdentifier: AppointmentListCell.identifier)
@@ -89,11 +94,11 @@ class ListView: UIView {
         //UI settings of the button
         btn.contentMode = .scaleAspectFill // Set content mode to scaleAspectFill
         btn.setBackgroundImage(UIImage(systemName: "plus.circle"), for: .normal)
-        btn.tintColor = .black
+        btn.tintColor = UIColor(red: 1.00, green: 0.52, blue: 0.58, alpha: 1.00)
         
     
         //This contrainst set the size of the button
-        btn.anchorWithConstantValues(width: 48, height: 48)
+        btn.anchorWithConstantValues(width: UIScreen.main.bounds.height * 0.06, height: UIScreen.main.bounds.height * 0.06)
         return btn
     }
     
