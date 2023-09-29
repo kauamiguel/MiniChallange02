@@ -231,7 +231,7 @@ class PregnantDataView: UIView {
         btn.addAction(UIAction(handler: { [weak self] _ in
             self?.didTapTempSaveButton()
         }), for: .touchUpInside)
-        vc.view.addSubview(btn)
+        contentView.addSubview(btn)
         btn.anchorWithConstantValues(top: dropdownRelation.bottomAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 40, rightPadding: -50)
     }
     
