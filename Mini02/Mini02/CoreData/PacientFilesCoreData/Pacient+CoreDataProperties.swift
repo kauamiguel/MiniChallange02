@@ -16,7 +16,7 @@ extension Pacient {
         return NSFetchRequest<Pacient>(entityName: "Pacient")
     }
 
-    @NSManaged public var age: Int64
+    @NSManaged public var dateOfBirth: Date
     @NSManaged public var firstName: String?
     @NSManaged public var height: Float
     @NSManaged public var nickName: String?
@@ -26,6 +26,7 @@ extension Pacient {
     @NSManaged public var familyBG: FamilyBackGround?
     @NSManaged public var personalBG: PersonalBackGround?
     @NSManaged public var ultrassound: NSSet?
+    @NSManaged public var emergencyContact: EmergencyContact?
 
 }
 

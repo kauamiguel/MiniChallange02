@@ -71,6 +71,8 @@
 		E8E0D64D2AC36F55003CE5CD /* PregnantDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */; };
 		E8E0D6512AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6502AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift */; };
 		E8E0D65B2AC4C6F2003CE5CD /* ProfileImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D65A2AC4C6F2003CE5CD /* ProfileImageButton.swift */; };
+		E8E0D65D2AC60C2B003CE5CD /* PregnantDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D65C2AC60C2B003CE5CD /* PregnantDataViewModel.swift */; };
+		E8E0D65F2AC6116E003CE5CD /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D65E2AC6116E003CE5CD /* EmergencyContact.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +144,8 @@
 		E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnantDataView.swift; sourceTree = "<group>"; };
 		E8E0D6502AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift"; sourceTree = "<group>"; };
 		E8E0D65A2AC4C6F2003CE5CD /* ProfileImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageButton.swift; sourceTree = "<group>"; };
+		E8E0D65C2AC60C2B003CE5CD /* PregnantDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnantDataViewModel.swift; sourceTree = "<group>"; };
+		E8E0D65E2AC6116E003CE5CD /* EmergencyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,7 @@
 				CE8EE3472AC5F690000E89E1 /* FamilyBGModel.swift */,
 				62FA7C392ABE17160083F6E0 /* BloodExamModel.swift */,
 				62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */,
+				E8E0D65E2AC6116E003CE5CD /* EmergencyContact.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 			children = (
 				E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */,
 				CE9F790A2AC4A27A0081AB5A /* PregnantDataViewController.swift */,
+				E8E0D65C2AC60C2B003CE5CD /* PregnantDataViewModel.swift */,
 			);
 			path = PregnantData;
 			sourceTree = "<group>";
@@ -575,6 +581,7 @@
 				ABC98BC12AB83C8D005214E5 /* TextField.swift in Sources */,
 				ABC98BAF2AB3F630005214E5 /* ProfileViewController.swift in Sources */,
 				ABC98BBF2AB83BD6005214E5 /* Constrains.swift in Sources */,
+				E8E0D65F2AC6116E003CE5CD /* EmergencyContact.swift in Sources */,
 				E8E0D65B2AC4C6F2003CE5CD /* ProfileImageButton.swift in Sources */,
 				E8E0D64D2AC36F55003CE5CD /* PregnantDataView.swift in Sources */,
 				AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */,
@@ -605,6 +612,7 @@
 				AB7852EE2AB9F94600566EF9 /* DefaultView.swift in Sources */,
 				ABC98BA22AB3F53D005214E5 /* AppointmentsView.swift in Sources */,
 				CE8EE3482AC5F690000E89E1 /* FamilyBGModel.swift in Sources */,
+				E8E0D65D2AC60C2B003CE5CD /* PregnantDataViewModel.swift in Sources */,
 				E8135BBC2ABA1BF500E722FA /* ThirdOnboardingView.swift in Sources */,
 				ABC98BC42AB83EED005214E5 /* RegisterView.swift in Sources */,
 				CEA008AB2AC5F364005F54E5 /* CoreDataModel.xcdatamodeld in Sources */,
@@ -750,7 +758,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mini02/Mini02.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6FXWX5Z987;
+				DEVELOPMENT_TEAM = RAG47DD75D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini02/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
@@ -782,7 +790,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mini02/Mini02.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6FXWX5Z987;
+				DEVELOPMENT_TEAM = RAG47DD75D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini02/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
