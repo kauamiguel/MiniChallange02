@@ -97,8 +97,6 @@ class FamilyAntecedentView: UIView {
         return stackView
     }()
     
-   
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -125,7 +123,6 @@ class FamilyAntecedentView: UIView {
         contentBackGround.centerX(inView: roudedBackGround)
         
      
-        
         /* ----------------------------------------------------------HYPERTENSION------------------------------------------------------------- */
         configureLabelAndGreenCheckBox(stack: hypertensionSubHStack,label: hypertensionLabel,checkBox: hypertensionCheckYES,labelText: "hipertenção")
         

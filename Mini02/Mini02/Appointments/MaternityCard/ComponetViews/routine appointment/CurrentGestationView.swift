@@ -150,14 +150,14 @@ class CurrentGestationView: UIView {
         
         contentBackGround.addSubview(alcoolSubHStack)
         alcoolSubHStack.anchorWithConstantValues(top: smokeSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
-//        
-//        /* ----------------------------------------------------------otherDrugs------------------------------------------------------------- */
+        
+        /* ----------------------------------------------------------otherDrugs------------------------------------------------------------- */
         configureLabelAndGreenCheckBox(stack: otherDrugsSubHStack,label: otherDrugsLabel,checkBox: otherDrugsCheckYES,labelText: "Outras drogas")
         
         contentBackGround.addSubview(otherDrugsSubHStack)
         otherDrugsSubHStack.anchorWithConstantValues(top: alcoolSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15,leftPadding: 10 ,rightPadding: -34)
-//        
-//        /* ----------------------------------------------------------HIV/AIDS------------------------------------------------------------- */
+        
+        /* ----------------------------------------------------------HIV/AIDS------------------------------------------------------------- */
         configureLabelAndGreenCheckBox(stack: hivAidsSubHStack,label: hivAidsLabelYES, checkBox: hivAidsCheckYES,labelText: "HIV/Aids")
         
         contentBackGround.addSubview(hivAidsSubHStack)

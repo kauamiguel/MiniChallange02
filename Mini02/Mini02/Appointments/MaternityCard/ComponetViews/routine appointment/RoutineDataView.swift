@@ -40,8 +40,6 @@ class RoutineDataView: UIView {
     /* ----------------------------------------------------------IG -DUM/USG------------------------------------------------------------- */
     
     
-
-    
     let igLabel = LabelComponentView()
     
     let igDropDown = DropDownMenuComponent()
@@ -53,9 +51,6 @@ class RoutineDataView: UIView {
         stackView.spacing = 5
         return stackView
     }()
-    
-   
-   
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -90,11 +85,10 @@ class RoutineDataView: UIView {
         igDropDown.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd" , "fffffff"]
         
         contentBackGround.addSubview(hypertensionSubVStack)
-//        hypertensionSubVStack.addArrangedSubview(igLabel)
-//        hypertensionSubVStack.addArrangedSubview(igDropDown)
+
         contentBackGround.addSubview(igDropDown)
-        igDropDown.anchorWithConstantValues(top: contentBackGround.topAnchor ,width: 50, height: 20)
-//        hypertensionSubVStack.anchorWithConstantValues(top: contentBackGround.topAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
+        igDropDown.anchorWithConstantValues(top: contentBackGround.topAnchor ,width: 150, height: 40)
+
         
         
     }

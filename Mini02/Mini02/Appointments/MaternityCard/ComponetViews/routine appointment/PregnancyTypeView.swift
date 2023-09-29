@@ -123,8 +123,6 @@ class PregnancyTypeView: UIView {
         /* ----------------------------------------------------------Tipos de gravidez------------------------------------------------------------- */
         
         
-        
-        
         /* ----------------------------------------------------------única------------------------------------------------------------- */
         configureLabelAndGreenCheckBox(stack: uniqueSubHStack,label: uniqueLabel,checkBox: uniqueCheckYES,labelText: "Única")
         
