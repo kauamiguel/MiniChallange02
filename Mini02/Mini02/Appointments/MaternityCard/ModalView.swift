@@ -11,10 +11,9 @@ import UIKit
 
 
 
-class ModalVC:UIViewController{
+class ModalVC: UIViewController{
     
-    
-    var collectionView:MaternityCardViewController?
+    var collectionView: MaternityCardViewController?
     
     func setupBG(){
         let bg = UIView()
@@ -103,13 +102,13 @@ class ModalVC:UIViewController{
             
             switch i{
             case 0:
-                btn.addTarget(self, action: #selector(addNewBloodViewCell), for: .touchUpInside)
+                btn.addTarget(collectionView, action: #selector(collectionView?.addNewBloodViewCell), for: .touchUpInside)
             case 1:
-                btn.addTarget(self, action: #selector(addNewDefaultViewCell), for: .touchUpInside)
+                btn.addTarget(collectionView, action: #selector(collectionView?.addNewDefaultViewCell), for: .touchUpInside)
             case 2:
-                btn.addTarget(self, action: #selector(addNewUltrassonViewCell), for: .touchUpInside)
+                btn.addTarget(collectionView, action: #selector(collectionView?.addNewUltrassonViewCell), for: .touchUpInside)
             case 3:
-                btn.addTarget(self, action: #selector(addNewDefaultViewCell), for: .touchUpInside)
+                btn.addTarget(collectionView, action: #selector(collectionView?.addNewDefaultViewCell), for: .touchUpInside)
             default:
                 print("Something broke")
             }
@@ -136,6 +135,7 @@ class ModalVC:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         setupBG()
         setupGestures()
         
@@ -151,72 +151,5 @@ class ModalVC:UIViewController{
         }
     }
     
-    @objc func addNewDefaultViewCell(defaultView : DefaultView? = nil) {
-        var hasView = false
-        
-        for object in collectionView!.cells{
-            if type(of: object.view) == DefaultView.self{
-                hasView = true
-                print("Ja existe esse elemento")
-                break
-            }
-        }
-        
-        if let _ = defaultView, hasView == false{
-            let newView = DefaultView()
-            let newCell = CellInfo(view: newView, size: newView.defaultViewSize, id: BloodView.id)
-            collectionView!.cells.append(newCell)
-            collectionView!.setupCollectionView()
-            
-            let lastItemIndexPath = IndexPath(item: collectionView!.collectionView.numberOfItems(inSection: 0) - 1, section: 0)
-            collectionView!.collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
-        }
-        
-    }
-    
-    @objc func addNewBloodViewCell(bloodView : BloodView? = nil) {
-        var hasView = false
-        
-        for object in collectionView!.cells{
-            if type(of: object.view) == BloodView.self{
-                hasView = true
-                print("Ja existe esse elemento")
-                break
-            }
-        }
-        
-        if let _ = bloodView, hasView == false{
-            let newView = BloodView()
-            let newCell = CellInfo(view: newView, size: newView.bloodViewViewSize, id: BloodView.id)
-            collectionView!.cells.append(newCell)
-            collectionView!.setupCollectionView()
-            
-            let lastItemIndexPath = IndexPath(item: collectionView!.collectionView.numberOfItems(inSection: 0) - 1, section: 0)
-            collectionView!.collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
-        }
-        
-    }
-    
-    @objc func addNewUltrassonViewCell(ultrassonView : UltrasoundView? = nil) {
-        var hasView = false
-        
-        for object in collectionView!.cells{
-            if type(of: object.view) == UltrasoundView.self{
-                hasView = true
-                print("Ja existe esse elemento")
-                break
-            }
-        }
-        
-        if let _ = ultrassonView, hasView == false{
-            let newView = UltrasoundView()
-            let newCell = CellInfo(view: newView, size: newView.ultrasoundViewSize, id: BloodView.id)
-            collectionView!.cells.append(newCell)
-            collectionView!.setupCollectionView()
-            let lastItemIndexPath = IndexPath(item: collectionView!.collectionView.numberOfItems(inSection: 0) - 1, section: 0)
-            collectionView!.collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
-        }
-        
-    }
 }
 
