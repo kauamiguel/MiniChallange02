@@ -59,9 +59,9 @@ class ListView: UIView {
         
         //Title UI settings
         title.text = "Consultas"
-        title.font = .systemFont(ofSize: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize - 5, weight: .bold)
+        title.font = UIFont(name: "Signika-Bold", size: 30)
         title.textColor = UIColor(red: 0.227, green: 0.651, blue: 0.725, alpha: 1)
-        
+       
         return title
     }
     

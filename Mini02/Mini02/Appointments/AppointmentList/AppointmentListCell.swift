@@ -18,7 +18,7 @@ class AppointmentListCell: UITableViewCell {
         
         title.textColor = UIColor(red: 0.227, green: 0.651, blue: 0.725, alpha: 1)
         title.textAlignment = .left
-        title.font = .systemFont (ofSize: 24, weight: .regular)
+        title.font = UIFont(name: "Signika-Regular", size: 24)
         title.text = "Consulta 1"
         
         
@@ -33,7 +33,7 @@ class AppointmentListCell: UITableViewCell {
         
         date.textColor = UIColor(red: 0.70, green: 0.82, blue: 0.84, alpha: 1.00)
         date.textAlignment = .left
-        date.font = .systemFont (ofSize: 16, weight: .light)
+        date.font = UIFont(name: "Signika-Regular", size: 16)
         date.text = dateFormatter.string(from: Date())
       
         return date
