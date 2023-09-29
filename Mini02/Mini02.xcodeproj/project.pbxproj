@@ -24,6 +24,7 @@
 		ABAD4F4D2AC21514007BEC32 /* DropDownMenuComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F4C2AC21514007BEC32 /* DropDownMenuComponent.swift */; };
 		ABAD4F542AC45DDE007BEC32 /* DropDownComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F532AC45DDE007BEC32 /* DropDownComponentView.swift */; };
 		ABB82F132AC5FCF8008B73AF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB82F122AC5FCF8008B73AF /* HistoryView.swift */; };
+		ABB82F162AC60931008B73AF /* RoutineDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB82F152AC60931008B73AF /* RoutineDataView.swift */; };
 		ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98B7E2AB3D9C5005214E5 /* AppDelegate.swift */; };
 		ABC98B812AB3D9C5005214E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98B802AB3D9C5005214E5 /* SceneDelegate.swift */; };
 		ABC98B882AB3D9C6005214E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC98B872AB3D9C6005214E5 /* Assets.xcassets */; };
@@ -48,6 +49,13 @@
 		ABFA04EE2ABCCF7500D31DEA /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */; };
 		ABFA04EF2ABCCF7500D31DEA /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EB2ABCCF7500D31DEA /* ListView.swift */; };
 		ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */; };
+		ABFDA7732AC60B460097656E /* PregnancyRiskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA7722AC60B460097656E /* PregnancyRiskView.swift */; };
+		ABFDA7752AC646470097656E /* PlannedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA7742AC646470097656E /* PlannedView.swift */; };
+		ABFDA7772AC656030097656E /* PregnancyTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA7762AC656030097656E /* PregnancyTypeView.swift */; };
+		ABFDA7792AC65A600097656E /* StackViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA7782AC65A600097656E /* StackViews.swift */; };
+		ABFDA77B2AC6769B0097656E /* FamilyAntecedentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA77A2AC6769B0097656E /* FamilyAntecedentView.swift */; };
+		ABFDA77D2AC67BBA0097656E /* CurrentGestationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA77C2AC67BBA0097656E /* CurrentGestationView.swift */; };
+		ABFDA77F2AC67BE10097656E /* ClinicAntecedentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA77E2AC67BE10097656E /* ClinicAntecedentsView.swift */; };
 		CE8EE3432AC5F512000E89E1 /* Pacient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE3412AC5F512000E89E1 /* Pacient+CoreDataClass.swift */; };
 		CE8EE3442AC5F512000E89E1 /* Pacient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE3422AC5F512000E89E1 /* Pacient+CoreDataProperties.swift */; };
 		CE8EE3462AC5F665000E89E1 /* PersonalBGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE3452AC5F665000E89E1 /* PersonalBGModel.swift */; };
@@ -94,6 +102,7 @@
 		ABAD4F4C2AC21514007BEC32 /* DropDownMenuComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuComponent.swift; sourceTree = "<group>"; };
 		ABAD4F532AC45DDE007BEC32 /* DropDownComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownComponentView.swift; sourceTree = "<group>"; };
 		ABB82F122AC5FCF8008B73AF /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		ABB82F152AC60931008B73AF /* RoutineDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineDataView.swift; sourceTree = "<group>"; };
 		ABC98B7B2AB3D9C5005214E5 /* Mini02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABC98B7E2AB3D9C5005214E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABC98B802AB3D9C5005214E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +130,13 @@
 		ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		ABFA04EB2ABCCF7500D31DEA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointementsTableController.swift; sourceTree = "<group>"; };
+		ABFDA7722AC60B460097656E /* PregnancyRiskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnancyRiskView.swift; sourceTree = "<group>"; };
+		ABFDA7742AC646470097656E /* PlannedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedView.swift; sourceTree = "<group>"; };
+		ABFDA7762AC656030097656E /* PregnancyTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnancyTypeView.swift; sourceTree = "<group>"; };
+		ABFDA7782AC65A600097656E /* StackViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViews.swift; sourceTree = "<group>"; };
+		ABFDA77A2AC6769B0097656E /* FamilyAntecedentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyAntecedentView.swift; sourceTree = "<group>"; };
+		ABFDA77C2AC67BBA0097656E /* CurrentGestationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGestationView.swift; sourceTree = "<group>"; };
+		ABFDA77E2AC67BE10097656E /* ClinicAntecedentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicAntecedentsView.swift; sourceTree = "<group>"; };
 		CE8EE3412AC5F512000E89E1 /* Pacient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pacient+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CE8EE3422AC5F512000E89E1 /* Pacient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pacient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE8EE3452AC5F665000E89E1 /* PersonalBGModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalBGModel.swift; sourceTree = "<group>"; };
@@ -178,7 +194,6 @@
 				ABFA04DC2ABB7FEA00D31DEA /* routine appointment */,
 				ABFA04DD2ABB800000D31DEA /* Blood */,
 				ABFA04DE2ABB801400D31DEA /* Ultrasound */,
-				6241A15F2AC221D800C7921B /* ModalView.swift */,
 			);
 			path = ComponetViews;
 			sourceTree = "<group>";
@@ -186,6 +201,7 @@
 		ABAD4F2C2ABD25E8007BEC32 /* ReusableUIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				ABC98BBD2AB83B8C005214E5 /* Utility */,
 				E8E0D6592AC4C6E3003CE5CD /* ProfileImage */,
 				ABAD4F422ABE2275007BEC32 /* CheckBox */,
 				ABAD4F432ABE2299007BEC32 /* Label */,
@@ -261,7 +277,6 @@
 				ABC98BA02AB3F338005214E5 /* RecurrentData */,
 				ABC98BA92AB3F5F8005214E5 /* Profile */,
 				ABC98B952AB3E209005214E5 /* Delegate */,
-				ABC98BBD2AB83B8C005214E5 /* Utility */,
 				ABC98B922AB3DC29005214E5 /* App */,
 				ABC98B8C2AB3D9C6005214E5 /* Info.plist */,
 			);
@@ -336,6 +351,7 @@
 				ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */,
 				ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */,
 				ABC98BB52AB3FCC2005214E5 /* MaternityCardCell.swift */,
+				6241A15F2AC221D800C7921B /* ModalView.swift */,
 				ABC98BB32AB3FCAA005214E5 /* MaternityCardViewController.swift */,
 				AB7852EC2AB9F92A00566EF9 /* ComponetViews */,
 			);
@@ -349,6 +365,7 @@
 				ABC98BBE2AB83BD6005214E5 /* Constrains.swift */,
 				ABC98BC02AB83C8D005214E5 /* TextField.swift */,
 				E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */,
+				ABFDA7782AC65A600097656E /* StackViews.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -369,6 +386,13 @@
 			isa = PBXGroup;
 			children = (
 				AB7852ED2AB9F94600566EF9 /* DefaultView.swift */,
+				ABB82F152AC60931008B73AF /* RoutineDataView.swift */,
+				ABFDA77A2AC6769B0097656E /* FamilyAntecedentView.swift */,
+				ABFDA7762AC656030097656E /* PregnancyTypeView.swift */,
+				ABFDA7722AC60B460097656E /* PregnancyRiskView.swift */,
+				ABFDA7742AC646470097656E /* PlannedView.swift */,
+				ABFDA77C2AC67BBA0097656E /* CurrentGestationView.swift */,
+				ABFDA77E2AC67BE10097656E /* ClinicAntecedentsView.swift */,
 			);
 			path = "routine appointment";
 			sourceTree = "<group>";
@@ -574,12 +598,16 @@
 				ABAD4F472ABE2B1A007BEC32 /* AppointmentsVM.swift in Sources */,
 				6241A1602AC221D800C7921B /* ModalView.swift in Sources */,
 				ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift in Sources */,
+				ABB82F162AC60931008B73AF /* RoutineDataView.swift in Sources */,
 				E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */,
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
 				62FA7C3A2ABE17160083F6E0 /* BloodExamModel.swift in Sources */,
 				ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */,
 				CEA008AD2AC5F373005F54E5 /* CoreDataFunctions.swift in Sources */,
 				E8E0D6472AC36F1A003CE5CD /* ProfileListCell.swift in Sources */,
+				ABFDA77B2AC6769B0097656E /* FamilyAntecedentView.swift in Sources */,
+				ABFDA77F2AC67BE10097656E /* ClinicAntecedentsView.swift in Sources */,
+				ABFDA7772AC656030097656E /* PregnancyTypeView.swift in Sources */,
 				ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */,
 				E8135BBE2ABA1C0400E722FA /* ThirdOnboardingViewController.swift in Sources */,
 				ABC98BA82AB3F5E0005214E5 /* RecurrentDataView.swift in Sources */,
@@ -604,10 +632,12 @@
 				E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */,
 				ABC98B942AB3DC9C005214E5 /* TabBarViewController.swift in Sources */,
 				ABAD4F452ABE22C1007BEC32 /* LabelComponentModel.swift in Sources */,
+				ABFDA77D2AC67BBA0097656E /* CurrentGestationView.swift in Sources */,
 				ABC98B9A2AB3E458005214E5 /* TabBarView.swift in Sources */,
 				ABC98B812AB3D9C5005214E5 /* SceneDelegate.swift in Sources */,
 				ABAD4F412ABE1C99007BEC32 /* LabelComponentView.swift in Sources */,
 				AB7852F02AB9F95200566EF9 /* BloodView.swift in Sources */,
+				ABFDA7752AC646470097656E /* PlannedView.swift in Sources */,
 				E8E0D6512AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift in Sources */,
 				E8135C262ABE180300E722FA /* RegisterViewModel.swift in Sources */,
 				ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift in Sources */,
@@ -626,6 +656,8 @@
 				ABC98BC42AB83EED005214E5 /* RegisterView.swift in Sources */,
 				CEA008AB2AC5F364005F54E5 /* CoreDataModel.xcdatamodeld in Sources */,
 				ABC98B9C2AB3E677005214E5 /* AppointmentsViewController.swift in Sources */,
+				ABFDA7732AC60B460097656E /* PregnancyRiskView.swift in Sources */,
+				ABFDA7792AC65A600097656E /* StackViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
