@@ -97,16 +97,16 @@
 		6220F7CA2ABCD32A00CB5230 /* AppointmentsListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsListVM.swift; sourceTree = "<group>"; };
 		6241A15F2AC221D800C7921B /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		6241A1632AC6212000C7921B /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
-		6241A1E02AC7434400C7921B /* SignikaNegative-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SignikaNegative-Light.ttf"; path = "Mini02/SignikaNegative-Light.ttf"; sourceTree = "<group>"; };
-		6241A1E12AC7434500C7921B /* SignikaNegative-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SignikaNegative-Semibold.ttf"; path = "Mini02/SignikaNegative-Semibold.ttf"; sourceTree = "<group>"; };
-		6241A1E22AC7434500C7921B /* Signika-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Signika-Bold.ttf"; path = "Mini02/Signika-Bold.ttf"; sourceTree = "<group>"; };
-		6241A1E32AC7434500C7921B /* Signika-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Signika-Regular.ttf"; path = "Mini02/Signika-Regular.ttf"; sourceTree = "<group>"; };
-		6241A1E42AC7434500C7921B /* Signika-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Signika-Semibold.ttf"; path = "Mini02/Signika-Semibold.ttf"; sourceTree = "<group>"; };
-		6241A1E52AC7434500C7921B /* Signika-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Signika-Light.ttf"; path = "Mini02/Signika-Light.ttf"; sourceTree = "<group>"; };
-		6241A1E62AC7434500C7921B /* Signika-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Signika-Medium.ttf"; path = "Mini02/Signika-Medium.ttf"; sourceTree = "<group>"; };
-		6241A1E72AC7434500C7921B /* SignikaNegative-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SignikaNegative-Bold.ttf"; path = "Mini02/SignikaNegative-Bold.ttf"; sourceTree = "<group>"; };
-		6241A1E82AC7434500C7921B /* SignikaNegative-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SignikaNegative-Regular.ttf"; path = "Mini02/SignikaNegative-Regular.ttf"; sourceTree = "<group>"; };
-		6241A1E92AC7434500C7921B /* SignikaNegative-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SignikaNegative-Medium.ttf"; path = "Mini02/SignikaNegative-Medium.ttf"; sourceTree = "<group>"; };
+		6241A1E02AC7434400C7921B /* SignikaNegative-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SignikaNegative-Light.ttf"; sourceTree = "<group>"; };
+		6241A1E12AC7434500C7921B /* SignikaNegative-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SignikaNegative-Semibold.ttf"; sourceTree = "<group>"; };
+		6241A1E22AC7434500C7921B /* Signika-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Bold.ttf"; sourceTree = "<group>"; };
+		6241A1E32AC7434500C7921B /* Signika-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Regular.ttf"; sourceTree = "<group>"; };
+		6241A1E42AC7434500C7921B /* Signika-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Semibold.ttf"; sourceTree = "<group>"; };
+		6241A1E52AC7434500C7921B /* Signika-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Light.ttf"; sourceTree = "<group>"; };
+		6241A1E62AC7434500C7921B /* Signika-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Medium.ttf"; sourceTree = "<group>"; };
+		6241A1E72AC7434500C7921B /* SignikaNegative-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SignikaNegative-Bold.ttf"; sourceTree = "<group>"; };
+		6241A1E82AC7434500C7921B /* SignikaNegative-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SignikaNegative-Regular.ttf"; sourceTree = "<group>"; };
+		6241A1E92AC7434500C7921B /* SignikaNegative-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SignikaNegative-Medium.ttf"; sourceTree = "<group>"; };
 		62C9AEBE2ABE121B00008825 /* Vaccines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccines.swift; sourceTree = "<group>"; };
 		62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtrasoundExam.swift; sourceTree = "<group>"; };
 		62FA7C392ABE17160083F6E0 /* BloodExamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodExamModel.swift; sourceTree = "<group>"; };
@@ -221,6 +221,7 @@
 		ABAD4F2C2ABD25E8007BEC32 /* ReusableUIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				ABFDA7802AC7437C0097656E /* Fonts */,
 				ABC98BBD2AB83B8C005214E5 /* Utility */,
 				E8E0D6592AC4C6E3003CE5CD /* ProfileImage */,
 				ABAD4F422ABE2275007BEC32 /* CheckBox */,
@@ -271,16 +272,6 @@
 		ABC98B722AB3D9C5005214E5 = {
 			isa = PBXGroup;
 			children = (
-				6241A1E22AC7434500C7921B /* Signika-Bold.ttf */,
-				6241A1E52AC7434500C7921B /* Signika-Light.ttf */,
-				6241A1E62AC7434500C7921B /* Signika-Medium.ttf */,
-				6241A1E32AC7434500C7921B /* Signika-Regular.ttf */,
-				6241A1E42AC7434500C7921B /* Signika-Semibold.ttf */,
-				6241A1E72AC7434500C7921B /* SignikaNegative-Bold.ttf */,
-				6241A1E02AC7434400C7921B /* SignikaNegative-Light.ttf */,
-				6241A1E92AC7434500C7921B /* SignikaNegative-Medium.ttf */,
-				6241A1E82AC7434500C7921B /* SignikaNegative-Regular.ttf */,
-				6241A1E12AC7434500C7921B /* SignikaNegative-Semibold.ttf */,
 				ABC98B7D2AB3D9C5005214E5 /* Mini02 */,
 				ABC98B7C2AB3D9C5005214E5 /* Products */,
 			);
@@ -491,6 +482,23 @@
 				E8135BBD2ABA1C0400E722FA /* ThirdOnboardingViewController.swift */,
 			);
 			path = ThirdOnboarding;
+			sourceTree = "<group>";
+		};
+		ABFDA7802AC7437C0097656E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6241A1E22AC7434500C7921B /* Signika-Bold.ttf */,
+				6241A1E52AC7434500C7921B /* Signika-Light.ttf */,
+				6241A1E62AC7434500C7921B /* Signika-Medium.ttf */,
+				6241A1E32AC7434500C7921B /* Signika-Regular.ttf */,
+				6241A1E42AC7434500C7921B /* Signika-Semibold.ttf */,
+				6241A1E72AC7434500C7921B /* SignikaNegative-Bold.ttf */,
+				6241A1E02AC7434400C7921B /* SignikaNegative-Light.ttf */,
+				6241A1E92AC7434500C7921B /* SignikaNegative-Medium.ttf */,
+				6241A1E82AC7434500C7921B /* SignikaNegative-Regular.ttf */,
+				6241A1E12AC7434500C7921B /* SignikaNegative-Semibold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		CE8EE3492AC5F704000E89E1 /* PacientFilesCoreData */ = {
