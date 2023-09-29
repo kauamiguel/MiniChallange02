@@ -25,6 +25,7 @@ class CoreDataFunctions{
         }
     }
     
+    //Return na array of blood exam to manipulate in other views
     func getBloodExam() -> [BloodExam]{
         
         fetchPacient()
@@ -37,6 +38,7 @@ class CoreDataFunctions{
         return []
     }
     
+    //Return na array of ultrasound to manipulate in other views
     func getBloodUltraSoundExam() -> [UltraSoundModel]{
         
         fetchPacient()
