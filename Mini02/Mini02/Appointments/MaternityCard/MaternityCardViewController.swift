@@ -38,9 +38,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id),
             CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id),
             CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id)
-            //            CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id),
-            
-            //CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundViewSize, id: UltrasoundView.id)
+          
         ]
         
         self.collectionView.dataSource = self
