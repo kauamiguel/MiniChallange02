@@ -31,24 +31,25 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         super.init(collectionViewLayout: layout)
         
         cells = [
-            CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id),
-            CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id),
-            CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id),
-            CellInfo(view: pregnancyRiskView, size: pregnancyRiskView.pregnancyRiskViewSize, id: PregnancyRiskView.id),
-            CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id),
-            CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id),
-            CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id)
-          
+//            CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id),
+//            CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id),
+//            CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id),
+//            CellInfo(view: pregnancyRiskView, size: pregnancyRiskView.pregnancyRiskViewSize, id: PregnancyRiskView.id),
+//            CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id),
+//            CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id),
+//            CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id)
         ]
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+
         
     }
     
     override func viewDidLoad() {
         
         setupCollectionView()
+        collectionView.isEditing = true
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<", style: .done, target: self, action: #selector(backToView))
         
@@ -63,6 +64,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     //register the cell to the indentifiers
     func setupCollectionView(){
+       
         cells.forEach { collectionView.register(MaternityCardCell.self, forCellWithReuseIdentifier: $0.id) }
         collectionView.reloadData()
         
@@ -96,24 +98,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             // Move the cell
             let movedItem = cells.remove(at: sourceIndexPath.row)
             cells.insert(movedItem, at: destinationIndexPath.row)
-            
+
         }, completion: { [weak self] _ in
             self?.collectionView.reloadData() // Reload data after updates
         })
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, contextMenuInteraction: UIContextMenuInteraction, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionAnimating?) {
-        animator?.addAnimations { [weak self] in
-            self?.collectionView.updateInteractiveMovementTargetPosition(contextMenuInteraction.location(in: MaternityCardCell()))
-            
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, contextMenuInteraction: UIContextMenuInteraction, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
-        animator.addCompletion { [weak self] in
-            self?.collectionView.endInteractiveMovement()
-        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -165,12 +153,16 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             for view in views {
                 let cellInfo = CellInfo(view: view.view, size: view.size, id: view.id)
                 cells.append(cellInfo)
+                self.collectionView.reloadData()
             }
             
             setupCollectionView()
             
-            let lastItemIndexPath = IndexPath(item: collectionView.numberOfItems(inSection: 0) - 1, section: 0)
+            let lastItemIndexPath = IndexPath(item: cells.count - 1, section: 0)
+
             collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
+            
+            
         }
         
     }
@@ -194,6 +186,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             let lastItemIndexPath = IndexPath(item: collectionView.numberOfItems(inSection: 0) - 1, section: 0)
             collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
+            
         }
         
     }
