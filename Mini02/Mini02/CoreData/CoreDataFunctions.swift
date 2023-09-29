@@ -17,6 +17,8 @@ class CoreDataFunctions{
     var pacient  : Pacient?
     
     func saveContext() {
+        guard context.hasChanges else { return }
+        
         do{
             try context.save()
             fetchPacient()
@@ -51,7 +53,8 @@ class CoreDataFunctions{
     
     func fetchPacient(){
         do{
-            let pacientArray = try context.fetch(Pacient.fetchRequest())
+            let patientFetchRequest = Pacient.fetchRequest()
+            let pacientArray = try context.fetch(patientFetchRequest)
             
             if let pacientFirst = pacientArray.first{
                 self.pacient = pacientFirst
@@ -62,18 +65,26 @@ class CoreDataFunctions{
         }
     }
     
+    func resetPatient() {
+        if let pacient {
+            context.delete(pacient)
+        }
+        saveContext()
+    }
+    
     //Create a pacient for the first time
     func createPacient(){
+        guard pacient == nil else { return }
         self.pacient = Pacient(context: context)
     }
     
     //Add personal info to a pacient that alredy exists
-    func addPersonalInfo(firstName : String, secondName : String, nickName : String, age : Int, height : Float , weight : Float){
+    func addPersonalInfo(firstName : String, secondName : String, nickName : String, dateOfBirth : Date, height : Float , weight : Float){
         
         createPacient()
         if let pacient = self.pacient{
             pacient.nickName = nickName
-            pacient.age = Int64(age)
+            pacient.dateOfBirth = dateOfBirth
             pacient.firstName = firstName
             pacient.secondName = secondName
             pacient.height = height
@@ -197,6 +208,21 @@ class CoreDataFunctions{
         
         //Adding the relationChip
         savedPacient!.familyBG = family
+        
+        saveContext()
+        fetchPacient()
+    }
+    
+    func assignEmergencyContact(contact: EmergencyContactModel) {
+        fetchPacient()
+        guard let pacient else { return }
+        
+        let emergencyContact = EmergencyContact(context: context)
+        
+        emergencyContact.name = contact.name
+        emergencyContact.phone = contact.phone
+        emergencyContact.relation = contact.relation.rawValue
+        pacient.emergencyContact = emergencyContact
         
         saveContext()
         fetchPacient()
