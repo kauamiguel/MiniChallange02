@@ -49,6 +49,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
     }
     
+    //Function of backButton
     @objc func backToView(){
         self.navigationController?.popViewController(animated: true)
     }

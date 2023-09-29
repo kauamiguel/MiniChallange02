@@ -25,6 +25,7 @@ class ListViewController: UIViewController {
         view.setupView(action: #selector(GoToNextScene))
     }
     
+    //Function of the backButton
     @objc func backToView(){
         self.navigationController?.popViewController(animated: true)
     }
