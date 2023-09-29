@@ -14,12 +14,12 @@ class CurrentGestationView: UIView {
     static let id = "CurrentGestationCell"
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-    let currentGestationViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.4)
+    let currentGestationViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.35)
     
     
     let roudedBackGround: UIView = {
         let view = UIView()
-        view.backgroundColor = .red
+        view.backgroundColor = .clear
         
         return view
     }()
@@ -143,32 +143,32 @@ class CurrentGestationView: UIView {
         configureLabelAndGreenCheckBox(stack: smokeSubHStack,label: smokeLabel,checkBox: smokeCheckYES,labelText: "Fuma")
         
         contentBackGround.addSubview(smokeSubHStack)
-        smokeSubHStack.anchorWithConstantValues(top: currentGestationLabel.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, leftPadding: 10,rightPadding: -34)
+        smokeSubHStack.anchorWithConstantValues(top: currentGestationLabel.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15 ,leftPadding: 10,rightPadding: -34)
         
         /* ----------------------------------------------------------alcool------------------------------------------------------------- */
         configureLabelAndGreenCheckBox(stack: alcoolSubHStack,label: alcoolLabel,checkBox: alcoolcheckYES,labelText: "Consome álcool")
         
         contentBackGround.addSubview(alcoolSubHStack)
         alcoolSubHStack.anchorWithConstantValues(top: smokeSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
-        
-        /* ----------------------------------------------------------otherDrugs------------------------------------------------------------- */
+//        
+//        /* ----------------------------------------------------------otherDrugs------------------------------------------------------------- */
         configureLabelAndGreenCheckBox(stack: otherDrugsSubHStack,label: otherDrugsLabel,checkBox: otherDrugsCheckYES,labelText: "Outras drogas")
         
         contentBackGround.addSubview(otherDrugsSubHStack)
         otherDrugsSubHStack.anchorWithConstantValues(top: alcoolSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15,leftPadding: 10 ,rightPadding: -34)
-        
-        /* ----------------------------------------------------------HIV/AIDS------------------------------------------------------------- */
+//        
+//        /* ----------------------------------------------------------HIV/AIDS------------------------------------------------------------- */
         configureLabelAndGreenCheckBox(stack: hivAidsSubHStack,label: hivAidsLabelYES, checkBox: hivAidsCheckYES,labelText: "HIV/Aids")
         
         contentBackGround.addSubview(hivAidsSubHStack)
-        hivAidsSubHStack.anchorWithConstantValues(top: otherDrugsSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, bottom: contentBackGround.bottomAnchor, topPadding: 15, leftPadding: 10, rightPadding: -34)
+        hivAidsSubHStack.anchorWithConstantValues(top: otherDrugsSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10, rightPadding: -34)
         
         /* ---------------------------------------------------------Syphilis------------------------------------------------------------- */
        
-//        configureLabelAndGreenCheckBox(stack:  syphilisSubHStack,label:  syphilisLabelYES, checkBox:  syphilisCheckYES,labelText: "Sífilis")
-//        
-//        contentBackGround.addSubview(syphilisSubHStack)
-//        syphilisSubHStack.anchorWithConstantValues(top: hivAidsSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, bottom: contentBackGround.bottomAnchor, topPadding: 15, leftPadding: 10, rightPadding: -34, bottomPadding: -15)
+        configureLabelAndGreenCheckBox(stack:  syphilisSubHStack,label:  syphilisLabelYES, checkBox:  syphilisCheckYES,labelText: "Sífilis")
+        
+        contentBackGround.addSubview(syphilisSubHStack)
+        syphilisSubHStack.anchorWithConstantValues(top: hivAidsSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, bottom: contentBackGround.bottomAnchor, topPadding: 15, leftPadding: 10, rightPadding: -34, bottomPadding: -15)
     }
     
     

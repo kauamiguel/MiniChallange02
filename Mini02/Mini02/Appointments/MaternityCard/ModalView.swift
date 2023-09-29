@@ -104,9 +104,9 @@ class ModalVC: UIViewController{
             case 0:
                 btn.addTarget(collectionView, action: #selector(collectionView?.addNewBloodViewCell), for: .touchUpInside)
             case 1:
-                btn.addTarget(collectionView, action: #selector(collectionView?.addNewDefaultViewCell), for: .touchUpInside)
-            case 2:
                 btn.addTarget(collectionView, action: #selector(collectionView?.addNewUltrassonViewCell), for: .touchUpInside)
+            case 2:
+                btn.addTarget(collectionView, action: #selector(collectionView?.addNewDefaultViewCell), for: .touchUpInside)
             case 3:
                 btn.addTarget(collectionView, action: #selector(collectionView?.addNewDefaultViewCell), for: .touchUpInside)
             default:
