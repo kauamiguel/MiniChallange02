@@ -39,12 +39,18 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         setupCollectionView()
         
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<", style: .done, target: self, action: #selector(backToView))
+        
         collectionView.backgroundColor = .white
         
         self.hidesBottomBarWhenPushed = true
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Adicionar", style: .plain, target: self, action: #selector(openModal))
         
+    }
+    
+    @objc func backToView(){
+        self.navigationController?.popViewController(animated: true)
     }
     
     //Adicionar dados dinamicamente na celula

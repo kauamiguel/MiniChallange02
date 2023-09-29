@@ -13,6 +13,9 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<", style: .done, target: self, action: #selector(backToView))
+        
        
         guard let view = ListViewManager else {
             fatalError("no view was passed")
@@ -20,6 +23,10 @@ class ListViewController: UIViewController {
         
         view.controller = self
         view.setupView(action: #selector(GoToNextScene))
+    }
+    
+    @objc func backToView(){
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func GoToNextScene(){
