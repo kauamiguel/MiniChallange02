@@ -20,6 +20,16 @@
 		6241A1D32AC741CE00C7921B /* SignikaNegative-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6241A1C92AC741CE00C7921B /* SignikaNegative-Light.ttf */; };
 		6241A1D42AC741CE00C7921B /* SignikaNegative-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6241A1CA2AC741CE00C7921B /* SignikaNegative-Medium.ttf */; };
 		6241A1D52AC741CE00C7921B /* Signika-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6241A1CB2AC741CE00C7921B /* Signika-Light.ttf */; };
+		6241A1D62AC7421A00C7921B /* Signika-Bold.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 6241A1C52AC741CE00C7921B /* Signika-Bold.ttf */; };
+		6241A1D72AC7421A00C7921B /* Signika-Light.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 6241A1CB2AC741CE00C7921B /* Signika-Light.ttf */; };
+		6241A1D82AC7421A00C7921B /* Signika-Medium.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 6241A1C42AC741CE00C7921B /* Signika-Medium.ttf */; };
+		6241A1D92AC7421A00C7921B /* Signika-Regular.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 6241A1C32AC741CE00C7921B /* Signika-Regular.ttf */; };
+		6241A1DA2AC7421A00C7921B /* Signika-Semibold.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 6241A1C62AC741CE00C7921B /* Signika-Semibold.ttf */; };
+		6241A1DB2AC7421A00C7921B /* SignikaNegative-Bold.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 6241A1C82AC741CE00C7921B /* SignikaNegative-Bold.ttf */; };
+		6241A1DC2AC7421A00C7921B /* SignikaNegative-Light.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 6241A1C92AC741CE00C7921B /* SignikaNegative-Light.ttf */; };
+		6241A1DD2AC7421A00C7921B /* SignikaNegative-Medium.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 6241A1CA2AC741CE00C7921B /* SignikaNegative-Medium.ttf */; };
+		6241A1DE2AC7421A00C7921B /* SignikaNegative-Regular.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 6241A1C72AC741CE00C7921B /* SignikaNegative-Regular.ttf */; };
+		6241A1DF2AC7421A00C7921B /* SignikaNegative-Semibold.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 6241A1C22AC741CE00C7921B /* SignikaNegative-Semibold.ttf */; };
 		62D39EAD2ABF1CCC003CF99F /* UtrasoundExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */; };
 		62FA7C3A2ABE17160083F6E0 /* BloodExamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FA7C392ABE17160083F6E0 /* BloodExamModel.swift */; };
 		AB7852EE2AB9F94600566EF9 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852ED2AB9F94600566EF9 /* DefaultView.swift */; };
@@ -626,6 +636,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6241A1D62AC7421A00C7921B /* Signika-Bold.ttf in Sources */,
+				6241A1D72AC7421A00C7921B /* Signika-Light.ttf in Sources */,
+				6241A1D82AC7421A00C7921B /* Signika-Medium.ttf in Sources */,
+				6241A1D92AC7421A00C7921B /* Signika-Regular.ttf in Sources */,
+				6241A1DA2AC7421A00C7921B /* Signika-Semibold.ttf in Sources */,
+				6241A1DB2AC7421A00C7921B /* SignikaNegative-Bold.ttf in Sources */,
+				6241A1DC2AC7421A00C7921B /* SignikaNegative-Light.ttf in Sources */,
+				6241A1DD2AC7421A00C7921B /* SignikaNegative-Medium.ttf in Sources */,
+				6241A1DE2AC7421A00C7921B /* SignikaNegative-Regular.ttf in Sources */,
+				6241A1DF2AC7421A00C7921B /* SignikaNegative-Semibold.ttf in Sources */,
 				ABFA04ED2ABCCF7500D31DEA /* AppointmentListCell.swift in Sources */,
 				ABFA04EE2ABCCF7500D31DEA /* ListViewController.swift in Sources */,
 				CE9F790D2AC4A2830081AB5A /* RoundedCorners.swift in Sources */,
