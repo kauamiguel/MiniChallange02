@@ -35,7 +35,7 @@ class ModalVC: UIViewController{
         bg.centerX(inView: parent)
         // Add the button stack view to the background view
         bg.addSubview(button)
-
+        
         button.translatesAutoresizingMaskIntoConstraints = false
         
         
@@ -49,7 +49,7 @@ class ModalVC: UIViewController{
     
     func setupButtons() -> UIStackView{
         let screenWidth = UIScreen.main.bounds.width
-        let buttonWidth = screenWidth * 0.1 // Adjust the proportion as needed
+        let buttonWidth = screenWidth * 0.11// Adjust the proportion as needed
         
         //Hstack config
         let Hstack = UIStackView()
@@ -74,10 +74,10 @@ class ModalVC: UIViewController{
             btnConfig.imagePlacement = .top
             btnConfig.title = btnArray[i]
             btnConfig.titleLineBreakMode = .byWordWrapping
-            btnConfig.attributedTitle?.font = UIFont.systemFont(ofSize: buttonWidth * 0.3 + 1 )
-            
+            btnConfig.attributedTitle?.font = UIFont(name: "Signika-Regular", size:screenWidth * 0.03)
+            btn.tintColor = UIColor(red: 1.00, green: 0.52, blue: 0.58, alpha: 1.00)
             // Create a template image so it scales without distortion
-            if let image = UIImage(systemName: "pencil.circle.fill")?.withRenderingMode(.alwaysTemplate) {
+            if let image = UIImage(systemName: "pencil.circle.fill")?.withRenderingMode(.automatic) {
                 btnConfig.image = image
             }
 
@@ -92,14 +92,15 @@ class ModalVC: UIViewController{
             //Setting constrains to the image
             btn.imageView?.anchorWithConstantValues(width: buttonWidth,height: buttonWidth)
             btn.imageView?.centerXAnchor.constraint(equalTo: btn.centerXAnchor).isActive = true
-
-
+            //btn.imageView?.centerYAnchor.constraint(equalTo: btn.centerYAnchor).isActive = true
             
             //Setting constrains to the button title
             btn.titleLabel?.anchorWithConstantValues(top: btn.imageView?.bottomAnchor)
             btn.titleLabel?.centerXAnchor.constraint(equalTo: btn.centerXAnchor).isActive = true
             
+       
             
+            //Adds targets to the buttons
             switch i{
             case 0:
                 btn.addTarget(collectionView, action: #selector(collectionView?.addNewBloodViewCell), for: .touchUpInside)
@@ -118,6 +119,10 @@ class ModalVC: UIViewController{
             btn.imageView?.contentMode = .scaleAspectFit
             
             Hstack.addArrangedSubview(btn)
+            //Hstack.backgroundColor = .red
+            Hstack.anchorWithConstantValues(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.1)
+            btn.imageView?.anchorWithConstantValues(bottom: Hstack.centerYAnchor, bottomPadding: buttonWidth * 0.25)
+           // btn.centerYAnchor.constraint(equalTo: Hstack.centerYAnchor).isActive = true
         }
 
         return Hstack
