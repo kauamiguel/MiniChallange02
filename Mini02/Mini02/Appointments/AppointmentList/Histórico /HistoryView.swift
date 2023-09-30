@@ -18,8 +18,8 @@ class HistoryView: UIView {
         }
         vc.view.backgroundColor = .white
    
-        var date = dateLabel
-        var text = titleLabel
+        let date = dateLabel
+        let text = titleLabel
         
         vc.view.addSubview(date)
         vc.view.addSubview(text)
