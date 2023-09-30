@@ -12,8 +12,10 @@ class HistoryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Dummyview.controller = self
         Dummyview.setupView()
         // Do any additional setup after loading the view.
+     
     }
     
 
