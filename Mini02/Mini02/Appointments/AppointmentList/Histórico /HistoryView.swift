@@ -16,16 +16,34 @@ class HistoryView: UIView {
         guard let vc = controller else{
             fatalError("No view controller was passed")
         }
-        self.backgroundColor = .red
-        vc.view.addSubview(self)
-        self.anchorWithConstantValues(
-            top: vc.view.topAnchor,
-                                           
-            left: vc.view.leadingAnchor,
-                                           
-            right: vc.view.trailingAnchor,
-                                           
-            bottom: vc.view.bottomAnchor
-        )
+        vc.view.backgroundColor = .white
+   
+        var date = dateLabel
+        var text = titleLabel
+        
+        vc.view.addSubview(date)
+        vc.view.addSubview(text)
+        
+        text.anchorWithConstantValues(left: vc.view.leadingAnchor,right: vc.view.trailingAnchor)
+        text.centerY(inView: vc.view)
+        
+   
+        date.anchorWithConstantValues(top: text.bottomAnchor,left: vc.view.leadingAnchor,right: vc.view.trailingAnchor)
+    
     }
+    
+    let titleLabel: UILabel = {
+         let label = UILabel()
+         label.font = UIFont(name: "Signika-Regular", size: 24)
+         label.textAlignment = .center
+         return label
+     }()
+     
+    let dateLabel: UILabel = {
+         let label = UILabel()
+         label.font = UIFont(name: "Signika-Regular", size: 16)
+         label.textAlignment = .center
+         return label
+     }()
+    
 }

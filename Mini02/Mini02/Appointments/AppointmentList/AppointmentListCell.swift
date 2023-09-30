@@ -19,7 +19,7 @@ class AppointmentListCell: UITableViewCell {
         title.textColor = UIColor(red: 0.227, green: 0.651, blue: 0.725, alpha: 1)
         title.textAlignment = .left
         title.font = UIFont(name: "Signika-Regular", size: 24)
-        title.text = "Consulta 1"
+      
         
         
         
@@ -34,7 +34,7 @@ class AppointmentListCell: UITableViewCell {
         date.textColor = UIColor(red: 0.70, green: 0.82, blue: 0.84, alpha: 1.00)
         date.textAlignment = .left
         date.font = UIFont(name: "Signika-Regular", size: 16)
-        date.text = dateFormatter.string(from: Date())
+     
       
         return date
     }()
@@ -60,6 +60,14 @@ class AppointmentListCell: UITableViewCell {
         )
         
         
+    }
+    
+    func configure(with consultaData: consulta) {
+        titleLabel.text = consultaData.numero
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yy"
+        dateLabel.text = dateFormatter.string(from: consultaData.data)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

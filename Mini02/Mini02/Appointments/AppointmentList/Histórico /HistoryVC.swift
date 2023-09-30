@@ -8,12 +8,19 @@
 import UIKit
 
 class HistoryVC: UIViewController {
-    let Dummyview = HistoryView()
+    var appointmentsInfo: consulta?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Dummyview.controller = self
-        Dummyview.setupView()
+        let newView = HistoryView()
+        let dateFormatter = DateFormatter()
+        
+        newView.controller = self
+        dateFormatter.dateFormat = "dd/MM/yy"
+        newView.dateLabel.text = dateFormatter.string(from: appointmentsInfo!.data)
+        newView.titleLabel.text = appointmentsInfo?.numero
+        newView.setupView()
+        
         // Do any additional setup after loading the view.
      
     }

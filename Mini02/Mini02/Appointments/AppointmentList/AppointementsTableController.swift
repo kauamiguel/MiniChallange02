@@ -7,11 +7,24 @@
 
 import UIKit
 
+struct consulta{
+    let numero: String
+    let data: Date
+}
+
 class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
     
     var AppointementListViewManager: UITableView? //THE TABLE THAT THIS CONTROLLER MANAGES
     var parentVC:UIViewController? // THE VIEW CONTROLLER THAT CONTAINS THIS CONTROLLER
     
+    //DUMMY DATA TO POPULATE THE ROWS AND NEXT SCENE
+    var appointmentsData: [consulta] = [
+        consulta(numero: "Consulta 1", data: Date()),
+        consulta(numero: "Consulta 2", data: Calendar.current.date(byAdding: .day, value: 1, to: Date())!),
+        consulta(numero: "Consulta 3", data: Calendar.current.date(byAdding: .day, value: 2, to: Date())!),
+        consulta(numero: "Consulta 4", data: Calendar.current.date(byAdding: .day, value: 3, to: Date())!),
+        consulta(numero: "Consulta 5", data: Calendar.current.date(byAdding: .day, value: 4, to: Date())!)
+    ]
     
     //MARK: SET THE NUMBER OF ROWS IN THE TABLE
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,6 +38,13 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
         guard let cell = AppointementListViewManager?.dequeueReusableCell(withIdentifier:  AppointmentListCell.identifier, for: indexPath) as? AppointmentListCell else{
             fatalError("The consequences of XGH")
         }
+        
+        // Get the data for the current row based on indexPath.row
+        let rowData = appointmentsData[indexPath.row]
+
+        // Configure the cell with the data
+        cell.configure(with: rowData)
+        
         
         //draws top separator of row
         let topSeparator = UIView(frame: CGRect(x: 0, y: 0, width: cell.frame.width , height: 2))
@@ -55,19 +75,21 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return UIScreen.main.bounds.height * 0.09
-        //or whatever you need
     }
     
     //MARK: SET ACTION THAT OCCUR WHEN CLICKING ON A CELL
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       
-        
+        //Checks if theres a parent view controller
         guard let parent = parentVC else{
             fatalError("No view controller to be called")
         }
         
         let view = HistoryVC()
         
+        //Gets the data related to that row
+        view.appointmentsInfo = appointmentsData[indexPath.row]
+        //Pushes the new view
         parent.navigationController?.pushViewController(view, animated: true)
         
         
