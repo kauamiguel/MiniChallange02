@@ -19,7 +19,7 @@ class ModalVC: UIViewController{
         let bg = UIView()
         let button = setupButtons()
         
-        bg.backgroundColor = .darkGray
+        bg.backgroundColor = UIColor(red: 1.00, green: 0.82, blue: 0.82, alpha: 1.00)
         bg.layer.cornerRadius = 37
         let parent = self.view!
         parent.addSubview(bg)
@@ -128,7 +128,10 @@ class ModalVC: UIViewController{
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(dismissViewController))
         swipeDown.direction = .down
         
-        
+        // Add the tap gesture recognizer
+        let touchOutside = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+  
+        view.addGestureRecognizer(touchOutside)
         view.addGestureRecognizer(swipeDown)
     }
     
@@ -148,6 +151,15 @@ class ModalVC: UIViewController{
             
         }completion: { finished in
             self.dismiss(animated: false, completion: nil)
+        }
+    }
+    
+    @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
+        let tapLocation = gestureRecognizer.location(in: view)
+
+        // Check if the tap location is above the 'bg' element
+        if tapLocation.y < self.view.bounds.height * 0.80{
+            dismissViewController()
         }
     }
     
