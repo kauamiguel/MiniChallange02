@@ -9,10 +9,11 @@ import UIKit
 
 class PregnantDataViewController: UIViewController {
     private lazy var pregnantData = PregnantDataView()
-
+    private lazy var pregnantDataViewModel = PregnantDataViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        pregnantData.setupPregnantData(vc: self)
+        pregnantDataViewModel.viewController = self
+        pregnantData.setupPregnantData(vc: self, vm: pregnantDataViewModel)
     }
 }
 

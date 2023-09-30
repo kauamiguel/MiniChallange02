@@ -9,6 +9,7 @@ import UIKit
 
 class PregnantDataView: UIView {
     private var viewController: UIViewController?
+    private var viewModel: PregnantDataViewModel?
     
     private lazy var scrollView: UIScrollView = {
        let scroll = UIScrollView()
@@ -30,6 +31,7 @@ class PregnantDataView: UIView {
     private lazy var pregnantNameField: UITextField = {
        let field = UITextField()
         field.backgroundColor = .systemGray
+        field.text = viewModel?.getPatientData()?.firstName
         return field
     }()
     
@@ -42,6 +44,7 @@ class PregnantDataView: UIView {
     private lazy var aliasField: UITextField = {
        let field = UITextField()
         field.backgroundColor = .systemGray
+        field.text = viewModel?.getPatientData()?.nickName
         return field
     }()
     
@@ -55,7 +58,10 @@ class PregnantDataView: UIView {
        var picker = UIDatePicker()
         picker.datePickerMode = .date
         picker.preferredDatePickerStyle = .automatic
-        picker.setDate(Calendar.current.date(byAdding: .year, value: -18, to: Date())!, animated: false)
+        if let dateOfBirth = viewModel?.getPatientData()?.dateOfBirth {
+            picker.setDate(dateOfBirth, animated: false)
+        }
+        
         return picker
     }()
     
@@ -80,6 +86,7 @@ class PregnantDataView: UIView {
     private lazy var emergencyContactNameField: UITextField = {
        let field = UITextField()
         field.backgroundColor = .systemGray
+        field.text = viewModel?.getPatientData()?.emergencyContact?.name
         return field
     }()
     
@@ -92,6 +99,7 @@ class PregnantDataView: UIView {
     private lazy var emergencyContactPhoneField: UITextField = {
        let field = UITextField()
         field.backgroundColor = .systemGray
+        field.text = viewModel?.getPatientData()?.emergencyContact?.phone
         return field
     }()
     
@@ -100,12 +108,6 @@ class PregnantDataView: UIView {
         label.setupLabel(labelText: "Vínculo:", labelType: .subTitle, labelColor: .black)
         return label
     }()
-    
-//    private var emergencyContactRelationField: UITextField = {
-//       var field = UITextField()
-//        field.backgroundColor = .systemGray
-//        return field
-//    }()
     
     private let profileButtonWidth: CGFloat = 54
     private lazy var profileButton: UIButton = {
@@ -208,12 +210,13 @@ class PregnantDataView: UIView {
         contentView.addSubview(emergencyContactPhoneField)
         emergencyContactPhoneField.anchorWithConstantValues(top: emergencyContactPhoneLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: 50, rightPadding: -50, height: 34)
     }
-    
+    private lazy var dropdownRelation = DropDownMenuComponent()
     func setupEmergencyRelation(vc: UIViewController) {
         contentView.addSubview(emergencyContactRelationLabel)
         emergencyContactRelationLabel.anchorWithConstantValues(top: emergencyContactPhoneField.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 20, leftPadding: 50)
-        let dropdownRelation = DropDownMenuComponent()
-        dropdownRelation.setTitle("Selecionar", for: .normal)
+        
+        dropdownRelation.setTitle(viewModel?.getPatientData()?.emergencyContact?.relation ?? "Selecionar", for: .normal)
+        dropdownRelation.selectedOption = viewModel?.getPatientData()?.emergencyContact?.relation ?? "Selecionar"
         dropdownRelation.setupButton()
         dropdownRelation.tableBarView.setupDropDownOptions = [
             "Companheiro", "Familiar", "Amigo", "Outro(a)"
@@ -221,9 +224,38 @@ class PregnantDataView: UIView {
         contentView.addSubview(dropdownRelation)
         dropdownRelation.anchorWithConstantValues(top: emergencyContactRelationLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: 50, rightPadding: -50, height: 34)
     }
+    
+    private func setupTempSaveButton(vc: UIViewController) {
+        let btn: UIButton = UIButton(configuration: .plain())
+        btn.setTitle("Salvar", for: .normal)
+        btn.addAction(UIAction(handler: { [weak self] _ in
+            self?.didTapTempSaveButton()
+        }), for: .touchUpInside)
+        contentView.addSubview(btn)
+        btn.anchorWithConstantValues(top: dropdownRelation.bottomAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 40, rightPadding: -50)
+    }
+    
+    private func didTapTempSaveButton() {
+        guard let viewModel else { return }
+        let alert = UIAlertController(title: "Dados Inválidos", message: "Verifique se todos os campos estão preenchidos e tente novamente", preferredStyle: .alert)
+        alert.addAction(.init(title: "Ok", style: .default))
+        let haptics = UINotificationFeedbackGenerator()
+        let profileDataIsValid = viewModel.profileDataIsValid(name: pregnantNameField.text, nickname: aliasField.text, dateOfBirth: dateOfBirthPicker.date, emergencyContactName: emergencyContactNameField.text, emergencyContactPhone: emergencyContactPhoneField.text, emergencyContactRelation: dropdownRelation.selectedOption)
+        guard profileDataIsValid else {
+            viewController?.present(alert, animated: true)
+            haptics.notificationOccurred(.error)
+            return
+        }
+        viewModel.saveProfileData()
+        alert.title = "Sucesso!"
+        alert.message = "Seu perfil foi atualizado com sucesso!"
+        haptics.notificationOccurred(.success)
+        viewController?.present(alert, animated: true)
+    }
 
-    func setupPregnantData(vc: UIViewController) {
+    func setupPregnantData(vc: UIViewController,vm: PregnantDataViewModel) {
         self.viewController = vc
+        self.viewModel = vm
         vc.title = "Dados da Gestante"
         vc.navigationController?.navigationBar.prefersLargeTitles = true
         vc.view.backgroundColor = .systemBackground
@@ -237,6 +269,7 @@ class PregnantDataView: UIView {
         setupEmergencyName(vc: vc)
         setupEmergencyPhone(vc: vc)
         setupEmergencyRelation(vc: vc)
+        setupTempSaveButton(vc: vc)
     }
 
 }

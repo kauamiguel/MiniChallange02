@@ -11,6 +11,7 @@ import UIKit
 
 
 class RegisterView: UIView{
+    var viewModel: RegisterViewModel?
     
     private lazy var titleLabel : UILabel = {
         let label = UILabel()
@@ -31,6 +32,7 @@ class RegisterView: UIView{
     private lazy var nameTextField : UITextField = {
         let text = UITextField().textField(withPlaceholder: "", size: 20)
         text.textColor = .black
+        text.autocorrectionType = .no
         return text
     }()
     
@@ -45,6 +47,7 @@ class RegisterView: UIView{
     private lazy var aliasTextfield : UITextField  = {
         let text = UITextField().textField(withPlaceholder: "", size: 20)
         text.textColor = .black
+        text.autocorrectionType = .no
         return text
     }()
     
@@ -74,8 +77,9 @@ class RegisterView: UIView{
         return button
     }()
     
-    func setUpRegisterView(vc: UIViewController, action : Selector){
+    func setUpRegisterView(vc: UIViewController, vm : RegisterViewModel){
         vc.view.backgroundColor = .white
+        viewModel = vm
         
         let profileImage = ProfileImageButton(mode: .Edit, controller: vc)
         vc.view.addSubview(profileImage)
@@ -124,13 +128,31 @@ class RegisterView: UIView{
         dateOfBirthDatePicker.centerX(inView: vc.view)
         dateOfBirthDatePicker.anchorWithConstantValues(top: dateOfBirthLabel.bottomAnchor, left: vc.view.leadingAnchor, topPadding: 20, height: 140)
 
-        
         //Buttons constrains
-        self.nextButton.addTarget(vc, action: action, for: .touchUpInside)
         vc.view.addSubview(nextButton)
         nextButton.centerX(inView: vc.view)
         nextButton.anchorWithConstantValues(bottom: vc.view.safeAreaLayoutGuide.bottomAnchor, bottomPadding: -60,width: 364, height: 45)
+        nextButton.addAction(UIAction(handler: { [weak self] _ in
+            self?.viewModel?.didTapNext(nameText: self?.nameTextField.text, nicknameText: self?.aliasTextfield.text, dateOfBirth: self?.dateOfBirthDatePicker.date ?? Date())
+        }), for: .touchUpInside)
     }
+    
+//    private func didTapNext() {
+//        guard let vm = viewModel else { return }
+//        let haptics = UINotificationFeedbackGenerator()
+//        let isValid = vm.dataIsValid(name: nameTextField.text, alias: aliasTextfield.text, dateOfBirth: dateOfBirthDatePicker.date)
+//        guard isValid else {
+//            let alert = UIAlertController(title: "Dados Inválidos", message: "Preencha os dados para continuar", preferredStyle: .alert)
+//            alert.addAction(.init(title: "Ok", style: .default))
+//            haptics.notificationOccurred(.error)
+//            vm.viewController?.present(alert, animated: true)
+//            return
+//        }
+//        vm.saveInitialData()
+//        haptics.notificationOccurred(.success)
+//        vm.sendToMainView()
+//    }
+    
 }
 
 
