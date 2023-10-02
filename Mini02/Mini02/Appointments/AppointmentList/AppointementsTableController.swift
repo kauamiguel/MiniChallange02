@@ -57,8 +57,9 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
         // Set separator for all cells except the first one
         if indexPath.row == 0 {
             cell.contentView.addSubview(topSeparator)
+            cell.contentView.addSubview(bottomSeparator)
+
         } else{
-            cell.contentView.addSubview(topSeparator)
             cell.contentView.addSubview(bottomSeparator)
         }
         
