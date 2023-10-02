@@ -19,11 +19,12 @@ class ModalVC: UIViewController{
         let bg = UIView()
         let button = setupButtons()
         
-        bg.backgroundColor = UIColor(red: 1.00, green: 0.82, blue: 0.82, alpha: 1.00)
+        bg.backgroundColor = UIColor(red: 1, green: 0.933, blue: 0.933, alpha: 1)
         bg.layer.cornerRadius = 37
         let parent = self.view!
         parent.addSubview(bg)
-        
+        bg.layer.borderWidth = 2
+        bg.layer.borderColor = UIColor(red: 1, green: 0.521, blue: 0.58, alpha: 1).cgColor
         //Contrains of the modal
         bg.anchorWithConstantValues(
             bottom: parent.bottomAnchor,
@@ -75,7 +76,7 @@ class ModalVC: UIViewController{
             btnConfig.title = btnArray[i]
             btnConfig.titleLineBreakMode = .byWordWrapping
             btnConfig.attributedTitle?.font = UIFont(name: "Signika-Regular", size:screenWidth * 0.03)
-            btn.tintColor = UIColor(red: 1.00, green: 0.52, blue: 0.58, alpha: 1.00)
+            btn.tintColor = UIColor(red: 1, green: 0.521, blue: 0.58, alpha: 1)
             // Create a template image so it scales without distortion
             if let image = UIImage(systemName: "pencil.circle.fill")?.withRenderingMode(.automatic) {
                 btnConfig.image = image
