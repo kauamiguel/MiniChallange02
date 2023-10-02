@@ -73,6 +73,8 @@ class ListView: UIView {
         //Sets the table controller of the list
         tableController.AppointementListViewManager = list
         
+        //Sets the parent of the table view controller
+        tableController.parentVC = controller
         //UI SETUP
         list.backgroundColor = .clear
         

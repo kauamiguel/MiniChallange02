@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22G91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BloodExam" representedClassName="BloodExam" syncable="YES" codeGenerationType="class">
         <attribute name="bloodType" optional="YES" attributeType="String"/>
         <attribute name="consultNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -19,6 +19,12 @@
         <relationship name="toxoplasmosis" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ToxoplasmosisModel" inverseName="bloodExam" inverseEntity="ToxoplasmosisModel"/>
         <relationship name="urea" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Urea" inverseName="bloodExam" inverseEntity="Urea"/>
     </entity>
+    <entity name="EmergencyContact" representedClassName="EmergencyContact" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="relation" optional="YES" attributeType="String"/>
+        <relationship name="pacient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pacient" inverseName="emergencyContact" inverseEntity="Pacient"/>
+    </entity>
     <entity name="FamilyBackGround" representedClassName="FamilyBackGround" syncable="YES" codeGenerationType="class">
         <attribute name="diabetes" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="heartCondition" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -34,13 +40,14 @@
         <relationship name="ultrasound" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UltraSoundModel" inverseName="idadeGestacional" inverseEntity="UltraSoundModel"/>
     </entity>
     <entity name="Pacient" representedClassName="Pacient" syncable="YES">
-        <attribute name="age" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dateOfBirth" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="firstName" optional="YES" attributeType="String"/>
         <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="nickName" optional="YES" attributeType="String"/>
         <attribute name="secondName" optional="YES" attributeType="String"/>
         <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="bloodExam" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BloodExam" inverseName="pacient" inverseEntity="BloodExam"/>
+        <relationship name="emergencyContact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EmergencyContact" inverseName="pacient" inverseEntity="EmergencyContact"/>
         <relationship name="familyBG" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FamilyBackGround" inverseName="pacient" inverseEntity="FamilyBackGround"/>
         <relationship name="personalBG" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PersonalBackGround" inverseName="pacient" inverseEntity="PersonalBackGround"/>
         <relationship name="ultrassound" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UltraSoundModel" inverseName="pacient" inverseEntity="UltraSoundModel"/>

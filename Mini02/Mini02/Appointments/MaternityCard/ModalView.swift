@@ -19,11 +19,12 @@ class ModalVC: UIViewController{
         let bg = UIView()
         let button = setupButtons()
         
-        bg.backgroundColor = .darkGray
+        bg.backgroundColor = UIColor(red: 1, green: 0.933, blue: 0.933, alpha: 1)
         bg.layer.cornerRadius = 37
         let parent = self.view!
         parent.addSubview(bg)
-        
+        bg.layer.borderWidth = 2
+        bg.layer.borderColor = UIColor(red: 1, green: 0.521, blue: 0.58, alpha: 1).cgColor
         //Contrains of the modal
         bg.anchorWithConstantValues(
             bottom: parent.bottomAnchor,
@@ -35,7 +36,7 @@ class ModalVC: UIViewController{
         bg.centerX(inView: parent)
         // Add the button stack view to the background view
         bg.addSubview(button)
-
+        
         button.translatesAutoresizingMaskIntoConstraints = false
         
         
@@ -49,7 +50,7 @@ class ModalVC: UIViewController{
     
     func setupButtons() -> UIStackView{
         let screenWidth = UIScreen.main.bounds.width
-        let buttonWidth = screenWidth * 0.1 // Adjust the proportion as needed
+        let buttonWidth = screenWidth * 0.11// Adjust the proportion as needed
         
         //Hstack config
         let Hstack = UIStackView()
@@ -74,10 +75,10 @@ class ModalVC: UIViewController{
             btnConfig.imagePlacement = .top
             btnConfig.title = btnArray[i]
             btnConfig.titleLineBreakMode = .byWordWrapping
-            btnConfig.attributedTitle?.font = UIFont.systemFont(ofSize: buttonWidth * 0.3 + 1 )
-            
+            btnConfig.attributedTitle?.font = UIFont(name: "Signika-Regular", size:screenWidth * 0.03)
+            btn.tintColor = UIColor(red: 1, green: 0.521, blue: 0.58, alpha: 1)
             // Create a template image so it scales without distortion
-            if let image = UIImage(systemName: "pencil.circle.fill")?.withRenderingMode(.alwaysTemplate) {
+            if let image = UIImage(systemName: "pencil.circle.fill")?.withRenderingMode(.automatic) {
                 btnConfig.image = image
             }
 
@@ -92,14 +93,15 @@ class ModalVC: UIViewController{
             //Setting constrains to the image
             btn.imageView?.anchorWithConstantValues(width: buttonWidth,height: buttonWidth)
             btn.imageView?.centerXAnchor.constraint(equalTo: btn.centerXAnchor).isActive = true
-
-
+            //btn.imageView?.centerYAnchor.constraint(equalTo: btn.centerYAnchor).isActive = true
             
             //Setting constrains to the button title
             btn.titleLabel?.anchorWithConstantValues(top: btn.imageView?.bottomAnchor)
             btn.titleLabel?.centerXAnchor.constraint(equalTo: btn.centerXAnchor).isActive = true
             
+       
             
+            //Adds targets to the buttons
             switch i{
             case 0:
                 btn.addTarget(collectionView, action: #selector(collectionView?.addNewBloodViewCell), for: .touchUpInside)
@@ -118,6 +120,10 @@ class ModalVC: UIViewController{
             btn.imageView?.contentMode = .scaleAspectFit
             
             Hstack.addArrangedSubview(btn)
+            //Hstack.backgroundColor = .red
+            Hstack.anchorWithConstantValues(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.1)
+            btn.imageView?.anchorWithConstantValues(bottom: Hstack.centerYAnchor, bottomPadding: buttonWidth * 0.25)
+           // btn.centerYAnchor.constraint(equalTo: Hstack.centerYAnchor).isActive = true
         }
 
         return Hstack
@@ -128,7 +134,10 @@ class ModalVC: UIViewController{
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(dismissViewController))
         swipeDown.direction = .down
         
-        
+        // Add the tap gesture recognizer
+        let touchOutside = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+  
+        view.addGestureRecognizer(touchOutside)
         view.addGestureRecognizer(swipeDown)
     }
     
@@ -148,6 +157,15 @@ class ModalVC: UIViewController{
             
         }completion: { finished in
             self.dismiss(animated: false, completion: nil)
+        }
+    }
+    
+    @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
+        let tapLocation = gestureRecognizer.location(in: view)
+
+        // Check if the tap location is above the 'bg' element
+        if tapLocation.y < self.view.bounds.height * 0.80{
+            dismissViewController()
         }
     }
     

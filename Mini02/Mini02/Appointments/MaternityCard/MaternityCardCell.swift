@@ -9,12 +9,32 @@ import UIKit
 
 class MaternityCardCell: UICollectionViewCell {
     
+     var onDeleteButtonTapped: (() -> Void)?
+
+    private let deleteButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Delete", for: .normal)
+        
+        return button
+    }()
+    
     func setUpcell(view: UIView){
         contentView.addSubview(view)
         view.anchorWithConstantValues(top: contentView.topAnchor, left: contentView.leadingAnchor, right: contentView.trailingAnchor)
+        
+        contentView.addSubview(deleteButton)
+        
+        
+        deleteButton.anchorWithConstantValues(top: contentView.topAnchor, right: contentView.trailingAnchor, rightPadding: -15)
+        deleteButton.addTarget(self, action: #selector(deleteButtonTapped(_:)), for: .touchUpInside)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         contentView.endEditing(true)
     }
+    
+    @objc func deleteButtonTapped(_ sender: UIButton) {
+        onDeleteButtonTapped?()
+    }
+ 
 }
