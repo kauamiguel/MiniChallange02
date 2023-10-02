@@ -31,7 +31,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         super.init(collectionViewLayout: layout)
         
         cells = [
-                CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id),
+            CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, className: bloodView.nameOfClass),
         ]
         
         self.collectionView.dataSource = self
@@ -63,8 +63,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     func setupCollectionView(){
         cells.forEach { collectionView.register(MaternityCardCell.self, forCellWithReuseIdentifier: $0.id) }
         collectionView.reloadData()
-        
     }
+    
     // how many cell will be
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cells.count
@@ -149,16 +149,16 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             
             let views: [CellInfo] = [
-                CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id),
-                CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id),
-                CellInfo(view: pregnancyRiskView, size: pregnancyRiskView.pregnancyRiskViewSize, id: PregnancyRiskView.id),
-                CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id),
-                CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id),
-                CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id)
+                CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id, className: familyAntecedentView.className),
+                CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id, className: pregnancyTypeView.className),
+                CellInfo(view: pregnancyRiskView, size: pregnancyRiskView.pregnancyRiskViewSize, id: PregnancyRiskView.id, className: pregnancyRiskView.className),
+                CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, className: plannedView.nameOfClass),
+                CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id, className: currentGestationView.nameClass),
+                CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, className: clinicAntecedentsView.className)
             ]
             
             for view in views {
-                let cellInfo = CellInfo(view: view.view, size: view.size, id: view.id)
+                let cellInfo = CellInfo(view: view.view, size: view.size, id: view.id, className: view.className)
                 cells.append(cellInfo)
             }
             
@@ -183,7 +183,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         if let _ = bloodView, hasView == false{
             let newView = BloodView()
-            let newCell = CellInfo(view: newView, size: newView.bloodViewViewSize, id: BloodView.id)
+            let newCell = CellInfo(view: newView, size: newView.bloodViewViewSize, id: BloodView.id, className: newView.nameOfClass)
             cells.append(newCell)
             setupCollectionView()
             
@@ -206,7 +206,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         if let _ = ultrassonView, hasView == false{
             let newView = UltrasoundView()
-            let newCell = CellInfo(view: newView, size: newView.ultrasoundViewSize, id: BloodView.id)
+            let newCell = CellInfo(view: newView, size: newView.ultrasoundViewSize, id: BloodView.id, className: newView.className)
             cells.append(newCell)
             setupCollectionView()
             let lastItemIndexPath = IndexPath(item: collectionView.numberOfItems(inSection: 0) - 1, section: 0)

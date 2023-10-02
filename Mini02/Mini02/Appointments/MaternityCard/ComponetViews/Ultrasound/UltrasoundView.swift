@@ -10,6 +10,7 @@ import UIKit
 class UltrasoundView: UIView {
 
     static let id = "UltrasoundCell"
+    let className = "ultrasound"
     
     let ultrasoundViewSize = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded() ,height:  UIScreen.main.bounds.size.height - UIScreen.main.bounds.size.height * 0.5) // get the size of the screen portrait need more logic for landscape// get the size of the screen portrait need more logic for landscape
     

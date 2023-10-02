@@ -15,6 +15,7 @@ class BloodView: UIView{
     }
 
     static let id = "BloodCell"
+    let nameOfClass = "bloodview"
     
     let bloodViewViewSize = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded(), height: UIScreen.main.bounds.size.height - UIScreen.main.bounds.size.height * 0.5)
     

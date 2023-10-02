@@ -11,6 +11,7 @@ import UIKit
 class FamilyAntecedentView: UIView {
     
     static let id = "FamilyAntecedentCell"
+    let className = "familyantecedent"
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let familyAntecedentViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.28)
