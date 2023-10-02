@@ -44,8 +44,8 @@ public class FooterCell: UICollectionReusableView {
         
     }
     
-    @objc private func plusButtonTapped(_ sender: UIButton) {
-           tapAddViews?()
+    @objc private func plusButtonTapped() {
+        tapAddViews?()
        }
 
      func setupView(){
