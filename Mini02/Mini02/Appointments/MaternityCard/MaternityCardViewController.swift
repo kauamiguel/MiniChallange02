@@ -31,18 +31,18 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         super.init(collectionViewLayout: layout)
         
         cells = [
-//            CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id),
-//            CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id),
-//            CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id),
-//            CellInfo(view: pregnancyRiskView, size: pregnancyRiskView.pregnancyRiskViewSize, id: PregnancyRiskView.id),
-//            CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id),
-//            CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id),
-//            CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id)
+            CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id),
+            CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id),
+            CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id),
+            CellInfo(view: pregnancyRiskView, size: pregnancyRiskView.pregnancyRiskViewSize, id: PregnancyRiskView.id),
+            CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id),
+            CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id),
+            CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id)
         ]
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-
+        
         
     }
     
@@ -60,11 +60,13 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Adicionar", style: .plain, target: self, action: #selector(openModal))
         
+        
     }
+    
     
     //register the cell to the indentifiers
     func setupCollectionView(){
-       
+        
         cells.forEach { collectionView.register(MaternityCardCell.self, forCellWithReuseIdentifier: $0.id) }
         collectionView.reloadData()
         
@@ -78,6 +80,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cells[indexPath.row].id, for: indexPath) as? MaternityCardCell else { return UICollectionViewCell() }
         cell.setUpcell(view: cells[indexPath.row].view)
+        
+        cell.onDeleteButtonTapped = { [weak self] in
+            self?.deleteButtonTapped(cell: cell)
+        }
         
         return cell
     }
@@ -98,11 +104,13 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             // Move the cell
             let movedItem = cells.remove(at: sourceIndexPath.row)
             cells.insert(movedItem, at: destinationIndexPath.row)
-
+            
         }, completion: { [weak self] _ in
             self?.collectionView.reloadData() // Reload data after updates
         })
     }
+    
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -133,21 +141,15 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         }
         
         if let _ = defaultView, hasView == false{
-            let pregnancyRiskView = PregnancyRiskView()
-            let plannedView = PlannedView()
-            let pregnancyTypeView = PregnancyTypeView()
+          
             let familyAntecedentView = FamilyAntecedentView()
-            let currentGestationView = CurrentGestationView()
-            let clinicAntecedentsView = ClinicAntecedentsView()
-            
-            
+            let pregnancyTypeView = PregnancyTypeView()
+           
+      
+                    
             let views: [CellInfo] = [
                 CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id),
                 CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id),
-                CellInfo(view: pregnancyRiskView, size: pregnancyRiskView.pregnancyRiskViewSize, id: PregnancyRiskView.id),
-                CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id),
-                CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id),
-                CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id)
             ]
             
             for view in views {
@@ -156,10 +158,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                 self.collectionView.reloadData()
             }
             
+            self.collectionView.reloadData()
             setupCollectionView()
             
             let lastItemIndexPath = IndexPath(item: cells.count - 1, section: 0)
-
             collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
             
             
@@ -211,6 +213,17 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
         }
         
+    }
+    
+    func deleteButtonTapped(cell: MaternityCardCell) {
+        if let indexPath = collectionView.indexPath(for: cell) {
+            // Remove the cell from your data source
+            cells.remove(at: indexPath.row)
+            
+            // Delete the cell from the collection view
+            collectionView.deleteItems(at: [indexPath])
+            
+        }
     }
     
     required init?(coder: NSCoder) {
