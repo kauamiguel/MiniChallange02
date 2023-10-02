@@ -111,9 +111,8 @@ class AppointmentsView: UIView {
         secondTremesterButton.centerY(inView: vc.view)
         secondTremesterButton.anchorWithConstantValues(right: vc.view.trailingAnchor, rightPadding: -20)
         thirdTremesterButton.anchorWithConstantValues(left: vc.view.leadingAnchor, bottom: vc.view.bottomAnchor, leftPadding: 50, bottomPadding: -100)
-        
-        
     }
+    
     
     func drawDashedCurvedLineBetweenButtons(vc : AppointmentsViewController ,isFirstTremesteer : Bool, isSecondTremester : Bool) {
         

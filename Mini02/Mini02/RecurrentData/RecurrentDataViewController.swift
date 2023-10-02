@@ -8,11 +8,14 @@
 import UIKit
 
 class RecurrentDataViewController: UIViewController {
+    
+    var recurrentView : RecurrentDataView = RecurrentDataView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .green
+        
+        recurrentView.setupView(vc: self)
+        
     }
 
 }

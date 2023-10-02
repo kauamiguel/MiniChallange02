@@ -16,7 +16,6 @@ class AppointmentsViewController: UIViewController {
         super.viewDidLoad()
         
         appointmentViewManager?.setupView(vc: self, action: #selector(buttonAction))
-        
     }
     
     override func viewDidLayoutSubviews() {
