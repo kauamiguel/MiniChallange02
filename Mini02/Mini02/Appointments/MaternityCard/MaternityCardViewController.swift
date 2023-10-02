@@ -19,7 +19,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     private lazy var clinicAntecedentsView = ClinicAntecedentsView()
     private lazy var bloodView = BloodView()
     private lazy var ultrasoundView = UltrasoundView()
-    private lazy var footerCell = FooterCell()
     
     var cells: [CellInfo] = []
     
@@ -40,11 +39,9 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id),
             CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id)
         ]
-       
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        
         
     }
     
@@ -179,11 +176,15 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             // Remove the cell from your data source
             cells.remove(at: indexPath.row)
             
-            // Delete the cell from the collection view
-            collectionView.deleteItems(at: [indexPath])
-            
+            UIView.animate(withDuration: 0.19, animations: {
+                    cell.alpha = 0.0
+                }) { (_) in
+                    // After the animation completes, delete the cell from the collection view
+                    self.collectionView.deleteItems(at: [indexPath])
+                }
         }
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
