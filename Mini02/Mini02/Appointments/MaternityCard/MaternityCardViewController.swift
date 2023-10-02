@@ -19,6 +19,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     private lazy var clinicAntecedentsView = ClinicAntecedentsView()
     private lazy var bloodView = BloodView()
     private lazy var ultrasoundView = UltrasoundView()
+    private lazy var footerCell = FooterCell()
     
     var cells: [CellInfo] = []
     
@@ -39,6 +40,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id),
             CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id)
         ]
+       
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
@@ -53,38 +55,34 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<", style: .done, target: self, action: #selector(backToView))
         
-        
         collectionView.backgroundColor = UIColor(red: 1.00, green: 0.96, blue: 0.96, alpha: 1.00)
         
         self.hidesBottomBarWhenPushed = true
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Adicionar", style: .plain, target: self, action: #selector(openModal))
-        
-        
     }
-    
     
     //register the cell to the indentifiers
     func setupCollectionView(){
         
         cells.forEach { collectionView.register(MaternityCardCell.self, forCellWithReuseIdentifier: $0.id) }
+        collectionView.register(FooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterCell.id)
         collectionView.reloadData()
         
     }
     // how many cell will be
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cells.count
-        
     }
+    
     //call the function and create the cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cells[indexPath.row].id, for: indexPath) as? MaternityCardCell else { return UICollectionViewCell() }
         cell.setUpcell(view: cells[indexPath.row].view)
         
         cell.onDeleteButtonTapped = { [weak self] in
-             self?.deleteButtonTapped(cell: cell)
-         }
-                
+            self?.deleteButtonTapped(cell: cell)
+        }
+        
         return cell
     }
     
@@ -92,13 +90,32 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         return cells[indexPath.row].size
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+            switch kind {
+            case UICollectionView.elementKindSectionFooter:
+                let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: FooterCell.id, for: indexPath) as! FooterCell
+
+                footerView.tapAddViews = { [weak self] in
+                    self?.openModal()
+                }
+                
+                return footerView
+            default:
+                return UICollectionReusableView()
+            }
+        }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        CGSize(width: UIScreen.main.bounds.width, height: 300)
+    }
+    
     // move items
     
     override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-  
     override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         collectionView.performBatchUpdates({
             // Move the cell in the cells array
@@ -109,8 +126,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             self?.collectionView.reloadData()
         })
     }
-    
-
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -135,26 +150,26 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             let newView = viewType.init()
             let newCellInfo = CellInfo(view: newView, size: viewSize, id: viewID)
             cells.append(newCellInfo)
-
+            
             self.collectionView.reloadData()
             setupCollectionView()
-
+            
             let lastItemIndexPath = IndexPath(item: cells.count - 1, section: 0)
             collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
         }
     }
-
+    
     @objc func addNewDefaultViewCell() {
         addViews(viewType: PregnancyRiskView.self, viewSize: pregnancyRiskView.pregnancyRiskViewSize, viewID: PregnancyRiskView.id)
         addViews(viewType: FamilyAntecedentView.self, viewSize: familyAntecedentView.familyAntecedentViewSize, viewID: FamilyAntecedentView.id)
         addViews(viewType: PregnancyTypeView.self, viewSize: pregnancyTypeView.pregnancyTypeViewSize, viewID: PregnancyTypeView.id)
         // Add more view types as needed
     }
-
+    
     @objc func addNewBloodViewCell() {
         addViews(viewType: BloodView.self, viewSize: bloodView.bloodViewViewSize, viewID: BloodView.id)
     }
-
+    
     @objc func addNewUltrassonViewCell() {
         addViews(viewType: UltrasoundView.self, viewSize: ultrasoundView.ultrasoundViewSize, viewID: UltrasoundView.id)
     }
@@ -163,10 +178,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         if let indexPath = collectionView.indexPath(for: cell) {
             // Remove the cell from your data source
             cells.remove(at: indexPath.row)
-
+            
             // Delete the cell from the collection view
             collectionView.deleteItems(at: [indexPath])
-
+            
         }
     }
     
