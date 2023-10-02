@@ -19,6 +19,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     private lazy var clinicAntecedentsView = ClinicAntecedentsView()
     private lazy var bloodView = BloodView()
     private lazy var ultrasoundView = UltrasoundView()
+    private lazy var footerCell =  FooterCell()
     
     var cells: [CellInfo] = []
     
@@ -58,8 +59,12 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         self.hidesBottomBarWhenPushed = true
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Adicionar", style: .plain, target: self, action: #selector(openModal))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Adicionar", style: .plain, target: self, action: #selector(openModal))
         
+        footerCell.tapAddViews = { [weak self] in
+            self?.openModal()
+            print("aaa")
+        }
         
     }
     
@@ -68,14 +73,15 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     func setupCollectionView(){
         
         cells.forEach { collectionView.register(MaternityCardCell.self, forCellWithReuseIdentifier: $0.id) }
+        collectionView.register(FooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterCell.id)
         collectionView.reloadData()
         
     }
     // how many cell will be
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cells.count
-        
     }
+    
     //call the function and create the cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cells[indexPath.row].id, for: indexPath) as? MaternityCardCell else { return UICollectionViewCell() }
@@ -84,7 +90,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         cell.onDeleteButtonTapped = { [weak self] in
              self?.deleteButtonTapped(cell: cell)
          }
-                
+        
         return cell
     }
     
@@ -92,6 +98,22 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         return cells[indexPath.row].size
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionFooter:
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: FooterCell.id, for: indexPath)
+            
+            return footerView
+        default:
+            return UICollectionReusableView()
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+     CGSize(width: UIScreen.main.bounds.width, height: 300)
+    }
+    
     // move items
     
     override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {

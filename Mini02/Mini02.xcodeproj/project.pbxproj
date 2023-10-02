@@ -25,6 +25,7 @@
 		AB7852EE2AB9F94600566EF9 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852ED2AB9F94600566EF9 /* DefaultView.swift */; };
 		AB7852F02AB9F95200566EF9 /* BloodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852EF2AB9F95100566EF9 /* BloodView.swift */; };
 		AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */; };
+		AB9D941A2ACB3D6B0064DB69 /* FooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D94192ACB3D6B0064DB69 /* FooterCell.swift */; };
 		ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */; };
 		ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */; };
 		ABAD4F412ABE1C99007BEC32 /* LabelComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F402ABE1C99007BEC32 /* LabelComponentView.swift */; };
@@ -115,6 +116,7 @@
 		AB7852ED2AB9F94600566EF9 /* DefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
 		AB7852EF2AB9F95100566EF9 /* BloodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodView.swift; sourceTree = "<group>"; };
 		AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltrasoundView.swift; sourceTree = "<group>"; };
+		AB9D94192ACB3D6B0064DB69 /* FooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCell.swift; sourceTree = "<group>"; };
 		ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentGreenView.swift; sourceTree = "<group>"; };
 		ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentRedView.swift; sourceTree = "<group>"; };
 		ABAD4F402ABE1C99007BEC32 /* LabelComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponentView.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 				ABFDA7742AC646470097656E /* PlannedView.swift */,
 				ABFDA77C2AC67BBA0097656E /* CurrentGestationView.swift */,
 				ABFDA77E2AC67BE10097656E /* ClinicAntecedentsView.swift */,
+				AB9D94192ACB3D6B0064DB69 /* FooterCell.swift */,
 			);
 			path = "routine appointment";
 			sourceTree = "<group>";
@@ -695,6 +698,7 @@
 				ABFDA7752AC646470097656E /* PlannedView.swift in Sources */,
 				E8E0D6512AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift in Sources */,
 				E8135C262ABE180300E722FA /* RegisterViewModel.swift in Sources */,
+				AB9D941A2ACB3D6B0064DB69 /* FooterCell.swift in Sources */,
 				ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift in Sources */,
 				6220F7CB2ABCD32A00CB5230 /* AppointmentsListVM.swift in Sources */,
 				ABC98BC62AB83FD0005214E5 /* RegisterViewController.swift in Sources */,
