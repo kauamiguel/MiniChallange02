@@ -80,6 +80,9 @@ class RegisterView: UIView{
     func setUpRegisterView(vc: UIViewController, vm : RegisterViewModel){
         vc.view.backgroundColor = .white
         viewModel = vm
+        let tap = UITapGestureRecognizer(target: vc.view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        vc.view.addGestureRecognizer(tap)
         
         let profileImage = ProfileImageButton(mode: .Edit, controller: vc)
         vc.view.addSubview(profileImage)
@@ -136,22 +139,6 @@ class RegisterView: UIView{
             self?.viewModel?.didTapNext(nameText: self?.nameTextField.text, nicknameText: self?.aliasTextfield.text, dateOfBirth: self?.dateOfBirthDatePicker.date ?? Date())
         }), for: .touchUpInside)
     }
-    
-//    private func didTapNext() {
-//        guard let vm = viewModel else { return }
-//        let haptics = UINotificationFeedbackGenerator()
-//        let isValid = vm.dataIsValid(name: nameTextField.text, alias: aliasTextfield.text, dateOfBirth: dateOfBirthDatePicker.date)
-//        guard isValid else {
-//            let alert = UIAlertController(title: "Dados Inválidos", message: "Preencha os dados para continuar", preferredStyle: .alert)
-//            alert.addAction(.init(title: "Ok", style: .default))
-//            haptics.notificationOccurred(.error)
-//            vm.viewController?.present(alert, animated: true)
-//            return
-//        }
-//        vm.saveInitialData()
-//        haptics.notificationOccurred(.success)
-//        vm.sendToMainView()
-//    }
     
 }
 

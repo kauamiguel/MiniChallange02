@@ -19,6 +19,9 @@ class PregnantDataView: UIView {
     
     private lazy var contentView: UIView = {
         let view = UIView()
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
         return view
     }()
     
