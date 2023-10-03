@@ -31,7 +31,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         super.init(collectionViewLayout: layout)
         
         cells = [
-            CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, className: bloodView.nameOfClass),
+            CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
         ]
         
         self.collectionView.dataSource = self
@@ -149,16 +149,16 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             
             let views: [CellInfo] = [
-                CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id, className: familyAntecedentView.className),
-                CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id, className: pregnancyTypeView.className),
-                CellInfo(view: pregnancyRiskView, size: pregnancyRiskView.pregnancyRiskViewSize, id: PregnancyRiskView.id, className: pregnancyRiskView.className),
-                CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, className: plannedView.nameOfClass),
-                CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id, className: currentGestationView.nameClass),
-                CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, className: clinicAntecedentsView.className)
+                CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id, query: familyAntecedentView.query),
+                CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id, query: pregnancyTypeView.query),
+                CellInfo(view: pregnancyRiskView, size: pregnancyRiskView.pregnancyRiskViewSize, id: PregnancyRiskView.id, query: pregnancyRiskView.query),
+                CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, query: plannedView.query),
+                CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id, query: currentGestationView.query),
+                CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, query: clinicAntecedentsView.query)
             ]
             
             for view in views {
-                let cellInfo = CellInfo(view: view.view, size: view.size, id: view.id, className: view.className)
+                let cellInfo = CellInfo(view: view.view, size: view.size, id: view.id, query: view.query)
                 cells.append(cellInfo)
             }
             
@@ -183,7 +183,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         if let _ = bloodView, hasView == false{
             let newView = BloodView()
-            let newCell = CellInfo(view: newView, size: newView.bloodViewViewSize, id: BloodView.id, className: newView.nameOfClass)
+            let newCell = CellInfo(view: newView, size: newView.bloodViewViewSize, id: BloodView.id, query: newView.query)
             cells.append(newCell)
             setupCollectionView()
             
@@ -206,7 +206,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         if let _ = ultrassonView, hasView == false{
             let newView = UltrasoundView()
-            let newCell = CellInfo(view: newView, size: newView.ultrasoundViewSize, id: BloodView.id, className: newView.className)
+            let newCell = CellInfo(view: newView, size: newView.ultrasoundViewSize, id: BloodView.id, query: newView.query)
             cells.append(newCell)
             setupCollectionView()
             let lastItemIndexPath = IndexPath(item: collectionView.numberOfItems(inSection: 0) - 1, section: 0)

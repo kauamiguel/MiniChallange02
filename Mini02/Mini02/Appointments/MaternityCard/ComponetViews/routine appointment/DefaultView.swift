@@ -10,7 +10,7 @@ import UIKit
 class DefaultView: UIView{
     
     static let id = "DefaultCell"
-    let nameOfClass = "defaultview"
+    let query = "rotina"
     
     let defaultViewSize = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded() ,height:  UIScreen.main.bounds.size.height + UIScreen.main.bounds.size.height / 10) // get the size of the screen portrait need more logic for landscape
     

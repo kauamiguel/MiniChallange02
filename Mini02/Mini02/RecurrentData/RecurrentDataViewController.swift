@@ -31,9 +31,9 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
         
         //Append each view to the cell
         cells = [
-            CellInfo(view: defaultView, size: defaultView.defaultViewSize, id: DefaultView.id, className: defaultView.nameOfClass),
-            CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, className: bloodView.nameOfClass),
-            CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, className: plannedView.nameOfClass)
+            CellInfo(view: defaultView, size: defaultView.defaultViewSize, id: DefaultView.id, query: defaultView.query),
+            CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
+            CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, query: plannedView.query)
         ]
         
         //Set the searchBar created in the view as my searchBar to respond some methods
@@ -80,6 +80,7 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
         return cells[indexPath.row].size
     }
     
+    //Create a search bar that filter the content of my cells
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredCell = []
         
@@ -87,12 +88,11 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
             filteredCell = cells
         }else{
             for obeject in cells{
-                if let className = obeject.className, className.lowercased().localizedStandardContains(searchText){
+                if let className = obeject.query, className.lowercased().localizedStandardContains(searchText){
                     filteredCell.append(obeject)
                 }
             }
         }
-        
         self.collectionView.reloadData()
     }
     

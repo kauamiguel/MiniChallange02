@@ -12,5 +12,5 @@ struct CellInfo {
     let view: UIView
     let size: CGSize
     let id: String
-    let className : String?
+    let query : String?
 }
