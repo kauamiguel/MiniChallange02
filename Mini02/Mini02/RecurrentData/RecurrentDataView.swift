@@ -24,7 +24,7 @@ class RecurrentDataView: UIView {
         search.translatesAutoresizingMaskIntoConstraints = false
         search.placeholder = "Pesquise um campo aqui"
         search.searchBarStyle = .minimal
-        search.showsCancelButton = true
+        search.showsCancelButton = false
         return search
     }()
     

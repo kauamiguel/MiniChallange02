@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecurrentDataViewController: UICollectionViewController, UISearchBarDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
+class RecurrentDataViewController: UICollectionViewController, UISearchBarDelegate, UICollectionViewDelegateFlowLayout {
     
     private lazy var defaultView = DefaultView()
     private lazy var routineData =  RoutineDataView()
@@ -29,6 +29,7 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
         
+        //Add the view here
         //Append each view to the cell
         cells = [
             CellInfo(view: defaultView, size: defaultView.defaultViewSize, id: DefaultView.id, query: defaultView.query),
@@ -39,6 +40,7 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
         //Set the searchBar created in the view as my searchBar to respond some methods
         self.searchBar = recurrentView.searchBar
         self.searchBar?.delegate = self
+        self.navigationItem.hidesSearchBarWhenScrolling = true
     }
     
     required init?(coder: NSCoder) {
