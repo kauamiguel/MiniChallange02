@@ -39,19 +39,17 @@ public class FooterCell: UICollectionReusableView {
         btnConfig.titleLineBreakMode = .byWordWrapping
         btn.tintColor = UIColor(red: 1, green: 0.521, blue: 0.58, alpha: 1)
         // Create a template image so it scales without distortion
-        if let image = UIImage(systemName: "bookmark")?.withRenderingMode(.automatic) {
+        if let image = UIImage(systemName: "doc.text")?.withRenderingMode(.automatic) {
             btnConfig.image = image
         }
-
+        btnConfig.imagePadding = 35
         
         btn.configuration = btnConfig
 
-        
-        
         // Set the image tint color
         btn.tintColor = .white
         
-        btn.setTitle("Save", for: .normal)
+        btn.setTitle("Salvar", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: "YourFontName", size: 16)
         
@@ -80,7 +78,7 @@ public class FooterCell: UICollectionReusableView {
     
     @objc private func plusButtonTapped() {
         tapAddViews?()
-       }
+    }
 
      func setupView(){
          

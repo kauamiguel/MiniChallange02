@@ -11,6 +11,13 @@ class MaternityCardCell: UICollectionViewCell {
     
      var onDeleteButtonTapped: (() -> Void)?
 
+    var isEditModeActive: Bool = false {
+            didSet {
+                deleteButton.isHidden = !isEditModeActive
+            }
+        }
+
+    
     private let deleteButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Delete", for: .normal)
@@ -27,6 +34,7 @@ class MaternityCardCell: UICollectionViewCell {
         
         deleteButton.anchorWithConstantValues(top: contentView.topAnchor, right: contentView.trailingAnchor, rightPadding: -15)
         deleteButton.addTarget(self, action: #selector(deleteButtonTapped(_:)), for: .touchUpInside)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -36,5 +44,12 @@ class MaternityCardCell: UICollectionViewCell {
     @objc func deleteButtonTapped(_ sender: UIButton) {
         onDeleteButtonTapped?()
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        // Reset the cell's state when it's dequeued.
+        deleteButton.isHidden = true
+    }
+
  
 }
