@@ -67,6 +67,7 @@
 		ABFDA77B2AC6769B0097656E /* FamilyAntecedentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA77A2AC6769B0097656E /* FamilyAntecedentView.swift */; };
 		ABFDA77D2AC67BBA0097656E /* CurrentGestationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA77C2AC67BBA0097656E /* CurrentGestationView.swift */; };
 		ABFDA77F2AC67BE10097656E /* ClinicAntecedentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA77E2AC67BE10097656E /* ClinicAntecedentsView.swift */; };
+		CE0BFA682AC7464C0053C2A6 /* RecurrenteDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0BFA672AC7464C0053C2A6 /* RecurrenteDataViewModel.swift */; };
 		CE8EE3432AC5F512000E89E1 /* Pacient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE3412AC5F512000E89E1 /* Pacient+CoreDataClass.swift */; };
 		CE8EE3442AC5F512000E89E1 /* Pacient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE3422AC5F512000E89E1 /* Pacient+CoreDataProperties.swift */; };
 		CE8EE3462AC5F665000E89E1 /* PersonalBGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE3452AC5F665000E89E1 /* PersonalBGModel.swift */; };
@@ -161,6 +162,7 @@
 		ABFDA77A2AC6769B0097656E /* FamilyAntecedentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyAntecedentView.swift; sourceTree = "<group>"; };
 		ABFDA77C2AC67BBA0097656E /* CurrentGestationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGestationView.swift; sourceTree = "<group>"; };
 		ABFDA77E2AC67BE10097656E /* ClinicAntecedentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicAntecedentsView.swift; sourceTree = "<group>"; };
+		CE0BFA672AC7464C0053C2A6 /* RecurrenteDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenteDataViewModel.swift; sourceTree = "<group>"; };
 		CE8EE3412AC5F512000E89E1 /* Pacient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pacient+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CE8EE3422AC5F512000E89E1 /* Pacient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pacient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE8EE3452AC5F665000E89E1 /* PersonalBGModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalBGModel.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 			children = (
 				ABC98BA72AB3F5E0005214E5 /* RecurrentDataView.swift */,
 				ABC98B9D2AB3F0B2005214E5 /* RecurrentDataViewController.swift */,
+				CE0BFA672AC7464C0053C2A6 /* RecurrenteDataViewModel.swift */,
 			);
 			path = RecurrentData;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				E8135BBE2ABA1C0400E722FA /* ThirdOnboardingViewController.swift in Sources */,
 				ABC98BA82AB3F5E0005214E5 /* RecurrentDataView.swift in Sources */,
 				CE8EE3432AC5F512000E89E1 /* Pacient+CoreDataClass.swift in Sources */,
+				CE0BFA682AC7464C0053C2A6 /* RecurrenteDataViewModel.swift in Sources */,
 				ABAD4F4B2AC1A4AB007BEC32 /* PickerComponent.swift in Sources */,
 				CE8EE3462AC5F665000E89E1 /* PersonalBGModel.swift in Sources */,
 				E8E0D64B2AC36F41003CE5CD /* AboutViewController.swift in Sources */,

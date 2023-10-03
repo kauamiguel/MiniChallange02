@@ -31,15 +31,14 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         super.init(collectionViewLayout: layout)
         
         cells = [
-                CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id),
-            CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id),
-            CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id),
-            CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id),
-            CellInfo(view: pregnancyRiskView, size: pregnancyRiskView.pregnancyRiskViewSize, id: PregnancyRiskView.id),
-            CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id),
-            CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id),
-            CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id)
-
+            CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
+            CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id, query: routineData.query),
+            CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id, query: familyAntecedentView.query),
+            CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id, query: pregnancyRiskView.query),
+            CellInfo(view: pregnancyRiskView, size: pregnancyRiskView.pregnancyRiskViewSize, id: PregnancyRiskView.id, query: pregnancyRiskView.query),
+            CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, query: plannedView.query),
+            CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id, query: currentGestationView.query),
+            CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, query: clinicAntecedentsView.query)
         ]
         
         self.collectionView.dataSource = self
@@ -71,8 +70,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         cells.forEach { collectionView.register(MaternityCardCell.self, forCellWithReuseIdentifier: $0.id) }
         collectionView.register(FooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterCell.id)
         collectionView.reloadData()
-        
     }
+    
     // how many cell will be
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cells.count
@@ -149,8 +148,45 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     func addViews<T: UIView>(viewType: T.Type, viewSize: CGSize, viewID: String) {
         if !cells.contains(where: { type(of: $0.view) == viewType }) {
             let newView = viewType.init()
-            let newCellInfo = CellInfo(view: newView, size: viewSize, id: viewID)
+            let newCellInfo = CellInfo(view: newView, size: viewSize, id: viewID, query: nil)
             cells.append(newCellInfo)
+        }
+    }
+        
+    @objc func addNewDefaultViewCell(defaultView : PregnancyRiskView? = nil) {
+        var hasView = false
+        
+        for object in cells{
+            if type(of: object.view) == PregnancyRiskView.self{
+                hasView = true
+                print("Ja existe esse elemento")
+                break
+            }
+        }
+        
+        if let _ = defaultView, hasView == false{
+            let pregnancyRiskView = PregnancyRiskView()
+            let plannedView = PlannedView()
+            let pregnancyTypeView = PregnancyTypeView()
+            let familyAntecedentView = FamilyAntecedentView()
+            let currentGestationView = CurrentGestationView()
+            let clinicAntecedentsView = ClinicAntecedentsView()
+            
+            
+            let views: [CellInfo] = [
+                CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id, query: familyAntecedentView.query),
+                CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id, query: pregnancyTypeView.query),
+                CellInfo(view: pregnancyRiskView, size: pregnancyRiskView.pregnancyRiskViewSize, id: PregnancyRiskView.id, query: pregnancyRiskView.query),
+                CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, query: plannedView.query),
+                CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id, query: currentGestationView.query),
+                CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, query: clinicAntecedentsView.query)
+            ]
+            
+            for view in views {
+                let cellInfo = CellInfo(view: view.view, size: view.size, id: view.id, query: view.query)
+                cells.append(cellInfo)
+            }
+
             
             self.collectionView.reloadData()
             setupCollectionView()
@@ -169,6 +205,51 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     @objc func addNewBloodViewCell() {
         addViews(viewType: BloodView.self, viewSize: bloodView.bloodViewViewSize, viewID: BloodView.id)
+    }
+    
+    @objc func addNewBloodViewCell(bloodView : BloodView? = nil) {
+        var hasView = false
+        
+        for object in cells{
+            if type(of: object.view) == BloodView.self{
+                hasView = true
+                print("Ja existe esse elemento")
+                break
+            }
+        }
+        
+        if let _ = bloodView, hasView == false{
+            let newView = BloodView()
+            let newCell = CellInfo(view: newView, size: newView.bloodViewViewSize, id: BloodView.id, query: newView.query)
+            cells.append(newCell)
+            setupCollectionView()
+            
+            let lastItemIndexPath = IndexPath(item: collectionView.numberOfItems(inSection: 0) - 1, section: 0)
+            collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
+        }
+        
+    }
+    
+    @objc func addNewUltrassonViewCell(ultrassonView : UltrasoundView? = nil) {
+        var hasView = false
+        
+        for object in cells{
+            if type(of: object.view) == UltrasoundView.self{
+                hasView = true
+                print("Ja existe esse elemento")
+                break
+            }
+        }
+        
+        if let _ = ultrassonView, hasView == false{
+            let newView = UltrasoundView()
+            let newCell = CellInfo(view: newView, size: newView.ultrasoundViewSize, id: BloodView.id, query: newView.query)
+            cells.append(newCell)
+            setupCollectionView()
+            let lastItemIndexPath = IndexPath(item: collectionView.numberOfItems(inSection: 0) - 1, section: 0)
+            collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
+        }
+        
     }
     
     @objc func addNewUltrassonViewCell() {

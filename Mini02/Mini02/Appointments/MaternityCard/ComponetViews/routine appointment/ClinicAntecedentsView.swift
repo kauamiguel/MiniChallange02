@@ -10,6 +10,7 @@ import UIKit
 class ClinicAntecedentsView: UIView {
 
     static let id = "ClinicAntecedentsCell"
+    let query = "antecedentes clinicos"
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let clinicAntecedentsViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.35)
