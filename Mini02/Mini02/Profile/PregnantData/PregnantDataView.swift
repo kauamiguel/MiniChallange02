@@ -8,6 +8,14 @@
 import UIKit
 
 class PregnantDataView: UIView {
+    private let paddingSize: CGFloat =  {
+        let baseSize = UIScreen.main.bounds.width * 0.115
+        if (UIScreen.main.bounds.width > UIScreen.main.bounds.height) {
+            return min(UIScreen.main.bounds.width * 0.115, 900)
+        }
+        
+        return baseSize
+    }()
     private var viewController: UIViewController?
     private var viewModel: PregnantDataViewModel?
     
@@ -19,6 +27,9 @@ class PregnantDataView: UIView {
     
     private lazy var contentView: UIView = {
         let view = UIView()
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
         return view
     }()
     
@@ -109,10 +120,7 @@ class PregnantDataView: UIView {
         return label
     }()
     
-    private let profileButtonWidth: CGFloat = 54
-    private lazy var profileButton: UIButton = {
-        return ProfileImageButton(mode: .Edit, controller: self.viewController)
-    }()
+    private lazy var profileButton = ProfileImageButton(mode: .Edit, controller: self.viewController)
     
     private func setupScrollView(vc: UIViewController) {
         vc.view.addSubview(scrollView)
@@ -138,17 +146,6 @@ class PregnantDataView: UIView {
                 ])
     }
     
-    func setupButton(controller vc: UIViewController) {
-        vc.view.addSubview(profileButton)
-        profileButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            profileButton.topAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.topAnchor, constant: 5),
-            profileButton.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor),
-            profileButton.widthAnchor.constraint(equalToConstant: profileButtonWidth),
-            profileButton.heightAnchor.constraint(equalToConstant: profileButtonWidth)
-        ])
-    }
-    
     func setButtonHandler(handler: Selector) {
         profileButton.addTarget(.none, action: handler, for: .touchUpInside)
     }
@@ -163,57 +160,58 @@ class PregnantDataView: UIView {
     private func setupImage() {
         contentView.addSubview(profileButton)
         profileButton.centerX(inView: contentView)
-        profileButton.anchorWithConstantValues(top: contentView.topAnchor, topPadding: 28, width: profileButtonWidth, height: profileButtonWidth)
+        profileButton.anchorWithConstantValues(top: contentView.topAnchor, topPadding: 28, width: profileButton.defaultSize, height: profileButton.defaultSize)
     }
     
     private func setupName(vc: UIViewController){
         contentView.addSubview(pregnantNameLabel)
-        pregnantNameLabel.anchorWithConstantValues(top: profileButton.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 30, leftPadding: 50, rightPadding: -50)
+        pregnantNameLabel.anchorWithConstantValues(top: profileButton.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 30, leftPadding: paddingSize, rightPadding: -paddingSize)
         contentView.addSubview(pregnantNameField)
-        pregnantNameField.anchorWithConstantValues(top: pregnantNameLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: 50, rightPadding: -50, height: 34)
+        pregnantNameField.anchorWithConstantValues(top: pregnantNameLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 34)
     }
     
     private func setupAlias(vc: UIViewController){
         contentView.addSubview(aliasLabel)
-        aliasLabel.anchorWithConstantValues(top: pregnantNameField.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: 50, rightPadding: -50)
+        aliasLabel.anchorWithConstantValues(top: pregnantNameField.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: paddingSize, rightPadding: -paddingSize)
         contentView.addSubview(aliasField)
-        aliasField.anchorWithConstantValues(top: aliasLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: 50, rightPadding: -50, height: 34)
+        aliasField.anchorWithConstantValues(top: aliasLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 34)
     }
     
     private func setupDateOfBirth(vc: UIViewController) {
         contentView.addSubview(dateOfBirthLabel)
-        dateOfBirthLabel.anchorWithConstantValues(top: aliasField.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: 50, rightPadding: -50)
+        dateOfBirthLabel.anchorWithConstantValues(top: aliasField.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: paddingSize, rightPadding: -paddingSize)
         contentView.addSubview(dateOfBirthPicker)
-        dateOfBirthPicker.anchorWithConstantValues(top: dateOfBirthLabel.bottomAnchor, left: vc.view.leadingAnchor, topPadding: 5, leftPadding: 50, height: 34)
+        dateOfBirthPicker.anchorWithConstantValues(top: dateOfBirthLabel.bottomAnchor, left: vc.view.leadingAnchor, topPadding: 5, leftPadding: paddingSize, height: 34)
     }
     
     private func setupDivider(vc: UIViewController) {
+        let dividerPadding = UIScreen.main.bounds.width * 0.071
         contentView.addSubview(divider)
-        divider.anchorWithConstantValues(top: dateOfBirthPicker.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 30, leftPadding: 28, rightPadding: -28, height: 1)
+        divider.anchorWithConstantValues(top: dateOfBirthPicker.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 30, leftPadding: dividerPadding, rightPadding: -dividerPadding, height: 1)
     }
     
     private func setupEmergencyLabel(vc: UIViewController) {
         contentView.addSubview(emergencyLabel)
-        emergencyLabel.anchorWithConstantValues(top: divider.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 14, leftPadding: 50)
+        emergencyLabel.anchorWithConstantValues(top: divider.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 14, leftPadding: paddingSize)
     }
     
     private func setupEmergencyName(vc: UIViewController) {
         contentView.addSubview(emergencyContactNameLabel)
-        emergencyContactNameLabel.anchorWithConstantValues(top: emergencyLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: 50, rightPadding: -50)
+        emergencyContactNameLabel.anchorWithConstantValues(top: emergencyLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: paddingSize, rightPadding: -paddingSize)
         contentView.addSubview(emergencyContactNameField)
-        emergencyContactNameField.anchorWithConstantValues(top: emergencyContactNameLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: 50, rightPadding: -50, height: 34)
+        emergencyContactNameField.anchorWithConstantValues(top: emergencyContactNameLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 34)
     }
     
     private func setupEmergencyPhone(vc: UIViewController) {
         contentView.addSubview(emergencyContactPhoneLabel)
-        emergencyContactPhoneLabel.anchorWithConstantValues(top: emergencyContactNameField.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: 50, rightPadding: -50)
+        emergencyContactPhoneLabel.anchorWithConstantValues(top: emergencyContactNameField.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: paddingSize, rightPadding: -50)
         contentView.addSubview(emergencyContactPhoneField)
-        emergencyContactPhoneField.anchorWithConstantValues(top: emergencyContactPhoneLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: 50, rightPadding: -50, height: 34)
+        emergencyContactPhoneField.anchorWithConstantValues(top: emergencyContactPhoneLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 34)
     }
     private lazy var dropdownRelation = DropDownMenuComponent()
     func setupEmergencyRelation(vc: UIViewController) {
         contentView.addSubview(emergencyContactRelationLabel)
-        emergencyContactRelationLabel.anchorWithConstantValues(top: emergencyContactPhoneField.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 20, leftPadding: 50)
+        emergencyContactRelationLabel.anchorWithConstantValues(top: emergencyContactPhoneField.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 20, leftPadding: paddingSize)
         
         dropdownRelation.setTitle(viewModel?.getPatientData()?.emergencyContact?.relation ?? "Selecionar", for: .normal)
         dropdownRelation.selectedOption = viewModel?.getPatientData()?.emergencyContact?.relation ?? "Selecionar"
@@ -222,7 +220,7 @@ class PregnantDataView: UIView {
             "Companheiro", "Familiar", "Amigo", "Outro(a)"
         ]
         contentView.addSubview(dropdownRelation)
-        dropdownRelation.anchorWithConstantValues(top: emergencyContactRelationLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: 50, rightPadding: -50, height: 34)
+        dropdownRelation.anchorWithConstantValues(top: emergencyContactRelationLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 34)
     }
     
     private func setupTempSaveButton(vc: UIViewController) {
@@ -232,7 +230,7 @@ class PregnantDataView: UIView {
             self?.didTapTempSaveButton()
         }), for: .touchUpInside)
         contentView.addSubview(btn)
-        btn.anchorWithConstantValues(top: dropdownRelation.bottomAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 40, rightPadding: -50)
+        btn.anchorWithConstantValues(top: dropdownRelation.bottomAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 40, rightPadding: -paddingSize)
     }
     
     private func didTapTempSaveButton() {

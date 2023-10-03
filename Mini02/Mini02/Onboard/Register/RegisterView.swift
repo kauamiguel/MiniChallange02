@@ -36,7 +36,7 @@ class RegisterView: UIView{
         return text
     }()
     
-    private lazy var aliasLabel : UILabel = {
+    private lazy var nicknameLabel : UILabel = {
         let label = UILabel()
         label.text = "Como gostaria de ser chamada:"
         label.textColor = .black
@@ -44,7 +44,7 @@ class RegisterView: UIView{
         return label
     }()
     
-    private lazy var aliasTextfield : UITextField  = {
+    private lazy var nicknameTextfield : UITextField  = {
         let text = UITextField().textField(withPlaceholder: "", size: 20)
         text.textColor = .black
         text.autocorrectionType = .no
@@ -73,88 +73,78 @@ class RegisterView: UIView{
         button.setTitle("Seguinte", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 25
         return button
     }()
     
     func setUpRegisterView(vc: UIViewController, vm : RegisterViewModel){
         vc.view.backgroundColor = .white
         viewModel = vm
+        let tap = UITapGestureRecognizer(target: vc.view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        vc.view.addGestureRecognizer(tap)
+        let fieldWidth = min(CGFloat(UIScreen.main.bounds.width * 0.73), 544)
+        let container = UIView()
+        container.backgroundColor = .clear
+        vc.view.addSubview(container)
+        container.anchorWithConstantValues(top: vc.view.safeAreaLayoutGuide.topAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, bottom: vc.view.safeAreaLayoutGuide.bottomAnchor)
         
         let profileImage = ProfileImageButton(mode: .Edit, controller: vc)
-        vc.view.addSubview(profileImage)
-        profileImage.centerX(inView: vc.view)
-        profileImage.anchorWithConstantValues(top: vc.view.safeAreaLayoutGuide.topAnchor, topPadding: 46, width: profileImage.defaultSize, height: profileImage.defaultSize)
+        container.addSubview(profileImage)
+        profileImage.centerX(inView: container)
+        profileImage.anchorWithConstantValues(top: container.topAnchor, topPadding: 46, width: profileImage.defaultSize, height: profileImage.defaultSize)
     
         //Top label
-        vc.view.addSubview(titleLabel)
+        container.addSubview(titleLabel)
         
-        titleLabel.centerX(inView: vc.view)
+        titleLabel.centerX(inView: container)
         titleLabel.anchorWithConstantValues(top: profileImage.bottomAnchor, topPadding: 60)
-    
         
         //Questions label constrains
-        vc.view.addSubview(nameLabel)
-        
-        nameLabel.anchorWithConstantValues(top: titleLabel.bottomAnchor, left: vc.view.leadingAnchor,  topPadding: 40, leftPadding: 45, height: 35)
+        container.addSubview(nameLabel)
+        nameLabel.centerX(inView: container)
+        nameLabel.anchorWithConstantValues(top: titleLabel.bottomAnchor, topPadding: 40, width: fieldWidth, height: 35)
      
        
         //First text feields Constrains
-        vc.view.addSubview(nameTextField)
-
-        nameTextField.anchorWithConstantValues(top: nameLabel.bottomAnchor, left: vc.view.leadingAnchor, leftPadding: 45, width: 288, height: 35)
+        container.addSubview(nameTextField)
+        nameTextField.centerX(inView: container)
+        nameTextField.anchorWithConstantValues(top: nameLabel.bottomAnchor, width: fieldWidth, height: 35)
         
 
         //Questions label constrains
-        vc.view.addSubview(aliasLabel)
-        
-        aliasLabel.anchorWithConstantValues(top: nameTextField.bottomAnchor, left: vc.view.leadingAnchor, topPadding: 20, leftPadding: 45, height: 35)
+        container.addSubview(nicknameLabel)
+        nicknameLabel.centerX(inView: container)
+        nicknameLabel.anchorWithConstantValues(top: nameTextField.bottomAnchor, topPadding: 20, width: fieldWidth, height: 35)
   
-        
         //Second text feields Constrains
-        vc.view.addSubview(aliasTextfield)
-
-        aliasTextfield.anchorWithConstantValues(top: aliasLabel.bottomAnchor, left: vc.view.leadingAnchor, leftPadding: 45, width: 288, height: 35)
+        container.addSubview(nicknameTextfield)
+        nicknameTextfield.centerX(inView: container)
+        nicknameTextfield.anchorWithConstantValues(top: nicknameLabel.bottomAnchor, width: fieldWidth, height: 35)
 
         
         //Question label Constrains
-        vc.view.addSubview(dateOfBirthLabel)
-        
-        dateOfBirthLabel.anchorWithConstantValues(top: aliasTextfield.bottomAnchor, left: vc.view.leadingAnchor,topPadding: 10, leftPadding: 45, height: 35)
+        container.addSubview(dateOfBirthLabel)
+        dateOfBirthLabel.centerX(inView: container)
+        dateOfBirthLabel.anchorWithConstantValues(top: nicknameTextfield.bottomAnchor, topPadding: 10, width: fieldWidth, height: 35)
 
         
         //Data picker Constrains
-        vc.view.addSubview(dateOfBirthDatePicker)
+        container.addSubview(dateOfBirthDatePicker)
         dateOfBirthDatePicker.centerX(inView: vc.view)
-        dateOfBirthDatePicker.anchorWithConstantValues(top: dateOfBirthLabel.bottomAnchor, left: vc.view.leadingAnchor, topPadding: 20, height: 140)
+        dateOfBirthDatePicker.anchorWithConstantValues(top: dateOfBirthLabel.bottomAnchor, topPadding: 20,width: fieldWidth, height: 120)
 
         //Buttons constrains
-        vc.view.addSubview(nextButton)
+        container.addSubview(nextButton)
         nextButton.centerX(inView: vc.view)
-        nextButton.anchorWithConstantValues(bottom: vc.view.safeAreaLayoutGuide.bottomAnchor, bottomPadding: -60,width: 364, height: 45)
+        nextButton.anchorWithConstantValues(
+            top: dateOfBirthDatePicker.bottomAnchor,
+            topPadding: 60,
+            width: min(CGFloat(UIScreen.main.bounds.width * 0.93), 692),
+            height: 60)
         nextButton.addAction(UIAction(handler: { [weak self] _ in
-            self?.viewModel?.didTapNext(nameText: self?.nameTextField.text, nicknameText: self?.aliasTextfield.text, dateOfBirth: self?.dateOfBirthDatePicker.date ?? Date())
+            self?.viewModel?.didTapNext(nameText: self?.nameTextField.text, nicknameText: self?.nicknameTextfield.text, dateOfBirth: self?.dateOfBirthDatePicker.date ?? Date())
         }), for: .touchUpInside)
     }
     
-//    private func didTapNext() {
-//        guard let vm = viewModel else { return }
-//        let haptics = UINotificationFeedbackGenerator()
-//        let isValid = vm.dataIsValid(name: nameTextField.text, alias: aliasTextfield.text, dateOfBirth: dateOfBirthDatePicker.date)
-//        guard isValid else {
-//            let alert = UIAlertController(title: "Dados Inválidos", message: "Preencha os dados para continuar", preferredStyle: .alert)
-//            alert.addAction(.init(title: "Ok", style: .default))
-//            haptics.notificationOccurred(.error)
-//            vm.viewController?.present(alert, animated: true)
-//            return
-//        }
-//        vm.saveInitialData()
-//        haptics.notificationOccurred(.success)
-//        vm.sendToMainView()
-//    }
-    
 }
-
-
-
-

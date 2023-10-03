@@ -9,7 +9,15 @@ import Foundation
 import UIKit
 
 class ProfileImageButton: UIButton {
-    let defaultSize: CGFloat = 54
+    var defaultSize: CGFloat {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return 96
+        }
+        return 54
+    }
+    var radius: CGFloat {
+        return defaultSize / 2
+    }
     private let imagePicker = UIImagePickerController()
     
     private var mode: Mode = .NoAction
@@ -56,7 +64,7 @@ class ProfileImageButton: UIButton {
     func setupUI(){
         refreshImageOrDefault()
         self.backgroundColor = .systemGray4
-        self.layer.cornerRadius = defaultSize / 2
+        self.layer.cornerRadius = radius
         self.clipsToBounds = true
         self.contentMode = .scaleAspectFit
     }
