@@ -68,7 +68,9 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     func setupCollectionView(){
         
         cells.forEach { collectionView.register(MaternityCardCell.self, forCellWithReuseIdentifier: $0.id) }
+        collectionView.register(HeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCell.id)
         collectionView.register(FooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterCell.id)
+        
         collectionView.reloadData()
     }
     
@@ -85,6 +87,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         cell.onDeleteButtonTapped = { [weak self] in
             self?.deleteButtonTapped(cell: cell)
         }
+        cell.isEditModeActive = isEditModeActive
         
         return cell
     }
@@ -95,24 +98,38 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-            switch kind {
-            case UICollectionView.elementKindSectionFooter:
-                let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: FooterCell.id, for: indexPath) as! FooterCell
-
-                footerView.tapAddViews = { [weak self] in
-                    self?.openModal()
-                }
-                
-                return footerView
-            default:
-                return UICollectionReusableView()
+        switch kind {
+       
+        case UICollectionView.elementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.id, for: indexPath) as! HeaderCell
+            headerView.tapEditButtonClosure = { [weak self] in
+                self?.editButtonTapped(headerView.editButton)
             }
+            return headerView
+            
+        case UICollectionView.elementKindSectionFooter:
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: FooterCell.id, for: indexPath) as! FooterCell
+            
+            footerView.tapAddViews = { [weak self] in
+                self?.openModal()
+            }
+            
+            return footerView
+            
+        default:
+            return UICollectionReusableView()
         }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        CGSize(width: UIScreen.main.bounds.width, height: 300)
     }
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        // Return the desired size for the header
+        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.17)
+    }
+  
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        // Return the desired size for the footer
+        CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.25)
+    }
+  
     // move items
     
     override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
@@ -144,7 +161,17 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         present(mySheetVC, animated: true, completion: nil)
     }
     
+    var isEditModeActive = false
     
+    @IBAction func editButtonTapped(_ sender: UIButton) {
+        isEditModeActive.toggle()
+        collectionView.reloadData() // Reload the collection view to reflect the changes.
+    }
+
+    
+    
+    
+    // generic to add views
     func addViews<T: UIView>(viewType: T.Type, viewSize: CGSize, viewID: String) {
         if !cells.contains(where: { type(of: $0.view) == viewType }) {
             let newView = viewType.init()
@@ -262,11 +289,11 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             cells.remove(at: indexPath.row)
             
             UIView.animate(withDuration: 0.19, animations: {
-                    cell.alpha = 0.0
-                }) { (_) in
-                    // After the animation completes, delete the cell from the collection view
-                    self.collectionView.deleteItems(at: [indexPath])
-                }
+                cell.alpha = 0.0
+            }) { (_) in
+                // After the animation completes, delete the cell from the collection view
+                self.collectionView.deleteItems(at: [indexPath])
+            }
         }
     }
     

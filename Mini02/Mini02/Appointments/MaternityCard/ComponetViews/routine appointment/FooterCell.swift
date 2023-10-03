@@ -24,6 +24,38 @@ public class FooterCell: UICollectionReusableView {
         return btn
     }()
     
+    let saveButton: UIButton = {
+        let btn = UIButton()
+        
+        // Set the background color and corner radius to make it a rounded rectangle
+        btn.backgroundColor = UIColor(red: 1, green: 0.521, blue: 0.58, alpha: 1)
+        btn.layer.cornerRadius = 8 // Adjust the corner radius to your preference
+        
+        
+        var btnConfig = UIButton.Configuration.borderless()
+        btnConfig.titleAlignment = .trailing
+        btnConfig.imagePlacement = .leading
+    
+        btnConfig.titleLineBreakMode = .byWordWrapping
+        btn.tintColor = UIColor(red: 1, green: 0.521, blue: 0.58, alpha: 1)
+        // Create a template image so it scales without distortion
+        if let image = UIImage(systemName: "doc.text")?.withRenderingMode(.automatic) {
+            btnConfig.image = image
+        }
+        btnConfig.imagePadding = 35
+        
+        btn.configuration = btnConfig
+
+        // Set the image tint color
+        btn.tintColor = .white
+        
+        btn.setTitle("Salvar", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        btn.titleLabel?.font = UIFont(name: "YourFontName", size: 16)
+        
+        return btn
+    }()
+    
     let label = LabelComponentView()
     
     lazy var addHStack: UIStackView = {
@@ -46,7 +78,7 @@ public class FooterCell: UICollectionReusableView {
     
     @objc private func plusButtonTapped() {
         tapAddViews?()
-       }
+    }
 
      func setupView(){
          
@@ -57,6 +89,9 @@ public class FooterCell: UICollectionReusableView {
          addHStack.addArrangedSubview(plusButton)
          addHStack.addArrangedSubview(label)
          addHStack.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor, topPadding: 15, leftPadding: 15)
+         
+         self.addSubview(saveButton)
+         saveButton.anchorWithConstantValues(top: addHStack.bottomAnchor, left: self.leadingAnchor ,leftPadding: 15, width: UIScreen.main.bounds.width * 0.46, height: UIScreen.main.bounds.height * 0.035)
          
     }
 
