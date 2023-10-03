@@ -32,10 +32,8 @@ class MaternityCardCell: UICollectionViewCell {
         
         contentView.addSubview(deleteButton)
         
-        
         deleteButton.anchorWithConstantValues(top: contentView.topAnchor, right: contentView.trailingAnchor, rightPadding: -15)
         deleteButton.addTarget(self, action: #selector(deleteButtonTapped(_:)), for: .touchUpInside)
-        
     }
 
     func setUpcellDataView(view: UIView?){
@@ -43,7 +41,6 @@ class MaternityCardCell: UICollectionViewCell {
             contentView.addSubview(view)
             view.anchorWithConstantValues(top: contentView.topAnchor, left: contentView.leadingAnchor, right: contentView.trailingAnchor)
         }
-
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
