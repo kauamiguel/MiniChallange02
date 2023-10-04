@@ -10,6 +10,8 @@ import UIKit
 
 fileprivate let onboardingStorageKey = "seen.onboard.setting"
 fileprivate let imgKey = "someimgkey.temp"
+fileprivate let firstAppointmentKey = "temp.appointments.hasEnteredFirstAppointmentData"
+
 final class ApplicationSettings {
     private static let userDefaultsStorage = UserDefaults(suiteName: "temp.testing.mini.2")!
     
@@ -27,5 +29,13 @@ final class ApplicationSettings {
     
     static func loadImageData() -> Data? {
         return userDefaultsStorage.data(forKey: imgKey)
+    }
+    
+    static func shouldEnterFirstAppointment() -> Bool {
+        return !userDefaultsStorage.bool(forKey: firstAppointmentKey)
+    }
+    
+    static func hasEnteredFirstAppointment() {
+        userDefaultsStorage.set(true, forKey: firstAppointmentKey)
     }
 }

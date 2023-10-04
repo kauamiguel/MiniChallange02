@@ -188,8 +188,16 @@ class CoreDataFunctions{
         
         //Assing the new Consult to current pacient
         pacient?.mutableSetValue(forKey: "consults").add(consult)
+        
         saveContext()
         fetchPacient()
+        self.checkFirstAppointment()
+    }
+    
+    private func checkFirstAppointment() {
+        if ApplicationSettings.shouldEnterFirstAppointment() {
+            ApplicationSettings.hasEnteredFirstAppointment()
+        }
     }
     
   
