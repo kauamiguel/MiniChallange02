@@ -9,7 +9,6 @@ import UIKit
 
 class MaternityCardViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     
-    private lazy var defaultView = DefaultView()
     private lazy var routineData =  RoutineDataView()
     private lazy var pregnancyRiskView = PregnancyRiskView()
     private lazy var plannedView = PlannedView()
