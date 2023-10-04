@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-class DropDownComponentView: UIView, UITableViewDelegate, UITableViewDataSource  {
+class DropDownComponentView: UIView, UITableViewDelegate, UITableViewDataSource{
     
     var setupDropDownOptions = [String]()
     
@@ -20,13 +20,18 @@ class DropDownComponentView: UIView, UITableViewDelegate, UITableViewDataSource 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        tableView.backgroundColor = .darkGray
+        tableView.backgroundColor = UIColor(red: 0.70, green: 0.82, blue: 0.84, alpha: 1.00)
         tableView.layer.zPosition = 1
-        self.backgroundColor = .darkGray
+        self.backgroundColor =  UIColor(red: 0.70, green: 0.82, blue: 0.84, alpha: 1.00)
         self.layer.zPosition = 1
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.layer.cornerRadius = 15
+        self.layer.cornerRadius = 15
+        
+        tableView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
        
         self.addSubview(tableView)
         
@@ -49,7 +54,7 @@ class DropDownComponentView: UIView, UITableViewDelegate, UITableViewDataSource 
         let cell = UITableViewCell()
         
         cell.textLabel?.text = setupDropDownOptions[indexPath.row]
-        cell.backgroundColor = UIColor.darkGray
+        cell.backgroundColor = UIColor(red: 0.70, green: 0.82, blue: 0.84, alpha: 1.00)
         cell.selectionStyle = .default // ask Chris about this
         return cell
     }

@@ -20,11 +20,11 @@ class DropDownMenuComponent: UIButton, dropDownProtocol {
     
     
     func setupButton(){
-        self.backgroundColor = .darkGray
+        self.backgroundColor = UIColor(red: 0.70, green: 0.82, blue: 0.84, alpha: 1.00)
         self.layer.zPosition = 1
-//        self.layer.cornerRadius = 10
+        self.layer.cornerRadius = 10
         self.superview?.isUserInteractionEnabled = true
-        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
         tableBarView.delegate = self
         tableBarView.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -45,7 +45,6 @@ class DropDownMenuComponent: UIButton, dropDownProtocol {
         for subview in self.superview!.subviews {
             if subview != self && subview != tableBarView {
                 subview.isUserInteractionEnabled = false
-                
             }
         }
         
@@ -66,15 +65,11 @@ class DropDownMenuComponent: UIButton, dropDownProtocol {
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.67, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
                 self.tableBarView.layoutIfNeeded()
                 self.tableBarView.center.y += self.tableBarView.frame.height / 2
-               
+                self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             }, completion: nil)
             
         } else {
             isOpen = false
-            
-            for subview in self.superview!.subviews {
-                subview.isUserInteractionEnabled = true
-            }
             
             NSLayoutConstraint.deactivate([self.height])
             self.height.constant = 0
@@ -82,8 +77,12 @@ class DropDownMenuComponent: UIButton, dropDownProtocol {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
                 self.tableBarView.center.y -= self.tableBarView.frame.height / 2
                 self.tableBarView.layoutIfNeeded()
-            }, completion: { _ in
                 self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+                
+            }, completion: { _ in
+                for subview in self.superview!.subviews {
+                    subview.isUserInteractionEnabled = true
+                }
             })
         }
     }
@@ -99,9 +98,11 @@ class DropDownMenuComponent: UIButton, dropDownProtocol {
             self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         }, completion: nil)
         for subview in self.superview!.subviews {
-                subview.isUserInteractionEnabled = true
+            subview.isUserInteractionEnabled = true
         }
     }
+    
+    
     
     func selectedOption(options string: String){
         self.setTitle(string, for: .normal)
