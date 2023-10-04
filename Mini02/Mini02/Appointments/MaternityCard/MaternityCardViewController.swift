@@ -151,7 +151,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
     }
 
-    
     //Adicionar dados dinamicamente na celula
     @objc func openModal(){
         let mySheetVC = ModalVC()
@@ -196,6 +195,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     @objc func addNewUltrassonViewCell() {
         addViews(viewType: UltrasoundView.self, viewSize: ultrasoundView.ultrasoundViewSize, viewID: UltrasoundView.id, viewQuery: ultrasoundView.query)
     }
+    
     func deleteButtonTapped(cell: MaternityCardCell) {
         if let indexPath = collectionView.indexPath(for: cell) {
             // Remove the cell from your data source
