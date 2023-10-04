@@ -15,7 +15,7 @@ class CurrentGestationView: UIView {
     let query = "gestacao atual"
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-    let currentGestationViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.35)
+    let currentGestationViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.38)
     
     
     let roudedBackGround: UIView = {
@@ -136,7 +136,7 @@ class CurrentGestationView: UIView {
         currentGestationLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)
-        contentBackGround.anchorWithConstantValues(top: currentGestationLabel.bottomAnchor, bottom: self.bottomAnchor, width: screenSize.width * 0.9)
+        contentBackGround.anchorWithConstantValues(top: currentGestationLabel.bottomAnchor, bottom: self.bottomAnchor, width: screenSize.width * 0.9, height: screenSize.height * 0.34)
         contentBackGround.centerX(inView: roudedBackGround)
         
         
@@ -169,7 +169,7 @@ class CurrentGestationView: UIView {
         configureLabelAndGreenCheckBox(stack:  syphilisSubHStack,label:  syphilisLabelYES, checkBox:  syphilisCheckYES,labelText: "Sífilis")
         
         contentBackGround.addSubview(syphilisSubHStack)
-        syphilisSubHStack.anchorWithConstantValues(top: hivAidsSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, bottom: contentBackGround.bottomAnchor, topPadding: 15, leftPadding: 10, rightPadding: -34, bottomPadding: -15)
+        syphilisSubHStack.anchorWithConstantValues(top: hivAidsSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10, rightPadding: -34, bottomPadding: -15)
     }
     
     

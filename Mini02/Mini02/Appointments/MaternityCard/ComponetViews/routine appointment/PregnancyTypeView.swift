@@ -16,7 +16,7 @@ class PregnancyTypeView: UIView {
 
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-    let pregnancyTypeViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.28)
+    let pregnancyTypeViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.33)
     
     
     let roudedBackGround: UIView = {
@@ -120,7 +120,7 @@ class PregnancyTypeView: UIView {
         
         
         roudedBackGround.addSubview(contentBackGround)
-        contentBackGround.anchorWithConstantValues(top: pregnancyTypeLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9)
+        contentBackGround.anchorWithConstantValues(top: pregnancyTypeLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9, height: screenSize.height * 0.28)
         contentBackGround.centerX(inView: roudedBackGround)
         
         /* ----------------------------------------------------------Tipos de gravidez------------------------------------------------------------- */
@@ -148,7 +148,7 @@ class PregnancyTypeView: UIView {
         configureLabelAndGreenCheckBox(stack: ignoredSubHStack,label: ignoredLabel,checkBox: ignoredCheckYES,labelText: "Ignorada")
         
         contentBackGround.addSubview(ignoredSubHStack)
-        ignoredSubHStack.anchorWithConstantValues(top: tripleOrMoreSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, bottom: contentBackGround.bottomAnchor, topPadding: 15, leftPadding: 10, rightPadding: -34, bottomPadding: -15)
+        ignoredSubHStack.anchorWithConstantValues(top: tripleOrMoreSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10, rightPadding: -34, bottomPadding: -15)
 
         
     }

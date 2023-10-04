@@ -14,7 +14,7 @@ class FamilyAntecedentView: UIView {
     let query = "antecedente familiar"
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-    let familyAntecedentViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.28)
+    let familyAntecedentViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.31)
     
     
     let roudedBackGround: UIView = {
@@ -120,7 +120,7 @@ class FamilyAntecedentView: UIView {
         antecedentesLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)
-        contentBackGround.anchorWithConstantValues(top: antecedentesLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9)
+        contentBackGround.anchorWithConstantValues(top: antecedentesLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9, height: screenSize.height * 0.27)
         contentBackGround.centerX(inView: roudedBackGround)
         
      
@@ -143,10 +143,10 @@ class FamilyAntecedentView: UIView {
         twinSubHStack.anchorWithConstantValues(top: diabetesSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15,leftPadding: 10 ,rightPadding: -34)
         
         /* ----------------------------------------------------------OTHER------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: otherSubHStack,label: otherLabelYES, checkBox: otherCheckYES,labelText: "Other")
+        configureLabelAndGreenCheckBox(stack: otherSubHStack,label: otherLabelYES, checkBox: otherCheckYES, labelText: "Other")
         
         contentBackGround.addSubview(otherSubHStack)
-        otherSubHStack.anchorWithConstantValues(top: twinSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, bottom: contentBackGround.bottomAnchor, topPadding: 15, leftPadding: 10, rightPadding: -34, bottomPadding: -15)
+        otherSubHStack.anchorWithConstantValues(top: twinSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor ,topPadding: 15, leftPadding: 10, rightPadding: -34)
         
         
     }

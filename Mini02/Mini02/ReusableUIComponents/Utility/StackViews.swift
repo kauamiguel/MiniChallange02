@@ -14,6 +14,7 @@ extension UIView {
         checkBox.setupButton()
         stack.addArrangedSubview(label)
         stack.addArrangedSubview(checkBox)
+        checkBox.anchorWithConstantValues(width: (UIScreen.main.bounds.width * 0.9) * 0.08, height:  (UIScreen.main.bounds.width * 0.9) * 0.08)
     }
     
     func configureLabelAndRedCheckBox(stack: UIStackView ,label: LabelComponentView, checkBox: CheckBoxComponentRedView, labelText: String) {
@@ -21,5 +22,7 @@ extension UIView {
         checkBox.setupButton()
         stack.addArrangedSubview(label)
         stack.addArrangedSubview(checkBox)
+        checkBox.anchorWithConstantValues(width: (UIScreen.main.bounds.width * 0.9) * 0.08, height: (UIScreen.main.bounds.width * 0.9) * 0.08)
+
     }
 }
