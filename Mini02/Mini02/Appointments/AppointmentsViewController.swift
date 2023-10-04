@@ -14,17 +14,14 @@ class AppointmentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        appointmentViewManager?.setupView(vc: self, action: #selector(buttonAction))
+        if let appointmentViewManager, let appointmentViewModelManager {
+            appointmentViewManager.setupView(vc: self, vm: appointmentViewModelManager)
+        }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         appointmentViewManager?.drawDashedCurvedLineBetweenButtons(vc: self, isFirstTremesteer: true, isSecondTremester: true)
-    }
-    
-  @objc func buttonAction(){
-      appointmentViewModelManager?.buttonFuncionality()
     }
 }
 

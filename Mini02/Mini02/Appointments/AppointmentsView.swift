@@ -75,13 +75,13 @@ class AppointmentsView: UIView {
     }()
 
     //Setup the layout and add Subview into the main view
-    func setupView(vc : AppointmentsViewController, action: Selector){
+    func setupView(vc : AppointmentsViewController, vm: AppointmentsVM){
         
         vc.view.backgroundColor = .white
         
-        firstTremesterButton.addTarget(vc, action: action, for: .touchUpInside)
-        secondTremesterButton.addTarget(vc, action: action, for: .touchUpInside)
-        thirdTremesterButton.addTarget(vc, action: action, for: .touchUpInside)
+        firstTremesterButton.addTarget(vm, action: #selector(vm.didTapFirstSemester), for: .touchUpInside)
+        secondTremesterButton.addTarget(vm, action: #selector(vm.didTapSecondSemester) , for: .touchUpInside)
+        thirdTremesterButton.addTarget(vm, action:  #selector(vm.didTapThirdSemester), for: .touchUpInside)
         
         //Setting up the layout of the view
         vc.view.addSubview(firstTremesterButton)

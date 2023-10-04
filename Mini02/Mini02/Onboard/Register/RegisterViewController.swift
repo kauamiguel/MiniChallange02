@@ -15,6 +15,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerViewModel.viewController = self
+        registerView.viewController = self
         registerView.setUpRegisterView(vc: self, vm: registerViewModel)
     }
     

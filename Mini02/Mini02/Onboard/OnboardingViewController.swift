@@ -22,7 +22,9 @@ class OnboardingPageViewController: UIPageViewController {
         let first = FirstOnboardingViewController()
         let second = SecondOnboardingViewController()
         let third = ThirdOnboardingViewController()
-        let register = RegisterViewController()
+        let registerVc = UINavigationController(rootViewController: RegisterViewController())
+        registerVc.isNavigationBarHidden = true
+        let register = registerVc
         
         self.pages.append(first)
         self.pages.append(second)

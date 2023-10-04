@@ -11,12 +11,27 @@ import UIKit
 
 
 class RegisterView: UIView{
+    var viewController: RegisterViewController?
     var viewModel: RegisterViewModel?
+    private let fieldWidth = min(CGFloat(UIScreen.main.bounds.width * 0.73), 544)
+    
+    private lazy var scrollView: UIScrollView = {
+       let scroll = UIScrollView()
+        scroll.backgroundColor = .systemBackground
+        return scroll
+    }()
+    
+    private lazy var contentView: UIView = {
+        let view = UIView()
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        return view
+    }()
     
     private lazy var titleLabel : UILabel = {
         let label = UILabel()
         label.text = "Dados da gestante"
-        label.textColor = .black
         label.font = label.font.withSize(24)
         return label
     }()
@@ -24,7 +39,6 @@ class RegisterView: UIView{
     private lazy var nameLabel : UILabel = {
         let label = UILabel()
         label.text = "Nome da gestante:"
-        label.textColor = .black
         label.font = label.font.withSize(20)
         return label
     }()
@@ -39,7 +53,6 @@ class RegisterView: UIView{
     private lazy var nicknameLabel : UILabel = {
         let label = UILabel()
         label.text = "Como gostaria de ser chamada:"
-        label.textColor = .black
         label.font = label.font.withSize(20)
         return label
     }()
@@ -54,7 +67,6 @@ class RegisterView: UIView{
     private lazy var dateOfBirthLabel : UILabel = {
         let label = UILabel()
         label.text = "Data de nascimento:"
-        label.textColor = .black
         label.font = label.font.withSize(20)
         return label
     }()
@@ -62,7 +74,7 @@ class RegisterView: UIView{
     private lazy var dateOfBirthDatePicker : UIDatePicker = {
         let date = UIDatePicker()
         date.datePickerMode = .date
-        date.preferredDatePickerStyle = .wheels
+        date.preferredDatePickerStyle = .compact
         date.calendar = .current
         date.setDate(Calendar.current.date(byAdding: .year, value: -18, to: Date())!, animated: false)
         return date
@@ -77,74 +89,110 @@ class RegisterView: UIView{
         return button
     }()
     
-    func setUpRegisterView(vc: UIViewController, vm : RegisterViewModel){
-        vc.view.backgroundColor = .white
-        viewModel = vm
+    private func setupDismissKeyboard(vc: UIViewController) {
         let tap = UITapGestureRecognizer(target: vc.view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         vc.view.addGestureRecognizer(tap)
-        let fieldWidth = min(CGFloat(UIScreen.main.bounds.width * 0.73), 544)
-        let container = UIView()
-        container.backgroundColor = .clear
-        vc.view.addSubview(container)
-        container.anchorWithConstantValues(top: vc.view.safeAreaLayoutGuide.topAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, bottom: vc.view.safeAreaLayoutGuide.bottomAnchor)
-        
-        let profileImage = ProfileImageButton(mode: .Edit, controller: vc)
-        container.addSubview(profileImage)
-        profileImage.centerX(inView: container)
-        profileImage.anchorWithConstantValues(top: container.topAnchor, topPadding: 46, width: profileImage.defaultSize, height: profileImage.defaultSize)
+    }
     
-        //Top label
-        container.addSubview(titleLabel)
+    private func setupScrollView(vc: UIViewController) {
+        vc.view.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(contentView)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         
-        titleLabel.centerX(inView: container)
-        titleLabel.anchorWithConstantValues(top: profileImage.bottomAnchor, topPadding: 60)
+        let hConst = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        hConst.isActive = true
+        hConst.priority = UILayoutPriority(50)
         
-        //Questions label constrains
-        container.addSubview(nameLabel)
-        nameLabel.centerX(inView: container)
-        nameLabel.anchorWithConstantValues(top: titleLabel.bottomAnchor, topPadding: 40, width: fieldWidth, height: 35)
-     
-       
-        //First text feields Constrains
-        container.addSubview(nameTextField)
-        nameTextField.centerX(inView: container)
-        nameTextField.anchorWithConstantValues(top: nameLabel.bottomAnchor, width: fieldWidth, height: 35)
-        
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: vc.view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: vc.view.bottomAnchor),
+                    scrollView.leadingAnchor.constraint(equalTo: vc.view.leadingAnchor),
+                    scrollView.trailingAnchor.constraint(equalTo: vc.view.trailingAnchor),
 
-        //Questions label constrains
-        container.addSubview(nicknameLabel)
-        nicknameLabel.centerX(inView: container)
-        nicknameLabel.anchorWithConstantValues(top: nameTextField.bottomAnchor, topPadding: 20, width: fieldWidth, height: 35)
-  
-        //Second text feields Constrains
-        container.addSubview(nicknameTextfield)
-        nicknameTextfield.centerX(inView: container)
-        nicknameTextfield.anchorWithConstantValues(top: nicknameLabel.bottomAnchor, width: fieldWidth, height: 35)
-
-        
-        //Question label Constrains
-        container.addSubview(dateOfBirthLabel)
-        dateOfBirthLabel.centerX(inView: container)
-        dateOfBirthLabel.anchorWithConstantValues(top: nicknameTextfield.bottomAnchor, topPadding: 10, width: fieldWidth, height: 35)
-
-        
-        //Data picker Constrains
-        container.addSubview(dateOfBirthDatePicker)
-        dateOfBirthDatePicker.centerX(inView: vc.view)
-        dateOfBirthDatePicker.anchorWithConstantValues(top: dateOfBirthLabel.bottomAnchor, topPadding: 20,width: fieldWidth, height: 120)
-
-        //Buttons constrains
-        container.addSubview(nextButton)
-        nextButton.centerX(inView: vc.view)
-        nextButton.anchorWithConstantValues(
-            top: dateOfBirthDatePicker.bottomAnchor,
-            topPadding: 60,
-            width: min(CGFloat(UIScreen.main.bounds.width * 0.93), 692),
-            height: 60)
+                    contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+                    contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+                    contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+                    contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+                    contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+                ])
+    }
+    
+    private lazy var profileButton = ProfileImageButton(mode: .Edit, controller: viewController!)
+    private func setupProfileImage(vc: UIViewController) {
+        contentView.addSubview(profileButton)
+        profileButton.centerX(inView: contentView)
+        profileButton.anchorWithConstantValues(top: contentView.topAnchor, topPadding: 18, width: profileButton.defaultSize, height: profileButton.defaultSize)
+    }
+    
+    private func setupTitle() {
+        contentView.addSubview(titleLabel)
+        titleLabel.centerX(inView: contentView)
+        titleLabel.anchorWithConstantValues(top: profileButton.bottomAnchor, topPadding: 48)
+    }
+    
+    private func setupName(vc: UIViewController) {
+        contentView.addSubview(nameLabel)
+        nameLabel.centerX(inView: contentView)
+        nameLabel.anchorWithConstantValues(top: titleLabel.bottomAnchor, topPadding: 36, width: fieldWidth)
+        contentView.addSubview(nameTextField)
+        nameTextField.centerX(inView: contentView)
+        nameTextField.anchorWithConstantValues(top: nameLabel.bottomAnchor, topPadding: 5, width: fieldWidth, height: 34)
+    }
+    
+    private func setupNickname(vc: UIViewController) {
+        contentView.addSubview(nicknameLabel)
+        nicknameLabel.centerX(inView: contentView)
+        nicknameLabel.anchorWithConstantValues(top: nameTextField.bottomAnchor, topPadding: 20, width: fieldWidth)
+        contentView.addSubview(nicknameTextfield)
+        nicknameTextfield.centerX(inView: contentView)
+        nicknameTextfield.anchorWithConstantValues(top: nicknameLabel.bottomAnchor, topPadding: 5, width: fieldWidth, height: 34)
+    }
+    
+    private func setupDatePicker(vc: UIViewController) {
+        contentView.addSubview(dateOfBirthLabel)
+        dateOfBirthLabel.centerX(inView: contentView)
+        dateOfBirthLabel.anchorWithConstantValues(top: nicknameTextfield.bottomAnchor, topPadding: 20, width: fieldWidth)
+        contentView.addSubview(dateOfBirthDatePicker)
+        dateOfBirthDatePicker.anchorWithConstantValues(top: dateOfBirthLabel.bottomAnchor, left: dateOfBirthLabel.leadingAnchor, topPadding: 5)
+    }
+    
+    private lazy var placeholderIcon: UIView = {
+       let view = UIView()
+        view.backgroundColor = .systemGray
+        return view
+    }()
+    
+    private func setupPlaceholder(vc: UIViewController) {
+        contentView.addSubview(placeholderIcon)
+        placeholderIcon.centerX(inView: contentView)
+        placeholderIcon.anchorWithConstantValues(top: dateOfBirthDatePicker.bottomAnchor, topPadding: 36, width: 198, height: 198)
+    }
+    
+    private func setupNextButton(vc: UIViewController) {
+        contentView.addSubview(nextButton)
+        nextButton.centerX(inView: contentView)
+        let buttonWidth = max(fieldWidth, 364)
+        nextButton.anchorWithConstantValues(top: placeholderIcon.bottomAnchor, topPadding: 36, bottomPadding: 60, width: buttonWidth, height: 66)
         nextButton.addAction(UIAction(handler: { [weak self] _ in
             self?.viewModel?.didTapNext(nameText: self?.nameTextField.text, nicknameText: self?.nicknameTextfield.text, dateOfBirth: self?.dateOfBirthDatePicker.date ?? Date())
         }), for: .touchUpInside)
+    }
+    
+    func setUpRegisterView(vc: UIViewController, vm : RegisterViewModel){
+        vc.view.backgroundColor = .systemBackground
+        viewModel = vm
+        setupDismissKeyboard(vc: vc)
+        setupScrollView(vc: vc)
+        setupProfileImage(vc: vc)
+        setupTitle()
+        setupName(vc: vc)
+        setupNickname(vc: vc)
+        setupDatePicker(vc: vc)
+        setupPlaceholder(vc: vc)
+        setupNextButton(vc: vc)
+        
     }
     
 }

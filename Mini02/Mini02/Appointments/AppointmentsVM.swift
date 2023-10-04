@@ -12,11 +12,23 @@ class AppointmentsVM {
     
     var view: UIViewController?
     
-    func buttonFuncionality(){
-        let listController = ListViewController()
-        listController.ListViewManager = ListView()
-        listController.AppoimentListViewModelManager = AppointmentsListVM(view: listController)
+    @objc func didTapFirstSemester() {
+        if ApplicationSettings.shouldEnterFirstAppointment() {
+            view?.navigationController?.pushViewController(MaternityCardViewController(), animated: true)
+        } else {
+            let listController = ListViewController()
+            listController.ListViewManager = ListView()
+            listController.AppoimentListViewModelManager = AppointmentsListVM(view: listController)
 
-        view?.navigationController?.pushViewController(listController, animated: true)
+            view?.navigationController?.pushViewController(listController, animated: true)
+        }
+    }
+    
+    @objc func didTapSecondSemester() {
+        didTapFirstSemester() // this is temporary, delete when implementing actual functionality
+    }
+    
+    @objc func didTapThirdSemester() {
+        didTapFirstSemester() // this is temporary, delete when implementing actual functionality
     }
 }
