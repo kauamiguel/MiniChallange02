@@ -27,28 +27,15 @@ class CoreDataFunctions{
         }
     }
     
-    //Return na array of blood exam to manipulate in other views
-    func getBloodExam() -> [BloodExam]{
+    //Return na array of consults exam to manipulate in other views
+    func getConsults() -> [ConsultEntity]{
         
         fetchPacient()
         if let pacient = self.pacient{
-            let examset = pacient.bloodExam as! Set<BloodExam>
-            var examArray = Array(examset)
-            examArray.sort{$0.consultNumber < $1.consultNumber}
-            return examArray
-        }
-        return []
-    }
-    
-    //Return na array of ultrasound to manipulate in other views
-    func getBloodUltraSoundExam() -> [UltraSoundModel]{
-        
-        fetchPacient()
-        if let pacient = self.pacient{
-            let examset = pacient.bloodExam as! Set<UltraSoundModel>
-            var examArray = Array(examset)
-            examArray.sort{$0.consultNumber < $1.consultNumber}
-            return examArray
+            let consult = pacient.consults as! Set<ConsultEntity>
+            var consultArray = Array(consult)
+            consultArray.sort{$0.consultId < $1.consultId}
+            return consultArray
         }
         return []
     }
@@ -80,6 +67,23 @@ class CoreDataFunctions{
         self.pacient = Pacient(context: context)
     }
     
+    //Add influenza vaccine
+    func addVaccineInfluenza(influenza : DoseVaccines){
+        let vaccineEntity = VaccinesEntity(context: context)
+        let doseEntity = VaccinesDoses(context: context)
+        let pacient = self.pacient
+        
+        doseEntity.isVaccined = influenza.isVaccined
+        doseEntity.vaccineDate = influenza.date
+        doseEntity.numberOfDose = Int64(influenza.numberOfDose)
+        
+        vaccineEntity.influenza = doseEntity
+        pacient?.vaccines = vaccineEntity
+    
+        saveContext()
+        fetchPacient()
+    }
+    
     //Add personal info to a pacient that alredy exists
     func addPersonalInfo(firstName : String, secondName : String, nickName : String, dateOfBirth : Date, height : Float , weight : Float){
         
@@ -98,9 +102,8 @@ class CoreDataFunctions{
     }
     
     //Add all information about blood exam
-    func addBloodExam(bloodExam : BloodExamModel){
-        let newExame = BloodExam(context: context)
-        let pacientSaved = pacient
+    func addBloodExam(bloodExam : BloodExamModel) -> BloodExam{
+        let newExame = BloodExam(entity: BloodExam.entity(), insertInto: context)
         let toxoPlasm = ToxoplasmosisModel(context: context)
         let urea = Urea(context: context)
         
@@ -131,21 +134,12 @@ class CoreDataFunctions{
         //Assign the relationChip of each class
         newExame.toxoplasmosis = toxoPlasm
         newExame.urea = urea
-        newExame.pacient = pacientSaved
         
-        //Add the current exam to pacient set of exams
-        let examset = pacient!.bloodExam as! Set<BloodExam>
-        var examArray = Array(examset)
-        examArray.append(newExame)
-        pacientSaved!.bloodExam = NSSet(array: examArray)
-        
-        saveContext()
-        fetchPacient()
+        return newExame
     }
     
     //Add all information about ultraSound exam
-    func addUltraSoundExam(ultraSound : UltrasoundExam){
-        let pacientSaved = pacient
+    func addUltraSoundExam(ultraSound : UltrasoundExam) -> UltraSoundModel{
         let ultraSoundModel = UltraSoundModel(context: context)
         let  idadeGestacional = Idadegestacional(context: context)
         
@@ -162,16 +156,43 @@ class CoreDataFunctions{
         //Assign the relationChip of each class
         ultraSoundModel.idadeGestacional = idadeGestacional
         
-        //Add the new Ultrassound exam into the set of ultraSounds
-        let examset = pacient!.bloodExam as! Set<UltraSoundModel>
-        var examArray = Array(examset)
-        examArray.append(ultraSoundModel)
-        pacientSaved!.bloodExam = NSSet(array: examArray)
+        return ultraSoundModel
+    }
+    
+    //Add exams to a consult (Blood and ultrasound)
+    func addNewConsult(newConsult : Consulta){
+        let pacient = self.pacient
+        let consult = ConsultEntity(context: context)
         
+        //Add a blood exam if it has
+        if let blood = newConsult.bloodExams{
+            
+            let newBloodExam = addBloodExam(bloodExam: blood)
+            
+            //Add the id of the consult to the id of the bloodExam
+            newBloodExam.consultNumber = Int64(newConsult.consultId)
+            
+            consult.bloodExam = newBloodExam
+        }
+        
+        //Add a ultrasound if it has
+        if let ultra = newConsult.ultraSoundExams{
+
+            let newUltrasound = addUltraSoundExam(ultraSound: ultra)
+            
+            //Add the id of the consult to the id of the bloodExam
+            newUltrasound.consultNumber = Int64(newConsult.consultId)
+            
+            consult.ultraSound = newUltrasound
+        }
+        
+        //Assing the new Consult to current pacient
+        pacient?.mutableSetValue(forKey: "consults").add(consult)
         saveContext()
         fetchPacient()
     }
     
+  
     func assignPersonalBG(personalBG : PersonalBGModel){
         let personalBackGround = PersonalBackGround(context: context)
         let savedPacient = pacient

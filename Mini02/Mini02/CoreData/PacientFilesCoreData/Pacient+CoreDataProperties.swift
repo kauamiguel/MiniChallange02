@@ -2,7 +2,7 @@
 //  Pacient+CoreDataProperties.swift
 //  Mini02
 //
-//  Created by Kaua Miguel on 28/09/23.
+//  Created by Kaua Miguel on 04/10/23.
 //
 //
 
@@ -16,17 +16,18 @@ extension Pacient {
         return NSFetchRequest<Pacient>(entityName: "Pacient")
     }
 
-    @NSManaged public var dateOfBirth: Date
+    @NSManaged public var dateOfBirth: Date?
     @NSManaged public var firstName: String?
     @NSManaged public var height: Float
     @NSManaged public var nickName: String?
     @NSManaged public var secondName: String?
     @NSManaged public var weight: Float
     @NSManaged public var bloodExam: NSSet?
+    @NSManaged public var emergencyContact: EmergencyContact?
     @NSManaged public var familyBG: FamilyBackGround?
     @NSManaged public var personalBG: PersonalBackGround?
     @NSManaged public var ultrassound: NSSet?
-    @NSManaged public var emergencyContact: EmergencyContact?
+    @NSManaged public var vaccines: VaccinesEntity?
 
 }
 

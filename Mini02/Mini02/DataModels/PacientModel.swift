@@ -52,9 +52,7 @@ struct PacientModel:PacientInfo{
     //This struct has all the family background information data
     var familyBG = FamilyBGModel()
     
-    //This array will have all the blood exams
-    var bloodExams: [BloodExam]
+    var vaccines : Vaccines?
     
-    //This array will have all the US exams
-    var USoundExams: [UltrasoundExam]
+    var consults : [Consulta]
 }

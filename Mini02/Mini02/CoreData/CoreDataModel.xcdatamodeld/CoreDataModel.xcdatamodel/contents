@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22G91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BloodExam" representedClassName="BloodExam" syncable="YES" codeGenerationType="class">
         <attribute name="bloodType" optional="YES" attributeType="String"/>
         <attribute name="consultNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -15,9 +15,15 @@
         <attribute name="tci" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="vdrlExam" optional="YES" attributeType="String"/>
         <attribute name="whiteCells" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="pacient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pacient" inverseName="bloodExam" inverseEntity="Pacient"/>
+        <relationship name="consult" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConsultEntity" inverseName="bloodExam" inverseEntity="ConsultEntity"/>
         <relationship name="toxoplasmosis" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ToxoplasmosisModel" inverseName="bloodExam" inverseEntity="ToxoplasmosisModel"/>
         <relationship name="urea" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Urea" inverseName="bloodExam" inverseEntity="Urea"/>
+    </entity>
+    <entity name="ConsultEntity" representedClassName="ConsultEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="consultId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="bloodExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BloodExam" inverseName="consult" inverseEntity="BloodExam"/>
+        <relationship name="pacient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pacient" inverseName="consults" inverseEntity="Pacient"/>
+        <relationship name="ultraSound" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UltraSoundModel" inverseName="consult" inverseEntity="UltraSoundModel"/>
     </entity>
     <entity name="EmergencyContact" representedClassName="EmergencyContact" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -46,11 +52,11 @@
         <attribute name="nickName" optional="YES" attributeType="String"/>
         <attribute name="secondName" optional="YES" attributeType="String"/>
         <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="bloodExam" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BloodExam" inverseName="pacient" inverseEntity="BloodExam"/>
+        <relationship name="consults" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ConsultEntity" inverseName="pacient" inverseEntity="ConsultEntity"/>
         <relationship name="emergencyContact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EmergencyContact" inverseName="pacient" inverseEntity="EmergencyContact"/>
         <relationship name="familyBG" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FamilyBackGround" inverseName="pacient" inverseEntity="FamilyBackGround"/>
         <relationship name="personalBG" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PersonalBackGround" inverseName="pacient" inverseEntity="PersonalBackGround"/>
-        <relationship name="ultrassound" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UltraSoundModel" inverseName="pacient" inverseEntity="UltraSoundModel"/>
+        <relationship name="vaccines" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesEntity" inverseName="pacient" inverseEntity="VaccinesEntity"/>
     </entity>
     <entity name="PersonalBackGround" representedClassName="PersonalBackGround" syncable="YES" codeGenerationType="class">
         <attribute name="diabetes" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -71,12 +77,30 @@
         <attribute name="ig" optional="YES" attributeType="String"/>
         <attribute name="placenta" optional="YES" attributeType="String"/>
         <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="consult" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConsultEntity" inverseName="ultraSound" inverseEntity="ConsultEntity"/>
         <relationship name="idadeGestacional" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idadegestacional" inverseName="ultrasound" inverseEntity="Idadegestacional"/>
-        <relationship name="pacient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pacient" inverseName="ultrassound" inverseEntity="Pacient"/>
     </entity>
     <entity name="Urea" representedClassName="Urea" syncable="YES" codeGenerationType="class">
         <attribute name="dL" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="mg" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="bloodExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BloodExam" inverseName="urea" inverseEntity="BloodExam"/>
+    </entity>
+    <entity name="VaccinesDoses" representedClassName="VaccinesDoses" syncable="YES" codeGenerationType="class">
+        <attribute name="isVaccined" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="numberOfDose" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="vaccineDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="antitetanic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesEntity" inverseName="antitetanic" inverseEntity="VaccinesEntity"/>
+        <relationship name="dTpa" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesEntity" inverseName="dTpa" inverseEntity="VaccinesEntity"/>
+        <relationship name="flue" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesEntity" inverseName="flue" inverseEntity="VaccinesEntity"/>
+        <relationship name="hepatiteB" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesEntity" inverseName="hepatiteB" inverseEntity="VaccinesEntity"/>
+        <relationship name="influenza" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesEntity" inverseName="influenza" inverseEntity="VaccinesEntity"/>
+    </entity>
+    <entity name="VaccinesEntity" representedClassName="VaccinesEntity" syncable="YES" codeGenerationType="class">
+        <relationship name="antitetanic" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VaccinesDoses" inverseName="antitetanic" inverseEntity="VaccinesDoses"/>
+        <relationship name="dTpa" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesDoses" inverseName="dTpa" inverseEntity="VaccinesDoses"/>
+        <relationship name="flue" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesDoses" inverseName="flue" inverseEntity="VaccinesDoses"/>
+        <relationship name="hepatiteB" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VaccinesDoses" inverseName="hepatiteB" inverseEntity="VaccinesDoses"/>
+        <relationship name="influenza" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesDoses" inverseName="influenza" inverseEntity="VaccinesDoses"/>
+        <relationship name="pacient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pacient" inverseName="vaccines" inverseEntity="Pacient"/>
     </entity>
 </model>

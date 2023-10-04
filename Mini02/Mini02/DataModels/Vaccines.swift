@@ -10,12 +10,13 @@ import Foundation
 struct DoseVaccines { 
     var date : Date
     var isVaccined : Bool
+    var numberOfDose : Int
 }
 
-class Vaccines{
-    var hepatiteB : [DoseVaccines]?
-    var influenza : DoseVaccines?
-    var antitetanic : [DoseVaccines]?
-    var flue : DoseVaccines?
-    var dTpa : DoseVaccines?
+struct Vaccines{
+    var hepatiteB : [DoseVaccines]
+    var influenza : DoseVaccines
+    var antitetanic : [DoseVaccines]
+    var flue : DoseVaccines
+    var dTpa : DoseVaccines
 }

@@ -69,8 +69,10 @@
 		ABFDA77D2AC67BBA0097656E /* CurrentGestationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA77C2AC67BBA0097656E /* CurrentGestationView.swift */; };
 		ABFDA77F2AC67BE10097656E /* ClinicAntecedentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA77E2AC67BE10097656E /* ClinicAntecedentsView.swift */; };
 		CE0BFA682AC7464C0053C2A6 /* RecurrenteDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0BFA672AC7464C0053C2A6 /* RecurrenteDataViewModel.swift */; };
-		CE8EE3432AC5F512000E89E1 /* Pacient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE3412AC5F512000E89E1 /* Pacient+CoreDataClass.swift */; };
-		CE8EE3442AC5F512000E89E1 /* Pacient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE3422AC5F512000E89E1 /* Pacient+CoreDataProperties.swift */; };
+		CE60D0502ACDAAB900937768 /* Vaccines.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60D04F2ACDAAB900937768 /* Vaccines.swift */; };
+		CE60D05C2ACDD6FC00937768 /* Consulta.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60D05B2ACDD6FC00937768 /* Consulta.swift */; };
+		CE60D06F2ACDF6E000937768 /* Pacient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60D06D2ACDF6E000937768 /* Pacient+CoreDataClass.swift */; };
+		CE60D0702ACDF6E000937768 /* Pacient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60D06E2ACDF6E000937768 /* Pacient+CoreDataProperties.swift */; };
 		CE8EE3462AC5F665000E89E1 /* PersonalBGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE3452AC5F665000E89E1 /* PersonalBGModel.swift */; };
 		CE8EE3482AC5F690000E89E1 /* FamilyBGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE3472AC5F690000E89E1 /* FamilyBGModel.swift */; };
 		CE8EE34B2AC5F7F1000E89E1 /* PacientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE34A2AC5F7F1000E89E1 /* PacientModel.swift */; };
@@ -112,7 +114,6 @@
 		6241A1E72AC7434500C7921B /* SignikaNegative-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SignikaNegative-Bold.ttf"; sourceTree = "<group>"; };
 		6241A1E82AC7434500C7921B /* SignikaNegative-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SignikaNegative-Regular.ttf"; sourceTree = "<group>"; };
 		6241A1E92AC7434500C7921B /* SignikaNegative-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SignikaNegative-Medium.ttf"; sourceTree = "<group>"; };
-		62C9AEBE2ABE121B00008825 /* Vaccines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccines.swift; sourceTree = "<group>"; };
 		62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtrasoundExam.swift; sourceTree = "<group>"; };
 		62FA7C392ABE17160083F6E0 /* BloodExamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodExamModel.swift; sourceTree = "<group>"; };
 		AB7852ED2AB9F94600566EF9 /* DefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
@@ -165,8 +166,10 @@
 		ABFDA77C2AC67BBA0097656E /* CurrentGestationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGestationView.swift; sourceTree = "<group>"; };
 		ABFDA77E2AC67BE10097656E /* ClinicAntecedentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicAntecedentsView.swift; sourceTree = "<group>"; };
 		CE0BFA672AC7464C0053C2A6 /* RecurrenteDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenteDataViewModel.swift; sourceTree = "<group>"; };
-		CE8EE3412AC5F512000E89E1 /* Pacient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pacient+CoreDataClass.swift"; sourceTree = "<group>"; };
-		CE8EE3422AC5F512000E89E1 /* Pacient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pacient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CE60D04F2ACDAAB900937768 /* Vaccines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vaccines.swift; sourceTree = "<group>"; };
+		CE60D05B2ACDD6FC00937768 /* Consulta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consulta.swift; sourceTree = "<group>"; };
+		CE60D06D2ACDF6E000937768 /* Pacient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Pacient+CoreDataClass.swift"; path = "../../../Pacient+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CE60D06E2ACDF6E000937768 /* Pacient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Pacient+CoreDataProperties.swift"; path = "../../../Pacient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE8EE3452AC5F665000E89E1 /* PersonalBGModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalBGModel.swift; sourceTree = "<group>"; };
 		CE8EE3472AC5F690000E89E1 /* FamilyBGModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyBGModel.swift; sourceTree = "<group>"; };
 		CE8EE34A2AC5F7F1000E89E1 /* PacientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacientModel.swift; sourceTree = "<group>"; };
@@ -208,13 +211,14 @@
 		62C9AEB82ABE11B100008825 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
-				62C9AEBE2ABE121B00008825 /* Vaccines.swift */,
+				CE60D04F2ACDAAB900937768 /* Vaccines.swift */,
 				CE8EE3452AC5F665000E89E1 /* PersonalBGModel.swift */,
 				CE8EE34A2AC5F7F1000E89E1 /* PacientModel.swift */,
 				CE8EE3472AC5F690000E89E1 /* FamilyBGModel.swift */,
 				62FA7C392ABE17160083F6E0 /* BloodExamModel.swift */,
 				62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */,
 				E8E0D65E2AC6116E003CE5CD /* EmergencyContact.swift */,
+				CE60D05B2ACDD6FC00937768 /* Consulta.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -229,13 +233,6 @@
 			path = ComponetViews;
 			sourceTree = "<group>";
 		};
-		AB9D941F2ACCAA880064DB69 /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Buttons;
-			sourceTree = "<group>";
-		};
 		ABAD4F2C2ABD25E8007BEC32 /* ReusableUIComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,7 +243,6 @@
 				ABAD4F432ABE2299007BEC32 /* Label */,
 				ABAD4F4A2AC1A4AB007BEC32 /* PickerComponent.swift */,
 				ABAD4F4E2AC21922007BEC32 /* DropDown */,
-				AB9D941F2ACCAA880064DB69 /* Buttons */,
 			);
 			path = ReusableUIComponents;
 			sourceTree = "<group>";
@@ -526,8 +522,8 @@
 		CE8EE3492AC5F704000E89E1 /* PacientFilesCoreData */ = {
 			isa = PBXGroup;
 			children = (
-				CE8EE3412AC5F512000E89E1 /* Pacient+CoreDataClass.swift */,
-				CE8EE3422AC5F512000E89E1 /* Pacient+CoreDataProperties.swift */,
+				CE60D06D2ACDF6E000937768 /* Pacient+CoreDataClass.swift */,
+				CE60D06E2ACDF6E000937768 /* Pacient+CoreDataProperties.swift */,
 			);
 			path = PacientFilesCoreData;
 			sourceTree = "<group>";
@@ -669,6 +665,7 @@
 				ABAD4F472ABE2B1A007BEC32 /* AppointmentsVM.swift in Sources */,
 				6241A1602AC221D800C7921B /* ModalView.swift in Sources */,
 				ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift in Sources */,
+				CE60D05C2ACDD6FC00937768 /* Consulta.swift in Sources */,
 				ABB82F162AC60931008B73AF /* RoutineDataView.swift in Sources */,
 				E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */,
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
@@ -682,7 +679,6 @@
 				ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */,
 				E8135BBE2ABA1C0400E722FA /* ThirdOnboardingViewController.swift in Sources */,
 				ABC98BA82AB3F5E0005214E5 /* RecurrentDataView.swift in Sources */,
-				CE8EE3432AC5F512000E89E1 /* Pacient+CoreDataClass.swift in Sources */,
 				CE0BFA682AC7464C0053C2A6 /* RecurrenteDataViewModel.swift in Sources */,
 				ABAD4F4B2AC1A4AB007BEC32 /* PickerComponent.swift in Sources */,
 				CE8EE3462AC5F665000E89E1 /* PersonalBGModel.swift in Sources */,
@@ -695,10 +691,13 @@
 				E8E0D65B2AC4C6F2003CE5CD /* ProfileImageButton.swift in Sources */,
 				E8E0D64D2AC36F55003CE5CD /* PregnantDataView.swift in Sources */,
 				AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */,
+				CE60D0702ACDF6E000937768 /* Pacient+CoreDataProperties.swift in Sources */,
 				E8135BBA2ABA1BE700E722FA /* SecondOnboardingViewController.swift in Sources */,
 				E8E0D6452AC36F05003CE5CD /* ProfileViewModel.swift in Sources */,
+				CE60D06F2ACDF6E000937768 /* Pacient+CoreDataClass.swift in Sources */,
 				62D39EAD2ABF1CCC003CF99F /* UtrasoundExam.swift in Sources */,
 				E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */,
+				CE60D0502ACDAAB900937768 /* Vaccines.swift in Sources */,
 				E8135BC02ABA1D0000E722FA /* OnboardingViewController.swift in Sources */,
 				ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */,
 				ABC98BB62AB3FCC2005214E5 /* MaternityCardCell.swift in Sources */,
@@ -723,7 +722,6 @@
 				6241A1642AC6212000C7921B /* HistoryVC.swift in Sources */,
 				ABB82F132AC5FCF8008B73AF /* HistoryView.swift in Sources */,
 				E8E0D6492AC36F37003CE5CD /* AboutView.swift in Sources */,
-				CE8EE3442AC5F512000E89E1 /* Pacient+CoreDataProperties.swift in Sources */,
 				AB7852EE2AB9F94600566EF9 /* DefaultView.swift in Sources */,
 				ABC98BA22AB3F53D005214E5 /* AppointmentsView.swift in Sources */,
 				CE8EE3482AC5F690000E89E1 /* FamilyBGModel.swift in Sources */,
@@ -875,7 +873,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mini02/Mini02.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6FXWX5Z987;
+				DEVELOPMENT_TEAM = 7PL64AUG55;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini02/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
@@ -907,7 +905,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mini02/Mini02.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6FXWX5Z987;
+				DEVELOPMENT_TEAM = 7PL64AUG55;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini02/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
