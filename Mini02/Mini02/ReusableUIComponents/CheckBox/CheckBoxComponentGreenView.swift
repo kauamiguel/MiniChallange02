@@ -8,38 +8,39 @@
 import Foundation
 import UIKit
 
-
 class CheckBoxComponentGreenView: UIButton {
-    
-    private var image: UIImage{
-        return checked ? UIImage(named: "Property 1=Variant2")! :  UIImage(named: "Property 1=Default")!
+
+    private var imageCheck: UIImage {
+        return checked ? UIImage(named: "Property 1=Variant2")?.withRenderingMode(.alwaysOriginal) ?? UIImage() : UIImage(named: "Property 1=Default")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
     }
-    
-    var checked: Bool = false{
+
+    var checked: Bool = false {
         didSet {
-            self.imageView?.image = image
+            self.setImage(imageCheck, for: .normal)
         }
     }
-    
-    func setupButton(){
-        
+
+    func setupButton() {
         backgroundColor = .clear
-        layoutSubviews()
-        self.addTarget(self, action: #selector(buttonfunc), for: .touchUpInside)
+
+        self.addTarget(self, action: #selector(buttonFunc), for: .touchUpInside)
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
+
+        self.setImage(imageCheck, for: .normal)
         
-        self.setImage(image, for: .normal)
+        // Set the frame of the image view to match the button's bounds
+        self.imageView?.frame = self.bounds
+
     }
-    
-    @objc func buttonfunc() {
+
+    @objc func buttonFunc() {
         checked = !checked
     }
-    
-    func getBoolleanValue() -> Bool{
+
+    func getBooleanValue() -> Bool {
         return checked
     }
-    
 }

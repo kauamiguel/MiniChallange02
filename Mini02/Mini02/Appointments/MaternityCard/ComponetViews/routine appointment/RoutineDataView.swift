@@ -14,7 +14,7 @@ class RoutineDataView: UIView {
     let query = "rotina"
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-    let routineDataViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.28)
+    let routineDataViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.34)
     
     
     let roudedBackGround: UIView = {
@@ -75,7 +75,7 @@ class RoutineDataView: UIView {
         routineLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)
-        contentBackGround.anchorWithConstantValues(top: routineLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9)
+        contentBackGround.anchorWithConstantValues(top: routineLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10,width: screenSize.width * 0.9, height: screenSize.height * 0.3)
         contentBackGround.centerX(inView: roudedBackGround)
         
         /* ----------------------------------------------------------IIG -DUM/USG-G------------------------------------------------------------- */
@@ -85,10 +85,11 @@ class RoutineDataView: UIView {
         igDropDown.setupButton()
         igDropDown.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd" , "fffffff"]
         
+        
         contentBackGround.addSubview(hypertensionSubVStack)
 
         contentBackGround.addSubview(igDropDown)
-        igDropDown.anchorWithConstantValues(top: contentBackGround.topAnchor ,width: 150, height: 40)
+        igDropDown.anchorWithConstantValues(top: contentBackGround.topAnchor ,width: screenSize.width * 0.35, height: screenSize.height * 0.035)
 
         
         

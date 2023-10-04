@@ -22,7 +22,6 @@
 		6241A1FE2AC7440E00C7921B /* Signika-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6241A1E52AC7434500C7921B /* Signika-Light.ttf */; };
 		62D39EAD2ABF1CCC003CF99F /* UtrasoundExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */; };
 		62FA7C3A2ABE17160083F6E0 /* BloodExamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FA7C392ABE17160083F6E0 /* BloodExamModel.swift */; };
-		AB7852EE2AB9F94600566EF9 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852ED2AB9F94600566EF9 /* DefaultView.swift */; };
 		AB7852F02AB9F95200566EF9 /* BloodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852EF2AB9F95100566EF9 /* BloodView.swift */; };
 		AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */; };
 		AB9D941A2ACB3D6B0064DB69 /* FooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D94192ACB3D6B0064DB69 /* FooterCell.swift */; };
@@ -115,7 +114,6 @@
 		62C9AEBE2ABE121B00008825 /* Vaccines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccines.swift; sourceTree = "<group>"; };
 		62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtrasoundExam.swift; sourceTree = "<group>"; };
 		62FA7C392ABE17160083F6E0 /* BloodExamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodExamModel.swift; sourceTree = "<group>"; };
-		AB7852ED2AB9F94600566EF9 /* DefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
 		AB7852EF2AB9F95100566EF9 /* BloodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodView.swift; sourceTree = "<group>"; };
 		AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltrasoundView.swift; sourceTree = "<group>"; };
 		AB9D94192ACB3D6B0064DB69 /* FooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCell.swift; sourceTree = "<group>"; };
@@ -229,13 +227,6 @@
 			path = ComponetViews;
 			sourceTree = "<group>";
 		};
-		AB9D941F2ACCAA880064DB69 /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Buttons;
-			sourceTree = "<group>";
-		};
 		ABAD4F2C2ABD25E8007BEC32 /* ReusableUIComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,7 +237,6 @@
 				ABAD4F432ABE2299007BEC32 /* Label */,
 				ABAD4F4A2AC1A4AB007BEC32 /* PickerComponent.swift */,
 				ABAD4F4E2AC21922007BEC32 /* DropDown */,
-				AB9D941F2ACCAA880064DB69 /* Buttons */,
 			);
 			path = ReusableUIComponents;
 			sourceTree = "<group>";
@@ -427,7 +417,6 @@
 			isa = PBXGroup;
 			children = (
 				AB9D941B2ACC988B0064DB69 /* HeaderCell.swift */,
-				AB7852ED2AB9F94600566EF9 /* DefaultView.swift */,
 				ABB82F152AC60931008B73AF /* RoutineDataView.swift */,
 				ABFDA77A2AC6769B0097656E /* FamilyAntecedentView.swift */,
 				ABFDA7762AC656030097656E /* PregnancyTypeView.swift */,
@@ -724,7 +713,6 @@
 				ABB82F132AC5FCF8008B73AF /* HistoryView.swift in Sources */,
 				E8E0D6492AC36F37003CE5CD /* AboutView.swift in Sources */,
 				CE8EE3442AC5F512000E89E1 /* Pacient+CoreDataProperties.swift in Sources */,
-				AB7852EE2AB9F94600566EF9 /* DefaultView.swift in Sources */,
 				ABC98BA22AB3F53D005214E5 /* AppointmentsView.swift in Sources */,
 				CE8EE3482AC5F690000E89E1 /* FamilyBGModel.swift in Sources */,
 				E8E0D65D2AC60C2B003CE5CD /* PregnantDataViewModel.swift in Sources */,

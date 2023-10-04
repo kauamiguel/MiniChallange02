@@ -13,7 +13,7 @@ class PlannedView: UIView {
     let query = "planejamento"
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-    let pregnancyRiskViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.12)
+    let pregnancyRiskViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.124)
     
     
     let roudedBackGround: UIView = {
@@ -85,9 +85,9 @@ class PlannedView: UIView {
         plannedLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor , leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)
-        contentBackGround.anchorWithConstantValues(top: plannedLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10 ,width: screenSize.width * 0.9)
+        contentBackGround.anchorWithConstantValues(top: plannedLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9, height: screenSize.height * 0.081)
         contentBackGround.centerX(inView: roudedBackGround)
-        
+//        
         
         configureLabelAndGreenCheckBox(stack: plannedHStackYES, label: plannedLabelYES, checkBox: plannedCheckYES, labelText: "Sim")
   
@@ -100,8 +100,7 @@ class PlannedView: UIView {
         contentBackGround.addSubview(plannedSubHStack)
         
         plannedSubHStack.anchorWithConstantValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor, topPadding: 15 ,leftPadding: 20)
-        plannedSubHStack.centerY(inView: contentBackGround)
-        
+      
     }
     
     

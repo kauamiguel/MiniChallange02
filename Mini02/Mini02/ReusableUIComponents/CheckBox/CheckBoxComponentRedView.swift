@@ -9,35 +9,41 @@ import Foundation
 import UIKit
 
 
+import Foundation
+import UIKit
+
 class CheckBoxComponentRedView: UIButton {
 
-    private var image: UIImage{
-        return checked ? UIImage(named: "checkBoxRed")! :  UIImage(named: "Property 1=Default")!
-    }
-    
-    var checked: Bool = false{
-        didSet {
-            self.imageView?.image = image
-        }
-    }
-    
-    func setupButton(){
-        backgroundColor = .clear
-        layoutSubviews()
-        self.addTarget(self, action: #selector(buttonfunc), for: .touchUpInside)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        self.setImage(image, for: .normal)
+    private var imageCheck: UIImage {
+        return checked ? UIImage(named: "checkBoxRed")?.withRenderingMode(.alwaysOriginal) ?? UIImage() : UIImage(named: "Property 1=Default")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
     }
 
-    @objc func buttonfunc() {
+    var checked: Bool = false {
+        didSet {
+            self.setImage(imageCheck, for: .normal)
+        }
+    }
+
+    func setupButton() {
+        backgroundColor = .clear
+    
+        self.addTarget(self, action: #selector(buttonFunc), for: .touchUpInside)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        self.setImage(imageCheck, for: .normal)
+        
+        // Set the frame of the image view to match the button's bounds
+        self.imageView?.frame = self.bounds
+    }
+
+    @objc func buttonFunc() {
         checked = !checked
     }
-    
-    func getBoolleanValue() -> Bool{
+
+    func getBooleanValue() -> Bool {
         return checked
     }
 }

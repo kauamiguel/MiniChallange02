@@ -88,7 +88,7 @@ class PregnancyRiskView: UIView {
         riskLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)
-        contentBackGround.anchorWithConstantValues(top: riskLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9)
+        contentBackGround.anchorWithConstantValues(top: riskLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9, height: screenSize.height * 0.13)
         contentBackGround.centerX(inView: roudedBackGround)
         
         /* ---------------------------------------------------------- habitual------------------------------------------------------------- */
@@ -100,7 +100,7 @@ class PregnancyRiskView: UIView {
     
         configureLabelAndGreenCheckBox(stack: highSubHStack, label: highLabel, checkBox: highCheckYES, labelText: "Alto risco")
         contentBackGround.addSubview(highSubHStack)
-        highSubHStack.anchorWithConstantValues(top: habitualSubHStack.bottomAnchor, left: contentBackGround.leadingAnchor, bottom: contentBackGround.bottomAnchor, topPadding: 15,leftPadding: 10, bottomPadding: -15)
+        highSubHStack.anchorWithConstantValues(top: habitualSubHStack.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 14,leftPadding: 10, bottomPadding: -15)
     }
     
     
