@@ -9,7 +9,7 @@ import UIKit
 
 class MaternityCardViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     
-    private lazy var defaultView = DefaultView()
+ 
     private lazy var routineData =  RoutineDataView()
     private lazy var pregnancyRiskView = PregnancyRiskView()
     private lazy var plannedView = PlannedView()
@@ -182,9 +182,14 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     }
     
     @objc func addNewDefaultViewCell() {
-        addViews(viewType: PregnancyRiskView.self, viewSize: pregnancyRiskView.pregnancyRiskViewSize, viewID: PregnancyRiskView.id, viewQuery: pregnancyRiskView.query)
+        addViews(viewType: RoutineDataView.self, viewSize: routineData.routineDataViewSize, viewID: RoutineDataView.id, viewQuery: routineData.query)
         addViews(viewType: FamilyAntecedentView.self, viewSize: familyAntecedentView.familyAntecedentViewSize, viewID: FamilyAntecedentView.id, viewQuery: familyAntecedentView.query)
         addViews(viewType: PregnancyTypeView.self, viewSize: pregnancyTypeView.pregnancyTypeViewSize, viewID: PregnancyTypeView.id, viewQuery: pregnancyRiskView.query)
+        addViews(viewType: PregnancyRiskView.self, viewSize: pregnancyRiskView.pregnancyRiskViewSize, viewID: PregnancyRiskView.id, viewQuery: pregnancyRiskView.query)
+        addViews(viewType: PlannedView.self, viewSize: plannedView.pregnancyRiskViewSize, viewID: PlannedView.id, viewQuery: plannedView.query)
+        addViews(viewType: CurrentGestationView.self, viewSize: currentGestationView.currentGestationViewSize, viewID: CurrentGestationView.id, viewQuery: currentGestationView.query)
+        addViews(viewType: ClinicAntecedentsView.self, viewSize: clinicAntecedentsView.clinicAntecedentsViewSize, viewID: ClinicAntecedentsView.id, viewQuery: clinicAntecedentsView.query)
+
         // Add more view types as needed
     }
     
