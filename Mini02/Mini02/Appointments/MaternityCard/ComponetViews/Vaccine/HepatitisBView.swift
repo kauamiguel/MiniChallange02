@@ -1,19 +1,20 @@
 //
-//  BloodView.swift
+//  HepatitisBView.swift
 //  Mini02
 //
-//  Created by Gabriel Eirado on 19/09/23.
+//  Created by Gabriel Eirado on 04/10/23.
 //
 
+import Foundation
 import UIKit
 
-class BloodView: UIView{
+class HepatitisBView: UIView{
     
-    static let id = "BloodCell"
-    let query = "sangue"
+    static let id = "HepatitisBCell"
+    let query = "HepatitisB"
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-    let bloodViewViewSize = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded(), height: UIScreen.main.bounds.size.height * 1.14)
+    let hepatitisBViewSize = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded(), height: UIScreen.main.bounds.size.height * 0.29)
   
     let roudedBackGround: UIView = {
         let view = UIView()
@@ -32,10 +33,7 @@ class BloodView: UIView{
         
         return view
     }()
-    
-    
-    let bloodExamLabel = LabelComponentView()
-    
+
     let igDropDown = DropDownMenuComponent()
     
         
@@ -51,17 +49,13 @@ class BloodView: UIView{
         
         addSubview(roudedBackGround)
         
-        roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: bloodViewViewSize.width ,height: bloodViewViewSize.height)
+        roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: hepatitisBViewSize.width ,height: hepatitisBViewSize.height)
         
         self.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor,right: roudedBackGround.trailingAnchor,bottom: roudedBackGround.bottomAnchor)
         
         
-        self.addSubview(bloodExamLabel)
-        bloodExamLabel.setupLabel(labelText: "Exame de sangue", labelType: .title, labelColor: .black)
-        bloodExamLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
-        
         roudedBackGround.addSubview(contentBackGround)
-        contentBackGround.anchorWithConstantValues(top: bloodExamLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10,width: screenSize.width * 0.9, height: screenSize.height * 1.08)
+        contentBackGround.anchorWithConstantValues(top: roudedBackGround.topAnchor, bottom: roudedBackGround.bottomAnchor, topPadding: 10,width: screenSize.width * 0.9)
         contentBackGround.centerX(inView: roudedBackGround)
         
         
@@ -83,8 +77,3 @@ class BloodView: UIView{
     }
     
 }
-
-
-
-
-

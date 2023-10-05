@@ -26,6 +26,10 @@
 		AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */; };
 		AB9D941A2ACB3D6B0064DB69 /* FooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D94192ACB3D6B0064DB69 /* FooterCell.swift */; };
 		AB9D941C2ACC988B0064DB69 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D941B2ACC988B0064DB69 /* HeaderCell.swift */; };
+		AB9D94212ACE3D0B0064DB69 /* BloodView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D94202ACE3D0B0064DB69 /* BloodView2.swift */; };
+		AB9D94242ACE3D5E0064DB69 /* TetanicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D94232ACE3D5E0064DB69 /* TetanicView.swift */; };
+		AB9D94272ACE3DD40064DB69 /* HepatitisBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D94262ACE3DD40064DB69 /* HepatitisBView.swift */; };
+		AB9D94292ACE3E670064DB69 /* H1N1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D94282ACE3E670064DB69 /* H1N1View.swift */; };
 		ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */; };
 		ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */; };
 		ABAD4F412ABE1C99007BEC32 /* LabelComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F402ABE1C99007BEC32 /* LabelComponentView.swift */; };
@@ -119,6 +123,10 @@
 		AB7852F12AB9F97400566EF9 /* UltrasoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltrasoundView.swift; sourceTree = "<group>"; };
 		AB9D94192ACB3D6B0064DB69 /* FooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCell.swift; sourceTree = "<group>"; };
 		AB9D941B2ACC988B0064DB69 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		AB9D94202ACE3D0B0064DB69 /* BloodView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodView2.swift; sourceTree = "<group>"; };
+		AB9D94232ACE3D5E0064DB69 /* TetanicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetanicView.swift; sourceTree = "<group>"; };
+		AB9D94262ACE3DD40064DB69 /* HepatitisBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HepatitisBView.swift; sourceTree = "<group>"; };
+		AB9D94282ACE3E670064DB69 /* H1N1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H1N1View.swift; sourceTree = "<group>"; };
 		ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentGreenView.swift; sourceTree = "<group>"; };
 		ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentRedView.swift; sourceTree = "<group>"; };
 		ABAD4F402ABE1C99007BEC32 /* LabelComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponentView.swift; sourceTree = "<group>"; };
@@ -226,9 +234,20 @@
 			children = (
 				ABFA04DC2ABB7FEA00D31DEA /* routine appointment */,
 				ABFA04DD2ABB800000D31DEA /* Blood */,
+				AB9D94222ACE3D1E0064DB69 /* Vaccine */,
 				ABFA04DE2ABB801400D31DEA /* Ultrasound */,
 			);
 			path = ComponetViews;
+			sourceTree = "<group>";
+		};
+		AB9D94222ACE3D1E0064DB69 /* Vaccine */ = {
+			isa = PBXGroup;
+			children = (
+				AB9D94232ACE3D5E0064DB69 /* TetanicView.swift */,
+				AB9D94262ACE3DD40064DB69 /* HepatitisBView.swift */,
+				AB9D94282ACE3E670064DB69 /* H1N1View.swift */,
+			);
+			path = Vaccine;
 			sourceTree = "<group>";
 		};
 		ABAD4F2C2ABD25E8007BEC32 /* ReusableUIComponents */ = {
@@ -437,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				AB7852EF2AB9F95100566EF9 /* BloodView.swift */,
+				AB9D94202ACE3D0B0064DB69 /* BloodView2.swift */,
 			);
 			path = Blood;
 			sourceTree = "<group>";
@@ -659,6 +679,7 @@
 				CE8EE34B2AC5F7F1000E89E1 /* PacientModel.swift in Sources */,
 				ABAD4F4D2AC21514007BEC32 /* DropDownMenuComponent.swift in Sources */,
 				ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */,
+				AB9D94212ACE3D0B0064DB69 /* BloodView2.swift in Sources */,
 				ABAD4F472ABE2B1A007BEC32 /* AppointmentsVM.swift in Sources */,
 				6241A1602AC221D800C7921B /* ModalView.swift in Sources */,
 				ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift in Sources */,
@@ -668,6 +689,7 @@
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
 				62FA7C3A2ABE17160083F6E0 /* BloodExamModel.swift in Sources */,
 				ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */,
+				AB9D94242ACE3D5E0064DB69 /* TetanicView.swift in Sources */,
 				CEA008AD2AC5F373005F54E5 /* CoreDataFunctions.swift in Sources */,
 				E8E0D6472AC36F1A003CE5CD /* ProfileListCell.swift in Sources */,
 				ABFDA77B2AC6769B0097656E /* FamilyAntecedentView.swift in Sources */,
@@ -676,6 +698,8 @@
 				ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */,
 				E8135BBE2ABA1C0400E722FA /* ThirdOnboardingViewController.swift in Sources */,
 				ABC98BA82AB3F5E0005214E5 /* RecurrentDataView.swift in Sources */,
+				CE8EE3432AC5F512000E89E1 /* Pacient+CoreDataClass.swift in Sources */,
+				AB9D94292ACE3E670064DB69 /* H1N1View.swift in Sources */,
 				CE0BFA682AC7464C0053C2A6 /* RecurrenteDataViewModel.swift in Sources */,
 				ABAD4F4B2AC1A4AB007BEC32 /* PickerComponent.swift in Sources */,
 				CE8EE3462AC5F665000E89E1 /* PersonalBGModel.swift in Sources */,
@@ -689,6 +713,7 @@
 				E8E0D64D2AC36F55003CE5CD /* PregnantDataView.swift in Sources */,
 				AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */,
 				CE60D0702ACDF6E000937768 /* Pacient+CoreDataProperties.swift in Sources */,
+				AB9D94272ACE3DD40064DB69 /* HepatitisBView.swift in Sources */,
 				E8135BBA2ABA1BE700E722FA /* SecondOnboardingViewController.swift in Sources */,
 				E8E0D6452AC36F05003CE5CD /* ProfileViewModel.swift in Sources */,
 				CE60D06F2ACDF6E000937768 /* Pacient+CoreDataClass.swift in Sources */,

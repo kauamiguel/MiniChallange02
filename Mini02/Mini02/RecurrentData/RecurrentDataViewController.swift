@@ -8,7 +8,6 @@
 import UIKit
 
 class RecurrentDataViewController: UICollectionViewController, UISearchBarDelegate, UICollectionViewDelegateFlowLayout {
-    
 
     private lazy var routineData =  RoutineDataView()
     private lazy var pregnancyRiskView = PregnancyRiskView()
@@ -32,7 +31,6 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
         //Add the view here
         //Append each view to the cell
         cells = [
-           
             CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
             CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, query: plannedView.query)
         ]

@@ -41,7 +41,7 @@ class FamilyAntecedentView: UIView {
     /* ----------------------------------------------------------HYPERTENSION------------------------------------------------------------- */
     
     
-    let hypertensionLabelYES = LabelComponentView()
+
     
     let hypertensionLabel = LabelComponentView()
     
@@ -56,8 +56,7 @@ class FamilyAntecedentView: UIView {
     }()
     
     /* ----------------------------------------------------------Diabetes------------------------------------------------------------- */
-    let diabetesLabelYES = LabelComponentView()
-   
+
     let diabetesLabel = LabelComponentView()
     
     let diabetesCheckYES = CheckBoxComponentGreenView()
@@ -70,7 +69,6 @@ class FamilyAntecedentView: UIView {
     }()
     
     /* ----------------------------------------------------------TWIN------------------------------------------------------------- */
-    let twinLabelYES = LabelComponentView()
 
     let twinLabel = LabelComponentView()
     
@@ -84,7 +82,6 @@ class FamilyAntecedentView: UIView {
     }()
     
     /* ----------------------------------------------------------OTHER------------------------------------------------------------- */
-    let otherLabelYES = LabelComponentView()
     
     let otherLabel = LabelComponentView()
     
@@ -143,7 +140,7 @@ class FamilyAntecedentView: UIView {
         twinSubHStack.anchorWithConstantValues(top: diabetesSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15,leftPadding: 10 ,rightPadding: -34)
         
         /* ----------------------------------------------------------OTHER------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: otherSubHStack,label: otherLabelYES, checkBox: otherCheckYES, labelText: "Other")
+        configureLabelAndGreenCheckBox(stack: otherSubHStack,label: otherLabel, checkBox: otherCheckYES, labelText: "Other")
         
         contentBackGround.addSubview(otherSubHStack)
         otherSubHStack.anchorWithConstantValues(top: twinSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor ,topPadding: 15, leftPadding: 10, rightPadding: -34)
