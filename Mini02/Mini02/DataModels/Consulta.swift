@@ -20,5 +20,5 @@ struct Consulta{
     
     let date : Date
     
-    let trimesteer : Int
+    let trimesteer : Int?
 }

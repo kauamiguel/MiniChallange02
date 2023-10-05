@@ -165,7 +165,7 @@ class CoreDataFunctions{
         let consult = ConsultEntity(context: context)
         
         //Assing some atributes to the consult owner
-        consult.tremesteer = Int64(newConsult.trimesteer)
+        consult.tremesteer = Int64(newConsult.trimesteer!)
         consult.date = newConsult.date
         consult.consultId = Int64(newConsult.consultId)
         

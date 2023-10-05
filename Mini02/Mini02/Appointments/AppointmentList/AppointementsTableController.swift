@@ -32,7 +32,7 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
         
         // Get the data for the current row based on indexPath.row
         guard let consult = appointmentVM?.consults else {return UITableViewCell()}
-        var rowData = consult[indexPath.row]
+        let rowData = consult[indexPath.row]
 
         // Configure the cell with the data
         cell.configure(with: rowData)

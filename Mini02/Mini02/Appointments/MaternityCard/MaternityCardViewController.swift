@@ -46,10 +46,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        
     }
     
     override func viewDidLoad() {
+        print(maternityVM.createConsultID(treemesterNumber: self.treemester!))
         
         setupCollectionView()
         collectionView.isEditing = true
