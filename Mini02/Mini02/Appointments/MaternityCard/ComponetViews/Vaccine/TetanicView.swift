@@ -39,6 +39,30 @@ class TetanicView: UIView{
     
     let igDropDown = DropDownMenuComponent()
     
+    let subTitleLabel = LabelComponentView()
+    
+    
+    let yesLabel = LabelComponentView()
+    let yesCheckYES = CheckBoxComponentGreenView()
+    
+    let noLabel = LabelComponentView()
+    let noCheckNO = CheckBoxComponentRedView()
+
+  
+    lazy var yesSubHStackYES: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        return stackView
+    }()
+    
+    lazy var noSubHStackNO: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        return stackView
+    }()
+    
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,14 +89,23 @@ class TetanicView: UIView{
         contentBackGround.anchorWithConstantValues(top: tetanicLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10,width: screenSize.width * 0.9, height: screenSize.height * 0.26)
         contentBackGround.centerX(inView: roudedBackGround)
         
+        contentBackGround.addSubview(subTitleLabel)
+        subTitleLabel.setupLabel(labelText: "Anti-tetânica/ dTpa", labelType: .medicText, labelColor: .black)
+        subTitleLabel.anchorWithConstantValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor,topPadding: 15, leftPadding: 15)
         
-        igDropDown.setupButton()
-        igDropDown.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd" , "fffffff"]
+        invertConfigureLabelAndGreenCheckBox(stack: yesSubHStackYES, label: yesLabel, checkBox: yesCheckYES, labelText: "sim, reforço 20 semanas: ")
+        invertConfigureLabelAndRedCheckBox(stack: noSubHStackNO, label: noLabel, checkBox: noCheckNO, labelText: "não, esquema completo:")
         
+        roudedBackGround.addSubview(yesSubHStackYES)
+        yesSubHStackYES.anchorWithConstantValues(top: subTitleLabel.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 10, leftPadding: 15)
         
-        
-        contentBackGround.addSubview(igDropDown)
-        igDropDown.anchorWithConstantValues(top: contentBackGround.topAnchor ,width: screenSize.width * 0.35, height: screenSize.height * 0.035)
+        roudedBackGround.addSubview(noSubHStackNO)
+        noSubHStackNO.anchorWithConstantValues(top: yesSubHStackYES.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 10, leftPadding: 15)
+//        igDropDown.setupButton()
+//        igDropDown.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd" , "fffffff"]
+
+//        contentBackGround.addSubview(igDropDown)
+//        igDropDown.anchorWithConstantValues(top: contentBackGround.topAnchor ,width: screenSize.width * 0.35, height: screenSize.height * 0.035)
         
         
         

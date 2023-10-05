@@ -35,7 +35,30 @@ class HepatitisBView: UIView{
     }()
 
     let igDropDown = DropDownMenuComponent()
+   
+    let hepatitisBsubTitleLabel = LabelComponentView()
     
+    
+    let hepatitisBYesLabel = LabelComponentView()
+    let hepatitisBYesCheckYES = CheckBoxComponentGreenView()
+    
+    let hepatitisBNoLabel = LabelComponentView()
+    let hepatitisBNoCheckNO = CheckBoxComponentRedView()
+
+  
+    lazy var hepatitisBYesSubHStackYES: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        return stackView
+    }()
+    
+    lazy var hepatitisBNoSubHStackNO: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        return stackView
+    }()
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -58,14 +81,24 @@ class HepatitisBView: UIView{
         contentBackGround.anchorWithConstantValues(top: roudedBackGround.topAnchor, bottom: roudedBackGround.bottomAnchor, topPadding: 10,width: screenSize.width * 0.9)
         contentBackGround.centerX(inView: roudedBackGround)
         
+        contentBackGround.addSubview(hepatitisBsubTitleLabel)
+        hepatitisBsubTitleLabel.setupLabel(labelText: "Hepatite B  AntiHBS", labelType: .medicText, labelColor: .black)
+        hepatitisBsubTitleLabel.anchorWithConstantValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor,topPadding: 15, leftPadding: 15)
         
-        igDropDown.setupButton()
-        igDropDown.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd" , "fffffff"]
+        invertConfigureLabelAndGreenCheckBox(stack: hepatitisBYesSubHStackYES, label: hepatitisBYesLabel, checkBox: hepatitisBYesCheckYES, labelText: "+ (Positivo) Imune")
+        invertConfigureLabelAndRedCheckBox(stack: hepatitisBNoSubHStackNO, label: hepatitisBNoLabel, checkBox: hepatitisBNoCheckNO, labelText: "- (Negativo) Esquema completo")
         
+        roudedBackGround.addSubview(hepatitisBYesSubHStackYES)
+        hepatitisBYesSubHStackYES.anchorWithConstantValues(top: hepatitisBsubTitleLabel.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 10, leftPadding: 15)
         
+        roudedBackGround.addSubview(hepatitisBNoSubHStackNO)
+        hepatitisBNoSubHStackNO.anchorWithConstantValues(top: hepatitisBYesSubHStackYES.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 10, leftPadding: 15)
         
-        contentBackGround.addSubview(igDropDown)
-        igDropDown.anchorWithConstantValues(top: contentBackGround.topAnchor ,width: screenSize.width * 0.35, height: screenSize.height * 0.035)
+//        igDropDown.setupButton()
+//        igDropDown.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd" , "fffffff"]
+    
+//        contentBackGround.addSubview(igDropDown)
+//        igDropDown.anchorWithConstantValues(top: contentBackGround.topAnchor ,width: screenSize.width * 0.35, height: screenSize.height * 0.035)
         
         
         
