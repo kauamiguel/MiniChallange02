@@ -17,4 +17,8 @@ struct Consulta{
     
     //This array will have all the US exams
     var ultraSoundExams: UltrasoundExam?
+    
+    let date : Date
+    
+    let trimesteer : Int
 }

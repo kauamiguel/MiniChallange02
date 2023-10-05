@@ -21,6 +21,8 @@
     </entity>
     <entity name="ConsultEntity" representedClassName="ConsultEntity" syncable="YES" codeGenerationType="class">
         <attribute name="consultId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="tremesteer" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="bloodExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BloodExam" inverseName="consult" inverseEntity="BloodExam"/>
         <relationship name="pacient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pacient" inverseName="consults" inverseEntity="Pacient"/>
         <relationship name="ultraSound" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UltraSoundModel" inverseName="consult" inverseEntity="UltraSoundModel"/>

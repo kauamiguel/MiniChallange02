@@ -62,12 +62,12 @@ class AppointmentListCell: UITableViewCell {
         
     }
     
-    func configure(with consultaData: consulta) {
-        titleLabel.text = consultaData.numero
+    func configure(with consultaData: ConsultEntity) {
+        titleLabel.text = "\(consultaData.consultId)° Consulta"
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yy"
-        dateLabel.text = dateFormatter.string(from: consultaData.data)
+        dateLabel.text = dateFormatter.string(from: consultaData.date!)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

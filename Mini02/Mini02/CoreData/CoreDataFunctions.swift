@@ -164,13 +164,18 @@ class CoreDataFunctions{
         let pacient = self.pacient
         let consult = ConsultEntity(context: context)
         
+        //Assing some atributes to the consult owner
+        consult.tremesteer = Int64(newConsult.trimesteer)
+        consult.date = newConsult.date
+        consult.consultId = Int64(newConsult.consultId)
+        
         //Add a blood exam if it has
         if let blood = newConsult.bloodExams{
             
             let newBloodExam = addBloodExam(bloodExam: blood)
             
             //Add the id of the consult to the id of the bloodExam
-            newBloodExam.consultNumber = Int64(newConsult.consultId)
+            newBloodExam.consultNumber = Int64(consult.consultId)
             
             consult.bloodExam = newBloodExam
         }
@@ -181,7 +186,7 @@ class CoreDataFunctions{
             let newUltrasound = addUltraSoundExam(ultraSound: ultra)
             
             //Add the id of the consult to the id of the bloodExam
-            newUltrasound.consultNumber = Int64(newConsult.consultId)
+            newUltrasound.consultNumber = Int64(consult.consultId)
             
             consult.ultraSound = newUltrasound
         }

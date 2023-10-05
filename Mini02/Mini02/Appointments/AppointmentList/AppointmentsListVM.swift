@@ -10,6 +10,7 @@ import UIKit
 
 class AppointmentsListVM{
     var view: UIViewController
+    var consults : [ConsultEntity]?
     
     func AddAppointment(){
         view.navigationController?.pushViewController(MaternityCardViewController(), animated: true)
@@ -18,5 +19,6 @@ class AppointmentsListVM{
     init(view: UIViewController) {
         self.view = view
     }
+
     
 }
