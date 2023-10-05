@@ -37,6 +37,21 @@ class H1N1View: UIView{
     
     let igDropDown = DropDownMenuComponent()
     
+    let h1N1subTitleLabel = LabelComponentView()
+    
+    
+    let h1N1YesLabel = LabelComponentView()
+    let h1N1YesCheckYES = CheckBoxComponentGreenView()
+
+  
+    lazy var h1N1YesSubHStackYES: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        return stackView
+    }()
+    
+
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -58,16 +73,23 @@ class H1N1View: UIView{
         contentBackGround.anchorWithConstantValues(top: roudedBackGround.topAnchor, bottom: roudedBackGround.bottomAnchor, topPadding: 10,width: screenSize.width * 0.9)
         contentBackGround.centerX(inView: roudedBackGround)
         
+        contentBackGround.addSubview(h1N1subTitleLabel)
+        h1N1subTitleLabel.setupLabel(labelText: "Gripe (H1N1)", labelType: .medicText, labelColor: .black)
+        h1N1subTitleLabel.anchorWithConstantValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor,topPadding: 15, leftPadding: 15)
         
-        igDropDown.setupButton()
-        igDropDown.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd" , "fffffff"]
+        invertConfigureLabelAndGreenCheckBox(stack: h1N1YesSubHStackYES, label: h1N1YesLabel, checkBox: h1N1YesCheckYES, labelText: "Campanha Atual")
         
-        
-        
-        contentBackGround.addSubview(igDropDown)
-        igDropDown.anchorWithConstantValues(top: contentBackGround.topAnchor ,width: screenSize.width * 0.35, height: screenSize.height * 0.035)
-        
-        
+        roudedBackGround.addSubview(h1N1YesSubHStackYES)
+        h1N1YesSubHStackYES.anchorWithConstantValues(top: h1N1subTitleLabel.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 10, leftPadding: 15)
+      
+//        
+//        igDropDown.setupButton()
+//        igDropDown.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd" , "fffffff"]
+//
+//        contentBackGround.addSubview(igDropDown)
+//        igDropDown.anchorWithConstantValues(top: contentBackGround.topAnchor ,width: screenSize.width * 0.35, height: screenSize.height * 0.035)
+//        
+//        
         
     }
     
