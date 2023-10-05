@@ -28,11 +28,11 @@ class AppointmentsViewController: UIViewController {
       appointmentViewModelManager?.buttonFuncionality(treemesterNumber: 1)
     }
     
-    @objc func secondTreemesterAction(treemesterNumber : Int){
+    @objc func secondTreemesterAction(){
       appointmentViewModelManager?.buttonFuncionality(treemesterNumber: 2)
     }
     
-    @objc func thirdTreemesterAction(treemesterNumber : Int){
+    @objc func thirdTreemesterAction(){
       appointmentViewModelManager?.buttonFuncionality(treemesterNumber: 3)
     }
 }

@@ -21,13 +21,11 @@ class HistoryVC: UIViewController {
             newView.dateLabel.text = dateFormatter.string(from: date)
         }
         
-        newView.titleLabel.text = "\(appointmentsInfo?.consultId)"
+        newView.titleLabel.text = "Informacoes da consulta \(appointmentsInfo!.consultId)"
         
         newView.setupView()
         
         // Do any additional setup after loading the view.
      
     }
-    
-
 }

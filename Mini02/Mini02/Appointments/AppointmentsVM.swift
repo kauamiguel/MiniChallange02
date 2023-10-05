@@ -28,6 +28,7 @@ class AppointmentsVM {
         //Assign the consult of this semester to the listViewController
         listController.AppoimentListViewModelManager = AppointmentsListVM(view: listController)
         listController.AppoimentListViewModelManager?.consults = consultsOfThisSemester
+        listController.AppoimentListViewModelManager?.treemester = treemesterNumber
         //Create a listView and assign to his tableViewController the viewModel wiht the Consults
         listController.ListViewManager = ListView()
         listController.ListViewManager?.tableController.appointmentVM = listController.AppoimentListViewModelManager

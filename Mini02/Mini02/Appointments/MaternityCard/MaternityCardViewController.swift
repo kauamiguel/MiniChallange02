@@ -19,16 +19,20 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     private lazy var clinicAntecedentsView = ClinicAntecedentsView()
     private lazy var bloodView = BloodView()
     private lazy var ultrasoundView = UltrasoundView()
+    private lazy var maternityVM = MaternityCardViewModel()
+    
+    //Variable to know wich treemester is, then we can track this consult after
+    var treemester : Int?
     
     var cells: [CellInfo] = []
     
     private var vm = MaternityCardViewModel()
     
-    init(){
-        
+    init(treemester : Int){
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
+        self.treemester = treemester
         
         cells = [
             CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id, query: routineData.query),

@@ -10,9 +10,16 @@ import UIKit
 
 
 class MaternityCardViewModel{
+    var coreDataManager = CoreDataFunctions()
+    var consults : [ConsultEntity]?
     
+    init(){
+        //Update the current data of pacient
+        coreDataManager.fetchPacient()
+        self.consults = coreDataManager.getConsults()
+    }
     
-    
-    
-  
+    func createNewConsult(consult : Consulta){
+        coreDataManager.addNewConsult(newConsult: consult)
+    }
 }

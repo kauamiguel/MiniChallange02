@@ -12,11 +12,7 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
     
     var appointementListViewManager: UITableView? //THE TABLE THAT THIS CONTROLLER MANAGES
     var parentVC:UIViewController? // THE VIEW CONTROLLER THAT CONTAINS THIS CONTROLLER
-    var appointmentVM : AppointmentsListVM?
-//    var appointmentsData: [Consulta] = [
-//        Consulta(consultId: 1, date: Date(), trimesteer: 1)
-//    ]
-    
+    var appointmentVM : AppointmentsListVM?    
     
     //MARK: SET THE NUMBER OF ROWS IN THE TABLE
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,10 +31,11 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
         }
         
         // Get the data for the current row based on indexPath.row
-        let rowData = appointmentVM?.consults![indexPath.row]
+        guard let consult = appointmentVM?.consults else {return UITableViewCell()}
+        var rowData = consult[indexPath.row]
 
         // Configure the cell with the data
-        cell.configure(with: rowData!)
+        cell.configure(with: rowData)
         
         
         //draws top separator of row
@@ -84,7 +81,10 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
         let view = HistoryVC()
         
         //Gets the data related to that row
-        view.appointmentsInfo = appointmentVM?.consults![indexPath.row]
+        if let consult = appointmentVM?.consults{
+            view.appointmentsInfo = consult[indexPath.row]
+        }
+        
         //Pushes the new view
         parent.navigationController?.pushViewController(view, animated: true)
         
