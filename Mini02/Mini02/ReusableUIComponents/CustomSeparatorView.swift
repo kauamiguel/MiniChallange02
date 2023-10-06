@@ -18,7 +18,6 @@ class CustomSeparatorView: UIView {
         super.init(coder: aDecoder)
         
     }
-    
 }
 
 

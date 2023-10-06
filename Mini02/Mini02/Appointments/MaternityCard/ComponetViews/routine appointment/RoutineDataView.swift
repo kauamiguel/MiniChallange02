@@ -39,21 +39,40 @@ class RoutineDataView: UIView {
     let routineLabel = LabelComponentView()
     
     /* ----------------------------------------------------------IG -DUM/USG------------------------------------------------------------- */
+    let separator = CustomSeparatorView()
     
     let igLabel = LabelComponentView()
     
     let igDropDown = DropDownMenuComponent()
+    
+    let uterineHeightLabel = LabelComponentView()
+    
+    let uterineHeightDropDown = DropDownMenuComponent()
+    
+    let arterialPressureLabel = LabelComponentView()
+    
+    let arterialPressureDropDown = DropDownMenuComponent()
+    
+    
+    
+    
+    
+    let wheightLabel = LabelComponentView()
+    
+    let wheightDropDown = DropDownMenuComponent()
+    
+    let bcfLabel = LabelComponentView()
+    
+    let bcfDropDown = DropDownMenuComponent()
+    
+    let edemaLabel = LabelComponentView()
+    
+    let edemaDropDown = DropDownMenuComponent()
+    
+  
 
-    let separator = CustomSeparatorView()
-    
-    lazy var hypertensionSubVStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 5
-        return stackView
-    }()
-    
-    
+  
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -84,19 +103,19 @@ class RoutineDataView: UIView {
         contentBackGround.addSubview(separator)
         separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: 15, bottomPadding: -15, width: 1.5)
         separator.centerX(inView: contentBackGround)
-        
-        igLabel.setupLabel(labelText: "IG -DUM/USG", labelType: .medicText, labelColor: .black)
        
-        igDropDown.setupButton()
-        igDropDown.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd", "fffffff"]
-
-        contentBackGround.addSubview(igDropDown)
-        igDropDown.anchorWithConstantValues(top: contentBackGround.topAnchor, right: separator.leadingAnchor ,width: screenSize.width * 0.35, height: screenSize.height * 0.035)
+        DropDownPlusLabelTop(label: igLabel, dropDown: igDropDown, contentBackGround: contentBackGround, topAnchor: contentBackGround, labelText: "IG -DUM/USG", dropDownOptions: ["AAA", "BBBB", "CCC"], topPadding: 15, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        
+        DropDownPlusLabelBottom(label: uterineHeightLabel, dropDown: uterineHeightDropDown, contentBackGround: contentBackGround, topAnchor: igDropDown, labelText: "Altura uterina (cm)", dropDownOptions: ["AAA", "BBBB", "CCC"], topPadding: 34, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+     
+        DropDownPlusLabelBottom(label: arterialPressureLabel, dropDown: arterialPressureDropDown, contentBackGround: contentBackGround, topAnchor: uterineHeightDropDown, labelText: "Pressão arterial(mmHG)", dropDownOptions: ["AAA", "BBBB", "CCC"], topPadding: 34, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
 
 }

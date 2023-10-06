@@ -31,6 +31,7 @@
 		AB9D94272ACE3DD40064DB69 /* HepatitisBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D94262ACE3DD40064DB69 /* HepatitisBView.swift */; };
 		AB9D94292ACE3E670064DB69 /* H1N1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D94282ACE3E670064DB69 /* H1N1View.swift */; };
 		AB9D942D2AD0609A0064DB69 /* CustomSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D942C2AD0609A0064DB69 /* CustomSeparatorView.swift */; };
+		AB9D942F2AD068C00064DB69 /* DropDownWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D942E2AD068C00064DB69 /* DropDownWithLabel.swift */; };
 		ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */; };
 		ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */; };
 		ABAD4F412ABE1C99007BEC32 /* LabelComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F402ABE1C99007BEC32 /* LabelComponentView.swift */; };
@@ -128,7 +129,8 @@
 		AB9D94232ACE3D5E0064DB69 /* TetanicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetanicView.swift; sourceTree = "<group>"; };
 		AB9D94262ACE3DD40064DB69 /* HepatitisBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HepatitisBView.swift; sourceTree = "<group>"; };
 		AB9D94282ACE3E670064DB69 /* H1N1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H1N1View.swift; sourceTree = "<group>"; };
-		AB9D942C2AD0609A0064DB69 /* CustomSeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSeparatorView.swift; path = ReusableUIComponents/CustomSeparatorView.swift; sourceTree = "<group>"; };
+		AB9D942C2AD0609A0064DB69 /* CustomSeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSeparatorView.swift; sourceTree = "<group>"; };
+		AB9D942E2AD068C00064DB69 /* DropDownWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownWithLabel.swift; sourceTree = "<group>"; };
 		ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentGreenView.swift; sourceTree = "<group>"; };
 		ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentRedView.swift; sourceTree = "<group>"; };
 		ABAD4F402ABE1C99007BEC32 /* LabelComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponentView.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 		ABAD4F2C2ABD25E8007BEC32 /* ReusableUIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				AB9D942C2AD0609A0064DB69 /* CustomSeparatorView.swift */,
 				ABFDA7802AC7437C0097656E /* Fonts */,
 				ABC98BBD2AB83B8C005214E5 /* Utility */,
 				E8E0D6592AC4C6E3003CE5CD /* ProfileImage */,
@@ -322,7 +325,6 @@
 		ABC98B7D2AB3D9C5005214E5 /* Mini02 */ = {
 			isa = PBXGroup;
 			children = (
-				AB9D942C2AD0609A0064DB69 /* CustomSeparatorView.swift */,
 				ABD5E3F02AC4B20200855964 /* Mini02.entitlements */,
 				CEA008B22AC5F3BD005F54E5 /* CoreData */,
 				62C9AEB82ABE11B100008825 /* DataModels */,
@@ -423,6 +425,7 @@
 				ABC98BC02AB83C8D005214E5 /* TextField.swift */,
 				E8135BAE2ABA1AD400E722FA /* ApplicationSettings.swift */,
 				ABFDA7782AC65A600097656E /* StackViews.swift */,
+				AB9D942E2AD068C00064DB69 /* DropDownWithLabel.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 				ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift in Sources */,
 				CE60D05C2ACDD6FC00937768 /* Consulta.swift in Sources */,
 				ABB82F162AC60931008B73AF /* RoutineDataView.swift in Sources */,
+				AB9D942F2AD068C00064DB69 /* DropDownWithLabel.swift in Sources */,
 				E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */,
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
 				62FA7C3A2ABE17160083F6E0 /* BloodExamModel.swift in Sources */,
