@@ -30,6 +30,7 @@
 		AB9D94242ACE3D5E0064DB69 /* TetanicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D94232ACE3D5E0064DB69 /* TetanicView.swift */; };
 		AB9D94272ACE3DD40064DB69 /* HepatitisBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D94262ACE3DD40064DB69 /* HepatitisBView.swift */; };
 		AB9D94292ACE3E670064DB69 /* H1N1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D94282ACE3E670064DB69 /* H1N1View.swift */; };
+		AB9D942D2AD0609A0064DB69 /* CustomSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D942C2AD0609A0064DB69 /* CustomSeparatorView.swift */; };
 		ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */; };
 		ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */; };
 		ABAD4F412ABE1C99007BEC32 /* LabelComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F402ABE1C99007BEC32 /* LabelComponentView.swift */; };
@@ -127,6 +128,7 @@
 		AB9D94232ACE3D5E0064DB69 /* TetanicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetanicView.swift; sourceTree = "<group>"; };
 		AB9D94262ACE3DD40064DB69 /* HepatitisBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HepatitisBView.swift; sourceTree = "<group>"; };
 		AB9D94282ACE3E670064DB69 /* H1N1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H1N1View.swift; sourceTree = "<group>"; };
+		AB9D942C2AD0609A0064DB69 /* CustomSeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSeparatorView.swift; path = ReusableUIComponents/CustomSeparatorView.swift; sourceTree = "<group>"; };
 		ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentGreenView.swift; sourceTree = "<group>"; };
 		ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentRedView.swift; sourceTree = "<group>"; };
 		ABAD4F402ABE1C99007BEC32 /* LabelComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponentView.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 		ABC98B7D2AB3D9C5005214E5 /* Mini02 */ = {
 			isa = PBXGroup;
 			children = (
+				AB9D942C2AD0609A0064DB69 /* CustomSeparatorView.swift */,
 				ABD5E3F02AC4B20200855964 /* Mini02.entitlements */,
 				CEA008B22AC5F3BD005F54E5 /* CoreData */,
 				62C9AEB82ABE11B100008825 /* DataModels */,
@@ -698,7 +701,6 @@
 				ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */,
 				E8135BBE2ABA1C0400E722FA /* ThirdOnboardingViewController.swift in Sources */,
 				ABC98BA82AB3F5E0005214E5 /* RecurrentDataView.swift in Sources */,
-				CE8EE3432AC5F512000E89E1 /* Pacient+CoreDataClass.swift in Sources */,
 				AB9D94292ACE3E670064DB69 /* H1N1View.swift in Sources */,
 				CE0BFA682AC7464C0053C2A6 /* RecurrenteDataViewModel.swift in Sources */,
 				ABAD4F4B2AC1A4AB007BEC32 /* PickerComponent.swift in Sources */,
@@ -712,6 +714,7 @@
 				E8E0D65B2AC4C6F2003CE5CD /* ProfileImageButton.swift in Sources */,
 				E8E0D64D2AC36F55003CE5CD /* PregnantDataView.swift in Sources */,
 				AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */,
+				AB9D942D2AD0609A0064DB69 /* CustomSeparatorView.swift in Sources */,
 				CE60D0702ACDF6E000937768 /* Pacient+CoreDataProperties.swift in Sources */,
 				AB9D94272ACE3DD40064DB69 /* HepatitisBView.swift in Sources */,
 				E8135BBA2ABA1BE700E722FA /* SecondOnboardingViewController.swift in Sources */,
@@ -744,7 +747,6 @@
 				6241A1642AC6212000C7921B /* HistoryVC.swift in Sources */,
 				ABB82F132AC5FCF8008B73AF /* HistoryView.swift in Sources */,
 				E8E0D6492AC36F37003CE5CD /* AboutView.swift in Sources */,
-				CE8EE3442AC5F512000E89E1 /* Pacient+CoreDataProperties.swift in Sources */,
 				ABC98BA22AB3F53D005214E5 /* AppointmentsView.swift in Sources */,
 				CE8EE3482AC5F690000E89E1 /* FamilyBGModel.swift in Sources */,
 				E8E0D65D2AC60C2B003CE5CD /* PregnantDataViewModel.swift in Sources */,
