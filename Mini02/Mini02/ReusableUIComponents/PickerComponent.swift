@@ -5,21 +5,27 @@
 //  Created by Gabriel Eirado on 25/09/23.
 //
 
-import Foundation
 import UIKit
 
-class PickerComponent: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource{
+class CustomTextFieldWithPicker: UITextField, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var pickerData: [String] = []
     
-    init(data: [String]) {
-        super.init(frame: .zero)
-        
-        self.pickerData = data
-        
-        self.delegate = self
-        self.dataSource = self
+    private var pickerView: UIPickerView?
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+   
+        pickerView = UIPickerView()
+        pickerView?.delegate = self
+        pickerView?.dataSource = self
+        
+
+        self.inputView = pickerView
+ 
+        self.textAlignment = .center
+        self.backgroundColor = .gray
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,11 +39,20 @@ class PickerComponent: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSourc
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData.count
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.text = pickerData[row]
+        self.resignFirstResponder()
+    }
+    
+    override var text: String? {
+        didSet {
+            self.textAlignment = .center
+        }
+    }
+    
 }
-
-
-
