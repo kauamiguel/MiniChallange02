@@ -55,6 +55,14 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
         self.filteredCell = cells
         recurrentView.setupView(vc: self, collection: self.collectionView)
         setupCollectionView()
+        
+        //Gesture to dismiss the keyboard when click on any view in the screen
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissMyKeyboard))
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissMyKeyboard(){
+        self.view.endEditing(true)
     }
     
     //Setup each cell in the collection
