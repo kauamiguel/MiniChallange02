@@ -8,6 +8,8 @@
 import UIKit
 
 class HistoryVC: UIViewController {
+    
+    //Variable with the info of the current consult
     var appointmentsInfo: ConsultEntity?
     
     override func viewDidLoad() {
