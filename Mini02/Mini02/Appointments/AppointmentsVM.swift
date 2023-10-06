@@ -15,7 +15,6 @@ class AppointmentsVM {
 
     func isFirstTreemester() -> Bool{
         let allConsults = coreDataManager.getConsults()
-        let consultsOfThisSemester = [ConsultEntity]()
         
         //Get the consults just relationaded of this semester
         for consult in allConsults{
