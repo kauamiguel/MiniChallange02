@@ -16,12 +16,15 @@ class AppointmentsViewController: UIViewController {
         super.viewDidLoad()
         
         appointmentViewManager?.setupView(vc: self, firstTreemesterAction: #selector(firstTreemesterAction), secondTreemesterAction: #selector(secondTreemesterAction), thirdTreemesterAction: #selector(thirdTreemesterAction))
-
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        appointmentViewManager?.drawDashedCurvedLineBetweenButtons(vc: self, isFirstTremesteer: true, isSecondTremester: true)
+        
+        //Check wich semester is, so it draw the respectivev path
+        let isFirstTremester = appointmentViewModelManager?.isFirstTreemester()
+        guard let semester = isFirstTremester else {return}
+        appointmentViewManager?.drawDashedCurvedLineBetweenButtons(vc: self, isFirstTremesteer: semester, isSecondTremester: !semester)
     }
 
     

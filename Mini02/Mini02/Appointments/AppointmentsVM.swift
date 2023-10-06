@@ -13,6 +13,18 @@ class AppointmentsVM {
     var view: UIViewController?
     var coreDataManager = CoreDataFunctions()
 
+    func isFirstTreemester() -> Bool{
+        let allConsults = coreDataManager.getConsults()
+        let consultsOfThisSemester = [ConsultEntity]()
+        
+        //Get the consults just relationaded of this semester
+        for consult in allConsults{
+            if consult.tremesteer == 2{
+                return false
+            }
+        }
+        return true
+    }
     
     func buttonFuncionality(treemesterNumber : Int){
         
