@@ -40,7 +40,6 @@ class RoutineDataView: UIView {
     
     /* ----------------------------------------------------------IG -DUM/USG------------------------------------------------------------- */
     
-    
     let igLabel = LabelComponentView()
     
     let igDropDown = DropDownMenuComponent()
@@ -57,7 +56,6 @@ class RoutineDataView: UIView {
         super.init(frame: frame)
         setupView()
     }
-    let picker = CustomTextFieldWithPicker()
     
     
     func setupView(){
@@ -92,9 +90,6 @@ class RoutineDataView: UIView {
         contentBackGround.addSubview(igDropDown)
         igDropDown.anchorWithConstantValues(top: contentBackGround.topAnchor ,width: screenSize.width * 0.35, height: screenSize.height * 0.035)
         
-        contentBackGround.addSubview(picker)
-        picker.pickerData = ["aaa", "bbbb"]
-        picker.anchorWithConstantValues(top: igDropDown.bottomAnchor, width: 100, height: 50)
         
     }
     
