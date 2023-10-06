@@ -23,7 +23,9 @@ class MaternityCardViewModel{
         coreDataManager.addNewConsult(newConsult: consult)
     }
     
+    //Function that assign the id to the new Consult based on the history
     func createConsultID(treemesterNumber : Int) -> Int{
+        
         coreDataManager.fetchPacient()
         let allConsults = coreDataManager.getConsults()
         var consultsOfThisSemester = [ConsultEntity]()
