@@ -40,7 +40,7 @@ class CoreDataFunctions{
         return []
     }
     
-    //Delete a consult given as parameter
+    //Delete a consult based on the treemester and the ID
     func deleteConsults(treemesterNumber : Int, consultID : Int) {
         
         fetchPacient()
@@ -62,7 +62,8 @@ class CoreDataFunctions{
             fetchPacient()
         }
     }
-    
+
+    //Function to fetch the pacient
     func fetchPacient(){
         do{
             let patientFetchRequest = Pacient.fetchRequest()
@@ -77,6 +78,44 @@ class CoreDataFunctions{
         }
     }
     
+    //Return the values of influenza vaccine
+    func getInfluenza() -> DoseVaccines?{
+        if let pacient = self.pacient{
+            let date = pacient.vaccines?.influenza?.vaccineDate
+            let isVaccined = pacient.vaccines?.influenza?.isVaccined
+            let numberOfDose = pacient.vaccines?.influenza?.numberOfDose
+            let dose = DoseVaccines(date: date!, isVaccined: isVaccined!, numberOfDose: Int(numberOfDose!))
+            return dose
+        }
+        return nil
+    }
+    
+    //Return the array with hepatite info
+    func getHepatite() -> [VaccinesDoses]{
+        
+        fetchPacient()
+        if let pacient = self.pacient{
+            let hepatite = pacient.consults as! Set<VaccinesDoses>
+            var hepatiteArray = Array(hepatite)
+            hepatiteArray.sort{$0.numberOfDose < $1.numberOfDose}
+            return hepatiteArray
+        }
+        return []
+    }
+    
+    //Return the array with antitetanic info
+    func getAntitetanic() -> [VaccinesDoses]{
+        
+        fetchPacient()
+        if let pacient = self.pacient{
+            let antitetanic = pacient.consults as! Set<VaccinesDoses>
+            var antitetanicArray = Array(antitetanic)
+            antitetanicArray.sort{$0.numberOfDose < $1.numberOfDose}
+            return antitetanicArray
+        }
+        return []
+    }
+    
     func resetPatient() {
         if let pacient {
             context.delete(pacient)
@@ -88,29 +127,75 @@ class CoreDataFunctions{
     func createPacient(){
         guard pacient == nil else { return }
         self.pacient = Pacient(context: context)
+        //Assign a vaccines atribute to the pacient, then can add any kind of vaccine because its not empty
+        self.pacient?.vaccines = VaccinesEntity(context: context)
     }
     
     //Add influenza vaccine
-    func addVaccineInfluenza(influenza : DoseVaccines){
-        let vaccineEntity = VaccinesEntity(context: context)
-        let doseEntity = VaccinesDoses(context: context)
-        let pacient = self.pacient
-        
-        doseEntity.isVaccined = influenza.isVaccined
-        doseEntity.vaccineDate = influenza.date
-        doseEntity.numberOfDose = Int64(influenza.numberOfDose)
-        
-        vaccineEntity.influenza = doseEntity
-        pacient?.vaccines = vaccineEntity
-        
-        saveContext()
-        fetchPacient()
+    func addVaccineInfluenza(dose : DoseVaccines){
+        if let pacient = self.pacient{
+            let dosesEntity = VaccinesDoses(context: context)
+            dosesEntity.isVaccined = dose.isVaccined
+            dosesEntity.vaccineDate = dose.date
+            dosesEntity.numberOfDose = Int64(dose.numberOfDose)
+            
+            pacient.vaccines?.influenza = dosesEntity
+            
+            saveContext()
+            fetchPacient()
+        }
+    }
+    
+    //Add a new hepatite Vaccine
+    func addVaccineHepatite(dose : DoseVaccines){
+        if let pacient = self.pacient{
+            //Create a new instance to assign to the NSSet
+            let dosesEntity = VaccinesDoses(context: context)
+            dosesEntity.isVaccined = dose.isVaccined
+            dosesEntity.vaccineDate = dose.date
+            dosesEntity.numberOfDose = Int64(dose.numberOfDose)
+            
+            //Append the new element to the set
+            let setHepatite = pacient.vaccines?.hepatiteB as! Set<VaccinesDoses>
+            var arrayHepatite = Array(setHepatite)
+            arrayHepatite.append(dosesEntity)
+            
+            //Assign the new Set with the last element to the vaccines hepatite Set
+            self.pacient?.vaccines?.hepatiteB = NSSet(array: arrayHepatite)
+            saveContext()
+            fetchPacient()
+        }
+    }
+    
+    //Add a new antetanica Vaccine
+    func addVaccineAntitetanic(dose : DoseVaccines){
+        if let pacient = self.pacient{
+            //Create a new instance to assign to the NSSet
+            let dosesEntity = VaccinesDoses(context: context)
+            dosesEntity.isVaccined = dose.isVaccined
+            dosesEntity.vaccineDate = dose.date
+            dosesEntity.numberOfDose = Int64(dose.numberOfDose)
+            
+            //Append the new element to the set
+            let setAntitetanic = pacient.vaccines?.hepatiteB as! Set<VaccinesDoses>
+            var arrayAntitetanic = Array(setAntitetanic)
+            arrayAntitetanic.append(dosesEntity)
+            
+            //Assign the new Set with the last element to the vaccines hepatite Set
+            self.pacient?.vaccines?.antitetanic = NSSet(array: arrayAntitetanic)
+            saveContext()
+            fetchPacient()
+        }
     }
     
     //Add personal info to a pacient that alredy exists
     func addPersonalInfo(firstName : String, secondName : String, nickName : String, dateOfBirth : Date, height : Float , weight : Float){
         
+        
+        //Create a pacient first to assign the atributes
+        //This function will be executed in the first launch of the app
         createPacient()
+        
         if let pacient = self.pacient{
             pacient.nickName = nickName
             pacient.dateOfBirth = dateOfBirth
@@ -119,9 +204,10 @@ class CoreDataFunctions{
             pacient.height = height
             pacient.weight = weight
             self.pacient = pacient
+            
+            saveContext()
+            fetchPacient()
         }
-        saveContext()
-        fetchPacient()
     }
     
     //Add all information about blood exam
@@ -164,7 +250,7 @@ class CoreDataFunctions{
     //Add all information about ultraSound exam
     func addUltraSoundExam(ultraSound : UltrasoundExam) -> UltraSoundModel{
         let ultraSoundModel = UltraSoundModel(context: context)
-        let  idadeGestacional = Idadegestacional(context: context)
+        let idadeGestacional = Idadegestacional(context: context)
         
         //Assign individual values do idadeGestacional
         idadeGestacional.dias = Int64(ultraSound.ig.dias)
@@ -231,7 +317,7 @@ class CoreDataFunctions{
     
     func assignPersonalBG(personalBG : PersonalBGModel){
         let personalBackGround = PersonalBackGround(context: context)
-        let savedPacient = pacient
+        let savedPacient = self.pacient
         
         personalBackGround.diabetes = personalBG.diabetes
         personalBackGround.tabagism = personalBG.tabagism

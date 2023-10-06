@@ -17,6 +17,4 @@ struct Vaccines{
     var hepatiteB : [DoseVaccines]
     var influenza : DoseVaccines
     var antitetanic : [DoseVaccines]
-    var flue : DoseVaccines
-    var dTpa : DoseVaccines
 }

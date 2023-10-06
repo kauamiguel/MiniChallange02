@@ -92,15 +92,11 @@
         <attribute name="numberOfDose" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="vaccineDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="antitetanic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesEntity" inverseName="antitetanic" inverseEntity="VaccinesEntity"/>
-        <relationship name="dTpa" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesEntity" inverseName="dTpa" inverseEntity="VaccinesEntity"/>
-        <relationship name="flue" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesEntity" inverseName="flue" inverseEntity="VaccinesEntity"/>
         <relationship name="hepatiteB" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesEntity" inverseName="hepatiteB" inverseEntity="VaccinesEntity"/>
         <relationship name="influenza" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesEntity" inverseName="influenza" inverseEntity="VaccinesEntity"/>
     </entity>
     <entity name="VaccinesEntity" representedClassName="VaccinesEntity" syncable="YES" codeGenerationType="class">
         <relationship name="antitetanic" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VaccinesDoses" inverseName="antitetanic" inverseEntity="VaccinesDoses"/>
-        <relationship name="dTpa" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesDoses" inverseName="dTpa" inverseEntity="VaccinesDoses"/>
-        <relationship name="flue" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesDoses" inverseName="flue" inverseEntity="VaccinesDoses"/>
         <relationship name="hepatiteB" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VaccinesDoses" inverseName="hepatiteB" inverseEntity="VaccinesDoses"/>
         <relationship name="influenza" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccinesDoses" inverseName="influenza" inverseEntity="VaccinesDoses"/>
         <relationship name="pacient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pacient" inverseName="vaccines" inverseEntity="Pacient"/>

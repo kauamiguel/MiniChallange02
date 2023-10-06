@@ -18,6 +18,8 @@ class TabBarViewController: UITabBarController {
         tbViewManager.setUpTabBarView(tb: self)
         core.fetchPacient()
         setUpTabBarViewModel()
+        let hep = core.getHepatite()
+        print(hep.first)
     }
     
    private func setUpTabBarViewModel(){
