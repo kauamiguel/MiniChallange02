@@ -50,6 +50,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, query: clinicAntecedentsView.query)
         ]
         
+
+        
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
     }
@@ -92,6 +94,9 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cells[indexPath.row].id, for: indexPath) as? MaternityCardCell else { return UICollectionViewCell() }
         cell.setUpcell(view: cells[indexPath.row].view)
+       
+        let zPosition = CGFloat(cells.count - indexPath.row)
+            cell.layer.zPosition = zPosition
         
         cell.onDeleteButtonTapped = { [weak self] in
             self?.deleteButtonTapped(cell: cell)

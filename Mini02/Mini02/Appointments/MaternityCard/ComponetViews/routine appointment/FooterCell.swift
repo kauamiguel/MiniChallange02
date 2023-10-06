@@ -12,6 +12,7 @@ public class FooterCell: UICollectionReusableView {
     static let id = "FooterCell"
 
     var tapAddViews: (() -> Void)?
+    var tapSave: (() -> Void)?
     
     let plusButton: UIButton = {
         let btn = UIButton()
@@ -69,6 +70,7 @@ public class FooterCell: UICollectionReusableView {
         super.init(frame: frame)
         setupView()
         plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(save), for: .touchUpInside)
     }
 
     required init?(coder: NSCoder) {
@@ -78,6 +80,10 @@ public class FooterCell: UICollectionReusableView {
     
     @objc private func plusButtonTapped() {
         tapAddViews?()
+    }
+    
+    @objc private func save(){
+        tapSave?()
     }
 
      func setupView(){
