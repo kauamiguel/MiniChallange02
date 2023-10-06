@@ -40,6 +40,29 @@ class CoreDataFunctions{
         return []
     }
     
+    //Delete a consult given as parameter
+    func deleteConsults(treemesterNumber : Int, consultID : Int) {
+        
+        fetchPacient()
+        if let pacient = self.pacient{
+            let consult = pacient.consults as! Set<ConsultEntity>
+            var consultArray = Array(consult)
+            consultArray.sort{$0.consultId < $1.consultId}
+            
+            for i in 0..<consultArray.count{
+                if consultArray[i].tremesteer == treemesterNumber && consultArray[i].consultId == consultID{
+                    consultArray.remove(at: i)
+                    break
+                }
+            }
+            
+            //Assign the new Array of consults without the deleted element
+            pacient.consults = NSSet(array: consultArray)
+            saveContext()
+            fetchPacient()
+        }
+    }
+    
     func fetchPacient(){
         do{
             let patientFetchRequest = Pacient.fetchRequest()
@@ -79,7 +102,7 @@ class CoreDataFunctions{
         
         vaccineEntity.influenza = doseEntity
         pacient?.vaccines = vaccineEntity
-    
+        
         saveContext()
         fetchPacient()
     }
@@ -164,24 +187,29 @@ class CoreDataFunctions{
         let pacient = self.pacient
         let consult = ConsultEntity(context: context)
         
+        //Assing some atributes to the consult owner
+        consult.tremesteer = Int64(newConsult.trimesteer!)
+        consult.date = newConsult.date
+        consult.consultId = Int64(newConsult.consultId)
+        
         //Add a blood exam if it has
         if let blood = newConsult.bloodExams{
             
             let newBloodExam = addBloodExam(bloodExam: blood)
             
             //Add the id of the consult to the id of the bloodExam
-            newBloodExam.consultNumber = Int64(newConsult.consultId)
+            newBloodExam.consultNumber = Int64(consult.consultId)
             
             consult.bloodExam = newBloodExam
         }
         
         //Add a ultrasound if it has
         if let ultra = newConsult.ultraSoundExams{
-
+            
             let newUltrasound = addUltraSoundExam(ultraSound: ultra)
             
             //Add the id of the consult to the id of the bloodExam
-            newUltrasound.consultNumber = Int64(newConsult.consultId)
+            newUltrasound.consultNumber = Int64(consult.consultId)
             
             consult.ultraSound = newUltrasound
         }
@@ -200,7 +228,7 @@ class CoreDataFunctions{
         }
     }
     
-  
+    
     func assignPersonalBG(personalBG : PersonalBGModel){
         let personalBackGround = PersonalBackGround(context: context)
         let savedPacient = pacient

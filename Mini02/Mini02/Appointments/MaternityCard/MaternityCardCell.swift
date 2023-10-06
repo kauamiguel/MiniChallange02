@@ -9,15 +9,15 @@ import UIKit
 
 class MaternityCardCell: UICollectionViewCell {
     
-
+    
     var onDeleteButtonTapped: (() -> Void)?
-
+    
     var isEditModeActive: Bool = false {
-            didSet {
-                deleteButton.isHidden = !isEditModeActive
-            }
+        didSet {
+            deleteButton.isHidden = !isEditModeActive
         }
-
+    }
+    
     
     private let deleteButton: UIButton = {
         let button = UIButton(type: .system)
@@ -35,7 +35,7 @@ class MaternityCardCell: UICollectionViewCell {
         deleteButton.anchorWithConstantValues(top: contentView.topAnchor, right: contentView.trailingAnchor, rightPadding: -15)
         deleteButton.addTarget(self, action: #selector(deleteButtonTapped(_:)), for: .touchUpInside)
     }
-
+    
     func setUpcellDataView(view: UIView?){
         if let view = view{
             contentView.addSubview(view)
@@ -56,6 +56,6 @@ class MaternityCardCell: UICollectionViewCell {
         // Reset the cell's state when it's dequeued.
         deleteButton.isHidden = true
     }
-
- 
+    
+    
 }
