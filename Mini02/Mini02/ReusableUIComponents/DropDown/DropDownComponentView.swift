@@ -28,8 +28,8 @@ class DropDownComponentView: UIView, UITableViewDelegate, UITableViewDataSource{
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.layer.cornerRadius = 15
-        self.layer.cornerRadius = 15
+        tableView.layer.cornerRadius = 10
+        self.layer.cornerRadius = 10
         
         tableView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
        
