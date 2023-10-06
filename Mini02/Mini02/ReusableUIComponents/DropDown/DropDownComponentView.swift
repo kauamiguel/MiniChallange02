@@ -27,6 +27,7 @@ class DropDownComponentView: UIView, UITableViewDelegate, UITableViewDataSource{
         
         tableView.delegate = self
         tableView.dataSource = self
+        self.layer.zPosition = 100
         
         tableView.layer.cornerRadius = 10
         self.layer.cornerRadius = 10

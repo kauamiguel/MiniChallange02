@@ -31,7 +31,7 @@ class DropDownMenuComponent: UIButton, dropDownProtocol {
     
     override func didMoveToSuperview(){
         guard superview != nil else { return }
-        self.superview?.addSubview(tableBarView)
+        self.superview?.superview?.addSubview(tableBarView)
         self.bringSubviewToFront(tableBarView)
         tableBarView.anchorWithConstantValues(top: self.bottomAnchor)
         tableBarView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true

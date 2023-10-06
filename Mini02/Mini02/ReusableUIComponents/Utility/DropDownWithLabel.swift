@@ -17,7 +17,7 @@ extension UIView {
         contentBackGround.addSubview(label)
         label.setupLabel(labelText: labelText, labelType: .medicText, labelColor: .black)
         contentBackGround.addSubview(dropDown)
-
+       
         label.anchorWithConstantValues(top: topAnchor.topAnchor, left: contentBackGround.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
         dropDown.anchorWithConstantValues(top: label.bottomAnchor, left: contentBackGround.leadingAnchor, leftPadding: leftPadding, width: screenSize.width * widthMultiplier, height: screenSize.height * heightMultiplier)
     }
