@@ -101,6 +101,9 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         cell.onDeleteButtonTapped = { [weak self] in
             self?.deleteButtonTapped(cell: cell)
         }
+        
+        collectionView.addSubview(cell)
+        
         cell.isEditModeActive = isEditModeActive
         
         return cell
@@ -127,6 +130,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             footerView.tapAddViews = { [weak self] in
                 self?.openModal()
             }
+            
             
             return footerView
             

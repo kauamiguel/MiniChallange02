@@ -36,7 +36,7 @@ class BloodView: UIView{
     
     let bloodExamLabel = LabelComponentView()
     
-    let igDropDown = DropDownMenuComponent()
+    let menu = Menu()
     
         
     override init(frame: CGRect) {
@@ -64,14 +64,8 @@ class BloodView: UIView{
         contentBackGround.anchorWithConstantValues(top: bloodExamLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10,width: screenSize.width * 0.9, height: screenSize.height * 1.08)
         contentBackGround.centerX(inView: roudedBackGround)
         
-        
-        igDropDown.setupButton()
-        igDropDown.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd" , "fffffff"]
-        
-        
-        
-        contentBackGround.addSubview(igDropDown)
-        igDropDown.anchorWithConstantValues(top: contentBackGround.topAnchor ,width: screenSize.width * 0.35, height: screenSize.height * 0.035)
+        contentBackGround.addSubview(menu)
+        menu.anchorWithConstantValues(top: contentBackGround.topAnchor, width: 100, height: 20)
         
         
         
