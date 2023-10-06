@@ -23,6 +23,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     private lazy var hepatitisBView = HepatitisBView()
     private lazy var  h1N1View = H1N1View()
     private lazy var ultrasoundView = UltrasoundView()
+    private lazy var maternityVM = MaternityCardViewModel()
+    
+    //Variable to know wich treemester is, then we can track this consult after
+    var treemester : Int?
     
     
     
@@ -30,11 +34,11 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     private var vm = MaternityCardViewModel()
     
-    init(){
-        
+    init(treemester : Int){
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
+        self.treemester = treemester
         
         cells = [
             CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id, query: routineData.query),
@@ -48,10 +52,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        
     }
     
     override func viewDidLoad() {
+        print(maternityVM.createConsultID(treemesterNumber: self.treemester!))
         
         setupCollectionView()
         collectionView.isEditing = true

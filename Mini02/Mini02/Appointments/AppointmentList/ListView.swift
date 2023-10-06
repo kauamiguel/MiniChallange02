@@ -71,7 +71,7 @@ class ListView: UIView {
         let list = UITableView()
         
         //Sets the table controller of the list
-        tableController.AppointementListViewManager = list
+        tableController.appointementListViewManager = list
         
         //Sets the parent of the table view controller
         tableController.parentVC = controller

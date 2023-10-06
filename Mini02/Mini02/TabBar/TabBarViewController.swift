@@ -15,8 +15,8 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tbViewManager.setUpTabBarView(tb: self)
+        core.fetchPacient()
         setUpTabBarViewModel()
     }
     

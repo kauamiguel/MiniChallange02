@@ -14,14 +14,29 @@ class AppointmentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let appointmentViewManager, let appointmentViewModelManager {
-            appointmentViewManager.setupView(vc: self, vm: appointmentViewModelManager)
-        }
+        
+        appointmentViewManager?.setupView(vc: self, firstTreemesterAction: #selector(firstTreemesterAction), secondTreemesterAction: #selector(secondTreemesterAction), thirdTreemesterAction: #selector(thirdTreemesterAction))
+
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         appointmentViewManager?.drawDashedCurvedLineBetweenButtons(vc: self, isFirstTremesteer: true, isSecondTremester: true)
     }
+
+    
+    //Functions to communicate with list view to know wich semester are
+    @objc func firstTreemesterAction(){
+      appointmentViewModelManager?.buttonFuncionality(treemesterNumber: 1)
+    }
+    
+    @objc func secondTreemesterAction(){
+      appointmentViewModelManager?.buttonFuncionality(treemesterNumber: 2)
+    }
+    
+    @objc func thirdTreemesterAction(){
+      appointmentViewModelManager?.buttonFuncionality(treemesterNumber: 3)
+    }
+
 }
 
