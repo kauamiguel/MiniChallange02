@@ -132,7 +132,7 @@ class RegisterView: UIView{
         titleLabel.anchorWithConstantValues(top: profileButton.bottomAnchor, topPadding: 48)
     }
     
-    private func setupName(vc: UIViewController) {
+    private func setupName() {
         contentView.addSubview(nameLabel)
         nameLabel.centerX(inView: contentView)
         nameLabel.anchorWithConstantValues(top: titleLabel.bottomAnchor, topPadding: 36, width: fieldWidth)
@@ -141,7 +141,7 @@ class RegisterView: UIView{
         nameTextField.anchorWithConstantValues(top: nameLabel.bottomAnchor, topPadding: 5, width: fieldWidth, height: 34)
     }
     
-    private func setupNickname(vc: UIViewController) {
+    private func setupNickname() {
         contentView.addSubview(nicknameLabel)
         nicknameLabel.centerX(inView: contentView)
         nicknameLabel.anchorWithConstantValues(top: nameTextField.bottomAnchor, topPadding: 20, width: fieldWidth)
@@ -150,7 +150,7 @@ class RegisterView: UIView{
         nicknameTextfield.anchorWithConstantValues(top: nicknameLabel.bottomAnchor, topPadding: 5, width: fieldWidth, height: 34)
     }
     
-    private func setupDatePicker(vc: UIViewController) {
+    private func setupDatePicker() {
         contentView.addSubview(dateOfBirthLabel)
         dateOfBirthLabel.centerX(inView: contentView)
         dateOfBirthLabel.anchorWithConstantValues(top: nicknameTextfield.bottomAnchor, topPadding: 20, width: fieldWidth)
@@ -164,17 +164,22 @@ class RegisterView: UIView{
         return view
     }()
     
-    private func setupPlaceholder(vc: UIViewController) {
+    private func setupPlaceholder() {
         contentView.addSubview(placeholderIcon)
         placeholderIcon.centerX(inView: contentView)
         placeholderIcon.anchorWithConstantValues(top: dateOfBirthDatePicker.bottomAnchor, topPadding: 36, width: 198, height: 198)
     }
     
-    private func setupNextButton(vc: UIViewController) {
-        contentView.addSubview(nextButton)
+    private func setupNextButton() {
+        let btnContainer = UIView()
+        btnContainer.addSubview(nextButton)
+        contentView.addSubview(btnContainer)
         nextButton.centerX(inView: contentView)
-        let buttonWidth = max(fieldWidth, 364)
-        nextButton.anchorWithConstantValues(top: placeholderIcon.bottomAnchor, topPadding: 36, bottomPadding: 60, width: buttonWidth, height: 66)
+        let buttonWidth = min(fieldWidth, 748)
+        btnContainer.anchorWithConstantValues(top: placeholderIcon.bottomAnchor, left: contentView.leadingAnchor, right: contentView.trailingAnchor, bottom: contentView.bottomAnchor, topPadding: 48, bottomPadding: -58)
+        nextButton.centerX(inView: btnContainer)
+        nextButton.centerY(inView: btnContainer)
+        nextButton.anchorWithConstantValues(width: buttonWidth, height: 66)
         nextButton.addAction(UIAction(handler: { [weak self] _ in
             self?.viewModel?.didTapNext(nameText: self?.nameTextField.text, nicknameText: self?.nicknameTextfield.text, dateOfBirth: self?.dateOfBirthDatePicker.date ?? Date())
         }), for: .touchUpInside)
@@ -187,11 +192,11 @@ class RegisterView: UIView{
         setupScrollView(vc: vc)
         setupProfileImage(vc: vc)
         setupTitle()
-        setupName(vc: vc)
-        setupNickname(vc: vc)
-        setupDatePicker(vc: vc)
-        setupPlaceholder(vc: vc)
-        setupNextButton(vc: vc)
+        setupName()
+        setupNickname()
+        setupDatePicker()
+        setupPlaceholder()
+        setupNextButton()
         
     }
     
