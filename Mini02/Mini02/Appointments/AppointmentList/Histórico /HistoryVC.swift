@@ -27,7 +27,6 @@ class HistoryVC: UIViewController {
         
         newView.setupView()
         
-        // Do any additional setup after loading the view.
      
     }
 }
