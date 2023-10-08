@@ -21,37 +21,22 @@ class AppointmentsView: UIView {
     
     lazy var firstTremesterButton:UIButton = {
         let button = UIButton()
-        // Put the right image in the button
-//        button.setImage(UIImage(named: image), for: .normal)
-        button.backgroundColor = .gray
-        button.layer.cornerRadius = 10
+        button.setImage(UIImage(named: "FirstTremesterButton"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("1", for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
         return button
     }()
     
     lazy var secondTremesterButton:UIButton = {
         let button = UIButton()
-        // Put the right image in the button
-//        button.setImage(UIImage(named: image), for: .normal)
-        button.backgroundColor = .gray
-        button.layer.cornerRadius = 10
+        button.setImage(UIImage(named: "SecondTremesterButton"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("2", for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
         return button
     }()
     
     lazy var thirdTremesterButton:UIButton = {
         let button = UIButton()
-        // Put the right image in the button
-//        button.setImage(UIImage(named: image), for: .normal)
-        button.backgroundColor = .gray
-        button.layer.cornerRadius = 10
+        button.setImage(UIImage(named: "ThirdTreemesterButton"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("3", for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
         return button
     }()
     
@@ -112,7 +97,7 @@ class AppointmentsView: UIView {
         firstTremesterButton.anchorWithConstantValues(top: userInfo.bottomAnchor,left: vc.view.leadingAnchor ,topPadding: 40, leftPadding: 30)
         secondTremesterButton.centerY(inView: vc.view)
         secondTremesterButton.anchorWithConstantValues(right: vc.view.trailingAnchor, rightPadding: -20)
-        thirdTremesterButton.anchorWithConstantValues(left: vc.view.leadingAnchor, bottom: vc.view.bottomAnchor, leftPadding: 50, bottomPadding: -100)
+        thirdTremesterButton.anchorWithConstantValues(left: vc.view.leadingAnchor, bottom: vc.view.bottomAnchor, leftPadding: 100, bottomPadding: -200)
     }
     
     
@@ -134,7 +119,7 @@ class AppointmentsView: UIView {
         
         //Draw the path
         let shapeLayer = CAShapeLayer()
-        shapeLayer.strokeColor = UIColor.red.cgColor
+        shapeLayer.strokeColor = UIColor(named: "PathColor")?.cgColor
         
         if !isFirstTremesteer{
             shapeLayer.opacity = 0.2
@@ -158,8 +143,8 @@ class AppointmentsView: UIView {
         let midPointSecondCurve = CGPoint(x: (startPointMidButton.x + endPointThirdButton.x) / 2, y: (startPointMidButton.y + endPointThirdButton.y) / 2)
         
         //Create the main point of the curve
-        let controlPoint3 = CGPoint(x: (startPointMidButton.x - midPointSecondCurve.x) / 8 , y: (startPointMidButton.y - midPointSecondCurve.y) + 500)
-        let controlPoint4 = CGPoint(x: (endPointThirdButton.x - midPointSecondCurve.x) / 8 , y: (endPointThirdButton.y - midPointSecondCurve.y) + 500)
+        let controlPoint3 = CGPoint(x: (startPointMidButton.x + midPointSecondCurve.x) / 8 , y: (startPointMidButton.y - midPointSecondCurve.y) + 450)
+        let controlPoint4 = CGPoint(x: (endPointThirdButton.x + midPointSecondCurve.x) / 8 , y: (endPointThirdButton.y - midPointSecondCurve.y) + 450)
         
         //Create the path
         let secondPath = UIBezierPath()
@@ -168,7 +153,7 @@ class AppointmentsView: UIView {
         
         //Draw the path
         let shapeLayer2 = CAShapeLayer()
-        shapeLayer2.strokeColor = UIColor.red.cgColor
+        shapeLayer2.strokeColor = UIColor(named: "PathColor")?.cgColor
         
         if !isSecondTremester{
             shapeLayer2.opacity = 0.2
