@@ -10,16 +10,14 @@ import UIKit
 class TabBarViewController: UITabBarController {
 
     let tbViewManager = TabBarView()
-    let core = CoreDataFunctions()
+    let coreDataManager = CoreDataFunctions()
     let HEIGHT_TAB_BAR:CGFloat = UIScreen.main.bounds.height * 0.11
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tbViewManager.setUpTabBarView(tb: self)
-        core.fetchPacient()
+        coreDataManager.fetchPacient()
         setUpTabBarViewModel()
-        let hep = core.getHepatite()
-        print(hep.first)
     }
     
    private func setUpTabBarViewModel(){

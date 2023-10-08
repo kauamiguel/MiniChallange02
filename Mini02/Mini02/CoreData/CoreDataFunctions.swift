@@ -95,7 +95,7 @@ class CoreDataFunctions{
         
         fetchPacient()
         if let pacient = self.pacient{
-            let hepatite = pacient.consults as! Set<VaccinesDoses>
+            let hepatite = pacient.vaccines?.hepatiteB as! Set<VaccinesDoses>
             var hepatiteArray = Array(hepatite)
             hepatiteArray.sort{$0.numberOfDose < $1.numberOfDose}
             return hepatiteArray
@@ -108,7 +108,7 @@ class CoreDataFunctions{
         
         fetchPacient()
         if let pacient = self.pacient{
-            let antitetanic = pacient.consults as! Set<VaccinesDoses>
+            let antitetanic = pacient.vaccines?.antitetanic as! Set<VaccinesDoses>
             var antitetanicArray = Array(antitetanic)
             antitetanicArray.sort{$0.numberOfDose < $1.numberOfDose}
             return antitetanicArray
