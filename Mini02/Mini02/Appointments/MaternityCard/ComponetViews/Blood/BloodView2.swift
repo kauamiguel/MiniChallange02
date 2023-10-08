@@ -48,7 +48,6 @@ class BloodView2: UIView{
         return stackView
     }()
     
-   
     let toxoplasmosisLabel = LabelComponentView()
     let igm = LabelComponentView()
     let igg = LabelComponentView()
@@ -77,15 +76,12 @@ class BloodView2: UIView{
         return stackView
     }()
     
-    
     lazy var toxoplasmosisHStack: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 25
         return stackView
     }()
-    
-
     
 
     let vdrlLabel = LabelComponentView()

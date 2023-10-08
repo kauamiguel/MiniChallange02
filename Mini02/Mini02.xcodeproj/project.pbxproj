@@ -32,6 +32,7 @@
 		AB9D94292ACE3E670064DB69 /* H1N1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D94282ACE3E670064DB69 /* H1N1View.swift */; };
 		AB9D942D2AD0609A0064DB69 /* CustomSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D942C2AD0609A0064DB69 /* CustomSeparatorView.swift */; };
 		AB9D942F2AD068C00064DB69 /* DropDownWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D942E2AD068C00064DB69 /* DropDownWithLabel.swift */; };
+		AB9D94312AD0A2670064DB69 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D94302AD0A2670064DB69 /* Menu.swift */; };
 		ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */; };
 		ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */; };
 		ABAD4F412ABE1C99007BEC32 /* LabelComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F402ABE1C99007BEC32 /* LabelComponentView.swift */; };
@@ -131,6 +132,7 @@
 		AB9D94282ACE3E670064DB69 /* H1N1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H1N1View.swift; sourceTree = "<group>"; };
 		AB9D942C2AD0609A0064DB69 /* CustomSeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSeparatorView.swift; sourceTree = "<group>"; };
 		AB9D942E2AD068C00064DB69 /* DropDownWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownWithLabel.swift; sourceTree = "<group>"; };
+		AB9D94302AD0A2670064DB69 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentGreenView.swift; sourceTree = "<group>"; };
 		ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentRedView.swift; sourceTree = "<group>"; };
 		ABAD4F402ABE1C99007BEC32 /* LabelComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponentView.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				ABAD4F432ABE2299007BEC32 /* Label */,
 				ABAD4F4A2AC1A4AB007BEC32 /* PickerComponent.swift */,
 				ABAD4F4E2AC21922007BEC32 /* DropDown */,
+				AB9D94302AD0A2670064DB69 /* Menu.swift */,
 			);
 			path = ReusableUIComponents;
 			sourceTree = "<group>";
@@ -740,6 +743,7 @@
 				ABAD4F412ABE1C99007BEC32 /* LabelComponentView.swift in Sources */,
 				AB7852F02AB9F95200566EF9 /* BloodView.swift in Sources */,
 				ABFDA7752AC646470097656E /* PlannedView.swift in Sources */,
+				AB9D94312AD0A2670064DB69 /* Menu.swift in Sources */,
 				E8E0D6512AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift in Sources */,
 				E8135C262ABE180300E722FA /* RegisterViewModel.swift in Sources */,
 				AB9D941A2ACB3D6B0064DB69 /* FooterCell.swift in Sources */,
