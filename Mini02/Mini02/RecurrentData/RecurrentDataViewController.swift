@@ -30,7 +30,6 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
         
-        self.lastConsult = recurrentDataVM.getLastConsult()
         
         //Append each view to the cell
         cells = [
