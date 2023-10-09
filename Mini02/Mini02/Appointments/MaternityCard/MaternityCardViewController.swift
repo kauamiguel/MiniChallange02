@@ -28,8 +28,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     //Variable to know wich treemester is, then we can track this consult after
     var treemester : Int?
     
-    
-    
     var cells: [CellInfo] = []
     
     private var vm = MaternityCardViewModel()

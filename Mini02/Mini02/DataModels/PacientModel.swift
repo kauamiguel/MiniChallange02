@@ -19,7 +19,6 @@ protocol BackgroundInfo{
     
     var urinaryInfection : Bool {get}
     
-    var other : [String:Bool]? {get}
 }
 
 // Protocol defining every information a pacient needs to have
@@ -35,7 +34,6 @@ protocol PacientInfo{
     var personalBG:PersonalBGModel {get}
     var familyBG:FamilyBGModel {get}
 }
-
 
 struct PacientModel:PacientInfo{
     var firstName : String

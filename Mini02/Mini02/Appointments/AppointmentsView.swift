@@ -8,7 +8,7 @@
 import UIKit
 
 class AppointmentsView: UIView {
-
+    
     lazy var Vstack : UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -21,10 +21,10 @@ class AppointmentsView: UIView {
     
     lazy var firstTremesterButton:UIButton = {
         let button = UIButton()
-            
+        
         button.setImage(UIImage(named: "treemesterCircle"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-            
+        
         return button
     }()
     
@@ -64,7 +64,7 @@ class AppointmentsView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     let labelFirstTreemester : UILabel = {
         let label = UILabel()
         label.text = "1° trimestre"
@@ -96,7 +96,7 @@ class AppointmentsView: UIView {
     }()
     
     //Setup the layout and add Subview into the main view
-
+    
     func setupView(vc : AppointmentsViewController, firstTreemesterAction: Selector, secondTreemesterAction: Selector, thirdTreemesterAction: Selector){
         
         vc.view.backgroundColor = UIColor(patternImage: UIImage(named: "backGroundImage")!)
@@ -231,5 +231,5 @@ class AppointmentsView: UIView {
     }
 }
 
-       
-  
+
+

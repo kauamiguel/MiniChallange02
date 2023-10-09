@@ -9,7 +9,6 @@ import UIKit
 
 class RoutineDataView: UIView {
 
-
     static let id = "RoutineDataCell"
     let query = "rotina"
     
