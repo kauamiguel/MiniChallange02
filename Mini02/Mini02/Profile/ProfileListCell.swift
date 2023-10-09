@@ -29,6 +29,7 @@ class ProfileListCell: UITableViewCell {
     
     func setupUI(){
         self.layoutMargins = UIEdgeInsets.zero
+        self.backgroundColor = UIColor(red: 255/255, green: 245/255, blue: 245/255, alpha: 1)
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(icon)
         titleLabel.anchorWithConstantValues(

@@ -95,6 +95,8 @@
 		E8135BBE2ABA1C0400E722FA /* ThirdOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BBD2ABA1C0400E722FA /* ThirdOnboardingViewController.swift */; };
 		E8135BC02ABA1D0000E722FA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135BBF2ABA1D0000E722FA /* OnboardingViewController.swift */; };
 		E8135C262ABE180300E722FA /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135C252ABE180300E722FA /* RegisterViewModel.swift */; };
+		E81A267B2AD49BCC003A25E0 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A267A2AD49BCC003A25E0 /* NextButton.swift */; };
+		E81A267E2AD49BF1003A25E0 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A267D2AD49BF1003A25E0 /* RoundedTextField.swift */; };
 		E8E0D6452AC36F05003CE5CD /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6442AC36F05003CE5CD /* ProfileViewModel.swift */; };
 		E8E0D6472AC36F1A003CE5CD /* ProfileListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6462AC36F1A003CE5CD /* ProfileListCell.swift */; };
 		E8E0D6492AC36F37003CE5CD /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6482AC36F37003CE5CD /* AboutView.swift */; };
@@ -198,6 +200,8 @@
 		E8135BBD2ABA1C0400E722FA /* ThirdOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdOnboardingViewController.swift; sourceTree = "<group>"; };
 		E8135BBF2ABA1D0000E722FA /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		E8135C252ABE180300E722FA /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		E81A267A2AD49BCC003A25E0 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		E81A267D2AD49BF1003A25E0 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		E8E0D6442AC36F05003CE5CD /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E8E0D6462AC36F1A003CE5CD /* ProfileListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListCell.swift; sourceTree = "<group>"; };
 		E8E0D6482AC36F37003CE5CD /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -259,6 +263,8 @@
 		ABAD4F2C2ABD25E8007BEC32 /* ReusableUIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E81A267C2AD49BE3003A25E0 /* RoundedTextField */,
+				E81A26792AD49BBF003A25E0 /* NextButton */,
 				AB9D942C2AD0609A0064DB69 /* CustomSeparatorView.swift */,
 				ABFDA7802AC7437C0097656E /* Fonts */,
 				ABC98BBD2AB83B8C005214E5 /* Utility */,
@@ -564,6 +570,22 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		E81A26792AD49BBF003A25E0 /* NextButton */ = {
+			isa = PBXGroup;
+			children = (
+				E81A267A2AD49BCC003A25E0 /* NextButton.swift */,
+			);
+			path = NextButton;
+			sourceTree = "<group>";
+		};
+		E81A267C2AD49BE3003A25E0 /* RoundedTextField */ = {
+			isa = PBXGroup;
+			children = (
+				E81A267D2AD49BF1003A25E0 /* RoundedTextField.swift */,
+			);
+			path = RoundedTextField;
+			sourceTree = "<group>";
+		};
 		E8E0D6412AC36ED2003CE5CD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -722,6 +744,7 @@
 				E8E0D64D2AC36F55003CE5CD /* PregnantDataView.swift in Sources */,
 				AB7852F22AB9F97400566EF9 /* UltrasoundView.swift in Sources */,
 				AB9D942D2AD0609A0064DB69 /* CustomSeparatorView.swift in Sources */,
+				E81A267E2AD49BF1003A25E0 /* RoundedTextField.swift in Sources */,
 				CE60D0702ACDF6E000937768 /* Pacient+CoreDataProperties.swift in Sources */,
 				AB9D94272ACE3DD40064DB69 /* HepatitisBView.swift in Sources */,
 				E8135BBA2ABA1BE700E722FA /* SecondOnboardingViewController.swift in Sources */,
@@ -753,6 +776,7 @@
 				E8135BB82ABA1BDE00E722FA /* SecondOnboardingView.swift in Sources */,
 				ABFA04E72ABCBE0000D31DEA /* MaternityCardModel.swift in Sources */,
 				6241A1642AC6212000C7921B /* HistoryVC.swift in Sources */,
+				E81A267B2AD49BCC003A25E0 /* NextButton.swift in Sources */,
 				ABB82F132AC5FCF8008B73AF /* HistoryView.swift in Sources */,
 				E8E0D6492AC36F37003CE5CD /* AboutView.swift in Sources */,
 				ABC98BA22AB3F53D005214E5 /* AppointmentsView.swift in Sources */,

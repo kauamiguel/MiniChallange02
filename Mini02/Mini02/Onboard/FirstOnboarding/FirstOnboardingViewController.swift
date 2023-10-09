@@ -8,6 +8,8 @@
 import UIKit
 
 class FirstOnboardingViewController: UIViewController {
+    weak var pageController: UIPageViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
