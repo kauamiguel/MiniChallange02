@@ -22,13 +22,16 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
     var cells : [CellInfo] = []
     var filteredCell = [CellInfo]()
     var searchBar : UISearchBar?
+    private var lastConsult : ConsultEntity?
+    private var recurrentDataVM = RecurrenteDataViewModel()
     
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
         
-        //Add the view here
+        self.lastConsult = recurrentDataVM.getLastConsult()
+        
         //Append each view to the cell
         cells = [
             CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),

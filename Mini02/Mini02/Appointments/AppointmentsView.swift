@@ -21,22 +21,28 @@ class AppointmentsView: UIView {
     
     lazy var firstTremesterButton:UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "FirstTremesterButton"), for: .normal)
+            
+        button.setImage(UIImage(named: "treemesterCircle"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+            
         return button
     }()
     
     lazy var secondTremesterButton:UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "SecondTremesterButton"), for: .normal)
+        
+        button.setImage(UIImage(named: "treemesterCircle"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        
         return button
     }()
     
     lazy var thirdTremesterButton:UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "ThirdTreemesterButton"), for: .normal)
+        
+        button.setImage(UIImage(named: "treemesterCircle"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        
         return button
     }()
     
@@ -59,12 +65,45 @@ class AppointmentsView: UIView {
         return label
     }()
 
+    let labelFirstTreemester : UILabel = {
+        let label = UILabel()
+        label.text = "1° trimestre"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = label.font.withSize(20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let labelSecondTreemester : UILabel = {
+        let label = UILabel()
+        label.text = "2° trimestre"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = label.font.withSize(20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let labelThirdTreemester : UILabel = {
+        let label = UILabel()
+        label.text = "3° trimestre"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = label.font.withSize(20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     //Setup the layout and add Subview into the main view
 
     func setupView(vc : AppointmentsViewController, firstTreemesterAction: Selector, secondTreemesterAction: Selector, thirdTreemesterAction: Selector){
         
         vc.view.backgroundColor = .white
+        vc.view.backgroundColor = UIColor(patternImage: UIImage(named: "BackGroundImage")!)
         
+        
+        //Adding actions into buttons
         firstTremesterButton.addTarget(vc, action: firstTreemesterAction, for: .touchUpInside)
         secondTremesterButton.addTarget(vc, action: secondTreemesterAction, for: .touchUpInside)
         thirdTremesterButton.addTarget(vc, action: thirdTreemesterAction, for: .touchUpInside)
@@ -72,18 +111,16 @@ class AppointmentsView: UIView {
         
         //Setting up the layout of the view
         vc.view.addSubview(firstTremesterButton)
+        firstTremesterButton.addSubview(labelFirstTreemester)
         vc.view.addSubview(secondTremesterButton)
+        secondTremesterButton.addSubview(labelSecondTreemester)
         vc.view.addSubview(thirdTremesterButton)
+        thirdTremesterButton.addSubview(labelThirdTreemester)
         vc.view.addSubview(userName)
         vc.view.addSubview(userInfo)
         
         
-        //Adding constraints
-        
-        firstTremesterButton.anchorWithConstantValues(width: 100, height: 80)
-        secondTremesterButton.anchorWithConstantValues(width: 100, height: 80)
-        thirdTremesterButton.anchorWithConstantValues(width: 100, height: 80)
-        
+        //Adding constraints into profile image and description
         let profileButton = ProfileImageButton(controller: vc)
         vc.view.addSubview(profileButton)
         profileButton.centerX(inView: vc.view)
@@ -94,10 +131,21 @@ class AppointmentsView: UIView {
         userInfo.centerX(inView: vc.view)
         userInfo.anchorWithConstantValues(top: userName.bottomAnchor, topPadding: 5)
         
+        //Add constrains to the buttons
         firstTremesterButton.anchorWithConstantValues(top: userInfo.bottomAnchor,left: vc.view.leadingAnchor ,topPadding: 40, leftPadding: 30)
         secondTremesterButton.centerY(inView: vc.view)
         secondTremesterButton.anchorWithConstantValues(right: vc.view.trailingAnchor, rightPadding: -20)
         thirdTremesterButton.anchorWithConstantValues(left: vc.view.leadingAnchor, bottom: vc.view.bottomAnchor, leftPadding: 100, bottomPadding: -200)
+        
+        //Set the constraints to labels inside the button
+        labelFirstTreemester.centerXAnchor.constraint(equalTo: firstTremesterButton.centerXAnchor).isActive = true
+        labelFirstTreemester.centerYAnchor.constraint(equalTo: firstTremesterButton.centerYAnchor).isActive = true
+        
+        labelSecondTreemester.centerXAnchor.constraint(equalTo: secondTremesterButton.centerXAnchor).isActive = true
+        labelSecondTreemester.centerYAnchor.constraint(equalTo: secondTremesterButton.centerYAnchor).isActive = true
+        
+        labelThirdTreemester.centerXAnchor.constraint(equalTo: thirdTremesterButton.centerXAnchor).isActive = true
+        labelThirdTreemester.centerYAnchor.constraint(equalTo: thirdTremesterButton.centerYAnchor).isActive = true
     }
     
     
