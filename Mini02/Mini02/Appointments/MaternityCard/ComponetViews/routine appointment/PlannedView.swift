@@ -99,7 +99,7 @@ class PlannedView: UIView {
         plannedSubHStack.addArrangedSubview(plannedHStackNO)
         contentBackGround.addSubview(plannedSubHStack)
         
-        plannedSubHStack.anchorWithConstantValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor, topPadding: 15 ,leftPadding: 20)
+        plannedSubHStack.anchorWithConstantValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor, topPadding: 15 ,leftPadding: 10)
       
     }
     

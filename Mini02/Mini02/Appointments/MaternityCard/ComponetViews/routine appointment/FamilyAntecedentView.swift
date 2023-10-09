@@ -35,7 +35,11 @@ class FamilyAntecedentView: UIView {
         return view
     }()
     
-
+    let Separator:CustomSeparatorView = {
+        let sep = CustomSeparatorView()
+        
+        return sep
+    }()
     let antecedentesLabel = LabelComponentView()
     
     /* ----------------------------------------------------------HYPERTENSION------------------------------------------------------------- */
@@ -107,17 +111,46 @@ class FamilyAntecedentView: UIView {
         
         addSubview(roudedBackGround)
         
-        roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: familyAntecedentViewSize.width ,height: familyAntecedentViewSize.height)
+        roudedBackGround.anchorWithConstantValues(
+            top: self.topAnchor,
+            left: self.leadingAnchor,
+            right: self.trailingAnchor,
+            bottom: self.bottomAnchor,
+            width: familyAntecedentViewSize.width ,
+            height: familyAntecedentViewSize.height
+        )
         
-        self.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor,right: roudedBackGround.trailingAnchor,bottom: roudedBackGround.bottomAnchor)
+        self.anchorWithConstantValues(
+            top: roudedBackGround.topAnchor,
+            left: roudedBackGround.leadingAnchor,
+            right: roudedBackGround.trailingAnchor,
+            bottom: roudedBackGround.bottomAnchor
+        )
         
         
         self.addSubview(antecedentesLabel)
-        antecedentesLabel.setupLabel(labelText: "Antecedentes Familiares", labelType: .title, labelColor: .black)
-        antecedentesLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
+        antecedentesLabel.setupLabel(
+            labelText: "Antecedentes Familiares",
+            labelType: .title,
+            labelColor: .black
+        )
+        
+        antecedentesLabel.anchorWithMultiplayerValues(
+            top: self.topAnchor,
+            left: roudedBackGround.leadingAnchor,
+            leftPadding: 1.4
+        )
         
         roudedBackGround.addSubview(contentBackGround)
-        contentBackGround.anchorWithConstantValues(top: antecedentesLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9, height: screenSize.height * 0.27)
+        
+        contentBackGround.anchorWithConstantValues(
+            top: antecedentesLabel.bottomAnchor,
+            bottom: self.bottomAnchor,
+            topPadding: 10,
+            width: screenSize.width * 0.9,
+            height: screenSize.height * 0.27
+        )
+        
         contentBackGround.centerX(inView: roudedBackGround)
         
      
@@ -125,13 +158,18 @@ class FamilyAntecedentView: UIView {
         configureLabelAndGreenCheckBox(stack: hypertensionSubHStack,label: hypertensionLabel,checkBox: hypertensionCheckYES,labelText: "hipertenção")
         
         contentBackGround.addSubview(hypertensionSubHStack)
+        
         hypertensionSubHStack.anchorWithConstantValues(top: contentBackGround.topAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
+        
+
         
         /* ----------------------------------------------------------Diabetes------------------------------------------------------------- */
         configureLabelAndGreenCheckBox(stack: diabetesSubHStack,label: diabetesLabel,checkBox: diabetesCheckYES,labelText: "Diabetes")
         
         contentBackGround.addSubview(diabetesSubHStack)
         diabetesSubHStack.anchorWithConstantValues(top: hypertensionSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
+        
+        
         
         /* ----------------------------------------------------------TWINe------------------------------------------------------------- */
         configureLabelAndGreenCheckBox(stack: twinSubHStack,label: twinLabel,checkBox: twinCheckYES,labelText: "Gemelar")
