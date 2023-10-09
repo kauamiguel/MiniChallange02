@@ -156,8 +156,8 @@ class AppointmentsView: UIView {
         let midPoint = CGPoint(x: (startPoint.x + endPoint.x) / 2, y: (startPoint.y + endPoint.y) / 2)
         
         //Create the 2 points that will help to control the curve
-        let controlPoint1 = CGPoint(x: (startPoint.x + midPoint.x) - 200 , y: (startPoint.y + midPoint.y) / 3)
-        let controlPoint2 = CGPoint(x: (endPoint.x + midPoint.x)  - 200, y: (endPoint.y + midPoint.y) / 3)
+        let controlPoint1 = CGPoint(x: (startPoint.x + midPoint.x) - 200 , y: (startPoint.y + midPoint.y) / 2.5)
+        let controlPoint2 = CGPoint(x: (endPoint.x + midPoint.x)  - 200, y: (endPoint.y + midPoint.y) / 2.5)
         
         //Create the path based on that point
         let path = UIBezierPath()
@@ -187,11 +187,11 @@ class AppointmentsView: UIView {
         //Create the points between the middele button and the third button
         let startPointMidButton = CGPoint(x: secondTremesterButton.frame.minX, y: secondTremesterButton.center.y)
         let endPointThirdButton = CGPoint(x: thirdTremesterButton.center.x, y: thirdTremesterButton.center.y)
-        let midPointSecondCurve = CGPoint(x: (startPointMidButton.x + endPointThirdButton.x) / 2, y: (startPointMidButton.y + endPointThirdButton.y) / 2)
+        let midPointSecondCurve = CGPoint(x: (startPointMidButton.x + endPointThirdButton.x) / 2.5, y: (startPointMidButton.y + endPointThirdButton.y) / 2.5)
         
         //Create the main point of the curve
-        let controlPoint3 = CGPoint(x: (startPointMidButton.x + midPointSecondCurve.x) / 8 , y: (startPointMidButton.y - midPointSecondCurve.y) + 450)
-        let controlPoint4 = CGPoint(x: (endPointThirdButton.x + midPointSecondCurve.x) / 8 , y: (endPointThirdButton.y - midPointSecondCurve.y) + 450)
+        let controlPoint3 = CGPoint(x: (startPointMidButton.x + midPointSecondCurve.x) / 8 , y: (startPointMidButton.y - midPointSecondCurve.y) + 400)
+        let controlPoint4 = CGPoint(x: (endPointThirdButton.x + midPointSecondCurve.x) / 8 , y: (endPointThirdButton.y - midPointSecondCurve.y) + 400)
         
         //Create the path
         let secondPath = UIBezierPath()
