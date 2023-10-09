@@ -107,9 +107,9 @@ class RoutineDataView: UIView {
        
         menuPlusLabel(label: igLabel, menu: igMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: contentBackGround, labelText: "IG -DUM/USG", topPadding: 15, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         
-        menuPlusLabelBottom(label: uterineHeightLabel, menu: uterineHeightMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: igMenu, labelText: "Altura uterina (cm)", topPadding: 15, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        menuPlusLabelBottom(label: uterineHeightLabel, menu: uterineHeightMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: igMenu, labelText: "Altura uterina (cm)", topPadding: 34, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         
-        menuPlusLabelBottom(label: arterialPressureLabel, menu: arterialPressureMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: uterineHeightMenu, labelText: "Pressão arterial ", topPadding: 15, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        menuPlusLabelBottom(label: arterialPressureLabel, menu: arterialPressureMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: uterineHeightMenu, labelText: "Pressão arterial ", topPadding: 34, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
     }
     
     required init?(coder: NSCoder) {
