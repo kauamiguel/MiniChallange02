@@ -8,7 +8,7 @@
 import UIKit
 
 class RecurrentDataViewController: UICollectionViewController, UISearchBarDelegate, UICollectionViewDelegateFlowLayout {
-
+    
     private lazy var routineData =  RoutineDataView()
     private lazy var pregnancyRiskView = PregnancyRiskView()
     private lazy var plannedView = PlannedView()
@@ -76,10 +76,12 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
             ]
         }
         
+        //Verify if exist blood exam, and if has, add in the view the last exam information
         if let _ = self.lastConsult?.bloodExam{
             cells.append(CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query))
         }
         
+        //Verify if exist ultrasound exam, and if has, add in the view the last exam information
         if let _ = self.lastConsult?.ultraSound{
             cells.append(CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundSize, id: UltrasoundView.id, query: ultrasoundView.query))
         }
