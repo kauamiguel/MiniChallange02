@@ -65,7 +65,7 @@ class BloodView: UIView{
         contentBackGround.centerX(inView: roudedBackGround)
         
         contentBackGround.addSubview(menu)
-        menu.setupButton(withActionTitles: ["aaaa", "bbbb", "cccc"])
+        menu.setupButton(options: ["aaaa", "bbbb", "cccc"])
         menu.anchorWithConstantValues(top: contentBackGround.topAnchor,topPadding: 15 ,width: 200, height: 35)
         menu.centerX(inView: contentBackGround)
         

@@ -43,15 +43,15 @@ class RoutineDataView: UIView {
     
     let igLabel = LabelComponentView()
     
-    let igDropDown = DropDownMenuComponent()
+    let igMenu = MenuComponent()
     
     let uterineHeightLabel = LabelComponentView()
     
-    let uterineHeightDropDown = DropDownMenuComponent()
+    let uterineHeightMenu = MenuComponent()
     
     let arterialPressureLabel = LabelComponentView()
     
-    let arterialPressureDropDown = DropDownMenuComponent()
+    let arterialPressureMenu = MenuComponent()
     
     
     
@@ -105,12 +105,11 @@ class RoutineDataView: UIView {
         separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: 15, bottomPadding: -15, width: 1.5)
         separator.centerX(inView: contentBackGround)
        
-        DropDownPlusLabelTop(label: igLabel, dropDown: igDropDown, contentBackGround: contentBackGround, topAnchor: contentBackGround, labelText: "IG -DUM/USG", dropDownOptions: ["AAA", "BBBB", "CCC"], topPadding: 15, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        menuPlusLabel(label: igLabel, menu: igMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: contentBackGround, labelText: "IG -DUM/USG", topPadding: 15, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         
-        DropDownPlusLabelBottom(label: uterineHeightLabel, dropDown: uterineHeightDropDown, contentBackGround: contentBackGround, topAnchor: igDropDown, labelText: "Altura uterina (cm)", dropDownOptions: ["AAA", "BBBB", "CCC"], topPadding: 34, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-     
-        DropDownPlusLabelBottom(label: arterialPressureLabel, dropDown: arterialPressureDropDown, contentBackGround: contentBackGround, topAnchor: uterineHeightDropDown, labelText: "Pressão arterial(mmHG)", dropDownOptions: ["AAA", "BBBB", "CCC"], topPadding: 34, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        menuPlusLabelBottom(label: uterineHeightLabel, menu: uterineHeightMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: igMenu, labelText: "Altura uterina (cm)", topPadding: 15, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         
+        menuPlusLabelBottom(label: arterialPressureLabel, menu: arterialPressureMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: uterineHeightMenu, labelText: "Pressão arterial ", topPadding: 15, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
     }
     
     required init?(coder: NSCoder) {

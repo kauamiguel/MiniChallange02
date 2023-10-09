@@ -12,14 +12,14 @@ class MenuComponent: UIButton {
     var selectedOption: String?
 
 
-    func setupButton(withActionTitles actionTitles: [String]) {
+    func setupButton(options: [String]) {
         self.backgroundColor = UIColor(red: 0.70, green: 0.82, blue: 0.84, alpha: 1.00)
         self.showsMenuAsPrimaryAction = true
         self.layer.cornerRadius = 10
 
         var menuActions: [UIAction] = []
 
-        for title in actionTitles {
+        for title in options {
             let action = UIAction(title: title, handler: { [weak self] action in
                 self?.handleActionSelected(title: title)
             })
@@ -34,5 +34,4 @@ class MenuComponent: UIButton {
         self.selectedOption = title
     }
 
-  
 }
