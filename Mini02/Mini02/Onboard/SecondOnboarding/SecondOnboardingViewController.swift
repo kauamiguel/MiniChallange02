@@ -9,6 +9,7 @@ import UIKit
 
 
 class SecondOnboardingViewController: UIViewController {
+    weak var pageController: UIPageViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,12 +13,13 @@ class ProfileView: UIControl {
     private lazy var tableView: UITableView = {
        let table = UITableView()
         table.register(ProfileListCell.self, forCellReuseIdentifier: ProfileListCell.identifier)
+        table.backgroundColor = UIColor(red: 255/255, green: 245/255, blue: 245/255, alpha: 1)
         return table
     }()
     
     func setupProfile(vc: UIViewController) {
         self.viewController = vc
-        vc.view.backgroundColor = .systemBackground
+        vc.view.backgroundColor = UIColor(red: 255/255, green: 245/255, blue: 245/255, alpha: 1)
         vc.title = "Perfil"
         vc.navigationController?.navigationBar.prefersLargeTitles = true
         vc.view.addSubview(tableView)

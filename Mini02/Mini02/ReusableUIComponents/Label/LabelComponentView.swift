@@ -41,6 +41,10 @@ class LabelComponentView: UILabel{
             self.textColor = .white
         case .secondaryColor:
             self.textColor = UIColor(red: 0.227, green: 0.651, blue: 0.725, alpha: 1)
+        case .primaryText:
+            self.textColor = UIColor(red: 255/255, green: 133/255, blue: 148/255, alpha: 1)
+        case .secondaryText:
+            self.textColor = UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1)
         default:
             self.textColor = .white
         }
@@ -61,8 +65,26 @@ class LabelComponentView: UILabel{
         case .smallText:
 //            self.font = UIFont(name: "", size: 10)
             self.font = UIFont.systemFont(ofSize: 10)
-            
-    
+        case .titleBold:
+            self.font = UIFont(name: "Signika-Bold", size: 24)
+            self.textAlignment = .center
+            self.numberOfLines = 5
+        case .titleSemiBold:
+            self.font = UIFont(name: "Signika-Semibold", size: 20)
+            self.textAlignment = .center
+            self.numberOfLines = 5
+        case .titleRegular:
+            self.font = UIFont(name: "Signika-Regular", size: 24)
+            self.textAlignment = .center
+        case .inputLabel:
+            self.font = UIFont(name: "Signika-Regular", size: 16)
+        case .highlitedBody:
+            self.font = UIFont(name: "Signika-Bold", size: 16)
+        case .description:
+            self.font = UIFont(name: "Signika-Regular", size: 16)
+            self.textAlignment = .center
+//            text.preferredMaxLayoutWidth = 348
+            self.numberOfLines = 5
         default:
 //            self.font = UIFont(name: "", size: 10)
             self.font = UIFont.systemFont(ofSize: 10)

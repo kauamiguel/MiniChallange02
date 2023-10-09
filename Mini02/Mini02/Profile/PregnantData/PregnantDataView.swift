@@ -21,12 +21,13 @@ class PregnantDataView: UIView {
     
     private lazy var scrollView: UIScrollView = {
        let scroll = UIScrollView()
-        scroll.backgroundColor = .systemBackground
+        scroll.backgroundColor = UIColor(red: 255/255, green: 245/255, blue: 245/255, alpha: 1)
         return scroll
     }()
     
     private lazy var contentView: UIView = {
         let view = UIView()
+        view.backgroundColor = UIColor(red: 255/255, green: 245/255, blue: 245/255, alpha: 1)
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
@@ -35,33 +36,31 @@ class PregnantDataView: UIView {
     
     private lazy var pregnantNameLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Nome da gestante:", labelType: .subTitle, labelColor: .black)
+        label.setupLabel(labelText: "Nome da gestante:", labelType: .inputLabel, labelColor: .secondaryText)
         return label
     }()
     
     private lazy var pregnantNameField: UITextField = {
-       let field = UITextField()
-        field.backgroundColor = .systemGray
+        let field = RoundedTextField()
         field.text = viewModel?.getPatientData()?.firstName
         return field
     }()
     
     private lazy var aliasLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Como gostaria de ser chamada:", labelType: .subTitle, labelColor: .black)
+        label.setupLabel(labelText: "Como gostaria de ser chamada:", labelType: .inputLabel, labelColor: .secondaryText)
         return label
     }()
     
     private lazy var aliasField: UITextField = {
-       let field = UITextField()
-        field.backgroundColor = .systemGray
+       let field = RoundedTextField()
         field.text = viewModel?.getPatientData()?.nickName
         return field
     }()
     
     private lazy var dateOfBirthLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Data de nascimento:", labelType: .subTitle, labelColor: .black)
+        label.setupLabel(labelText: "Data de nascimento:", labelType: .inputLabel, labelColor: .secondaryText)
         return label
     }()
     
@@ -72,51 +71,52 @@ class PregnantDataView: UIView {
         if let dateOfBirth = viewModel?.getPatientData()?.dateOfBirth {
             picker.setDate(dateOfBirth, animated: false)
         }
-        
+        picker.backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
+        picker.layer.cornerRadius = 18
+        picker.clipsToBounds = true
+        picker.tintColor = UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1)
         return picker
     }()
     
     private lazy var divider: UIView = {
        let view = UIView()
-        view.backgroundColor = .separator
+        view.backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
         return view
     }()
     
     private lazy var emergencyLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Em caso de emergência, ligar para:", labelType: .subTitle, labelColor: .black)
+        label.setupLabel(labelText: "Em caso de emergência, ligar para:", labelType: .inputLabel, labelColor: .secondaryText)
         return label
     }()
     
     private lazy var emergencyContactNameLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Nome:", labelType: .subTitle, labelColor: .black)
+        label.setupLabel(labelText: "Nome:", labelType: .inputLabel, labelColor: .secondaryText)
         return label
     }()
     
     private lazy var emergencyContactNameField: UITextField = {
-       let field = UITextField()
-        field.backgroundColor = .systemGray
+       let field = RoundedTextField()
         field.text = viewModel?.getPatientData()?.emergencyContact?.name
         return field
     }()
     
     private lazy var emergencyContactPhoneLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Telefone:", labelType: .subTitle, labelColor: .black)
+        label.setupLabel(labelText: "Telefone:", labelType: .inputLabel, labelColor: .secondaryText)
         return label
     }()
     
     private lazy var emergencyContactPhoneField: UITextField = {
-       let field = UITextField()
-        field.backgroundColor = .systemGray
+       let field = RoundedTextField()
         field.text = viewModel?.getPatientData()?.emergencyContact?.phone
         return field
     }()
     
     private lazy var emergencyContactRelationLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Vínculo:", labelType: .subTitle, labelColor: .black)
+        label.setupLabel(labelText: "Vínculo:", labelType: .inputLabel, labelColor: .secondaryText)
         return label
     }()
     
@@ -167,14 +167,14 @@ class PregnantDataView: UIView {
         contentView.addSubview(pregnantNameLabel)
         pregnantNameLabel.anchorWithConstantValues(top: profileButton.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 30, leftPadding: paddingSize, rightPadding: -paddingSize)
         contentView.addSubview(pregnantNameField)
-        pregnantNameField.anchorWithConstantValues(top: pregnantNameLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 34)
+        pregnantNameField.anchorWithConstantValues(top: pregnantNameLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 40)
     }
     
     private func setupAlias(vc: UIViewController){
         contentView.addSubview(aliasLabel)
         aliasLabel.anchorWithConstantValues(top: pregnantNameField.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: paddingSize, rightPadding: -paddingSize)
         contentView.addSubview(aliasField)
-        aliasField.anchorWithConstantValues(top: aliasLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 34)
+        aliasField.anchorWithConstantValues(top: aliasLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 40)
     }
     
     private func setupDateOfBirth(vc: UIViewController) {
@@ -199,14 +199,14 @@ class PregnantDataView: UIView {
         contentView.addSubview(emergencyContactNameLabel)
         emergencyContactNameLabel.anchorWithConstantValues(top: emergencyLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: paddingSize, rightPadding: -paddingSize)
         contentView.addSubview(emergencyContactNameField)
-        emergencyContactNameField.anchorWithConstantValues(top: emergencyContactNameLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 34)
+        emergencyContactNameField.anchorWithConstantValues(top: emergencyContactNameLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 40)
     }
     
     private func setupEmergencyPhone(vc: UIViewController) {
         contentView.addSubview(emergencyContactPhoneLabel)
         emergencyContactPhoneLabel.anchorWithConstantValues(top: emergencyContactNameField.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: paddingSize, rightPadding: -50)
         contentView.addSubview(emergencyContactPhoneField)
-        emergencyContactPhoneField.anchorWithConstantValues(top: emergencyContactPhoneLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 34)
+        emergencyContactPhoneField.anchorWithConstantValues(top: emergencyContactPhoneLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 40)
     }
     private lazy var dropdownRelation = DropDownMenuComponent()
     func setupEmergencyRelation(vc: UIViewController) {
@@ -252,11 +252,27 @@ class PregnantDataView: UIView {
     }
 
     func setupPregnantData(vc: UIViewController,vm: PregnantDataViewModel) {
+        let color = UIColor(red: 255/255, green: 245/255, blue: 245/255, alpha: 1)
         self.viewController = vc
         self.viewModel = vm
         vc.title = "Dados da Gestante"
+        let titleAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1), NSAttributedString.Key.font: UIFont(name: "Signika-Regular", size: 24)]
+        let backButton = UIButton(type: .custom)
+        backButton.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+        backButton.tintColor = UIColor(red: 1, green: 0.521, blue: 0.58, alpha: 1)
+        backButton.addTarget(viewModel, action: #selector(viewModel?.didTapBackButton), for: .touchUpInside)
+        
+        let customBackButton = UIBarButtonItem(customView: backButton)
+        vc.navigationItem.leftBarButtonItem = customBackButton
+        vc.navigationController?.navigationItem.titleView?.backgroundColor = color
+        vc.navigationController?.navigationBar.titleTextAttributes = titleAttributes as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
+        vc.navigationController?.navigationBar.largeTitleTextAttributes = titleAttributes as [NSAttributedString.Key : Any]
         vc.navigationController?.navigationBar.prefersLargeTitles = true
-        vc.view.backgroundColor = .systemBackground
+        vc.navigationController?.toolbar.backgroundColor = color
+        vc.navigationController?.toolbar.backgroundColor = color
+        vc.navigationController?.navigationBar.backgroundColor = color
+        vc.view.backgroundColor = color
+        
         setupScrollView(vc: vc)
         setupImage()
         setupName(vc: vc)
@@ -267,8 +283,7 @@ class PregnantDataView: UIView {
         setupEmergencyName(vc: vc)
         setupEmergencyPhone(vc: vc)
         setupEmergencyRelation(vc: vc)
-        setupTempSaveButton(vc: vc)
+//        setupTempSaveButton(vc: vc)
     }
-
 }
 
