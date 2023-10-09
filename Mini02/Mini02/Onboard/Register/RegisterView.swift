@@ -13,6 +13,9 @@ import UIKit
 class RegisterView: UIView{
     var viewController: RegisterViewController?
     var viewModel: RegisterViewModel?
+    
+    private let textColor = UIColor(red: 255/255, green: 133/255, blue: 148/255, alpha: 1)
+    
     private let fieldWidth = min(CGFloat(UIScreen.main.bounds.width * 0.73), 544)
     
     private lazy var scrollView: UIScrollView = {
@@ -30,44 +33,40 @@ class RegisterView: UIView{
     }()
     
     private lazy var titleLabel : UILabel = {
-        let label = UILabel()
-        label.text = "Dados da gestante"
-        label.font = label.font.withSize(24)
+        let label = LabelComponentView()
+        let text = "Dados da gestante"
+        label.setupLabel(labelText: text, labelType: .titleRegular, labelColor: .primaryText)
         return label
     }()
     
     private lazy var nameLabel : UILabel = {
-        let label = UILabel()
-        label.text = "Nome da gestante:"
-        label.font = label.font.withSize(20)
+        let label = LabelComponentView()
+        let text = "Nome da gestante:"
+        label.setupLabel(labelText: text, labelType: .inputLabel, labelColor: .primaryText)
         return label
     }()
    
     private lazy var nameTextField : UITextField = {
-        let text = UITextField().textField(withPlaceholder: "", size: 20)
-        text.textColor = .black
-        text.autocorrectionType = .no
+        let text = RoundedTextField()
         return text
     }()
     
     private lazy var nicknameLabel : UILabel = {
-        let label = UILabel()
-        label.text = "Como gostaria de ser chamada:"
-        label.font = label.font.withSize(20)
+        let label = LabelComponentView()
+        let text = "Como gostaria de ser chamada:"
+        label.setupLabel(labelText: text, labelType: .inputLabel, labelColor: .primaryText)
         return label
     }()
     
     private lazy var nicknameTextfield : UITextField  = {
-        let text = UITextField().textField(withPlaceholder: "", size: 20)
-        text.textColor = .black
-        text.autocorrectionType = .no
+        let text = RoundedTextField()
         return text
     }()
     
     private lazy var dateOfBirthLabel : UILabel = {
-        let label = UILabel()
-        label.text = "Data de nascimento:"
-        label.font = label.font.withSize(20)
+        let label = LabelComponentView()
+        let text = "Data de nascimento:"
+        label.setupLabel(labelText: text, labelType: .inputLabel, labelColor: .primaryText)
         return label
     }()
     
@@ -77,15 +76,15 @@ class RegisterView: UIView{
         date.preferredDatePickerStyle = .compact
         date.calendar = .current
         date.setDate(Calendar.current.date(byAdding: .year, value: -18, to: Date())!, animated: false)
+        date.backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
+        date.layer.cornerRadius = 18
+        date.clipsToBounds = true
+        date.tintColor = UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1)
         return date
     }()
     
     private lazy var nextButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Seguinte", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 25
+        let button = NextButton()
         return button
     }()
     
@@ -132,25 +131,25 @@ class RegisterView: UIView{
         titleLabel.anchorWithConstantValues(top: profileButton.bottomAnchor, topPadding: 48)
     }
     
-    private func setupName() {
+    private func setupName(vc: UIViewController) {
         contentView.addSubview(nameLabel)
         nameLabel.centerX(inView: contentView)
         nameLabel.anchorWithConstantValues(top: titleLabel.bottomAnchor, topPadding: 36, width: fieldWidth)
         contentView.addSubview(nameTextField)
         nameTextField.centerX(inView: contentView)
-        nameTextField.anchorWithConstantValues(top: nameLabel.bottomAnchor, topPadding: 5, width: fieldWidth, height: 34)
+        nameTextField.anchorWithConstantValues(top: nameLabel.bottomAnchor, topPadding: 5, width: fieldWidth, height: 40)
     }
     
-    private func setupNickname() {
+    private func setupNickname(vc: UIViewController) {
         contentView.addSubview(nicknameLabel)
         nicknameLabel.centerX(inView: contentView)
         nicknameLabel.anchorWithConstantValues(top: nameTextField.bottomAnchor, topPadding: 20, width: fieldWidth)
         contentView.addSubview(nicknameTextfield)
         nicknameTextfield.centerX(inView: contentView)
-        nicknameTextfield.anchorWithConstantValues(top: nicknameLabel.bottomAnchor, topPadding: 5, width: fieldWidth, height: 34)
+        nicknameTextfield.anchorWithConstantValues(top: nicknameLabel.bottomAnchor, topPadding: 5, width: fieldWidth, height: 40)
     }
     
-    private func setupDatePicker() {
+    private func setupDatePicker(vc: UIViewController) {
         contentView.addSubview(dateOfBirthLabel)
         dateOfBirthLabel.centerX(inView: contentView)
         dateOfBirthLabel.anchorWithConstantValues(top: nicknameTextfield.bottomAnchor, topPadding: 20, width: fieldWidth)
@@ -164,22 +163,17 @@ class RegisterView: UIView{
         return view
     }()
     
-    private func setupPlaceholder() {
+    private func setupPlaceholder(vc: UIViewController) {
         contentView.addSubview(placeholderIcon)
         placeholderIcon.centerX(inView: contentView)
         placeholderIcon.anchorWithConstantValues(top: dateOfBirthDatePicker.bottomAnchor, topPadding: 36, width: 198, height: 198)
     }
     
-    private func setupNextButton() {
-        let btnContainer = UIView()
-        btnContainer.addSubview(nextButton)
-        contentView.addSubview(btnContainer)
+    private func setupNextButton(vc: UIViewController) {
+        contentView.addSubview(nextButton)
         nextButton.centerX(inView: contentView)
-        let buttonWidth = min(fieldWidth, 748)
-        btnContainer.anchorWithConstantValues(top: placeholderIcon.bottomAnchor, left: contentView.leadingAnchor, right: contentView.trailingAnchor, bottom: contentView.bottomAnchor, topPadding: 48, bottomPadding: -58)
-        nextButton.centerX(inView: btnContainer)
-        nextButton.centerY(inView: btnContainer)
-        nextButton.anchorWithConstantValues(width: buttonWidth, height: 66)
+        let buttonWidth = max(fieldWidth, 364)
+        nextButton.anchorWithConstantValues(top: placeholderIcon.bottomAnchor, topPadding: 36, bottomPadding: 60, width: buttonWidth, height: 66)
         nextButton.addAction(UIAction(handler: { [weak self] _ in
             self?.viewModel?.didTapNext(nameText: self?.nameTextField.text, nicknameText: self?.nicknameTextfield.text, dateOfBirth: self?.dateOfBirthDatePicker.date ?? Date())
         }), for: .touchUpInside)
@@ -192,11 +186,11 @@ class RegisterView: UIView{
         setupScrollView(vc: vc)
         setupProfileImage(vc: vc)
         setupTitle()
-        setupName()
-        setupNickname()
-        setupDatePicker()
-        setupPlaceholder()
-        setupNextButton()
+        setupName(vc: vc)
+        setupNickname(vc: vc)
+        setupDatePicker(vc: vc)
+        setupPlaceholder(vc: vc)
+        setupNextButton(vc: vc)
         
     }
     

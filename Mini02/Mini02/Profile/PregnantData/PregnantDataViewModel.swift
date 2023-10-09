@@ -89,4 +89,8 @@ class PregnantDataViewModel {
         self.viewController?.present(alert, animated: true)
     }
     
+    @objc func didTapBackButton() {
+        viewController?.navigationController?.popViewController(animated: true)
+    }
+    
 }
