@@ -36,7 +36,7 @@ class BloodView: UIView{
     
     let bloodExamLabel = LabelComponentView()
     
-    let menu = Menu()
+    let menu = MenuComponent()
     
         
     override init(frame: CGRect) {

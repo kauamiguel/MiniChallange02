@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Menu: UIButton {
+class MenuComponent: UIButton {
 
     var selectedOption: String?
 
