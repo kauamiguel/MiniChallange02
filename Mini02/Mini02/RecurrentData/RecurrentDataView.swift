@@ -9,16 +9,6 @@ import UIKit
 
 class RecurrentDataView: UIView {
     
-//    let pageTitle : UILabel = {
-//        var title = UILabel()
-//        title.text = "Dados recorrentes"
-//        title.textColor = .cyan
-//        title.font = title.font.withSize(30)
-//        title.translatesAutoresizingMaskIntoConstraints = false
-//        title.textAlignment = .left
-//        return title
-//    }()
-    
     let pageTitle = LabelComponentView()
     
     let searchBar : UISearchBar = {
