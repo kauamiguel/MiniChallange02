@@ -35,7 +35,7 @@ extension UIView{
                 let separator = CustomSeparatorView()
                 stack.anchorWithMultiplayerValues(
                     top: bg.topAnchor,
-                    topPadding:screen.height * 0.0021,
+                    topPadding:screen.height * 0.0022,
                     width:UIScreen.main.bounds.width * 0.8
                 )
                 
@@ -44,7 +44,7 @@ extension UIView{
                 bg.addSubview(separator)
                 separator.anchorWithMultiplayerValues(
                     top: stack.bottomAnchor,
-                    topPadding: screen.height * 0.0021,
+                    topPadding: screen.height * 0.0022,
                     width: UIScreen.main.bounds.width * 0.9,
                     height: 2
                 )
@@ -66,14 +66,14 @@ extension UIView{
                 let separator = CustomSeparatorView()
                 stack.anchorWithMultiplayerValues(
                     top: currentSep.bottomAnchor,
-                    topPadding: screen.height * 0.0021,
+                    topPadding: screen.height * 0.0022,
                     width:UIScreen.main.bounds.width * 0.8
                 )
                 stack.centerX(inView: bg)
                 bg.addSubview(separator)
                 separator.anchorWithMultiplayerValues(
                     top: stack.bottomAnchor,
-                    topPadding: screen.height * 0.0021,
+                    topPadding: screen.height * 0.0022,
                     width: screen.width * 0.9,
                     height: 2)
                 currentSep = separator
