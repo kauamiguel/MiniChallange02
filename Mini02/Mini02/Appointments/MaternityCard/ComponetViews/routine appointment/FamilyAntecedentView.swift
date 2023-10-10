@@ -12,8 +12,13 @@ class FamilyAntecedentView: UIView {
     
     static let id = "FamilyAntecedentCell"
     let query = "antecedente familiar"
-    let labels = [LabelComponentView(),LabelComponentView(),LabelComponentView(),LabelComponentView()]
-    let sections = ["Hipertensão", "Diabetes", "Cardiopatia", "Outro", "test"]
+   
+    let sections = [
+        "Hipertensão":CheckBoxComponentGreenView(),
+        "Diabetes":CheckBoxComponentGreenView(),
+        "Cardiopatia":CheckBoxComponentGreenView(),
+        "Outro":CheckBoxComponentGreenView()
+    ]
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let familyAntecedentViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.31)
@@ -64,7 +69,7 @@ class FamilyAntecedentView: UIView {
         contentBackGround.anchorWithConstantValues(top: antecedentesLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9, height: screenSize.height * 0.27)
         contentBackGround.centerX(inView: roudedBackGround)
         
-        createSection(bg: contentBackGround, labels: labels, titles: sections)
+        createSection(bg: contentBackGround, titles: sections)
         
     }
     

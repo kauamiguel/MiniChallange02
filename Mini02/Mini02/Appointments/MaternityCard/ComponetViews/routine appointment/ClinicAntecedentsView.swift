@@ -11,7 +11,13 @@ class ClinicAntecedentsView: UIView {
 
     static let id = "ClinicAntecedentsCell"
     let query = "antecedentes clinicos"
-    
+    let sections = [
+        "Diabetes":CheckBoxComponentGreenView(),
+        "Consome Alcool":CheckBoxComponentGreenView(),
+        "Outras drogas":CheckBoxComponentGreenView(),
+        "HIV/Aids":CheckBoxComponentGreenView(),
+        "Sifilis":CheckBoxComponentGreenView()
+    ]
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let clinicAntecedentsViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.38)
     
@@ -38,82 +44,7 @@ class ClinicAntecedentsView: UIView {
    
     let clinicAntecedentsLabel = LabelComponentView()
     
-    /* ----------------------------------------------------------Diabetes------------------------------------------------------------- */
-    
-    
-    let clinicDiabetesLabelYES = LabelComponentView()
-    
-    let clinicDiabetesabel = LabelComponentView()
-    
-    let clinicDiabetesCheckYES = CheckBoxComponentGreenView()
-    
-    
-    lazy var clinicDiabetesSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
-    
-    /* ----------------------------------------------------------alcool------------------------------------------------------------- */
-    let clinicAlcoolabelYES = LabelComponentView()
-    
-    let clinicAlcoolLabel = LabelComponentView()
-    
-    let clinicAlcoolcheckYES = CheckBoxComponentGreenView()
-    
-    lazy var clinicAlcoolSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
-    
-    /* ----------------------------------------------------------otherDrugs------------------------------------------------------------- */
-    let clinicOtherDrugsLabelYES = LabelComponentView()
-    
-    let clinicOtherDrugsLabel = LabelComponentView()
-    
-    let clinicOtherDrugsCheckYES = CheckBoxComponentGreenView()
-    
-    lazy var clinicOtherDrugsSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
-    
-    /* ----------------------------------------------------------HIV/AIDS------------------------------------------------------------- */
-    let clinicHivAidsLabelYES = LabelComponentView()
-    
-    let clinicHivAidsLabel = LabelComponentView()
-    
-    let clinicHivAidsCheckYES = CheckBoxComponentGreenView()
-    
-    
-    lazy var clinicHivAidsSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
    
-    /* ---------------------------------------------------------Syphilis------------------------------------------------------------- */
-    
-    let clinicSyphilisLabelYES = LabelComponentView()
-    
-    let clinicSyphilisLabel = LabelComponentView()
-    
-    let clinicSyphilisCheckYES = CheckBoxComponentGreenView()
-    
-    lazy var clinicSyphilisSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
-
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -138,37 +69,7 @@ class ClinicAntecedentsView: UIView {
         contentBackGround.anchorWithConstantValues(top: clinicAntecedentsLabel.bottomAnchor, bottom: self.bottomAnchor, width: screenSize.width * 0.9, height: screenSize.height * 0.34)
         contentBackGround.centerX(inView: roudedBackGround)
         
-        
-        /* ----------------------------------------------------------smoke------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: clinicDiabetesSubHStack,label: clinicDiabetesabel,checkBox: clinicDiabetesCheckYES,labelText: "Diabetes")
-        
-        contentBackGround.addSubview(clinicDiabetesSubHStack)
-        clinicDiabetesSubHStack.anchorWithConstantValues(top: clinicAntecedentsLabel.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15 ,leftPadding: 10,rightPadding: -34)
-        
-        /* ----------------------------------------------------------alcool------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: clinicAlcoolSubHStack,label: clinicAlcoolLabel,checkBox: clinicAlcoolcheckYES,labelText: "Consome álcool")
-        
-        contentBackGround.addSubview(clinicAlcoolSubHStack)
-        clinicAlcoolSubHStack.anchorWithConstantValues(top: clinicDiabetesSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
-//
-//        /* ----------------------------------------------------------otherDrugs------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: clinicOtherDrugsSubHStack,label: clinicOtherDrugsLabel,checkBox: clinicOtherDrugsCheckYES,labelText: "Outras drogas")
-        
-        contentBackGround.addSubview(clinicOtherDrugsSubHStack)
-        clinicOtherDrugsSubHStack.anchorWithConstantValues(top: clinicAlcoolSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15,leftPadding: 10 ,rightPadding: -34)
-//
-//        /* ----------------------------------------------------------HIV/AIDS------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: clinicHivAidsSubHStack,label: clinicHivAidsLabelYES, checkBox: clinicHivAidsCheckYES,labelText: "HIV/Aids")
-        
-        contentBackGround.addSubview(clinicHivAidsSubHStack)
-        clinicHivAidsSubHStack.anchorWithConstantValues(top: clinicOtherDrugsSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10, rightPadding: -34)
-        
-        /* ---------------------------------------------------------Syphilis------------------------------------------------------------- */
-       
-        configureLabelAndGreenCheckBox(stack:  clinicSyphilisSubHStack,label:  clinicSyphilisLabelYES, checkBox:  clinicSyphilisCheckYES,labelText: "Sífilis")
-        
-        contentBackGround.addSubview(clinicSyphilisSubHStack)
-        clinicSyphilisSubHStack.anchorWithConstantValues(top: clinicHivAidsSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10, rightPadding: -34, bottomPadding: -15)
+       createSection(bg: contentBackGround, titles: sections)
     }
     
     
