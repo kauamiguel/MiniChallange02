@@ -24,9 +24,9 @@ pedaço de papel enorme e incomodo.
         return button
     }()
     
-    private lazy var placeholderForAsset: UIView = {
-       let view = UIView()
-        view.backgroundColor = .systemPink
+    private lazy var illustration: UIImageView = {
+        let img = UIImage(named: "Onboarding2")
+       let view = UIImageView(image: img)
         return view
     }()
     
@@ -40,17 +40,17 @@ pedaço de papel enorme e incomodo.
             textLabel.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor),
             textLabel.topAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.topAnchor, constant: 0.14 * UIScreen.main.bounds.height)
         ])
-        vc.view.addSubview(placeholderForAsset)
-        placeholderForAsset.centerX(inView: vc.view)
-        placeholderForAsset.anchorWithConstantValues( top: textLabel.bottomAnchor,  topPadding: 82, width: 320, height: 0.35 * UIScreen.main.bounds.height )
+        vc.view.addSubview(illustration)
+        illustration.centerX(inView: vc.view)
+        illustration.anchorWithConstantValues( top: textLabel.bottomAnchor,  topPadding: 82, width: min(UIScreen.main.bounds.width * 0.9, 390), height: min(0.35 * UIScreen.main.bounds.height, 336) )
         
         vc.view.addSubview(nextButton)
         nextButton.centerX(inView: vc.view)
-        nextButton.anchorWithConstantValues(bottom: vc.view.safeAreaLayoutGuide.bottomAnchor, width: 364, height: 0.071 * UIScreen.main.bounds.height)
+        nextButton.anchorWithConstantValues(top: illustration.bottomAnchor, topPadding: 0.12*UIScreen.main.bounds.height, width: 364, height: 0.071 * UIScreen.main.bounds.height)
         nextButton.addAction(UIAction(handler: { _ in
-            let pageController = vc.pageController as? OnboardingPageViewController
-            pageController?.goToNextPage()
-            pageController?.pageControl.currentPage = 2
+            guard let pageController = vc.pageController as? OnboardingPageViewController else { return }
+            pageController.goToNextPage()
+            pageController.pageControl.currentPage = 2
         }), for: .touchUpInside)
     }
 }

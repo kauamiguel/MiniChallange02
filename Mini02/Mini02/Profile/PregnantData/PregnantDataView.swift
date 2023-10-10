@@ -21,13 +21,13 @@ class PregnantDataView: UIView {
     
     private lazy var scrollView: UIScrollView = {
        let scroll = UIScrollView()
-        scroll.backgroundColor = UIColor(red: 255/255, green: 245/255, blue: 245/255, alpha: 1)
+        scroll.backgroundColor = .clear
         return scroll
     }()
     
     private lazy var contentView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 255/255, green: 245/255, blue: 245/255, alpha: 1)
+        view.backgroundColor = .clear
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
@@ -140,9 +140,9 @@ class PregnantDataView: UIView {
 
                     contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
                     contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-                    contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
-                    contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
-                    contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -20),
+                    contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+                    contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+                    contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
                 ])
     }
     
@@ -208,19 +208,15 @@ class PregnantDataView: UIView {
         contentView.addSubview(emergencyContactPhoneField)
         emergencyContactPhoneField.anchorWithConstantValues(top: emergencyContactPhoneLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 40)
     }
-    private lazy var dropdownRelation = DropDownMenuComponent()
+    private lazy var relationPullDown = PullDownComponent()
     func setupEmergencyRelation(vc: UIViewController) {
         contentView.addSubview(emergencyContactRelationLabel)
         emergencyContactRelationLabel.anchorWithConstantValues(top: emergencyContactPhoneField.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 20, leftPadding: paddingSize)
         
-        dropdownRelation.setTitle(viewModel?.getPatientData()?.emergencyContact?.relation ?? "Selecionar", for: .normal)
-        dropdownRelation.selectedOption = viewModel?.getPatientData()?.emergencyContact?.relation ?? "Selecionar"
-        dropdownRelation.setupButton()
-        dropdownRelation.tableBarView.setupDropDownOptions = [
-            "Companheiro", "Familiar", "Amigo", "Outro(a)"
-        ]
-        contentView.addSubview(dropdownRelation)
-        dropdownRelation.anchorWithConstantValues(top: emergencyContactRelationLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 34)
+        relationPullDown.setupButton(options: ["Companheiro", "Familiar", "Amigo", "Outro(a)"])
+        relationPullDown.setTitle("Selecione", for: .normal)
+        contentView.addSubview(relationPullDown)
+        relationPullDown.anchorWithConstantValues(top: emergencyContactRelationLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 34)
     }
     
     private func setupTempSaveButton(vc: UIViewController) {
@@ -230,7 +226,7 @@ class PregnantDataView: UIView {
             self?.didTapTempSaveButton()
         }), for: .touchUpInside)
         contentView.addSubview(btn)
-        btn.anchorWithConstantValues(top: dropdownRelation.bottomAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 40, rightPadding: -paddingSize)
+        btn.anchorWithConstantValues(top: relationPullDown.bottomAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 40, rightPadding: -paddingSize)
     }
     
     private func didTapTempSaveButton() {
@@ -238,7 +234,7 @@ class PregnantDataView: UIView {
         let alert = UIAlertController(title: "Dados Inválidos", message: "Verifique se todos os campos estão preenchidos e tente novamente", preferredStyle: .alert)
         alert.addAction(.init(title: "Ok", style: .default))
         let haptics = UINotificationFeedbackGenerator()
-        let profileDataIsValid = viewModel.profileDataIsValid(name: pregnantNameField.text, nickname: aliasField.text, dateOfBirth: dateOfBirthPicker.date, emergencyContactName: emergencyContactNameField.text, emergencyContactPhone: emergencyContactPhoneField.text, emergencyContactRelation: dropdownRelation.selectedOption)
+        let profileDataIsValid = viewModel.profileDataIsValid(name: pregnantNameField.text, nickname: aliasField.text, dateOfBirth: dateOfBirthPicker.date, emergencyContactName: emergencyContactNameField.text, emergencyContactPhone: emergencyContactPhoneField.text, emergencyContactRelation: relationPullDown.selectedOption)
         guard profileDataIsValid else {
             viewController?.present(alert, animated: true)
             haptics.notificationOccurred(.error)
@@ -250,29 +246,50 @@ class PregnantDataView: UIView {
         haptics.notificationOccurred(.success)
         viewController?.present(alert, animated: true)
     }
+    
+    func setupToolbarAndBG(vc: UIViewController) {
+        vc.navigationController?.navigationItem.largeTitleDisplayMode = .always
+        vc.navigationController?.navigationItem.titleView?.backgroundColor = .clear
+        let titleAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1), NSAttributedString.Key.font: UIFont(name: "Signika-Regular", size: 24)]
+        let barAppearance = UINavigationBarAppearance()
+        barAppearance.configureWithOpaqueBackground()
+        barAppearance.shadowColor = .clear
+        barAppearance.backgroundColor = UIColor(red: 255/255, green: 245/255, blue: 245/255, alpha: 1)
+        barAppearance.titleTextAttributes = titleAttributes as [NSAttributedString.Key : Any]
+        barAppearance.largeTitleTextAttributes = titleAttributes as [NSAttributedString.Key : Any]
+        vc.navigationController?.navigationBar.tintColor = UIColor(red: 255/255, green: 245/255, blue: 245/255, alpha: 1)
+        vc.navigationController?.navigationBar.prefersLargeTitles = true
+        vc.navigationController?.navigationBar.backgroundColor = .clear
+        vc.navigationController?.navigationBar.isTranslucent = true
+        vc.navigationController?.navigationBar.standardAppearance = barAppearance
+        vc.navigationController?.navigationBar.scrollEdgeAppearance = barAppearance
+        vc.navigationController?.toolbar.backgroundColor = .clear
+        let toolbarAppearance = UIToolbarAppearance()
+        toolbarAppearance.backgroundColor = .clear
+        toolbarAppearance.shadowColor = .clear
+        vc.navigationController?.toolbar.backgroundColor = .clear
+        vc.navigationController?.toolbar.compactAppearance = toolbarAppearance
+        vc.navigationController?.toolbar.standardAppearance = toolbarAppearance
+        vc.navigationController?.toolbar.scrollEdgeAppearance = toolbarAppearance
+        vc.navigationController?.toolbar.compactScrollEdgeAppearance = toolbarAppearance
+        vc.view.backgroundColor = UIColor(patternImage: UIImage(named: "backGroundImage")!)
+
+    }
+    
+    func setupNavBar(vc: UIViewController) {
+        let image = UIImage(systemName: "info.circle")!
+        let button = UIBarButtonItem(title: "Sobre o Projeto", image: image, target: viewModel, action:  #selector(viewModel?.didTapInfoButton))
+        button.tintColor = UIColor(red: 0.227, green: 0.651, blue: 0.725, alpha: 1)
+        vc.navigationItem.rightBarButtonItem = button
+    }
 
     func setupPregnantData(vc: UIViewController,vm: PregnantDataViewModel) {
-        let color = UIColor(red: 255/255, green: 245/255, blue: 245/255, alpha: 1)
         self.viewController = vc
         self.viewModel = vm
         vc.title = "Dados da Gestante"
-        let titleAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1), NSAttributedString.Key.font: UIFont(name: "Signika-Regular", size: 24)]
-        let backButton = UIButton(type: .custom)
-        backButton.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
-        backButton.tintColor = UIColor(red: 1, green: 0.521, blue: 0.58, alpha: 1)
-        backButton.addTarget(viewModel, action: #selector(viewModel?.didTapBackButton), for: .touchUpInside)
         
-        let customBackButton = UIBarButtonItem(customView: backButton)
-        vc.navigationItem.leftBarButtonItem = customBackButton
-        vc.navigationController?.navigationItem.titleView?.backgroundColor = color
-        vc.navigationController?.navigationBar.titleTextAttributes = titleAttributes as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
-        vc.navigationController?.navigationBar.largeTitleTextAttributes = titleAttributes as [NSAttributedString.Key : Any]
-        vc.navigationController?.navigationBar.prefersLargeTitles = true
-        vc.navigationController?.toolbar.backgroundColor = color
-        vc.navigationController?.toolbar.backgroundColor = color
-        vc.navigationController?.navigationBar.backgroundColor = color
-        vc.view.backgroundColor = color
-        
+        setupNavBar(vc: vc)
+        setupToolbarAndBG(vc: vc)
         setupScrollView(vc: vc)
         setupImage()
         setupName(vc: vc)
@@ -283,7 +300,6 @@ class PregnantDataView: UIView {
         setupEmergencyName(vc: vc)
         setupEmergencyPhone(vc: vc)
         setupEmergencyRelation(vc: vc)
-//        setupTempSaveButton(vc: vc)
     }
 }
 
