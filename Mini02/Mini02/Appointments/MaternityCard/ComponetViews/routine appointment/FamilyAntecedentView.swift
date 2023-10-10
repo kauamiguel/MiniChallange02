@@ -12,6 +12,8 @@ class FamilyAntecedentView: UIView {
     
     static let id = "FamilyAntecedentCell"
     let query = "antecedente familiar"
+    let labels = [LabelComponentView(),LabelComponentView(),LabelComponentView(),LabelComponentView()]
+    let sections = ["Hipertensão", "Diabetes", "Cardiopatia", "Outro", "test"]
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let familyAntecedentViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.31)
@@ -38,68 +40,10 @@ class FamilyAntecedentView: UIView {
 
     let antecedentesLabel = LabelComponentView()
     
-    /* ----------------------------------------------------------HYPERTENSION------------------------------------------------------------- */
-    
-    
-
-    
-    let hypertensionLabel = LabelComponentView()
-    
-    let hypertensionCheckYES = CheckBoxComponentGreenView()
-
-    
-    lazy var hypertensionSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
-    
-    /* ----------------------------------------------------------Diabetes------------------------------------------------------------- */
-
-    let diabetesLabel = LabelComponentView()
-    
-    let diabetesCheckYES = CheckBoxComponentGreenView()
-    
-    lazy var diabetesSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
-    
-    /* ----------------------------------------------------------TWIN------------------------------------------------------------- */
-
-    let twinLabel = LabelComponentView()
-    
-    let twinCheckYES = CheckBoxComponentGreenView()
-    
-    lazy var twinSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
-    
-    /* ----------------------------------------------------------OTHER------------------------------------------------------------- */
-    
-    let otherLabel = LabelComponentView()
-    
-    let otherCheckYES = CheckBoxComponentGreenView()
-   
-    
-    lazy var otherSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
     }
-    
     
     func setupView(){
         
@@ -120,31 +64,7 @@ class FamilyAntecedentView: UIView {
         contentBackGround.anchorWithConstantValues(top: antecedentesLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9, height: screenSize.height * 0.27)
         contentBackGround.centerX(inView: roudedBackGround)
         
-     
-        /* ----------------------------------------------------------HYPERTENSION------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: hypertensionSubHStack,label: hypertensionLabel,checkBox: hypertensionCheckYES,labelText: "hipertenção")
-        
-        contentBackGround.addSubview(hypertensionSubHStack)
-        hypertensionSubHStack.anchorWithConstantValues(top: contentBackGround.topAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
-        
-        /* ----------------------------------------------------------Diabetes------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: diabetesSubHStack,label: diabetesLabel,checkBox: diabetesCheckYES,labelText: "Diabetes")
-        
-        contentBackGround.addSubview(diabetesSubHStack)
-        diabetesSubHStack.anchorWithConstantValues(top: hypertensionSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
-        
-        /* ----------------------------------------------------------TWINe------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: twinSubHStack,label: twinLabel,checkBox: twinCheckYES,labelText: "Gemelar")
-        
-        contentBackGround.addSubview(twinSubHStack)
-        twinSubHStack.anchorWithConstantValues(top: diabetesSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15,leftPadding: 10 ,rightPadding: -34)
-        
-        /* ----------------------------------------------------------OTHER------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: otherSubHStack,label: otherLabel, checkBox: otherCheckYES, labelText: "Other")
-        
-        contentBackGround.addSubview(otherSubHStack)
-        otherSubHStack.anchorWithConstantValues(top: twinSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor ,topPadding: 15, leftPadding: 10, rightPadding: -34)
-        
+        createSection(bg: contentBackGround, labels: labels, titles: sections)
         
     }
     
