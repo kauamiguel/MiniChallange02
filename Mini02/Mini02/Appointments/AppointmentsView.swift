@@ -8,7 +8,7 @@
 import UIKit
 
 class AppointmentsView: UIView {
-
+    
     lazy var Vstack : UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -21,10 +21,10 @@ class AppointmentsView: UIView {
     
     lazy var firstTremesterButton:UIButton = {
         let button = UIButton()
-            
+        
         button.setImage(UIImage(named: "treemesterCircle"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-            
+        
         return button
     }()
     
@@ -64,7 +64,7 @@ class AppointmentsView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     let labelFirstTreemester : UILabel = {
         let label = UILabel()
         label.text = "1° trimestre"
@@ -96,7 +96,7 @@ class AppointmentsView: UIView {
     }()
     
     //Setup the layout and add Subview into the main view
-
+    
     func setupView(vc : AppointmentsViewController, firstTreemesterAction: Selector, secondTreemesterAction: Selector, thirdTreemesterAction: Selector){
         
         vc.view.backgroundColor = UIColor(patternImage: UIImage(named: "backGroundImage")!)
@@ -106,7 +106,7 @@ class AppointmentsView: UIView {
         firstTremesterButton.addTarget(vc, action: firstTreemesterAction, for: .touchUpInside)
         secondTremesterButton.addTarget(vc, action: secondTreemesterAction, for: .touchUpInside)
         thirdTremesterButton.addTarget(vc, action: thirdTreemesterAction, for: .touchUpInside)
-
+        
         
         //Setting up the layout of the view
         vc.view.addSubview(firstTremesterButton)
@@ -117,7 +117,6 @@ class AppointmentsView: UIView {
         thirdTremesterButton.addSubview(labelThirdTreemester)
         vc.view.addSubview(userName)
         vc.view.addSubview(userInfo)
-        
         
         //Adding constraints into profile image and description
         let profileButton = ProfileImageButton(controller: vc)
@@ -130,11 +129,25 @@ class AppointmentsView: UIView {
         userInfo.centerX(inView: vc.view)
         userInfo.anchorWithConstantValues(top: userName.bottomAnchor, topPadding: 5)
         
-        //Add constrains to the buttons
-        firstTremesterButton.anchorWithConstantValues(top: userInfo.bottomAnchor,left: vc.view.leadingAnchor ,topPadding: 40, leftPadding: 30)
-        secondTremesterButton.centerY(inView: vc.view)
-        secondTremesterButton.anchorWithConstantValues(right: vc.view.trailingAnchor, rightPadding: -20)
-        thirdTremesterButton.anchorWithConstantValues(left: vc.view.leadingAnchor, bottom: vc.view.bottomAnchor, leftPadding: 100, bottomPadding: -200)
+        
+        //Check wheter is a iPhoneView or iPadView
+        if UIDevice.current.userInterfaceIdiom == .phone{
+            
+            //Add constrains to the buttons
+            firstTremesterButton.anchorWithConstantValues(top: userInfo.bottomAnchor,left: vc.view.leadingAnchor ,topPadding: 40, leftPadding: 30)
+            
+            secondTremesterButton.centerY(inView: vc.view)
+            secondTremesterButton.anchorWithConstantValues(right: vc.view.trailingAnchor, rightPadding: -20)
+            thirdTremesterButton.anchorWithConstantValues(left: vc.view.leadingAnchor, bottom: vc.view.bottomAnchor, leftPadding: 100, bottomPadding: -200)
+            
+        }else{
+            //Add constrains to the buttons
+            firstTremesterButton.anchorWithConstantValues(top: userInfo.bottomAnchor,left: vc.view.leadingAnchor ,topPadding: 50, leftPadding: 200)
+            
+            secondTremesterButton.centerY(inView: vc.view)
+            secondTremesterButton.anchorWithConstantValues(right: vc.view.trailingAnchor, rightPadding: -150)
+            thirdTremesterButton.anchorWithConstantValues(left: vc.view.leadingAnchor, bottom: vc.view.bottomAnchor, leftPadding: 180, bottomPadding: -300)
+        }
         
         //Set the constraints to labels inside the button
         labelFirstTreemester.centerXAnchor.constraint(equalTo: firstTremesterButton.centerXAnchor).isActive = true
@@ -218,5 +231,5 @@ class AppointmentsView: UIView {
     }
 }
 
-       
-  
+
+

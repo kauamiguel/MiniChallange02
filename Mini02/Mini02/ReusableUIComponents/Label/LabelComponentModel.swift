@@ -13,6 +13,12 @@ enum labelTypeEnum {
     case subTitle
     case medicText
     case smallText
+    case titleBold
+    case titleSemiBold
+    case titleRegular
+    case inputLabel
+    case highlitedBody
+    case description
 }
 
 enum colorStyle {
@@ -22,4 +28,6 @@ enum colorStyle {
     case grey3
     case white
     case secondaryColor
+    case primaryText
+    case secondaryText
 }

@@ -18,6 +18,4 @@ struct FamilyBGModel: BackgroundInfo{
     
     var urinaryInfection: Bool = false
     
-    var other: [String : Bool]?
-    
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 class RecurrentDataViewController: UICollectionViewController, UISearchBarDelegate, UICollectionViewDelegateFlowLayout {
-
+    
     private lazy var routineData =  RoutineDataView()
     private lazy var pregnancyRiskView = PregnancyRiskView()
     private lazy var plannedView = PlannedView()
@@ -30,13 +30,6 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
         
-        
-        //Append each view to the cell
-        cells = [
-            CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
-            CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, query: plannedView.query)
-        ]
-        
         //Set the searchBar created in the view as my searchBar to respond some methods
         self.searchBar = recurrentView.searchBar
         self.searchBar?.delegate = self
@@ -54,6 +47,12 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
         self.collectionView.delegate = self
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         
+        //Assign the last Consult each time the view lods
+        self.lastConsult = recurrentDataVM.getLastConsult()
+        
+        //Populate the cells based on the last exam info and the static information
+        populateCells()
+        
         self.filteredCell = cells
         recurrentView.setupView(vc: self, collection: self.collectionView)
         setupCollectionView()
@@ -61,6 +60,31 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
         //Gesture to dismiss the keyboard when click on any view in the screen
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissMyKeyboard))
         self.view.addGestureRecognizer(tap)
+    }
+    
+    func populateCells(){
+        
+        //TODO : Adicionar os dados de rotina caso ja tenha uma consulta
+        
+        //Verify wheter is in the first consult
+        if !ApplicationSettings.shouldEnterFirstAppointment(){
+            cells = [
+                CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id, query: familyAntecedentView.query),
+                CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id, query: pregnancyTypeView.query),
+                CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, query: clinicAntecedentsView.query),
+                CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, query: plannedView.query)
+            ]
+        }
+        
+        //Verify if exist blood exam, and if has, add in the view the last exam information
+        if let _ = self.lastConsult?.bloodExam{
+            cells.append(CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query))
+        }
+        
+        //Verify if exist ultrasound exam, and if has, add in the view the last exam information
+        if let _ = self.lastConsult?.ultraSound{
+            cells.append(CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundSize, id: UltrasoundView.id, query: ultrasoundView.query))
+        }
     }
     
     @objc func dismissMyKeyboard(){

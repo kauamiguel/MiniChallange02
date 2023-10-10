@@ -24,8 +24,18 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="tremesteer" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="bloodExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BloodExam" inverseName="consult" inverseEntity="BloodExam"/>
+        <relationship name="dueDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DueDate" inverseName="consult" inverseEntity="DueDate"/>
         <relationship name="pacient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pacient" inverseName="consults" inverseEntity="Pacient"/>
+        <relationship name="pregnancyClassification" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PregnancyClassification" inverseName="consult" inverseEntity="PregnancyClassification"/>
+        <relationship name="pregnancyPlanning" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PregnancyPlanning" inverseName="consult" inverseEntity="PregnancyPlanning"/>
+        <relationship name="pregnancyRisk" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PregnancyRisk" inverseName="consult" inverseEntity="PregnancyRisk"/>
+        <relationship name="routineData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RoutineData" inverseName="consult" inverseEntity="RoutineData"/>
         <relationship name="ultraSound" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UltraSoundModel" inverseName="consult" inverseEntity="UltraSoundModel"/>
+    </entity>
+    <entity name="DueDate" representedClassName="DueDate" syncable="YES" codeGenerationType="class">
+        <attribute name="estimatedDueDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="estimatedDueDateEco" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="consult" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConsultEntity" inverseName="dueDate" inverseEntity="ConsultEntity"/>
     </entity>
     <entity name="EmergencyContact" representedClassName="EmergencyContact" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -45,6 +55,7 @@
     <entity name="Idadegestacional" representedClassName="Idadegestacional" syncable="YES" codeGenerationType="class">
         <attribute name="dias" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="semana" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="consult" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RoutineData" inverseName="idadeGestacional" inverseEntity="RoutineData"/>
         <relationship name="ultrasound" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UltraSoundModel" inverseName="idadeGestacional" inverseEntity="UltraSoundModel"/>
     </entity>
     <entity name="Pacient" representedClassName="Pacient" syncable="YES">
@@ -67,6 +78,31 @@
         <attribute name="tabagism" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="urinaryInfection" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="pacient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pacient" inverseName="personalBG" inverseEntity="Pacient"/>
+    </entity>
+    <entity name="PregnancyClassification" representedClassName="PregnancyClassification" syncable="YES" codeGenerationType="class">
+        <attribute name="ignored" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="singlePregnancy" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="tripletsOrMorePregnancy" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="twinPregnancy" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="consult" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConsultEntity" inverseName="pregnancyClassification" inverseEntity="ConsultEntity"/>
+    </entity>
+    <entity name="PregnancyPlanning" representedClassName="PregnancyPlanning" syncable="YES" codeGenerationType="class">
+        <attribute name="plannedPregnancy" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="consult" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConsultEntity" inverseName="pregnancyPlanning" inverseEntity="ConsultEntity"/>
+    </entity>
+    <entity name="PregnancyRisk" representedClassName="PregnancyRisk" syncable="YES" codeGenerationType="class">
+        <attribute name="highRiskPregnancy" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lowRiskPregnancy" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="consult" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConsultEntity" inverseName="pregnancyRisk" inverseEntity="ConsultEntity"/>
+    </entity>
+    <entity name="RoutineData" representedClassName="RoutineData" syncable="YES" codeGenerationType="class">
+        <attribute name="bloodPressureInmmHG" optional="YES" attributeType="String"/>
+        <attribute name="edema" optional="YES" attributeType="String"/>
+        <attribute name="fetalHeartRate" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="uterineHeightInCentimeters" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="weightAndBodyMassIndex" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="consult" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConsultEntity" inverseName="routineData" inverseEntity="ConsultEntity"/>
+        <relationship name="idadeGestacional" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idadegestacional" inverseName="consult" inverseEntity="Idadegestacional"/>
     </entity>
     <entity name="ToxoplasmosisModel" representedClassName="ToxoplasmosisModel" syncable="YES" codeGenerationType="class">
         <attribute name="igg" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
