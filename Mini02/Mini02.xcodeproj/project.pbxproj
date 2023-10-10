@@ -74,6 +74,11 @@
 		ABFDA77B2AC6769B0097656E /* FamilyAntecedentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA77A2AC6769B0097656E /* FamilyAntecedentView.swift */; };
 		ABFDA77D2AC67BBA0097656E /* CurrentGestationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA77C2AC67BBA0097656E /* CurrentGestationView.swift */; };
 		ABFDA77F2AC67BE10097656E /* ClinicAntecedentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA77E2AC67BE10097656E /* ClinicAntecedentsView.swift */; };
+		CE022BA52AD5F70F00946A42 /* RoutineDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE022BA42AD5F70F00946A42 /* RoutineDataModel.swift */; };
+		CE022BA72AD5F9B700946A42 /* DueDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE022BA62AD5F9B700946A42 /* DueDateModel.swift */; };
+		CE022BA92AD5FA2800946A42 /* PregnancyPlanningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE022BA82AD5FA2800946A42 /* PregnancyPlanningModel.swift */; };
+		CE022BAB2AD5FA7900946A42 /* PregnancyRiskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE022BAA2AD5FA7900946A42 /* PregnancyRiskModel.swift */; };
+		CE022BAD2AD5FAEE00946A42 /* PregnancyClassificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE022BAC2AD5FAEE00946A42 /* PregnancyClassificationModel.swift */; };
 		CE0BFA682AC7464C0053C2A6 /* RecurrenteDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0BFA672AC7464C0053C2A6 /* RecurrenteDataViewModel.swift */; };
 		CE60D0502ACDAAB900937768 /* Vaccines.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60D04F2ACDAAB900937768 /* Vaccines.swift */; };
 		CE60D05C2ACDD6FC00937768 /* Consulta.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60D05B2ACDD6FC00937768 /* Consulta.swift */; };
@@ -179,6 +184,11 @@
 		ABFDA77A2AC6769B0097656E /* FamilyAntecedentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyAntecedentView.swift; sourceTree = "<group>"; };
 		ABFDA77C2AC67BBA0097656E /* CurrentGestationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGestationView.swift; sourceTree = "<group>"; };
 		ABFDA77E2AC67BE10097656E /* ClinicAntecedentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicAntecedentsView.swift; sourceTree = "<group>"; };
+		CE022BA42AD5F70F00946A42 /* RoutineDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineDataModel.swift; sourceTree = "<group>"; };
+		CE022BA62AD5F9B700946A42 /* DueDateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueDateModel.swift; sourceTree = "<group>"; };
+		CE022BA82AD5FA2800946A42 /* PregnancyPlanningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnancyPlanningModel.swift; sourceTree = "<group>"; };
+		CE022BAA2AD5FA7900946A42 /* PregnancyRiskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnancyRiskModel.swift; sourceTree = "<group>"; };
+		CE022BAC2AD5FAEE00946A42 /* PregnancyClassificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnancyClassificationModel.swift; sourceTree = "<group>"; };
 		CE0BFA672AC7464C0053C2A6 /* RecurrenteDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenteDataViewModel.swift; sourceTree = "<group>"; };
 		CE60D04F2ACDAAB900937768 /* Vaccines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vaccines.swift; sourceTree = "<group>"; };
 		CE60D05B2ACDD6FC00937768 /* Consulta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consulta.swift; sourceTree = "<group>"; };
@@ -235,6 +245,11 @@
 				62D39EAC2ABF1CCC003CF99F /* UtrasoundExam.swift */,
 				E8E0D65E2AC6116E003CE5CD /* EmergencyContact.swift */,
 				CE60D05B2ACDD6FC00937768 /* Consulta.swift */,
+				CE022BA42AD5F70F00946A42 /* RoutineDataModel.swift */,
+				CE022BA62AD5F9B700946A42 /* DueDateModel.swift */,
+				CE022BA82AD5FA2800946A42 /* PregnancyPlanningModel.swift */,
+				CE022BAA2AD5FA7900946A42 /* PregnancyRiskModel.swift */,
+				CE022BAC2AD5FAEE00946A42 /* PregnancyClassificationModel.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -714,6 +729,7 @@
 				ABAD4F472ABE2B1A007BEC32 /* AppointmentsVM.swift in Sources */,
 				6241A1602AC221D800C7921B /* ModalView.swift in Sources */,
 				ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift in Sources */,
+				CE022BAD2AD5FAEE00946A42 /* PregnancyClassificationModel.swift in Sources */,
 				CE60D05C2ACDD6FC00937768 /* Consulta.swift in Sources */,
 				ABB82F162AC60931008B73AF /* RoutineDataView.swift in Sources */,
 				AB9D942F2AD068C00064DB69 /* DropDownWithLabel.swift in Sources */,
@@ -721,6 +737,7 @@
 				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
 				62FA7C3A2ABE17160083F6E0 /* BloodExamModel.swift in Sources */,
 				ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */,
+				CE022BA72AD5F9B700946A42 /* DueDateModel.swift in Sources */,
 				AB9D94242ACE3D5E0064DB69 /* TetanicView.swift in Sources */,
 				CEA008AD2AC5F373005F54E5 /* CoreDataFunctions.swift in Sources */,
 				E8E0D6472AC36F1A003CE5CD /* ProfileListCell.swift in Sources */,
@@ -756,6 +773,7 @@
 				E8135BC02ABA1D0000E722FA /* OnboardingViewController.swift in Sources */,
 				ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */,
 				ABC98BB62AB3FCC2005214E5 /* MaternityCardCell.swift in Sources */,
+				CE022BA92AD5FA2800946A42 /* PregnancyPlanningModel.swift in Sources */,
 				ABC98BB42AB3FCAA005214E5 /* MaternityCardViewController.swift in Sources */,
 				E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */,
 				ABC98B942AB3DC9C005214E5 /* TabBarViewController.swift in Sources */,
@@ -765,10 +783,12 @@
 				ABC98B812AB3D9C5005214E5 /* SceneDelegate.swift in Sources */,
 				ABAD4F412ABE1C99007BEC32 /* LabelComponentView.swift in Sources */,
 				AB7852F02AB9F95200566EF9 /* BloodView.swift in Sources */,
+				CE022BAB2AD5FA7900946A42 /* PregnancyRiskModel.swift in Sources */,
 				ABFDA7752AC646470097656E /* PlannedView.swift in Sources */,
 				AB9D94312AD0A2670064DB69 /* PullDownComponent.swift in Sources */,
 				E8E0D6512AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift in Sources */,
 				E8135C262ABE180300E722FA /* RegisterViewModel.swift in Sources */,
+				CE022BA52AD5F70F00946A42 /* RoutineDataModel.swift in Sources */,
 				AB9D941A2ACB3D6B0064DB69 /* FooterCell.swift in Sources */,
 				ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift in Sources */,
 				6220F7CB2ABCD32A00CB5230 /* AppointmentsListVM.swift in Sources */,
