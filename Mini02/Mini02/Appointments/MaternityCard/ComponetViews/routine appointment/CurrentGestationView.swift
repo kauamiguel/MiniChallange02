@@ -13,7 +13,13 @@ class CurrentGestationView: UIView {
     
     static let id = "CurrentGestationCell"
     let query = "gestacao atual"
-    
+    let sections = [
+        "Fuma":CheckBoxComponentGreenView(),
+        "Consome alcool":CheckBoxComponentGreenView(),
+        "Outras Drogas":CheckBoxComponentGreenView(),
+        "HIV/Aids":CheckBoxComponentGreenView(),
+        "Sifilis":CheckBoxComponentGreenView()
+    ]
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let currentGestationViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.38)
     
@@ -42,78 +48,7 @@ class CurrentGestationView: UIView {
     /* ----------------------------------------------------------smoke------------------------------------------------------------- */
     
     
-    let smokeLabelYES = LabelComponentView()
-    
-    let smokeLabel = LabelComponentView()
-    
-    let smokeCheckYES = CheckBoxComponentGreenView()
-    
-    
-    lazy var smokeSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
-    
-    /* ----------------------------------------------------------alcool------------------------------------------------------------- */
-    let alcoolabelYES = LabelComponentView()
-    
-    let alcoolLabel = LabelComponentView()
-    
-    let alcoolcheckYES = CheckBoxComponentGreenView()
-    
-    lazy var alcoolSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
-    
-    /* ----------------------------------------------------------otherDrugs------------------------------------------------------------- */
-    let otherDrugsLabelYES = LabelComponentView()
-    
-    let otherDrugsLabel = LabelComponentView()
-    
-    let otherDrugsCheckYES = CheckBoxComponentGreenView()
-    
-    lazy var otherDrugsSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
-    
-    /* ----------------------------------------------------------HIV/AIDS------------------------------------------------------------- */
-    let hivAidsLabelYES = LabelComponentView()
-    
-    let hivAidsLabel = LabelComponentView()
-    
-    let hivAidsCheckYES = CheckBoxComponentGreenView()
-    
-    
-    lazy var hivAidsSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
-   
-    /* ---------------------------------------------------------Syphilis------------------------------------------------------------- */
-    
-    let syphilisLabelYES = LabelComponentView()
-    
-    let syphilisLabel = LabelComponentView()
-    
-    let syphilisCheckYES = CheckBoxComponentGreenView()
-    
-    lazy var syphilisSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
-
+  
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -140,36 +75,7 @@ class CurrentGestationView: UIView {
         contentBackGround.centerX(inView: roudedBackGround)
         
         
-        /* ----------------------------------------------------------smoke------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: smokeSubHStack,label: smokeLabel,checkBox: smokeCheckYES,labelText: "Fuma")
-        
-        contentBackGround.addSubview(smokeSubHStack)
-        smokeSubHStack.anchorWithConstantValues(top: currentGestationLabel.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15 ,leftPadding: 10,rightPadding: -34)
-        
-        /* ----------------------------------------------------------alcool------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: alcoolSubHStack,label: alcoolLabel,checkBox: alcoolcheckYES,labelText: "Consome álcool")
-        
-        contentBackGround.addSubview(alcoolSubHStack)
-        alcoolSubHStack.anchorWithConstantValues(top: smokeSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
-        
-        /* ----------------------------------------------------------otherDrugs------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: otherDrugsSubHStack,label: otherDrugsLabel,checkBox: otherDrugsCheckYES,labelText: "Outras drogas")
-        
-        contentBackGround.addSubview(otherDrugsSubHStack)
-        otherDrugsSubHStack.anchorWithConstantValues(top: alcoolSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15,leftPadding: 10 ,rightPadding: -34)
-        
-        /* ----------------------------------------------------------HIV/AIDS------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: hivAidsSubHStack,label: hivAidsLabelYES, checkBox: hivAidsCheckYES,labelText: "HIV/Aids")
-        
-        contentBackGround.addSubview(hivAidsSubHStack)
-        hivAidsSubHStack.anchorWithConstantValues(top: otherDrugsSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10, rightPadding: -34)
-        
-        /* ---------------------------------------------------------Syphilis------------------------------------------------------------- */
-       
-        configureLabelAndGreenCheckBox(stack:  syphilisSubHStack,label:  syphilisLabelYES, checkBox:  syphilisCheckYES,labelText: "Sífilis")
-        
-        contentBackGround.addSubview(syphilisSubHStack)
-        syphilisSubHStack.anchorWithConstantValues(top: hivAidsSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10, rightPadding: -34, bottomPadding: -15)
+      createSection(bg: contentBackGround, titles: sections)
     }
     
     
