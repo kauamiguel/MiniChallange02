@@ -9,7 +9,6 @@ import Foundation
 import CoreData
 import UIKit
 
-
 class CoreDataFunctions{
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistenceContainer.viewContext
@@ -34,11 +33,8 @@ class CoreDataFunctions{
         if let pacient = self.pacient{
             let consult = pacient.consults as! Set<ConsultEntity>
             var consultArray = Array(consult)
-            
-            //Sort the consult by id
-            consultArray.sort{$0.consultId < $1.consultId}
-            
-            //Sort the consult based on treemester if are not the same
+              
+            //Sort the consult based on treemester and consultId
             let comparator: (ConsultEntity, ConsultEntity) -> Bool = { consult1, consult2 in
                 if consult1.tremesteer == consult2.tremesteer {
                     return consult1.consultId < consult2.consultId
