@@ -53,7 +53,7 @@ class LabelComponentView: UILabel{
     private func configureLabelStyle() {
         switch labelType {
         case .title:
-            self.font = UIFont.boldSystemFont(ofSize: 24)
+            self.font = UIFont.boldSystemFont(ofSize: UIScreen.main.bounds.height * 0.035)
             
         case .subTitle:
             self.font = UIFont.systemFont(ofSize: 20)
@@ -62,20 +62,25 @@ class LabelComponentView: UILabel{
             self.font = UIFont.systemFont(ofSize: UIScreen.main.bounds.height * 0.02)
             
         case .smallText:
-            self.font = UIFont.systemFont(ofSize: 10)
+            self.font = UIFont.systemFont(ofSize: UIScreen.main.bounds.height * 0.014)
+            
         case .titleBold:
             self.font = UIFont(name: "Signika-Bold", size: 24)
             self.textAlignment = .center
             self.numberOfLines = 5
+            
         case .titleSemiBold:
             self.font = UIFont(name: "Signika-Semibold", size: 20)
             self.textAlignment = .center
             self.numberOfLines = 5
+            
         case .titleRegular:
-            self.font = UIFont(name: "Signika-Regular", size: 24)
+            self.font = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.035)
             self.textAlignment = .center
+            
         case .inputLabel:
-            self.font = UIFont(name: "Signika-Regular", size: 16)
+            self.font = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.02)
+            
         case .highlitedBody:
             self.font = UIFont(name: "Signika-Bold", size: 16)
         case .description:

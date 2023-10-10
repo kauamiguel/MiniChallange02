@@ -143,7 +143,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         // Return the desired size for the footer
-        CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.25)
+        CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.23)
     }
     
     // move items
@@ -198,7 +198,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         }
     }
     
-    @objc func addNewDefaultViewCell() {
+    @objc func addNewDefaultViewCell(){
         addViews(viewType: RoutineDataView.self, viewSize: routineData.routineDataViewSize, viewID: RoutineDataView.id, viewQuery: routineData.query)
         addViews(viewType: FamilyAntecedentView.self, viewSize: familyAntecedentView.familyAntecedentViewSize, viewID: FamilyAntecedentView.id, viewQuery: familyAntecedentView.query)
         addViews(viewType: PregnancyTypeView.self, viewSize: pregnancyTypeView.pregnancyTypeViewSize, viewID: PregnancyTypeView.id, viewQuery: pregnancyRiskView.query)
@@ -210,12 +210,12 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         // Add more view types as needed
     }
     
-    @objc func addNewBloodViewCell() {
+    @objc func addNewBloodViewCell(){
         addViews(viewType: BloodView.self, viewSize: bloodView.bloodViewViewSize, viewID: BloodView.id, viewQuery: bloodView.query)
         addViews(viewType: BloodView2.self, viewSize: bloodView2.bloodView2size, viewID: BloodView2.id, viewQuery: bloodView2.query)
     }
     
-    @objc func addNewVaccineViewCell() {
+    @objc func addNewVaccineViewCell(){
         addViews(viewType: TetanicView.self, viewSize: tetanicView.tetanicViewSize, viewID: TetanicView.id, viewQuery: tetanicView.query)
         addViews(viewType: HepatitisBView.self, viewSize: hepatitisBView.hepatitisBViewSize, viewID: HepatitisBView.id, viewQuery: hepatitisBView.query)
         addViews(viewType: H1N1View.self, viewSize: h1N1View.h1N1ViewSize, viewID: H1N1View.id, viewQuery: h1N1View.query)

@@ -127,15 +127,11 @@ class BloodView2: UIView{
         contentBackGround.anchorWithConstantValues(top: roudedBackGround.topAnchor, bottom: roudedBackGround.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9)
         contentBackGround.centerX(inView: roudedBackGround)
         
-     
-
         configureLabelAndGreenCheckBox(stack: hivSubHStack,label: hivLabel,checkBox: hivCheckYES,labelText: "Hiv")
         
         contentBackGround.addSubview(hivSubHStack)
         hivSubHStack.anchorWithConstantValues(top: contentBackGround.topAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
-        
-
-        
+   
         toxoplasmosisLabel.setupLabel(labelText: "Toxoplasmose", labelType: .medicText, labelColor: .black)
         configureLabelAndGreenCheckBox(stack: igmSubHStackYES, label: igm, checkBox: igmCheckYES, labelText: "IGM")
         configureLabelAndGreenCheckBox(stack: iggSubHStackYES, label: igg, checkBox: iggCheckYES, labelText: "IGG")

@@ -11,7 +11,10 @@ class PregnancyRiskView: UIView {
     
     static let id = "PregnancyRiskCell"
     let query = "gravidez"
-    
+    let section = [
+        "Risco habitual":CheckBoxComponentGreenView(),
+        "Alto Risco":CheckBoxComponentGreenView()
+    ]
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let pregnancyRiskViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.17)
     
@@ -38,32 +41,7 @@ class PregnancyRiskView: UIView {
     
     let riskLabel = LabelComponentView()
     
-    /* ----------------------------------------------------------habitual------------------------------------------------------------- */
    
-    let habitualLabel = LabelComponentView()
-    
-    let habitualCheckYES = CheckBoxComponentGreenView()
-    
-    lazy var habitualSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
-    
-    /* ----------------------------------------------------------high------------------------------------------------------------- */
-    
-    let highLabel = LabelComponentView()
-    
-    let highCheckYES = CheckBoxComponentGreenView()
-    
-    lazy var highSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 25
-        return stackView
-    }()
-
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -90,17 +68,8 @@ class PregnancyRiskView: UIView {
         roudedBackGround.addSubview(contentBackGround)
         contentBackGround.anchorWithConstantValues(top: riskLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9, height: screenSize.height * 0.13)
         contentBackGround.centerX(inView: roudedBackGround)
-        
-        /* ---------------------------------------------------------- habitual------------------------------------------------------------- */
-        
-        configureLabelAndGreenCheckBox(stack: habitualSubHStack, label: habitualLabel, checkBox: habitualCheckYES, labelText: "Risco habitual")
-        contentBackGround.addSubview(habitualSubHStack)
-        habitualSubHStack.anchorWithConstantValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor, topPadding: 15,leftPadding: 10 )
-        
-    
-        configureLabelAndGreenCheckBox(stack: highSubHStack, label: highLabel, checkBox: highCheckYES, labelText: "Alto risco")
-        contentBackGround.addSubview(highSubHStack)
-        highSubHStack.anchorWithConstantValues(top: habitualSubHStack.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 14,leftPadding: 10, bottomPadding: -15)
+       
+        createSection(bg: contentBackGround, titles: section)
     }
     
     

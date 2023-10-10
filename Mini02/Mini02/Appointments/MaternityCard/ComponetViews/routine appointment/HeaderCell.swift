@@ -10,7 +10,7 @@ import UIKit
 class HeaderCell: UICollectionReusableView {
     
     static let id = "HeaderCell"
-    
+    let screenSize = UIScreen.main.bounds.size
     var tapEditButtonClosure: (() -> Void)?
     
     let editButton: UIButton = {
@@ -27,6 +27,7 @@ class HeaderCell: UICollectionReusableView {
     
         btnConfig.titleLineBreakMode = .byWordWrapping
         btn.tintColor = UIColor(red: 1, green: 0.521, blue: 0.58, alpha: 1)
+        
         // Create a template image so it scales without distortion
         if let image = UIImage(systemName: "square.and.pencil")?.withRenderingMode(.automatic) {
             btnConfig.image = image
@@ -44,6 +45,7 @@ class HeaderCell: UICollectionReusableView {
     }()
     
     let label = LabelComponentView()
+    let data = LabelComponentView()
     
     lazy var editHStack: UIStackView = {
         let stackView = UIStackView()
@@ -64,13 +66,16 @@ class HeaderCell: UICollectionReusableView {
     
     func setupview(){
         
-        label.setupLabel(labelText: "aaaa", labelType: .title, labelColor: .secondaryColor)
+        label.setupLabel(labelText: "Consulta \("1")", labelType: .title, labelColor: .secondaryColor)
 
         self.addSubview(editHStack)
         editHStack.addArrangedSubview(label)
         editHStack.addArrangedSubview(editButton)
         editButton.anchorWithConstantValues(width: UIScreen.main.bounds.width * 0.32, height: UIScreen.main.bounds.height * 0.035)
-        editHStack.anchorWithConstantValues(top: self.topAnchor,left: self.leadingAnchor)
+        editHStack.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor, right: self.trailingAnchor, topPadding: screenSize.height * 0.03 ,leftPadding: screenSize.width * 0.05, rightPadding: -screenSize.width * 0.05)
+        self.addSubview(data)
+        data.setupLabel(labelText: "\("data")", labelType: .smallText, labelColor: .secondaryColor)
+        data.anchorWithConstantValues(top: editHStack.bottomAnchor, left: self.leadingAnchor, leftPadding: screenSize.width * 0.05)
         
         
     }

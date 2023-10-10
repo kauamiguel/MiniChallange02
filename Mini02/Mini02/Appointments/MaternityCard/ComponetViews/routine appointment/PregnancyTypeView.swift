@@ -13,6 +13,13 @@ class PregnancyTypeView: UIView {
     static let id = "PregnancyTypeCell"
 
     let query = "gravidez"
+    
+    let section = [
+        "Unica":CheckBoxComponentGreenView(),
+        "Gemelar":CheckBoxComponentGreenView(),
+        "Tripla ou mais":CheckBoxComponentGreenView(),
+        "Ignorada":CheckBoxComponentGreenView()
+    ]
 
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
@@ -41,61 +48,7 @@ class PregnancyTypeView: UIView {
     
     let pregnancyTypeLabel = LabelComponentView()
     
-    /* ----------------------------------------------------------única------------------------------------------------------------- */
-    
-    let uniqueLabel = LabelComponentView()
-    
-    let uniqueCheckYES = CheckBoxComponentGreenView()
-    
-    
-    lazy var uniqueSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        
-        return stackView
-    }()
-    
-    /* ----------------------------------------------------------twinType------------------------------------------------------------- */
-    
-    let twinTypeLabel = LabelComponentView()
-    
-    let twinTypeCheckYES = CheckBoxComponentGreenView()
-    
-    lazy var twinTypeSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        
-        return stackView
-    }()
-    
-    
-    /* ----------------------------------------------------------triple or more------------------------------------------------------------- */
-    
-    let tripleOrMoreLabel = LabelComponentView()
-    
-    let tripleOrMoreCheckYES = CheckBoxComponentGreenView()
-    
-    lazy var tripleOrMoreSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        
-        return stackView
-    }()
-    
-    
-    /* ----------------------------------------------------------ignored------------------------------------------------------------- */
-    let ignoredLabel = LabelComponentView()
-    
-    let ignoredCheckYES = CheckBoxComponentGreenView()
-    
-    
-    lazy var ignoredSubHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        
-        return stackView
-    }()
-    
+ 
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -124,32 +77,7 @@ class PregnancyTypeView: UIView {
         contentBackGround.centerX(inView: roudedBackGround)
         
         /* ----------------------------------------------------------Tipos de gravidez------------------------------------------------------------- */
-        
-        
-        /* ----------------------------------------------------------única------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: uniqueSubHStack,label: uniqueLabel,checkBox: uniqueCheckYES,labelText: "Única")
-        
-        contentBackGround.addSubview(uniqueSubHStack)
-        uniqueSubHStack.anchorWithConstantValues(top: contentBackGround.topAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
-        
-        /* ----------------------------------------------------------twinType------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: twinTypeSubHStack,label: twinTypeLabel,checkBox: twinTypeCheckYES,labelText: "Gemelar")
-        
-        contentBackGround.addSubview(twinTypeSubHStack)
-        twinTypeSubHStack.anchorWithConstantValues(top: uniqueSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
-
-        /* ----------------------------------------------------------triple or more------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: tripleOrMoreSubHStack,label: tripleOrMoreLabel,checkBox: tripleOrMoreCheckYES,labelText: "Tripla ou mais")
-        
-        contentBackGround.addSubview(tripleOrMoreSubHStack)
-        tripleOrMoreSubHStack.anchorWithConstantValues(top: twinTypeSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15,leftPadding: 10 ,rightPadding: -34)
-
-        /* ----------------------------------------------------------ignored------------------------------------------------------------- */
-        configureLabelAndGreenCheckBox(stack: ignoredSubHStack,label: ignoredLabel,checkBox: ignoredCheckYES,labelText: "Ignorada")
-        
-        contentBackGround.addSubview(ignoredSubHStack)
-        ignoredSubHStack.anchorWithConstantValues(top: tripleOrMoreSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10, rightPadding: -34, bottomPadding: -15)
-
+        createSection(bg: contentBackGround, titles: section)
         
     }
     
