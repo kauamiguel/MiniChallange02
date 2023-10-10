@@ -33,7 +33,7 @@ class TabBarViewController: UITabBarController {
         
         let rootViewController1 = UINavigationController(rootViewController: appointmentsViewController)
         let rootViewController2 = UINavigationController(rootViewController: RecurrentDataViewController())
-        let rootViewController3 = UINavigationController(rootViewController: ProfileViewController())
+        let rootViewController3 = UINavigationController(rootViewController: PregnantDataViewController())
         
         rootViewController1.tabBarItem.title = "Consultas"
         rootViewController1.tabBarItem.image = UIImage(systemName: "doc")

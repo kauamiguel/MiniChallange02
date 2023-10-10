@@ -63,7 +63,7 @@ class ProfileImageButton: UIButton {
     
     func setupUI(){
         refreshImageOrDefault()
-        self.backgroundColor = .systemGray4
+        self.backgroundColor = .systemGray5
         self.layer.cornerRadius = radius
         self.clipsToBounds = true
         self.contentMode = .scaleAspectFit
@@ -87,7 +87,7 @@ class ProfileImageButton: UIButton {
                 self.setImage(image, for: .disabled)
             }
         } else {
-            let defaultImage = UIImage(named: "defaultProfile")
+            let defaultImage = UIImage(named: "defaultProfileImage")
             switch self.mode {
             case .Edit:
                 self.setImage(defaultImage, for: .normal)

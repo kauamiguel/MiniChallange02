@@ -53,8 +53,6 @@
 		ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98B9D2AB3F0B2005214E5 /* RecurrentDataViewController.swift */; };
 		ABC98BA22AB3F53D005214E5 /* AppointmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BA12AB3F53D005214E5 /* AppointmentsView.swift */; };
 		ABC98BA82AB3F5E0005214E5 /* RecurrentDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BA72AB3F5E0005214E5 /* RecurrentDataView.swift */; };
-		ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BAC2AB3F61C005214E5 /* ProfileView.swift */; };
-		ABC98BAF2AB3F630005214E5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BAE2AB3F630005214E5 /* ProfileViewController.swift */; };
 		ABC98BB42AB3FCAA005214E5 /* MaternityCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BB32AB3FCAA005214E5 /* MaternityCardViewController.swift */; };
 		ABC98BB62AB3FCC2005214E5 /* MaternityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BB52AB3FCC2005214E5 /* MaternityCardCell.swift */; };
 		ABC98BBF2AB83BD6005214E5 /* Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BBE2AB83BD6005214E5 /* Constrains.swift */; };
@@ -97,12 +95,9 @@
 		E8135C262ABE180300E722FA /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135C252ABE180300E722FA /* RegisterViewModel.swift */; };
 		E81A267B2AD49BCC003A25E0 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A267A2AD49BCC003A25E0 /* NextButton.swift */; };
 		E81A267E2AD49BF1003A25E0 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A267D2AD49BF1003A25E0 /* RoundedTextField.swift */; };
-		E8E0D6452AC36F05003CE5CD /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6442AC36F05003CE5CD /* ProfileViewModel.swift */; };
-		E8E0D6472AC36F1A003CE5CD /* ProfileListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6462AC36F1A003CE5CD /* ProfileListCell.swift */; };
 		E8E0D6492AC36F37003CE5CD /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6482AC36F37003CE5CD /* AboutView.swift */; };
 		E8E0D64B2AC36F41003CE5CD /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64A2AC36F41003CE5CD /* AboutViewController.swift */; };
 		E8E0D64D2AC36F55003CE5CD /* PregnantDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */; };
-		E8E0D6512AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6502AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift */; };
 		E8E0D65B2AC4C6F2003CE5CD /* ProfileImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D65A2AC4C6F2003CE5CD /* ProfileImageButton.swift */; };
 		E8E0D65D2AC60C2B003CE5CD /* PregnantDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D65C2AC60C2B003CE5CD /* PregnantDataViewModel.swift */; };
 		E8E0D65F2AC6116E003CE5CD /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D65E2AC6116E003CE5CD /* EmergencyContact.swift */; };
@@ -157,8 +152,6 @@
 		ABC98B9D2AB3F0B2005214E5 /* RecurrentDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrentDataViewController.swift; sourceTree = "<group>"; };
 		ABC98BA12AB3F53D005214E5 /* AppointmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsView.swift; sourceTree = "<group>"; };
 		ABC98BA72AB3F5E0005214E5 /* RecurrentDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrentDataView.swift; sourceTree = "<group>"; };
-		ABC98BAC2AB3F61C005214E5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		ABC98BAE2AB3F630005214E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		ABC98BB32AB3FCAA005214E5 /* MaternityCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardViewController.swift; sourceTree = "<group>"; };
 		ABC98BB52AB3FCC2005214E5 /* MaternityCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardCell.swift; sourceTree = "<group>"; };
 		ABC98BBE2AB83BD6005214E5 /* Constrains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constrains.swift; sourceTree = "<group>"; };
@@ -202,12 +195,9 @@
 		E8135C252ABE180300E722FA /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		E81A267A2AD49BCC003A25E0 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		E81A267D2AD49BF1003A25E0 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
-		E8E0D6442AC36F05003CE5CD /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		E8E0D6462AC36F1A003CE5CD /* ProfileListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListCell.swift; sourceTree = "<group>"; };
 		E8E0D6482AC36F37003CE5CD /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		E8E0D64A2AC36F41003CE5CD /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnantDataView.swift; sourceTree = "<group>"; };
-		E8E0D6502AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift"; sourceTree = "<group>"; };
 		E8E0D65A2AC4C6F2003CE5CD /* ProfileImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageButton.swift; sourceTree = "<group>"; };
 		E8E0D65C2AC60C2B003CE5CD /* PregnantDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnantDataViewModel.swift; sourceTree = "<group>"; };
 		E8E0D65E2AC6116E003CE5CD /* EmergencyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContact.swift; sourceTree = "<group>"; };
@@ -401,13 +391,8 @@
 		ABC98BA92AB3F5F8005214E5 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				E8E0D6412AC36ED2003CE5CD /* Extension */,
 				E8E0D6432AC36EE2003CE5CD /* PregnantData */,
 				E8E0D6422AC36EDC003CE5CD /* About */,
-				ABC98BAC2AB3F61C005214E5 /* ProfileView.swift */,
-				E8E0D6462AC36F1A003CE5CD /* ProfileListCell.swift */,
-				ABC98BAE2AB3F630005214E5 /* ProfileViewController.swift */,
-				E8E0D6442AC36F05003CE5CD /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -586,14 +571,6 @@
 			path = RoundedTextField;
 			sourceTree = "<group>";
 		};
-		E8E0D6412AC36ED2003CE5CD /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				E8E0D6502AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		E8E0D6422AC36EDC003CE5CD /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -718,12 +695,10 @@
 				ABB82F162AC60931008B73AF /* RoutineDataView.swift in Sources */,
 				AB9D942F2AD068C00064DB69 /* DropDownWithLabel.swift in Sources */,
 				E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */,
-				ABC98BAD2AB3F61C005214E5 /* ProfileView.swift in Sources */,
 				62FA7C3A2ABE17160083F6E0 /* BloodExamModel.swift in Sources */,
 				ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */,
 				AB9D94242ACE3D5E0064DB69 /* TetanicView.swift in Sources */,
 				CEA008AD2AC5F373005F54E5 /* CoreDataFunctions.swift in Sources */,
-				E8E0D6472AC36F1A003CE5CD /* ProfileListCell.swift in Sources */,
 				ABFDA77B2AC6769B0097656E /* FamilyAntecedentView.swift in Sources */,
 				ABFDA77F2AC67BE10097656E /* ClinicAntecedentsView.swift in Sources */,
 				ABFDA7772AC656030097656E /* PregnancyTypeView.swift in Sources */,
@@ -737,7 +712,6 @@
 				AB9D941C2ACC988B0064DB69 /* HeaderCell.swift in Sources */,
 				E8E0D64B2AC36F41003CE5CD /* AboutViewController.swift in Sources */,
 				ABC98BC12AB83C8D005214E5 /* TextField.swift in Sources */,
-				ABC98BAF2AB3F630005214E5 /* ProfileViewController.swift in Sources */,
 				ABC98BBF2AB83BD6005214E5 /* Constrains.swift in Sources */,
 				E8E0D65F2AC6116E003CE5CD /* EmergencyContact.swift in Sources */,
 				E8E0D65B2AC4C6F2003CE5CD /* ProfileImageButton.swift in Sources */,
@@ -748,7 +722,6 @@
 				CE60D0702ACDF6E000937768 /* Pacient+CoreDataProperties.swift in Sources */,
 				AB9D94272ACE3DD40064DB69 /* HepatitisBView.swift in Sources */,
 				E8135BBA2ABA1BE700E722FA /* SecondOnboardingViewController.swift in Sources */,
-				E8E0D6452AC36F05003CE5CD /* ProfileViewModel.swift in Sources */,
 				CE60D06F2ACDF6E000937768 /* Pacient+CoreDataClass.swift in Sources */,
 				62D39EAD2ABF1CCC003CF99F /* UtrasoundExam.swift in Sources */,
 				E8135BAF2ABA1AD400E722FA /* ApplicationSettings.swift in Sources */,
@@ -767,7 +740,6 @@
 				AB7852F02AB9F95200566EF9 /* BloodView.swift in Sources */,
 				ABFDA7752AC646470097656E /* PlannedView.swift in Sources */,
 				AB9D94312AD0A2670064DB69 /* PullDownComponent.swift in Sources */,
-				E8E0D6512AC36F8E003CE5CD /* ProfileViewController+UITableViewDelegate+UITableViewDatasource.swift in Sources */,
 				E8135C262ABE180300E722FA /* RegisterViewModel.swift in Sources */,
 				AB9D941A2ACB3D6B0064DB69 /* FooterCell.swift in Sources */,
 				ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift in Sources */,
