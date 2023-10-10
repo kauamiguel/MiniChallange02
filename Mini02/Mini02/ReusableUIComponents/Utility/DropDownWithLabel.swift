@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
     
-    func menuPlusLabel(label: LabelComponentView, menu: MenuComponent, options: [String] ,contentBackGround: UIView, topAnchor: UIView ,labelText: String, topPadding: CGFloat, leftPadding: CGFloat, screenSize: CGSize, widthMultiplier: CGFloat, heightMultiplier: CGFloat) {
+    func menuPlusLabel(label: LabelComponentView, menu: PullDownComponent, options: [String] ,contentBackGround: UIView, topAnchor: UIView, leftAnchor: UIView ,labelText: String, topPadding: CGFloat, leftPadding: CGFloat, screenSize: CGSize, widthMultiplier: CGFloat, heightMultiplier: CGFloat) {
         
         menu.setupButton(options: options)
 
@@ -18,11 +18,11 @@ extension UIView {
         label.setupLabel(labelText: labelText, labelType: .medicText, labelColor: .black)
         contentBackGround.addSubview(menu)
        
-        label.anchorWithConstantValues(top: topAnchor.topAnchor, left: contentBackGround.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
-        menu.anchorWithConstantValues(top: label.bottomAnchor, left: contentBackGround.leadingAnchor, leftPadding: leftPadding, width: screenSize.width * widthMultiplier, height: screenSize.height * heightMultiplier)
+        label.anchorWithMultiplayerValues(top: topAnchor.topAnchor, left: leftAnchor.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
+        menu.anchorWithMultiplayerValues(top: label.bottomAnchor, left: leftAnchor.leadingAnchor, leftPadding: leftPadding, width: screenSize.width * widthMultiplier, height: screenSize.height * heightMultiplier)
     }
     
-    func menuPlusLabelBottom(label: LabelComponentView, menu: MenuComponent, options: [String] ,contentBackGround: UIView, topAnchor: UIView ,labelText: String, topPadding: CGFloat, leftPadding: CGFloat, screenSize: CGSize, widthMultiplier: CGFloat, heightMultiplier: CGFloat) {
+    func menuPlusLabelBottom(label: LabelComponentView, menu: PullDownComponent, options: [String] ,contentBackGround: UIView, topAnchor: UIView, leftAnchor: UIView ,labelText: String, topPadding: CGFloat, leftPadding: CGFloat, screenSize: CGSize, widthMultiplier: CGFloat, heightMultiplier: CGFloat) {
         
         menu.setupButton(options: options)
 
@@ -30,11 +30,20 @@ extension UIView {
         label.setupLabel(labelText: labelText, labelType: .medicText, labelColor: .black)
         contentBackGround.addSubview(menu)
        
-        label.anchorWithConstantValues(top: topAnchor.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
-        menu.anchorWithConstantValues(top: label.bottomAnchor, left: contentBackGround.leadingAnchor, leftPadding: leftPadding, width: screenSize.width * widthMultiplier, height: screenSize.height * heightMultiplier)
+        label.anchorWithMultiplayerValues(top: topAnchor.bottomAnchor, left: leftAnchor.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
+        menu.anchorWithMultiplayerValues(top: label.bottomAnchor, left: leftAnchor.leadingAnchor, leftPadding: leftPadding, width: screenSize.width * widthMultiplier, height: screenSize.height * heightMultiplier)
     }
 
     
-    
+    func menuPlusLabelRight(label: LabelComponentView, menu: PullDownComponent, options: [String] ,contentBackGround: UIView, topAnchor: UIView, leftAnchor: UIView ,labelText: String, topPadding: CGFloat, leftPadding: CGFloat, screenSize: CGSize, widthMultiplier: CGFloat, heightMultiplier: CGFloat){
+        
+        menu.setupButton(options: options)
 
+        contentBackGround.addSubview(label)
+        label.setupLabel(labelText: labelText, labelType: .medicText, labelColor: .black)
+        contentBackGround.addSubview(menu)
+       
+        label.anchorWithMultiplayerValues(top: topAnchor.topAnchor, left: leftAnchor.trailingAnchor, topPadding: topPadding, leftPadding: leftPadding)
+        menu.anchorWithMultiplayerValues(top: label.bottomAnchor, left: leftAnchor.trailingAnchor, leftPadding: leftPadding, width: screenSize.width * widthMultiplier, height: screenSize.height * heightMultiplier)
+    }
 }
