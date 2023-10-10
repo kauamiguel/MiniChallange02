@@ -419,8 +419,8 @@
 				ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */,
 				ABC98BB52AB3FCC2005214E5 /* MaternityCardCell.swift */,
 				6241A15F2AC221D800C7921B /* ModalView.swift */,
-				ABFDA7802AC7437C0097656E /* Fonts */,
 				ABC98BB32AB3FCAA005214E5 /* MaternityCardViewController.swift */,
+				ABFDA7802AC7437C0097656E /* Fonts */,
 				AB7852EC2AB9F92A00566EF9 /* ComponetViews */,
 			);
 			path = MaternityCard;

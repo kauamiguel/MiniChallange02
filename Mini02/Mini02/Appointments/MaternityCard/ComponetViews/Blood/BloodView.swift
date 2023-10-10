@@ -147,7 +147,6 @@ class BloodView: UIView{
         menuPlusLabelBottom(label: acidoUricoLabel, menu: acidoUricoMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: tgoMenu, leftAnchor: contentBackGround, labelText: "Ácido úrico", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         
         
-        
        // RIGHT
         
         menuPlusLabelRight(label: vitaminaDLabel, menu: vitaminaDMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: separator, labelText: "Vitamina D", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)

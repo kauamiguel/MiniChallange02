@@ -143,7 +143,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         // Return the desired size for the footer
-        CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.25)
+        CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.23)
     }
     
     // move items
