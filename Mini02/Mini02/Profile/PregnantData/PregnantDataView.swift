@@ -272,7 +272,7 @@ class PregnantDataView: UIView {
         vc.navigationController?.toolbar.standardAppearance = toolbarAppearance
         vc.navigationController?.toolbar.scrollEdgeAppearance = toolbarAppearance
         vc.navigationController?.toolbar.compactScrollEdgeAppearance = toolbarAppearance
-        vc.view.backgroundColor = UIColor(patternImage: UIImage(named: "backGroundImage")!)
+        vc.view.backgroundColor = UIColor(patternImage: UIImage(named: "backGroundTreemester")!)
 
     }
     
