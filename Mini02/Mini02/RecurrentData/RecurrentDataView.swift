@@ -29,9 +29,12 @@ class RecurrentDataView: UIView {
     }()
     
     func setupView(vc : RecurrentDataViewController, collection : UICollectionView){
-        
-        vc.view.backgroundColor = .white
 
+        //Adding the backgroundImage
+        let bgImage = UIImage(named: "backGroundRecurrentData")
+        guard let image = bgImage else {return}
+        vc.view.backgroundColor = UIColor(patternImage: image)
+        
         vc.view.addSubview(pageTitle)
         vc.view.addSubview(searchBar)
         

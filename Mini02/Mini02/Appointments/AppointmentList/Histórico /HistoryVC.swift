@@ -17,8 +17,17 @@ class HistoryVC: UIViewController {
         let newView = HistoryView()
         let dateFormatter = DateFormatter()
         
+        //Add backButton in naviagtionItem
+        let backButton = UIButton(type: .custom)
+        backButton.setImage(UIImage(named: "ChevronBackButton"), for: .normal)
+        backButton.addTarget(self, action: #selector(backToView), for: .touchUpInside)
+        let customBackButton = UIBarButtonItem(customView: backButton)
+        navigationItem.leftBarButtonItem = customBackButton
+        
+        
         newView.controller = self
         dateFormatter.dateFormat = "dd/MM/yy"
+        
         if let date = appointmentsInfo?.date{
             newView.dateLabel.text = dateFormatter.string(from: date)
         }
@@ -27,6 +36,9 @@ class HistoryVC: UIViewController {
         
         newView.setupView()
         
-     
+    }
+    
+    @objc func backToView(){
+        self.navigationController?.popViewController(animated: true)
     }
 }
