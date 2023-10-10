@@ -38,42 +38,34 @@ class RoutineDataView: UIView {
 
     let routineLabel = LabelComponentView()
     
-    /* ----------------------------------------------------------IG -DUM/USG------------------------------------------------------------- */
+    
     let separator = CustomSeparatorView()
     
     let igLabel = LabelComponentView()
-    
-    let igMenu = MenuComponent()
+        
+    let igMenu = PullDownComponent()
     
     let uterineHeightLabel = LabelComponentView()
     
-    let uterineHeightMenu = MenuComponent()
+    let uterineHeightMenu = PullDownComponent()
     
     let arterialPressureLabel = LabelComponentView()
     
-    let arterialPressureMenu = MenuComponent()
+    let arterialPressureMenu = PullDownComponent()
     
-    
-    
-    
-    
+   
     let wheightLabel = LabelComponentView()
     
-    let wheightDropDown = DropDownMenuComponent()
+    let wheightMenu = PullDownComponent()
     
     let bcfLabel = LabelComponentView()
     
-    let bcfDropDown = DropDownMenuComponent()
+    let bcfMenu = PullDownComponent()
     
     let edemaLabel = LabelComponentView()
     
-    let edemaDropDown = DropDownMenuComponent()
-    
-  
-    
+    let edemaMenu = PullDownComponent()
 
-  
-        
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -82,14 +74,12 @@ class RoutineDataView: UIView {
     
     func setupView(){
         
-        /* ----------------------------------------------------------routine------------------------------------------------------------- */
         
         addSubview(roudedBackGround)
         
         roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: routineDataViewSize.width ,height: routineDataViewSize.height)
         
         self.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor,right: roudedBackGround.trailingAnchor,bottom: roudedBackGround.bottomAnchor)
-        
         
         self.addSubview(routineLabel)
         routineLabel.setupLabel(labelText: "Dados de rotina", labelType: .title, labelColor: .black)
@@ -99,17 +89,22 @@ class RoutineDataView: UIView {
         contentBackGround.anchorWithConstantValues(top: routineLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10,width: screenSize.width * 0.9, height: screenSize.height * 0.3)
         contentBackGround.centerX(inView: roudedBackGround)
         
-        /* ----------------------------------------------------------IIG -DUM/USG-G------------------------------------------------------------- */
-
         contentBackGround.addSubview(separator)
         separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: 15, bottomPadding: -15, width: 1.5)
         separator.centerX(inView: contentBackGround)
        
-        menuPlusLabel(label: igLabel, menu: igMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: contentBackGround, labelText: "IG -DUM/USG", topPadding: 15, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        menuPlusLabel(label: igLabel, menu: igMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "IG -DUM/USG", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         
-        menuPlusLabelBottom(label: uterineHeightLabel, menu: uterineHeightMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: igMenu, labelText: "Altura uterina (cm)", topPadding: 34, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        menuPlusLabelBottom(label: uterineHeightLabel, menu: uterineHeightMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: igMenu, leftAnchor: contentBackGround, labelText: "Altura uterina (cm)", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         
-        menuPlusLabelBottom(label: arterialPressureLabel, menu: arterialPressureMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: uterineHeightMenu, labelText: "Pressão arterial ", topPadding: 34, leftPadding: 15, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        menuPlusLabelBottom(label: arterialPressureLabel, menu: arterialPressureMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: uterineHeightMenu, leftAnchor: contentBackGround, labelText: "Pressão arterial ", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        
+        menuPlusLabelRight(label: wheightLabel, menu: wheightMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: separator, labelText: "Peso (Kg)/IMC", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        
+        menuPlusLabelBottom(label: bcfLabel, menu: bcfMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: wheightMenu, leftAnchor: separator, labelText: "BCF",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        
+        menuPlusLabelBottom(label: edemaLabel, menu: edemaMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: bcfMenu, leftAnchor: separator, labelText: "Edema", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        
     }
     
     required init?(coder: NSCoder) {

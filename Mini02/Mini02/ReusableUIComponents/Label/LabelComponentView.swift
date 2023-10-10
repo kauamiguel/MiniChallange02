@@ -49,22 +49,18 @@ class LabelComponentView: UILabel{
     private func configureLabelStyle() {
         switch labelType {
         case .title:
-//            self.font = UIFont(name: "", size: 24)
             self.font = UIFont.boldSystemFont(ofSize: 24)
             
         case .subTitle:
-//            self.font = UIFont(name: "", size: 20)
             self.font = UIFont.systemFont(ofSize: 20)
+            
         case .medicText:
-//            self.font = UIFont(name: "", size: 16)
-            self.font = UIFont.systemFont(ofSize: 16)
+            self.font = UIFont.systemFont(ofSize: UIScreen.main.bounds.height * 0.02)
+            
         case .smallText:
-//            self.font = UIFont(name: "", size: 10)
             self.font = UIFont.systemFont(ofSize: 10)
             
-    
         default:
-//            self.font = UIFont(name: "", size: 10)
             self.font = UIFont.systemFont(ofSize: 10)
         }
     }

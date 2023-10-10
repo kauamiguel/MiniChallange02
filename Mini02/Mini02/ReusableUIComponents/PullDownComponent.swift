@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MenuComponent: UIButton {
+class PullDownComponent: UIButton {
 
     var selectedOption: String?
 
@@ -15,7 +15,7 @@ class MenuComponent: UIButton {
     func setupButton(options: [String]) {
         self.backgroundColor = UIColor(red: 0.70, green: 0.82, blue: 0.84, alpha: 1.00)
         self.showsMenuAsPrimaryAction = true
-        self.layer.cornerRadius = 10
+        self.layer.cornerRadius = 6
 
         var menuActions: [UIAction] = []
 
