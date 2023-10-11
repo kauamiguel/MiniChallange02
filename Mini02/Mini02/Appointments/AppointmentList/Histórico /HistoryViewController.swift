@@ -81,11 +81,12 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
         
-        configureView()
-        
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        
+        familyAntecedentView.sections[AppointmentsKeys.hipertensao.rawValue]?.checked = true
+        configureView()
     }
     
     override func viewDidLoad() {
@@ -111,9 +112,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     func setupCollectionView(){
         
         cells.forEach { collectionView.register(MaternityCardCell.self, forCellWithReuseIdentifier: $0.id) }
-        collectionView.register(HeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCell.id)
-        collectionView.register(FooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterCell.id)
-        
+        collectionView.register(HeaderForHistory.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderForHistory.id)
         collectionView.reloadData()
     }
     
@@ -146,10 +145,8 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         switch kind {
             
         case UICollectionView.elementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.id, for: indexPath) as! HeaderCell
-            headerView.tapEditButtonClosure = { [weak self] in
-                self?.editButtonTapped(headerView.editButton)
-            }
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.id, for: indexPath) as! HeaderForHistory
+            
             return headerView
             
         default:
@@ -167,7 +164,6 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         view.endEditing(true)
         
     }
-    
     
     var isEditModeActive = false
     
@@ -191,7 +187,12 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     func configureView(){
         let pacient = historyVm.getPatient()
         
-        addViews(viewType: RoutineDataView.self, viewSize: routineData.routineDataViewSize, viewID: RoutineDataView.id, viewQuery: routineData.query)
+        
+        let views: [CellInfo] = [
+            CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id, query: routineData.query)
+        ]
+        
+        addViewsForHistory(views: views)
         
         if appointmentsInfo.tremesteer == 1 && appointmentsInfo.consultId == 1{
             
@@ -202,11 +203,9 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             familyAntecedentView.sections[AppointmentsKeys.cardiopatia.rawValue]?.checked = pacient?.familyBG?.heartCondition ?? false
             familyAntecedentView.sections[AppointmentsKeys.outro.rawValue]?.checked = pacient?.familyBG?.urinaryInfection ?? false
             
+            
             //Adding the view familyAntecedent
-            addViews(viewType: FamilyAntecedentView.self, viewSize: familyAntecedentView.familyAntecedentViewSize, viewID: FamilyAntecedentView.id, viewQuery: familyAntecedentView.query)
             
-            
-           
             
             //Assign the values of preganancyType
             pregnancyTypeView.section[AppointmentsKeys.gemelar.rawValue]?.checked = appointmentsInfo.pregnancyClassification?.twinPregnancy ?? false
@@ -214,27 +213,15 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             pregnancyTypeView.section[AppointmentsKeys.ignorada.rawValue]?.checked = appointmentsInfo.pregnancyClassification?.ignored ?? false
             pregnancyTypeView.section[AppointmentsKeys.unica.rawValue]?.checked = appointmentsInfo.pregnancyClassification?.singlePregnancy ?? false
             
-            //Assign the view preganancyType
-            addViews(viewType: PregnancyTypeView.self, viewSize: pregnancyTypeView.pregnancyTypeViewSize, viewID: PregnancyTypeView.id, viewQuery: pregnancyRiskView.query)
-            
-            
             
             //Assign values of pregnancyRisk
             pregnancyRiskView.section[AppointmentsKeys.riscoHabitual.rawValue]?.checked = appointmentsInfo.pregnancyRisk?.lowRiskPregnancy ?? false
             pregnancyRiskView.section[AppointmentsKeys.altoRisco.rawValue]?.checked = appointmentsInfo.pregnancyRisk?.highRiskPregnancy ?? false
             
-            //Assign influenza view
-            addViews(viewType: H1N1View.self, viewSize: h1N1View.h1N1ViewSize, viewID: H1N1View.id, viewQuery: h1N1View.query)
-            
-        
             
             //Assign the values of plannedView
             plannedView.plannedCheckYES.checked = appointmentsInfo.pregnancyPlanning?.plannedPregnancy ?? false
             
-            //Assign the plannedView
-            addViews(viewType: PlannedView.self, viewSize: plannedView.pregnancyRiskViewSize, viewID: PlannedView.id, viewQuery: plannedView.query)
-            
-        
             
             //Assign values of clinicalAntecedents
             clinicAntecedentsView.sections[AppointmentsKeys.urinary.rawValue]?.checked = pacient?.personalBG?.urinaryInfection ?? false
@@ -244,7 +231,17 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             clinicAntecedentsView.sections[AppointmentsKeys.diabetes.rawValue]?.checked = pacient?.personalBG?.diabetes ?? false
             
             //Assigng clinical antecendentsView
-            addViews(viewType: ClinicAntecedentsView.self, viewSize: clinicAntecedentsView.clinicAntecedentsViewSize, viewID: ClinicAntecedentsView.id, viewQuery: clinicAntecedentsView.query)
+            
+            
+            let views: [CellInfo] = [
+                CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id, query: familyAntecedentView.query),
+                CellInfo(view: h1N1View, size: h1N1View.h1N1ViewSize, id: H1N1View.id, query: h1N1View.query),
+                CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, query: plannedView.query),
+                CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, query: clinicAntecedentsView.query)
+            ]
+            
+            addViewsForHistory(views: views)
+            
             
             
             //Add vaccines view
@@ -254,16 +251,13 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 let antitetanic = historyVm.coreDataMaanger.getAntitetanic()
                 tetanicView.yesCheckYES.checked = antitetanic.first?.isVaccined ?? false
                 
-                //Assign View Antitetanic
-                addViews(viewType: TetanicView.self, viewSize: tetanicView.tetanicViewSize, viewID: TetanicView.id, viewQuery: tetanicView.query)
+                
                 
                 
                 //Assign hepatite data
                 let hepatite = historyVm.coreDataMaanger.getHepatite()
                 hepatitisBView.hepatitisBYesCheckYES.checked = hepatite.first?.isVaccined ?? false
                 
-                //Assign View Hepatite
-                addViews(viewType: HepatitisBView.self, viewSize: hepatitisBView.hepatitisBViewSize, viewID: HepatitisBView.id, viewQuery: hepatitisBView.query)
                 
                 
                 
@@ -272,7 +266,16 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 h1N1View.h1N1YesCheckYES.checked = influenza?.isVaccined ?? false
                 
                 //Assign influenza view
-                addViews(viewType: H1N1View.self, viewSize: h1N1View.h1N1ViewSize, viewID: H1N1View.id, viewQuery: h1N1View.query)
+                
+                
+                
+                let views: [CellInfo] = [
+                    CellInfo(view: tetanicView, size: tetanicView.tetanicViewSize, id: TetanicView.id, query: tetanicView.query),
+                    CellInfo(view: hepatitisBView, size: hepatitisBView.hepatitisBViewSize, id: HepatitisBView.id, query: hepatitisBView.query),
+                    CellInfo(view: h1N1View, size: h1N1View.h1N1ViewSize, id: H1N1View.id, query: h1N1View.query)
+                ]
+                
+                addViewsForHistory(views: views)
             }
             
             
@@ -280,58 +283,48 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             // FIX ME : Adicionar o exame de sangue e ultrason na tela
             if let blood = appointmentsInfo.bloodExam{
                 
-                // FIX ME : Mudar o valor dos dropDowns para poder atribuir nas linhas abaixo
-                bloodView.aboMenu.selectedOption = appointmentsInfo.bloodExam?.bloodType
-                bloodView2.igmCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igm ?? false
-                bloodView2.iggCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igm ?? false
-                bloodView2.hivCheckYES.checked = appointmentsInfo.bloodExam?.hiv ?? false
-//                bloodView.ureiaMenu.selectedOption = appointmentsInfo.bloodExam?.urea?
-//                bloodView.htMenu.selectedOption = appointmentsInfo.bloodExam?.ht
-//                bloodView.leucocitosMenu.selectedOption = appointmentsInfo.bloodExam?.whiteCells
-//                bloodView.plaquetasMenu.selectedOption = appointmentsInfo.bloodExam?.platelets
-//                bloodView.glicemiaMenu.selectedOption = appointmentsInfo.bloodExam?.glucose
+                let views: [CellInfo] = [
+                    CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
+                    CellInfo(view: bloodView2, size: bloodView2.bloodView2size, id: BloodView2.id, query: bloodView2.query)
+                ]
                 
-                addViews(viewType: BloodView.self, viewSize: bloodView.bloodViewViewSize, viewID: BloodView.id, viewQuery: bloodView.query)
+                addViewsForHistory(views: views)
                 
-                addViews(viewType: BloodView2.self, viewSize: bloodView2.bloodView2size, viewID: BloodView2.id, viewQuery: bloodView2.query)
             }
             
             if let ultrasound = appointmentsInfo.ultraSound{
+                let views: [CellInfo] = [
+                    CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundSize, id: UltrasoundView.id, query: ultrasoundView.query),
+                ]
                 
-                // FIX ME : Arrumar os valores do dropDown para poderem ser atribuidos na tela
-                
-//                ultrasoundView.dataMenu.selectedOption = appointmentsInfo.ultraSound?.date
-//                ultrasoundView.igMenu.selectedValue = appointmentsInfo.ultraSound?.ig
-//                ultrasoundView.pesoMenu.selectedOption = appointmentsInfo.ultraSound?.weight
-//                ultrasoundView.placentaMenu.selectedOptio = appointmentsInfo.ultraSound?.placenta
-                ultrasoundView.apresentacaoFetalMenu.selectedOption = appointmentsInfo.ultraSound?.fetalPosition
-                
-                addViews(viewType: UltrasoundView.self, viewSize: ultrasoundView.ultrasoundSize, viewID: UltrasoundView.id, viewQuery: ultrasoundView.query)
+                addViewsForHistory(views: views)
             }
         }else{
             if let blood = appointmentsInfo.bloodExam{
+                let views: [CellInfo] = [
+                    CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
+                    CellInfo(view: bloodView2, size: bloodView2.bloodView2size, id: BloodView2.id, query: bloodView2.query)
+                ]
                 
-                // FIX ME : Mudar o valor dos dropDowns para poder atribuir nas linhas abaixo
-                bloodView.aboMenu.selectedOption = appointmentsInfo.bloodExam?.bloodType
-                bloodView2.igmCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igm ?? false
-                bloodView2.iggCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igm ?? false
-                bloodView2.hivCheckYES.checked = appointmentsInfo.bloodExam?.hiv ?? false
-//                bloodView.ureiaMenu.selectedOption = appointmentsInfo.bloodExam?.urea?
-//                bloodView.htMenu.selectedOption = appointmentsInfo.bloodExam?.ht
-//                bloodView.leucocitosMenu.selectedOption = appointmentsInfo.bloodExam?.whiteCells
-//                bloodView.plaquetasMenu.selectedOption = appointmentsInfo.bloodExam?.platelets
-//                bloodView.glicemiaMenu.selectedOption = appointmentsInfo.bloodExam?.glucose
-                
-                //Adding blood Views
-                addViews(viewType: BloodView.self, viewSize: bloodView.bloodViewViewSize, viewID: BloodView.id, viewQuery: bloodView.query)
-                
-                addViews(viewType: BloodView2.self, viewSize: bloodView2.bloodView2size, viewID: BloodView2.id, viewQuery: bloodView2.query)
+                addViewsForHistory(views: views)
             }
             
             if let ultrasound = appointmentsInfo.ultraSound{
-                addViews(viewType: UltrasoundView.self, viewSize: ultrasoundView.ultrasoundSize, viewID: UltrasoundView.id, viewQuery: ultrasoundView.query)
+                let views: [CellInfo] = [
+                    CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundSize, id: UltrasoundView.id, query: ultrasoundView.query),
+                ]
+                
+                addViewsForHistory(views: views)
+                
             }
-            
+        }
+    }
+    
+    
+    func addViewsForHistory(views: [CellInfo]){
+        for view in views {
+            cells.append(view)
+            setupCollectionView()
         }
     }
     

@@ -401,6 +401,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             //IF it is not the first appointment
         }else{
+            
             let ig = Int(routineData.igMenu.getPickerValue())
             let edema = routineData.edemaMenu.selectedOption
             let fetalHeart = Int(routineData.bcfMenu.selectedOption ?? "0")
@@ -413,7 +414,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             for cell in cells{
                 if cell.id == BloodView.id{
-                    print("Tem sangue")
+                    print("Tem view de exame de sangue")
                     //Add bloodExam
                     // FIX ME : Arrumar os dropDowns do exame de sangue pois não esta retornando valor
                     let bloodType = bloodView.aboMenu.selectedOption ?? ""
