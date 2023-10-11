@@ -72,11 +72,11 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         //Adding the checked box logic
         if plannedView.plannedCheckYES.checked{
             plannedView.plannedCheckNO.checked = false
-            plannedView.plannedCheckNO.checked = false
         }else{
             plannedView.plannedCheckYES.checked = false
             plannedView.plannedCheckNO.checked = true
         }
+        
     }
     
     //Function of backButton
@@ -328,6 +328,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         maternityVM.coreDataManager.assignPersonalBG(personalBG: personalBg)
         
         //Add bloodExam
+        // FIX ME : Arrumar os dropDowns do exame de sangue pois não esta retornando valor
         let bloodType = bloodView.aboMenu.selectedOption ?? ""
         let igm = bloodView2.igmCheckYES.getBooleanValue()
         let igg = bloodView2.iggCheckYES.getBooleanValue()
@@ -348,8 +349,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         self.consult?.bloodExams = blood
         
         
-        //Add new Ultrassound
         
+        //Add new Ultrassound
         // FIX ME : Mudar o date para do tipo date e nao string
         let date = ultrasoundView.dataMenu.selectedOption
         let gestacionalAge = Int(ultrasoundView.igMenu.selectedOption ?? "0")
@@ -384,10 +385,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
         }
         
-        
-        
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -279,16 +279,52 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             
             // FIX ME : Adicionar o exame de sangue e ultrason na tela
             if let blood = appointmentsInfo.bloodExam{
+                
+                // FIX ME : Mudar o valor dos dropDowns para poder atribuir nas linhas abaixo
+                bloodView.aboMenu.selectedOption = appointmentsInfo.bloodExam?.bloodType
+                bloodView2.igmCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igm ?? false
+                bloodView2.iggCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igm ?? false
+                bloodView2.hivCheckYES.checked = appointmentsInfo.bloodExam?.hiv ?? false
+//                bloodView.ureiaMenu.selectedOption = appointmentsInfo.bloodExam?.urea?
+//                bloodView.htMenu.selectedOption = appointmentsInfo.bloodExam?.ht
+//                bloodView.leucocitosMenu.selectedOption = appointmentsInfo.bloodExam?.whiteCells
+//                bloodView.plaquetasMenu.selectedOption = appointmentsInfo.bloodExam?.platelets
+//                bloodView.glicemiaMenu.selectedOption = appointmentsInfo.bloodExam?.glucose
+                
                 addViews(viewType: BloodView.self, viewSize: bloodView.bloodViewViewSize, viewID: BloodView.id, viewQuery: bloodView.query)
+                
                 addViews(viewType: BloodView2.self, viewSize: bloodView2.bloodView2size, viewID: BloodView2.id, viewQuery: bloodView2.query)
             }
             
             if let ultrasound = appointmentsInfo.ultraSound{
+                
+                // FIX ME : Arrumar os valores do dropDown para poderem ser atribuidos na tela
+                
+//                ultrasoundView.dataMenu.selectedOption = appointmentsInfo.ultraSound?.date
+                ultrasoundView.igMenu.selectedOption = appointmentsInfo.ultraSound?.ig
+//                ultrasoundView.pesoMenu.selectedOption = appointmentsInfo.ultraSound?.weight
+//                ultrasoundView.placentaMenu.selectedOptio = appointmentsInfo.ultraSound?.placenta
+                ultrasoundView.apresentacaoFetalMenu.selectedOption = appointmentsInfo.ultraSound?.fetalPosition
+                
                 addViews(viewType: UltrasoundView.self, viewSize: ultrasoundView.ultrasoundSize, viewID: UltrasoundView.id, viewQuery: ultrasoundView.query)
             }
         }else{
             if let blood = appointmentsInfo.bloodExam{
+                
+                // FIX ME : Mudar o valor dos dropDowns para poder atribuir nas linhas abaixo
+                bloodView.aboMenu.selectedOption = appointmentsInfo.bloodExam?.bloodType
+                bloodView2.igmCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igm ?? false
+                bloodView2.iggCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igm ?? false
+                bloodView2.hivCheckYES.checked = appointmentsInfo.bloodExam?.hiv ?? false
+//                bloodView.ureiaMenu.selectedOption = appointmentsInfo.bloodExam?.urea?
+//                bloodView.htMenu.selectedOption = appointmentsInfo.bloodExam?.ht
+//                bloodView.leucocitosMenu.selectedOption = appointmentsInfo.bloodExam?.whiteCells
+//                bloodView.plaquetasMenu.selectedOption = appointmentsInfo.bloodExam?.platelets
+//                bloodView.glicemiaMenu.selectedOption = appointmentsInfo.bloodExam?.glucose
+                
+                //Adding blood Views
                 addViews(viewType: BloodView.self, viewSize: bloodView.bloodViewViewSize, viewID: BloodView.id, viewQuery: bloodView.query)
+                
                 addViews(viewType: BloodView2.self, viewSize: bloodView2.bloodView2size, viewID: BloodView2.id, viewQuery: bloodView2.query)
             }
             
