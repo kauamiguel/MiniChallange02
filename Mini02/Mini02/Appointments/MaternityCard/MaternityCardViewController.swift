@@ -335,6 +335,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             let planned = PregnancyPlanningModel(plannedPregnancy: pregnancyPlanned)
             self.consult?.plannedPregnancy = planned
             
+          
             //Add personal BG
             let inffection = clinicAntecedentsView.sections[AppointmentsKeys.urinary.rawValue]?.getBooleanValue()
             let hypertensionBg = clinicAntecedentsView.sections[AppointmentsKeys.hipertensao.rawValue]?.getBooleanValue()
