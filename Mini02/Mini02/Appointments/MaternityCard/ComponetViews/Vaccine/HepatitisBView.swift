@@ -34,7 +34,6 @@ class HepatitisBView: UIView{
         return view
     }()
 
-    let igDropDown = DropDownMenuComponent()
    
     let hepatitisBsubTitleLabel = LabelComponentView()
     

@@ -28,7 +28,7 @@ class BloodView: UIView{
         view.backgroundColor = UIColor(red: 1.00, green: 0.97, blue: 0.97, alpha: 1.00)
         
         view.layer.borderWidth = 1 // Adjust the width as needed
-        view.layer.borderColor = UIColor(red: 0.23, green: 0.65, blue: 0.73, alpha: 1.00).cgColor // Change color as needed
+        view.layer.borderColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00).cgColor // Change color as needed
         
         return view
     }()
@@ -125,6 +125,7 @@ class BloodView: UIView{
         contentBackGround.addSubview(separator)
         separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: 15, bottomPadding: -15, width: 1.5)
         separator.centerX(inView: contentBackGround)
+        separator.backgroundColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00)
         
         //FIXME: PICKER HERE
         menuPlusLabel(label: FerritinaLabel, menu: FerritinaMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "Ferritina", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)

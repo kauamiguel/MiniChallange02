@@ -14,10 +14,10 @@ class FamilyAntecedentView: UIView {
     let query = "antecedente familiar"
    
     let sections = [
-        "Hipertensão":CheckBoxComponentGreenView(),
-        "Diabetes":CheckBoxComponentGreenView(),
-        "Cardiopatia":CheckBoxComponentGreenView(),
-        "Outro":CheckBoxComponentGreenView()
+        AppointmentsKeys.hipertensao.rawValue:CheckBoxComponentGreenView(),
+        AppointmentsKeys.diabetes.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.cardiopatia.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.outro.rawValue :CheckBoxComponentGreenView()
     ]
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
@@ -59,7 +59,6 @@ class FamilyAntecedentView: UIView {
         roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: familyAntecedentViewSize.width ,height: familyAntecedentViewSize.height)
         
         self.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor,right: roudedBackGround.trailingAnchor,bottom: roudedBackGround.bottomAnchor)
-        
         
         self.addSubview(antecedentesLabel)
         antecedentesLabel.setupLabel(labelText: "Antecedentes Familiares", labelType: .titleBold, labelColor: .secondaryColor)

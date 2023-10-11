@@ -26,17 +26,16 @@ class RoutineDataView: UIView {
     let contentBackGround: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 25
-        view.backgroundColor = UIColor(red: 1.00, green: 0.97, blue: 0.97, alpha: 1.00)
+        view.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.96, alpha: 1.00)
         
         view.layer.borderWidth = 1 // Adjust the width as needed
-        view.layer.borderColor = UIColor(red: 0.23, green: 0.65, blue: 0.73, alpha: 1.00).cgColor // Change color as needed
+        view.layer.borderColor = UIColor(red: 0.49, green: 0.74, blue: 0.50, alpha: 1.00).cgColor // Change color as needed
         
         return view
     }()
     
 
     let routineLabel = LabelComponentView()
-    
     
     let separator = CustomSeparatorView()
     
@@ -91,6 +90,7 @@ class RoutineDataView: UIView {
         contentBackGround.addSubview(separator)
         separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: 15, bottomPadding: -15, width: 1.5)
         separator.centerX(inView: contentBackGround)
+        separator.backgroundColor = UIColor(red: 0.49, green: 0.74, blue: 0.50, alpha: 1.00)
        
         //FIXME: PICKER HERE
         menuPlusLabel(label: igLabel, menu: igMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "IG -DUM/USG", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)

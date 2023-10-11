@@ -12,8 +12,8 @@ class PregnancyRiskView: UIView {
     static let id = "PregnancyRiskCell"
     let query = "gravidez"
     let section = [
-        "Risco habitual":CheckBoxComponentGreenView(),
-        "Alto Risco":CheckBoxComponentGreenView()
+        AppointmentsKeys.riscoHabitual.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.altoRisco.rawValue :CheckBoxComponentGreenView()
     ]
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let pregnancyRiskViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.17)

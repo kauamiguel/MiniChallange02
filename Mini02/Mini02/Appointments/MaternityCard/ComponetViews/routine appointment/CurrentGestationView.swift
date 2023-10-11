@@ -14,11 +14,11 @@ class CurrentGestationView: UIView {
     static let id = "CurrentGestationCell"
     let query = "gestacao atual"
     let sections = [
-        "Fuma":CheckBoxComponentGreenView(),
-        "Consome alcool":CheckBoxComponentGreenView(),
-        "Outras Drogas":CheckBoxComponentGreenView(),
-        "HIV/Aids":CheckBoxComponentGreenView(),
-        "Sifilis":CheckBoxComponentGreenView()
+        AppointmentsKeys.fuma.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.consomeAlcool.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.outrasDrogas.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.hivAids.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.sifilis.rawValue :CheckBoxComponentGreenView()
     ]
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let currentGestationViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.38)

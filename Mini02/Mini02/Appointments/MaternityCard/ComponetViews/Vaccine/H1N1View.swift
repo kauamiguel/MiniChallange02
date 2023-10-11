@@ -35,8 +35,6 @@ class H1N1View: UIView{
     }()
 
     
-    let igDropDown = DropDownMenuComponent()
-    
     let h1N1subTitleLabel = LabelComponentView()
     
     

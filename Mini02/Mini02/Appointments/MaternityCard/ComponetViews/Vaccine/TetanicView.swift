@@ -37,8 +37,6 @@ class TetanicView: UIView{
     
     let tetanicLabel = LabelComponentView()
     
-    let igDropDown = DropDownMenuComponent()
-    
     let subTitleLabel = LabelComponentView()
     
     
