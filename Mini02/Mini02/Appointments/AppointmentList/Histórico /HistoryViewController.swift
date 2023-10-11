@@ -144,7 +144,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         routineData.edemaMenu.selectedOption = appointmentsInfo.routineData?.edema
         routineData.bcfMenu.selectedOption = String(Int(appointmentsInfo.routineData?.fetalHeartRate ?? 0) )
         routineData.uterineHeightMenu.selectedValue = Int(appointmentsInfo.routineData?.uterineHeightInCentimeters ?? 0)
-        routineData.wheightMenu.selectedValue = Int(appointmentsInfo.routineData?.weightAndBodyMassIndex ?? 0)
+        routineData.wheightMenu.selectedValue = Float(appointmentsInfo.routineData?.weightAndBodyMassIndex ?? 0)
         routineData.arterialPressureMenu.text = appointmentsInfo.routineData?.bloodPressureInmmHG ?? ""
         
         let views: [CellInfo] = [
