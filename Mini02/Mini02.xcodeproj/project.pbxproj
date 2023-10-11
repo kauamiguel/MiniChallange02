@@ -101,6 +101,7 @@
 		E8135C262ABE180300E722FA /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8135C252ABE180300E722FA /* RegisterViewModel.swift */; };
 		E81A267B2AD49BCC003A25E0 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A267A2AD49BCC003A25E0 /* NextButton.swift */; };
 		E81A267E2AD49BF1003A25E0 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A267D2AD49BF1003A25E0 /* RoundedTextField.swift */; };
+		E81A26842AD64681003A25E0 /* NumericPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A26832AD64681003A25E0 /* NumericPicker.swift */; };
 		E8E0D6492AC36F37003CE5CD /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6482AC36F37003CE5CD /* AboutView.swift */; };
 		E8E0D64B2AC36F41003CE5CD /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64A2AC36F41003CE5CD /* AboutViewController.swift */; };
 		E8E0D64D2AC36F55003CE5CD /* PregnantDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */; };
@@ -207,6 +208,7 @@
 		E8135C252ABE180300E722FA /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		E81A267A2AD49BCC003A25E0 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		E81A267D2AD49BF1003A25E0 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
+		E81A26832AD64681003A25E0 /* NumericPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericPicker.swift; sourceTree = "<group>"; };
 		E8E0D6482AC36F37003CE5CD /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		E8E0D64A2AC36F41003CE5CD /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnantDataView.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 		ABAD4F2C2ABD25E8007BEC32 /* ReusableUIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E81A26822AD64669003A25E0 /* NumericPicker */,
 				E81A267C2AD49BE3003A25E0 /* RoundedTextField */,
 				E81A26792AD49BBF003A25E0 /* NextButton */,
 				AB9D942C2AD0609A0064DB69 /* CustomSeparatorView.swift */,
@@ -589,6 +592,14 @@
 			path = RoundedTextField;
 			sourceTree = "<group>";
 		};
+		E81A26822AD64669003A25E0 /* NumericPicker */ = {
+			isa = PBXGroup;
+			children = (
+				E81A26832AD64681003A25E0 /* NumericPicker.swift */,
+			);
+			path = NumericPicker;
+			sourceTree = "<group>";
+		};
 		E8E0D6422AC36EDC003CE5CD /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -730,6 +741,7 @@
 				CE0BFA682AC7464C0053C2A6 /* RecurrenteDataViewModel.swift in Sources */,
 				ABAD4F4B2AC1A4AB007BEC32 /* PickerComponent.swift in Sources */,
 				CE8EE3462AC5F665000E89E1 /* PersonalBGModel.swift in Sources */,
+				E81A26842AD64681003A25E0 /* NumericPicker.swift in Sources */,
 				AB9D941C2ACC988B0064DB69 /* HeaderCell.swift in Sources */,
 				E8E0D64B2AC36F41003CE5CD /* AboutViewController.swift in Sources */,
 				ABC98BC12AB83C8D005214E5 /* TextField.swift in Sources */,
