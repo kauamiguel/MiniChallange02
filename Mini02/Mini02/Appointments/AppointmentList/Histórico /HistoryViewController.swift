@@ -53,6 +53,20 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         collectionView.backgroundColor = UIColor(red: 1.00, green: 0.96, blue: 0.96, alpha: 1.00)
         
         self.hidesBottomBarWhenPushed = true
+        // Create a custom UIButton with an image
+        let backButton = UIButton(type: .custom)
+        backButton.setImage(UIImage(named: "ChevronBackButton"), for: .normal)
+        backButton.addTarget(self, action: #selector(backToView), for: .touchUpInside)
+        let customBackButton = UIBarButtonItem(customView: backButton)
+        navigationItem.leftBarButtonItem = customBackButton
+        
+        let bgImage = UIImage(named: "backGroundRecurrentData")
+        if let image = bgImage{
+            self.view.backgroundColor = UIColor(patternImage: image)
+            self.collectionView.backgroundColor = UIColor(patternImage: image)
+        }
+        
+        self.hidesBottomBarWhenPushed = true
         
     }
     
@@ -123,18 +137,6 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     @IBAction func editButtonTapped(_ sender: UIButton) {
         isEditModeActive.toggle()
         collectionView.reloadData() // Reload the collection view to reflect the changes.
-    }
-    
-    // generic to add views
-    func addViews<T: UIView>(viewType: T.Type, viewSize: CGSize, viewID: String, viewQuery: String) {
-        if !cells.contains(where: { type(of: $0.view) == viewType }) {
-            let newView = viewType.init()
-            let newCellInfo = CellInfo(view: newView, size: viewSize, id: viewID, query: viewQuery)
-            cells.append(newCellInfo)
-            
-            self.collectionView.reloadData()
-            setupCollectionView()
-        }
     }
     
     func configureView(){
