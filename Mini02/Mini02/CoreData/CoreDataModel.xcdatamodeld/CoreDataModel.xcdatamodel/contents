@@ -99,6 +99,7 @@
         <attribute name="bloodPressureInmmHG" optional="YES" attributeType="String"/>
         <attribute name="edema" optional="YES" attributeType="String"/>
         <attribute name="fetalHeartRate" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ig" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="uterineHeightInCentimeters" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="weightAndBodyMassIndex" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="consult" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConsultEntity" inverseName="routineData" inverseEntity="ConsultEntity"/>

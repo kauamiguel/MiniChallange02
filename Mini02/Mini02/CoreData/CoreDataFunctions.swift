@@ -283,18 +283,22 @@ class CoreDataFunctions{
         let consult = ConsultEntity(context: context)
         
         //Create a routineData to assing to this consult
-        let routine = RoutineData(context: context)
-        routine.bloodPressureInmmHG = newConsult.routineData.bloodPressure
-        routine.edema = newConsult.routineData.edema
-        routine.fetalHeartRate = Int64(newConsult.routineData.fetalHeartHate)
-        routine.uterineHeightInCentimeters = Int64(newConsult.routineData.uterineHeight)
-        routine.weightAndBodyMassIndex = Float(newConsult.routineData.uterineHeight)
+        if let newroutine = newConsult.routineData{
+            let routine = RoutineData(context: context)
+            routine.bloodPressureInmmHG = newroutine.bloodPressure
+            routine.edema = newroutine.edema
+            routine.fetalHeartRate = Int64(newroutine.fetalHeartHate)
+            routine.uterineHeightInCentimeters = Int64(newroutine.uterineHeight)
+            routine.weightAndBodyMassIndex = Float(newroutine.uterineHeight)
+            routine.ig = Int64(newroutine.ig)
+            consult.routineData = routine
+        }
         
         //Assing some atributes to the consult owner
         consult.tremesteer = Int64(newConsult.trimesteer)
         consult.date = newConsult.date
         consult.consultId = Int64(newConsult.consultId)
-        consult.routineData = routine
+
         
         //Add a blood exam if it has
         if let blood = newConsult.bloodExams{

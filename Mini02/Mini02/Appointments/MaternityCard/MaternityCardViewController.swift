@@ -21,12 +21,13 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     private lazy var bloodView2 = BloodView2()
     private lazy var tetanicView = TetanicView()
     private lazy var hepatitisBView = HepatitisBView()
-    private lazy var  h1N1View = H1N1View()
+    private lazy var h1N1View = H1N1View()
     private lazy var ultrasoundView = UltrasoundView()
     private lazy var maternityVM = MaternityCardViewModel()
     
     //Variable to know wich treemester is, then we can track this consult after
-    var treemester : Int?
+    var treemester: Int?
+    var consult: Consulta?
     
     var cells: [CellInfo] = []
     
@@ -36,8 +37,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
-        self.treemester = treemester
-        
+
         cells = [
             CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id, query: routineData.query),
             CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id, query: familyAntecedentView.query),
@@ -47,11 +47,14 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id, query: currentGestationView.query),
             CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, query: clinicAntecedentsView.query)
         ]
-        
-
-        
+ 
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        
+        self.treemester = treemester
+        let consultID = maternityVM.createConsultID(treemesterNumber: self.treemester!)
+        self.consult = Consulta(consultId: consultID, date: Date(), trimesteer: self.treemester!)
+        
     }
     
     override func viewDidLoad() {
@@ -137,6 +140,11 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                 self?.openModal()
             }
             
+            footerView.tapSave = { [weak self] in
+                self?.saveData()
+            }
+
+
             return footerView
             
         default:
@@ -244,6 +252,24 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                 self.collectionView.deleteItems(at: [indexPath])
             }
         }
+    }
+    
+    func saveData(){
+        print("saved")
+         
+        let ig = Int(routineData.igMenu.selectedOption!)
+        let edema = routineData.edemaMenu.selectedOption
+        let fetalHeart = Int(routineData.bcfMenu.selectedOption!)
+        let uterine = Int(routineData.uterineHeightMenu.selectedOption!)
+        let weight = Float(routineData.wheightMenu.selectedOption!)
+        let bloodPressure = routineData.arterialPressureMenu.selectedOption
+        
+        let routine = RoutineDataModel(bloodPressure: bloodPressure!, edema: edema!, fetalHeartHate: fetalHeart!, uterineHeight: uterine!, weightAndBodyMassIndex: weight!, ig: ig!)
+        
+        if let addConsult = self.consult{
+            maternityVM.createNewConsult(consult: addConsult)
+        }
+        
     }
     
     
