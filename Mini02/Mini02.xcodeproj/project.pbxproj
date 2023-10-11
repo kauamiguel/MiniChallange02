@@ -58,6 +58,7 @@
 		ABC98BC42AB83EED005214E5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC32AB83EED005214E5 /* RegisterView.swift */; };
 		ABC98BC62AB83FD0005214E5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC52AB83FD0005214E5 /* RegisterViewController.swift */; };
 		ABEAE43E2AD64BA800B23221 /* ComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEAE43D2AD64BA800B23221 /* ComponentModel.swift */; };
+		ABEAE4422AD6E3C600B23221 /* HeaderForHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEAE4412AD6E3C600B23221 /* HeaderForHistory.swift */; };
 		ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */; };
 		ABFA04E72ABCBE0000D31DEA /* MaternityCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */; };
 		ABFA04ED2ABCCF7500D31DEA /* AppointmentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */; };
@@ -165,6 +166,7 @@
 		ABC98BC52AB83FD0005214E5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		ABD5E3F02AC4B20200855964 /* Mini02.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mini02.entitlements; sourceTree = "<group>"; };
 		ABEAE43D2AD64BA800B23221 /* ComponentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentModel.swift; sourceTree = "<group>"; };
+		ABEAE4412AD6E3C600B23221 /* HeaderForHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderForHistory.swift; sourceTree = "<group>"; };
 		ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardViewModel.swift; sourceTree = "<group>"; };
 		ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardModel.swift; sourceTree = "<group>"; };
 		ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListCell.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 		ABB82F102AC5FB96008B73AF /* Histórico  */ = {
 			isa = PBXGroup;
 			children = (
+				ABEAE4412AD6E3C600B23221 /* HeaderForHistory.swift */,
 				ABB82F122AC5FCF8008B73AF /* HistoryView.swift */,
 				6241A1632AC6212000C7921B /* HistoryViewController.swift */,
 				CE022BB02AD6741800946A42 /* HistoryViewModel.swift */,
@@ -778,6 +781,7 @@
 				6241A1642AC6212000C7921B /* HistoryViewController.swift in Sources */,
 				E81A267B2AD49BCC003A25E0 /* NextButton.swift in Sources */,
 				ABB82F132AC5FCF8008B73AF /* HistoryView.swift in Sources */,
+				ABEAE4422AD6E3C600B23221 /* HeaderForHistory.swift in Sources */,
 				E8E0D6492AC36F37003CE5CD /* AboutView.swift in Sources */,
 				ABC98BA22AB3F53D005214E5 /* AppointmentsView.swift in Sources */,
 				CE8EE3482AC5F690000E89E1 /* FamilyBGModel.swift in Sources */,

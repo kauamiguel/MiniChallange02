@@ -9,14 +9,11 @@ import Foundation
 
 
 enum labelTypeEnum {
-    case title
-    case subTitle
-    case medicText
-    case smallText
     case titleBold
     case titleSemiBold
     case titleRegular
     case inputLabel
+    case smallInputLabel
     case highlitedBody
     case description
 }
@@ -30,4 +27,5 @@ enum colorStyle {
     case secondaryColor
     case primaryText
     case secondaryText
+    case notQuiteWhite
 }

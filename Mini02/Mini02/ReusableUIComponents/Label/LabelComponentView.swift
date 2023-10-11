@@ -45,6 +45,8 @@ class LabelComponentView: UILabel{
             self.textColor = UIColor(red: 255/255, green: 133/255, blue: 148/255, alpha: 1)
         case .secondaryText:
             self.textColor = UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1)
+        case .notQuiteWhite:
+            self.textColor = UIColor(red: 0.97, green: 0.95, blue: 0.91, alpha: 1.00)
         default:
             self.textColor = .white
         }
@@ -52,18 +54,7 @@ class LabelComponentView: UILabel{
         
     private func configureLabelStyle() {
         switch labelType {
-        case .title:
-            self.font = UIFont.boldSystemFont(ofSize: UIScreen.main.bounds.height * 0.035)
-            
-        case .subTitle:
-            self.font = UIFont.systemFont(ofSize: 20)
-            
-        case .medicText:
-            self.font = UIFont.systemFont(ofSize: UIScreen.main.bounds.height * 0.02)
-            
-        case .smallText:
-            self.font = UIFont.systemFont(ofSize: UIScreen.main.bounds.height * 0.014)
-            
+       
         case .titleBold:
             self.font = UIFont(name: "Signika-Bold", size: 24)
             self.numberOfLines = 5
@@ -75,12 +66,15 @@ class LabelComponentView: UILabel{
         case .titleRegular:
             self.font = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.035)
             
-            
         case .inputLabel:
             self.font = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.02)
             
+        case .smallInputLabel:
+            self.font = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.018)
+            
         case .highlitedBody:
             self.font = UIFont(name: "Signika-Bold", size: 16)
+            
         case .description:
             self.font = UIFont(name: "Signika-Regular", size: 16)
             self.textAlignment = .center
