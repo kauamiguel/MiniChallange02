@@ -25,9 +25,12 @@ class HeaderForHistory: UICollectionReusableView {
     func setupview(){
         
         label.setupLabel(labelText: "teste \("1")", labelType: .titleBold, labelColor: .secondaryColor)
+        self.addSubview(label)
+        label.anchorWithMultiplayerValues(top: self.topAnchor)
         
-        self.addSubview(data)
+        
         data.setupLabel(labelText: "\("data")", labelType: .inputLabel, labelColor: .secondaryText)
+        self.addSubview(data)
     }
     
     required init?(coder: NSCoder) {

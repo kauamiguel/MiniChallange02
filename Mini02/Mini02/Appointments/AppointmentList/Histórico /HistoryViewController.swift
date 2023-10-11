@@ -81,11 +81,12 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
         
-        configureView()
-        
-        
+       
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        
+        familyAntecedentView.sections[AppointmentsKeys.hipertensao.rawValue]?.checked = true
+        configureView()
     }
     
     override func viewDidLoad() {
@@ -99,7 +100,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         
         self.hidesBottomBarWhenPushed = true
         
-        
+     
     }
     
     //Function of backButton
@@ -111,9 +112,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     func setupCollectionView(){
         
         cells.forEach { collectionView.register(MaternityCardCell.self, forCellWithReuseIdentifier: $0.id) }
-        collectionView.register(HeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCell.id)
-        collectionView.register(FooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterCell.id)
-        
+        collectionView.register(HeaderForHistory.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderForHistory.id)
         collectionView.reloadData()
     }
     
@@ -146,10 +145,8 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         switch kind {
             
         case UICollectionView.elementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.id, for: indexPath) as! HeaderCell
-            headerView.tapEditButtonClosure = { [weak self] in
-                self?.editButtonTapped(headerView.editButton)
-            }
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.id, for: indexPath) as! HeaderForHistory
+        
             return headerView
             
         default:
@@ -197,13 +194,13 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             
             
             //Set the data of familyAntecedents
-            familyAntecedentView.sections[AppointmentsKeys.hipertensao.rawValue]?.checked = pacient?.familyBG?.hypertension ?? false
+//            familyAntecedentView.sections[AppointmentsKeys.hipertensao.rawValue]?.checked = pacient?.familyBG?.hypertension ?? false
             familyAntecedentView.sections[AppointmentsKeys.diabetes.rawValue]?.checked = pacient?.familyBG?.diabetes ?? false
             familyAntecedentView.sections[AppointmentsKeys.cardiopatia.rawValue]?.checked = pacient?.familyBG?.heartCondition ?? false
             familyAntecedentView.sections[AppointmentsKeys.outro.rawValue]?.checked = pacient?.familyBG?.urinaryInfection ?? false
             
             //Adding the view familyAntecedent
-            addViews(viewType: FamilyAntecedentView.self, viewSize: familyAntecedentView.familyAntecedentViewSize, viewID: FamilyAntecedentView.id, viewQuery: familyAntecedentView.query)
+            cells.append(CellInfo(view: familyAntecedentView, size: familyAntecedentView.screenSize, id: FamilyAntecedentView.id, query: familyAntecedentView.query))
             
             
            
@@ -229,13 +226,12 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         
             
             //Assign the values of plannedView
-            plannedView.plannedCheckYES.checked = appointmentsInfo.pregnancyPlanning?.plannedPregnancy ?? false
+//            plannedView.plannedCheckYES.checked = appointmentsInfo.pregnancyPlanning?.plannedPregnancy ?? false
             
             //Assign the plannedView
             addViews(viewType: PlannedView.self, viewSize: plannedView.pregnancyRiskViewSize, viewID: PlannedView.id, viewQuery: plannedView.query)
             
-        
-            
+
             //Assign values of clinicalAntecedents
             clinicAntecedentsView.sections[AppointmentsKeys.urinary.rawValue]?.checked = pacient?.personalBG?.urinaryInfection ?? false
             clinicAntecedentsView.sections[AppointmentsKeys.hipertensao.rawValue]?.checked  = pacient?.personalBG?.hypertension ?? false
@@ -295,7 +291,6 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             if let ultrasound = appointmentsInfo.ultraSound{
                 addViews(viewType: UltrasoundView.self, viewSize: ultrasoundView.ultrasoundSize, viewID: UltrasoundView.id, viewQuery: ultrasoundView.query)
             }
-            
         }
     }
     

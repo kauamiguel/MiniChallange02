@@ -77,6 +77,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             plannedView.plannedCheckYES.checked = false
             plannedView.plannedCheckNO.checked = true
         }
+        
+        tetanicView.yesCheckYES.checked = true
     }
     
     //Function of backButton
