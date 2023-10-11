@@ -229,12 +229,12 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             }){
                 cells.append(view)
                 setupCollectionView()
+                
+                let lastItemIndexPath = IndexPath(item: collectionView!.self.numberOfItems(inSection: 0) - 1, section: 0)
+                            collectionView!.self.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
+                
             }
         }
-        
-        let lastItemIndexPath = IndexPath(item: collectionView!.self.numberOfItems(inSection: 0) - 1, section: 0)
-                    collectionView!.self.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
-        
     }
     
     @objc func addNewBloodViewCell(){
