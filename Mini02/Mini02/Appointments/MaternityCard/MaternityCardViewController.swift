@@ -7,6 +7,25 @@
 
 import UIKit
 
+enum AppointmentsKeys: String {
+    case hipertensao = "Hipertensão"
+    case diabetes = "Diabetes"
+    case cardiopatia = "Cardiopatia"
+    case urinary = "Infeccao Urinaria"
+    case fuma = "Fuma"
+    case outro = "Outro"
+    case unica = "Unica"
+    case gemelar = "Gemelar"
+    case triplaOuMais = "Tripla ou mais"
+    case ignorada = "Ignorada"
+    case riscoHabitual = "Risco habitual"
+    case altoRisco = "Alto Risco"
+    case consomeAlcool = "Consome alcool"
+    case outrasDrogas = "Outras Drogas"
+    case hivAids = "HIV/Aids"
+    case sifilis = "Sifilis"
+}
+
 class MaternityCardViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     
     
@@ -15,7 +34,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     private lazy var plannedView = PlannedView()
     private lazy var pregnancyTypeView = PregnancyTypeView()
     private lazy var familyAntecedentView = FamilyAntecedentView()
-    private lazy var currentGestationView = CurrentGestationView()
     private lazy var clinicAntecedentsView = ClinicAntecedentsView()
     private lazy var bloodView = BloodView()
     private lazy var bloodView2 = BloodView2()
@@ -44,7 +62,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id, query: pregnancyRiskView.query),
             CellInfo(view: pregnancyRiskView, size: pregnancyRiskView.pregnancyRiskViewSize, id: PregnancyRiskView.id, query: pregnancyRiskView.query),
             CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, query: plannedView.query),
-            CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id, query: currentGestationView.query),
             CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, query: clinicAntecedentsView.query)
         ]
  
@@ -77,6 +94,14 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         self.hidesBottomBarWhenPushed = true
         
+        //Adding the checked box logic
+        if plannedView.plannedCheckYES.checked{
+            plannedView.plannedCheckNO.checked = false
+            plannedView.plannedCheckNO.checked = false
+        }else{
+            plannedView.plannedCheckYES.checked = false
+            plannedView.plannedCheckNO.checked = true
+        }
     }
     
     //Function of backButton
@@ -219,7 +244,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         addViews(viewType: PregnancyTypeView.self, viewSize: pregnancyTypeView.pregnancyTypeViewSize, viewID: PregnancyTypeView.id, viewQuery: pregnancyRiskView.query)
         addViews(viewType: PregnancyRiskView.self, viewSize: pregnancyRiskView.pregnancyRiskViewSize, viewID: PregnancyRiskView.id, viewQuery: pregnancyRiskView.query)
         addViews(viewType: PlannedView.self, viewSize: plannedView.pregnancyRiskViewSize, viewID: PlannedView.id, viewQuery: plannedView.query)
-        addViews(viewType: CurrentGestationView.self, viewSize: currentGestationView.currentGestationViewSize, viewID: CurrentGestationView.id, viewQuery: currentGestationView.query)
         addViews(viewType: ClinicAntecedentsView.self, viewSize: clinicAntecedentsView.clinicAntecedentsViewSize, viewID: ClinicAntecedentsView.id, viewQuery: clinicAntecedentsView.query)
         
         // Add more view types as needed
@@ -270,32 +294,62 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         
         //Assign family BackGround
-        var hypertension = familyAntecedentView.sections["Hipertensão"]?.getBooleanValue()
-        var diabetes = familyAntecedentView.sections["Diabetes"]?.getBooleanValue()
-        var cardiopatia = familyAntecedentView.sections["Cardiopatia"]?.getBooleanValue()
-        var urinary = familyAntecedentView.sections["Outro"]?.getBooleanValue()
+        let hypertension = familyAntecedentView.sections[AppointmentsKeys.hipertensao.rawValue]?.getBooleanValue()
+        let diabetes = familyAntecedentView.sections[AppointmentsKeys.diabetes.rawValue]?.getBooleanValue()
+        let cardiopatia = familyAntecedentView.sections[AppointmentsKeys.cardiopatia.rawValue]?.getBooleanValue()
+        let urinary = familyAntecedentView.sections[AppointmentsKeys.outro.rawValue]?.getBooleanValue()
         
         var familyBg = FamilyBGModel()
-        familyBg.heartCondition = hypertension!
-        familyBg.diabetes = diabetes!
-        familyBg.heartCondition = cardiopatia!
-        familyBg.urinaryInfection = urinary!
+        familyBg.heartCondition = hypertension ?? false
+        familyBg.diabetes = diabetes ?? false
+        familyBg.heartCondition = cardiopatia ?? false
+        familyBg.urinaryInfection = urinary ?? false
         
         //Assign pregnancy typeView
-        let gemelar = pregnancyTypeView.section["Gemelar"]?.getBooleanValue()
-        let tripla = pregnancyTypeView.section["Tripla ou mais"]?.getBooleanValue()
-        let ignorada = pregnancyTypeView.section["Ignorada"]?.getBooleanValue()
-        let unique = pregnancyTypeView.section["Unica"]?.getBooleanValue()
+        let gemelar = pregnancyTypeView.section[AppointmentsKeys.gemelar.rawValue]?.getBooleanValue()
+        let tripla = pregnancyTypeView.section[AppointmentsKeys.triplaOuMais.rawValue]?.getBooleanValue()
+        let ignorada = pregnancyTypeView.section[AppointmentsKeys.ignorada.rawValue]?.getBooleanValue()
+        let unique = pregnancyTypeView.section[AppointmentsKeys.unica.rawValue]?.getBooleanValue()
         
         let pregnancyType = PregnancyClassificationModel(ignored: ignorada ?? false, singlePregnancy: unique ?? false, tripletsOrMorePregnancy: tripla ?? false, twinPregnancy: gemelar ?? false)
         
         self.consult?.pregnancyClassificationModel = pregnancyType
+        
+        //Assign risk pregnancy
+        let habitualRisk = pregnancyRiskView.section[AppointmentsKeys.riscoHabitual.rawValue]?.getBooleanValue()
+        let highRisk = pregnancyRiskView.section[AppointmentsKeys.altoRisco.rawValue]?.getBooleanValue()
+        
+        let riskPregnancy = PregnancyRiskModel(highRiskPregnancy: highRisk ?? false, lowRiskPregnancy: habitualRisk ?? false)
+        
+        self.consult?.riskPregnancy = riskPregnancy
+        
+        //Planned pregnancy
+        let pregnancyPlanned = plannedView.plannedCheckYES.getBooleanValue()
+        let planned = PregnancyPlanningModel(plannedPregnancy: pregnancyPlanned)
+        self.consult?.plannedPregnancy = planned
+        
+        //Add personal BG
+        var inffection = clinicAntecedentsView.sections[AppointmentsKeys.urinary.rawValue]?.getBooleanValue()
+        var hypertensionBg = clinicAntecedentsView.sections[AppointmentsKeys.hipertensao.rawValue]?.getBooleanValue()
+        var smokeBg = clinicAntecedentsView.sections[AppointmentsKeys.fuma.rawValue]?.getBooleanValue()
+        var cardiacBg = clinicAntecedentsView.sections[AppointmentsKeys.cardiopatia.rawValue]?.getBooleanValue()
+        var diabetesBg = clinicAntecedentsView.sections[AppointmentsKeys.diabetes.rawValue]?.getBooleanValue()
+        
+        var personalBg = PersonalBGModel()
+        personalBg.diabetes = diabetesBg ?? false
+        personalBg.urinaryInfection = inffection ?? false
+        personalBg.hypertension = hypertensionBg ?? false
+        personalBg.heartCondition = cardiacBg ?? false
+        personalBg.tabagism = smokeBg  ?? false
         
         if let addConsult = self.consult{
             maternityVM.createNewConsult(consult: addConsult)
             
             //Add familyBg
             maternityVM.coreDataManager.assignFamilylBG(familyBG: familyBg)
+            
+            //Add personalBg
+            maternityVM.coreDataManager.assignPersonalBG(personalBG: personalBg)
         }
         
     }

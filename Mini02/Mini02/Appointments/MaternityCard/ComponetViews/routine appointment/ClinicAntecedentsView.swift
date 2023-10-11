@@ -13,10 +13,10 @@ class ClinicAntecedentsView: UIView {
     let query = "antecedentes clinicos"
     let sections = [
         "Diabetes":CheckBoxComponentGreenView(),
-        "Consome Alcool":CheckBoxComponentGreenView(),
-        "Outras drogas":CheckBoxComponentGreenView(),
-        "HIV/Aids":CheckBoxComponentGreenView(),
-        "Sifilis":CheckBoxComponentGreenView()
+        "Fuma":CheckBoxComponentGreenView(),
+        "Hipertensão":CheckBoxComponentGreenView(),
+        "Cardiopatia":CheckBoxComponentGreenView(),
+        "Infeccao Urinaria":CheckBoxComponentGreenView()
     ]
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let clinicAntecedentsViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.38)
