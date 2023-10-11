@@ -14,10 +14,10 @@ class FamilyAntecedentView: UIView {
     let query = "antecedente familiar"
    
     let sections = [
-        "Hipertensão":CheckBoxComponentGreenView(),
-        "Diabetes":CheckBoxComponentGreenView(),
-        "Cardiopatia":CheckBoxComponentGreenView(),
-        "Outro":CheckBoxComponentGreenView()
+        AppointmentsKeys.hipertensao.rawValue:CheckBoxComponentGreenView(),
+        AppointmentsKeys.diabetes.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.cardiopatia.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.outro.rawValue :CheckBoxComponentGreenView()
     ]
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
