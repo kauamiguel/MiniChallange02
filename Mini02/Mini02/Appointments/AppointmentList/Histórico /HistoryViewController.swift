@@ -146,13 +146,12 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         routineData.igMenu.setPickerValue(to: Int(appointmentsInfo.routineData?.ig ?? 0))
         
         routineData.edemaMenu.selectedOption = appointmentsInfo.routineData?.edema ?? ""
-        routineData.bcfMenu.selectedOption = String(Int(appointmentsInfo.routineData?.fetalHeartRate ?? 0) )
+        routineData.bcfMenu.selectedOption = appointmentsInfo.routineData?.bcf ?? ""
         
         routineData.uterineHeightMenu.selectedValue = Int(appointmentsInfo.routineData?.uterineHeightInCentimeters ?? 0)
         routineData.uterineHeightMenu.setPickerValue(to: Int(appointmentsInfo.routineData?.uterineHeightInCentimeters ?? 0))
         
-        routineData.wheightMenu.selectedValue = Float(appointmentsInfo.routineData?.weightAndBodyMassIndex ?? 0)
-        routineData.wheightMenu.setPickerValue(to: Float(appointmentsInfo.routineData?.weightAndBodyMassIndex ?? 0))
+        routineData.wheightMenu.setPickerValue(to: appointmentsInfo.routineData?.weightAndBodyMassIndex ?? 0)
         
         routineData.arterialPressureMenu.text = appointmentsInfo.routineData?.bloodPressureInmmHG ?? ""
         
@@ -266,6 +265,8 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 bloodView.glicemiaMenu.selectedValue = Int(appointmentsInfo.bloodExam?.glucose ?? 0)
                 bloodView.glicemiaMenu.setPickerValue(to: Int(appointmentsInfo.bloodExam?.glucose ?? 0))
                 
+                bloodView2.vdrlMenu.selectedOption = appointmentsInfo.bloodExam?.vdrlExam ?? ""
+                
                 
                 let views: [CellInfo] = [
                     CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
@@ -322,6 +323,8 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 
                 bloodView.glicemiaMenu.selectedValue = Int(appointmentsInfo.bloodExam?.glucose ?? 0)
                 bloodView.glicemiaMenu.setPickerValue(to: Int(appointmentsInfo.bloodExam?.glucose ?? 0))
+                
+                bloodView2.vdrlMenu.selectedOption = appointmentsInfo.bloodExam?.vdrlExam ?? ""
                 
                 let views: [CellInfo] = [
                     CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),

@@ -11,8 +11,9 @@ import Foundation
 struct RoutineDataModel{
     var bloodPressure : String
     var edema : String
-    var fetalHeartHate :Int
+    var fetalHeartHate : Int
     var uterineHeight : Int
     var weightAndBodyMassIndex : Float
     var ig : Int
+    var bcf : String
 }

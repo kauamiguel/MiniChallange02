@@ -292,7 +292,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         let bloodPressure = routineData.arterialPressureMenu.text ?? ""
         
         //Mudar o fetalHeart no CoreData para ser string
-        let routine = RoutineDataModel(bloodPressure: bloodPressure , edema: edema , fetalHeartHate: 0, uterineHeight: uterine , weightAndBodyMassIndex: Float(weight ), ig: ig )
+        let routine = RoutineDataModel(bloodPressure: bloodPressure , edema: edema , fetalHeartHate: 0, uterineHeight: uterine , weightAndBodyMassIndex: weight, ig: ig, bcf: fetalHeart)
         self.consult?.routineData = routine
         
         //Check wheter is first Appointment because some data will be get just there
@@ -355,19 +355,20 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             for cell in cells{
                 if cell.id == BloodView.id{
-                    //Add bloodExam
+                    let bloodType = bloodView.aboMenu.selectedOption
 
-                    let bloodType = bloodView.aboMenu.selectedOption 
                     let igm = bloodView2.igmCheckYES.getBooleanValue()
                     let igg = bloodView2.iggCheckYES.getBooleanValue()
                     let hiv = bloodView2.hivCheckYES.getBooleanValue()
-                    let urea = bloodView.ureiaMenu.numberOptions
-                    let ht = bloodView.htMenu.numberOptions.first ?? 0
+                    let urea = bloodView.ureiaMenu.selectedValue
+                    let ht = bloodView.htMenu.selectedValue
                     let leucocitos = Int(bloodView.leucocitosMenu.selectedValue)
                     let plaquetas = Int(bloodView.plaquetasMenu.selectedValue)
                     let gliecmia = Int(bloodView.glicemiaMenu.selectedValue)
+                    let vdrl = bloodView2.vdrlMenu.selectedOption
                     
-                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: urea.first ?? 0, dL: Float(urea.first ?? 0)), creatine: 0, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
+                    
+                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: vdrl , urea: .init(mg: urea, dL: Float(urea)), creatine: 0, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
                     
                     self.consult?.bloodExams = blood
                     break
@@ -413,6 +414,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                 
             }
             
+            //Save the current consult
             if let addConsult = self.consult{
                 
                 maternityVM.createNewConsult(consult: addConsult)
@@ -421,7 +423,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             //IF it is not the first appointment
         }else{
-            
             
             for cell in cells{
                 if cell.id == BloodView.id{
@@ -438,9 +439,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     let leucocitos = Int(bloodView.leucocitosMenu.selectedValue)
                     let plaquetas = Int(bloodView.plaquetasMenu.selectedValue)
                     let gliecmia = Int(bloodView.glicemiaMenu.selectedValue)
+                    let vdrl = bloodView2.vdrlMenu.selectedOption
                     
                     
-                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: urea, dL: Float(urea)), creatine: 0, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
+                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: vdrl, urea: .init(mg: urea, dL: Float(urea)), creatine: 0, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
                     
                     self.consult?.bloodExams = blood
                     break
@@ -486,6 +488,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                 }
             }
             
+            //Saving the current consult
             if let addConsult = self.consult{
                 
                 maternityVM.createNewConsult(consult: addConsult)

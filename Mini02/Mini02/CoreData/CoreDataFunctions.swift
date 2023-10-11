@@ -237,7 +237,7 @@ class CoreDataFunctions{
         newExame.bloodType = bloodExam.bloodType.rawValue
         newExame.creatine = bloodExam.creatine
         newExame.hiv = bloodExam.hiv
-        newExame.vdrlExam = bloodExam.vdrl.rawValue
+        newExame.vdrlExam = bloodExam.vdrl
         newExame.ht = bloodExam.ht
         newExame.hb = bloodExam.hb
         newExame.whiteCells = Int64(bloodExam.whiteCells)
@@ -288,8 +288,9 @@ class CoreDataFunctions{
             routine.edema = newroutine.edema
             routine.fetalHeartRate = Int64(newroutine.fetalHeartHate)
             routine.uterineHeightInCentimeters = Int64(newroutine.uterineHeight)
-            routine.weightAndBodyMassIndex = Float(newroutine.uterineHeight)
+            routine.weightAndBodyMassIndex = newroutine.weightAndBodyMassIndex
             routine.ig = Int64(newroutine.ig)
+            routine.bcf = newroutine.bcf
             consult.routineData = routine
         }
         
