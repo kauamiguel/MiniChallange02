@@ -147,6 +147,8 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         routineData.wheightMenu.selectedValue = Int(appointmentsInfo.routineData?.weightAndBodyMassIndex ?? 0)
         routineData.arterialPressureMenu.text = appointmentsInfo.routineData?.bloodPressureInmmHG ?? ""
         
+        
+        
         let views: [CellInfo] = [
             CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id, query: routineData.query)
         ]
@@ -180,7 +182,6 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             
             //Assign the values of plannedView
             plannedView.plannedCheckYES.checked = appointmentsInfo.pregnancyPlanning?.plannedPregnancy ?? false
-            
             
 
             //Assign values of clinicalAntecedents

@@ -20,9 +20,6 @@ class PullDownComponent: UIButton {
         self.layer.cornerRadius = 6
         self.titleLabel?.font = UIFont(name: "Signika-Regular", size: 16)
         var menuActions: [UIAction] = []
-        self.setTitle(selectedOption, for: .normal)
-        
-        self.setTitle(selectedOption, for: .normal)
         
         for title in options {
             let action = UIAction(title: title, handler: { [weak self] action in

@@ -329,7 +329,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             //Add personalBg
             maternityVM.coreDataManager.assignPersonalBG(personalBG: personalBg)
             
-            
             for cell in cells{
                 if cell.id == BloodView.id{
                     //Add bloodExam
@@ -348,7 +347,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     // FIX ME : Arrumar o Creatine para o valor selecionado no picker
                     // FIX ME : Arrumar o hb na view
                     // FIX ME : WhiteCell mudar pra inteiro na view
-                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: 10, dL: 12.1), creatine: 1.1, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
+                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: urea.first ?? 0, dL: Float(urea.first ?? 0)), creatine: 0, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
                     
                     self.consult?.bloodExams = blood
                     break
@@ -370,7 +369,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     // FIX ME : Arrumar a data do ultrasound pois na View nao tem como pegar a data
                     // FIX ME : Arrumar o valor da posicao Fetal na View
                     // FIX ME : Arrumar o valor da placenta na View
-                    let ultrassound = UltrasoundExam(date: Date(), consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), ILA: 0, weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
+                    let ultrassound = UltrasoundExam(date: date, consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), ILA: 0, weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
                     
                     self.consult?.ultraSoundExams = ultrassound
                     break
@@ -425,7 +424,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     // FIX ME : Arrumar o Creatine para o valor selecionado no picker
                     // FIX ME : Arrumar o hb na view
                     // FIX ME : WhiteCell mudar pra inteiro na view
-                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: 10, dL: 12.1), creatine: 1.1, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
+                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: urea.first ?? 0, dL: Float(urea.first ?? 0)), creatine: 0, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
                     
                     self.consult?.bloodExams = blood
                     break
