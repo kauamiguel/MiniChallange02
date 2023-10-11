@@ -81,9 +81,9 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
         let view = HistoryViewController()
         
         //Gets the data related to that row
-        if let consult = appointmentVM?.consults{
-            view.appointmentsInfo = consult[indexPath.row]
-        }
+//        if let consult = appointmentVM?.consults{
+//            view.appointmentsInfo = consult[indexPath.row]
+//        }
         
         //Pushes the new view
         parent.navigationController?.pushViewController(view, animated: true)

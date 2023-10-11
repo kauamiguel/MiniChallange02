@@ -66,17 +66,17 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     private lazy var maternityVM = MaternityCardViewModel()
     
     //Variable to know wich treemester is, then we can track this consult after
-    var treemester : Int?
+//    var treemester : Int?
     
     var cells: [CellInfo] = []
     
     private var vm = MaternityCardViewModel()
     
-    init(treemester : Int){
+    init(/*treemester : Int*/){
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
-        self.treemester = treemester
+//        self.treemester = treemester
         
         cells = [
             CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id, query: routineData.query),
@@ -95,7 +95,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     }
     
     override func viewDidLoad() {
-        print(maternityVM.createConsultID(treemesterNumber: self.treemester!))
+//        print(maternityVM.createConsultID(treemesterNumber: self.treemester!))
         
         setupCollectionView()
         collectionView.isEditing = true
