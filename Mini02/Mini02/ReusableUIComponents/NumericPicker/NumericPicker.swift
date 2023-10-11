@@ -42,7 +42,6 @@ class NumericPicker: UIPickerView {
     }
     
     
-    
     private func generateNumbersBetween(_ start: Int, _ end: Int, _ interval: Int) -> [Int] {
         if start == end || start > end || interval <= 0 {
             return []
