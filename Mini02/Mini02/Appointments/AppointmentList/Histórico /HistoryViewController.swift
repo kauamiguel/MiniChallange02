@@ -77,18 +77,9 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
 //        self.treemester = treemester
-        
-        cells = [
-            CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id, query: routineData.query),
-            CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id, query: familyAntecedentView.query),
-            CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id, query: pregnancyRiskView.query),
-            CellInfo(view: pregnancyRiskView, size: pregnancyRiskView.pregnancyRiskViewSize, id: PregnancyRiskView.id, query: pregnancyRiskView.query),
-            CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, query: plannedView.query),
-            CellInfo(view: currentGestationView, size: currentGestationView.currentGestationViewSize, id: CurrentGestationView.id, query: currentGestationView.query),
-            CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, query: clinicAntecedentsView.query)
-        ]
-        
 
+        
+            addNewDefaultViewCell()
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
@@ -191,9 +182,6 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             
             self.collectionView.reloadData()
             setupCollectionView()
-            
-            let lastItemIndexPath = IndexPath(item: cells.count - 1, section: 0)
-            collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
         }
     }
     
