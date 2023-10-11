@@ -36,6 +36,7 @@ struct UltrasoundExam{
     var consultNumber : Int
     var ig: IdadeGestacional
     var ILA:Int
+    var gestacionalAge : Int
     
     var weight:Float // The weight of the baby
     

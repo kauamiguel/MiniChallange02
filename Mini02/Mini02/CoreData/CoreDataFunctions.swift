@@ -267,6 +267,8 @@ class CoreDataFunctions{
         ultraSoundModel.fetalPosition = ultraSound.fetalPosition.rawValue
         ultraSoundModel.consultNumber = Int64(ultraSound.consultNumber)
         ultraSoundModel.date = ultraSound.date
+        ultraSoundModel.gestacionalAge = Int64(ultraSound.gestacionalAge)
+        ultraSoundModel.ila = Int64(ultraSound.ILA)
         
         //Assign the relationChip of each class
         ultraSoundModel.idadeGestacional = idadeGestacional

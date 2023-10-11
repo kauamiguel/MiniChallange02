@@ -243,6 +243,16 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             // FIX ME : Adicionar o exame de sangue e ultrason na tela
             if let blood = appointmentsInfo.bloodExam{
                    
+                bloodView.aboMenu.selectedOption = appointmentsInfo.bloodExam?.bloodType
+                bloodView2.igmCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igm ?? false
+                bloodView2.iggCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igg ?? false
+                bloodView2.hivCheckYES.checked = appointmentsInfo.bloodExam?.hiv ?? false
+                bloodView.ureiaMenu.selectedValue = Int(appointmentsInfo.bloodExam?.urea?.mg ?? 0)
+                bloodView.htMenu.selectedValue = Int(appointmentsInfo.bloodExam?.ht ?? 0)
+                bloodView.leucocitosMenu.selectedValue = Int(appointmentsInfo.bloodExam?.whiteCells ?? 0)
+                bloodView.plaquetasMenu.selectedValue = Int(appointmentsInfo.bloodExam?.platelets ?? 0)
+                bloodView.glicemiaMenu.selectedValue = Int(appointmentsInfo.bloodExam?.glucose ?? 0)
+                
                 let views: [CellInfo] = [
                     CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
                     CellInfo(view: bloodView2, size: bloodView2.bloodView2size, id: BloodView2.id, query: bloodView2.query)
@@ -253,6 +263,14 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             }
             
             if let ultrasound = appointmentsInfo.ultraSound{
+                
+                ultrasoundView.dataMenu.date = appointmentsInfo.ultraSound?.date ?? Date()
+                ultrasoundView.igMenu.selectedValue = Int(appointmentsInfo.ultraSound?.gestacionalAge ?? 0)
+                ultrasoundView.pesoMenu.selectedValue = Int(appointmentsInfo.ultraSound?.weight ?? 0)
+                ultrasoundView.placentaMenu.selectedOption = appointmentsInfo.ultraSound?.placenta
+                ultrasoundView.apresentacaoFetalMenu.selectedOption = appointmentsInfo.ultraSound?.fetalPosition
+                ultrasoundView.ilaMenu.selectedValue = Int(appointmentsInfo.ultraSound?.ila ?? 0)
+                
                 let views: [CellInfo] = [
                     CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundSize, id: UltrasoundView.id, query: ultrasoundView.query),
                 ]
@@ -261,6 +279,16 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             }
         }else{
             if let blood = appointmentsInfo.bloodExam{
+                bloodView.aboMenu.selectedOption = appointmentsInfo.bloodExam?.bloodType
+                bloodView2.igmCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igm ?? false
+                bloodView2.iggCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igg ?? false
+                bloodView2.hivCheckYES.checked = appointmentsInfo.bloodExam?.hiv ?? false
+                bloodView.ureiaMenu.selectedValue = Int(appointmentsInfo.bloodExam?.urea?.mg ?? 0)
+                bloodView.htMenu.selectedValue = Int(appointmentsInfo.bloodExam?.ht ?? 0)
+                bloodView.leucocitosMenu.selectedValue = Int(appointmentsInfo.bloodExam?.whiteCells ?? 0)
+                bloodView.plaquetasMenu.selectedValue = Int(appointmentsInfo.bloodExam?.platelets ?? 0)
+                bloodView.glicemiaMenu.selectedValue = Int(appointmentsInfo.bloodExam?.glucose ?? 0)
+                
                 let views: [CellInfo] = [
                     CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
                     CellInfo(view: bloodView2, size: bloodView2.bloodView2size, id: BloodView2.id, query: bloodView2.query)
@@ -270,6 +298,14 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             }
             
             if let ultrasound = appointmentsInfo.ultraSound{
+                
+                ultrasoundView.dataMenu.date = appointmentsInfo.ultraSound?.date ?? Date()
+                ultrasoundView.igMenu.selectedValue = Int(appointmentsInfo.ultraSound?.gestacionalAge ?? 0)
+                ultrasoundView.pesoMenu.selectedValue = Int(appointmentsInfo.ultraSound?.weight ?? 0)
+                ultrasoundView.placentaMenu.selectedOption = appointmentsInfo.ultraSound?.placenta
+                ultrasoundView.apresentacaoFetalMenu.selectedOption = appointmentsInfo.ultraSound?.fetalPosition
+                ultrasoundView.ilaMenu.selectedValue = Int(appointmentsInfo.ultraSound?.ila ?? 0)
+                
                 let views: [CellInfo] = [
                     CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundSize, id: UltrasoundView.id, query: ultrasoundView.query),
                 ]
