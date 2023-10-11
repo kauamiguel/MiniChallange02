@@ -26,6 +26,7 @@ class NumericPicker: UIPickerView {
         layer.cornerRadius = 8
         delegate = self
         dataSource = self
+        subviews.first?.subviews.last?.backgroundColor = .red
         if let startValue {
             guard numberOptions.contains(startValue), let index = numberOptions.firstIndex(where: { $0 == startValue})
             else {
@@ -70,6 +71,8 @@ extension NumericPicker: UIPickerViewDelegate, UIPickerViewDataSource {
         self.selectedValue = numberOptions[row]
     }
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        pickerView.subviews.forEach { $0.backgroundColor = .clear }
+        
         let label = UILabel()
         label.font = UIFont(name: "Signika-Regular", size: 18)
         label.text = String(numberOptions[row])
