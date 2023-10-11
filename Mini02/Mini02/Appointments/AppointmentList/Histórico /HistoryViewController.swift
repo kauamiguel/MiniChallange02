@@ -8,34 +8,34 @@
 import UIKit
 
 //class HistoryViewController: UIViewController {
-//    
+//
 //    //Variable with the info of the current consult
 
-//    
+//
 //    let testview: UIView = {
 //        let view = UIView()
 //        view.backgroundColor = .black
 //        return view
 //    }()
-//    
+//
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //        let newView = HistoryView()
 //        let dateFormatter = DateFormatter()
-//        
+//
 //        newView.controller = self
 //        dateFormatter.dateFormat = "dd/MM/yy"
 //        if let date = appointmentsInfo?.date{
 //            newView.dateLabel.text = dateFormatter.string(from: date)
 //        }
-//        
+//
 //        newView.titleLabel.text = "Informacoes da consulta \(appointmentsInfo!.consultId)"
-//        
-//        
+//
+//
 //        newView.setupView()
-//        
+//
 //        testview.anchorWithConstantValues(top: self.view.topAnchor, width: 200, height: 200)
-//     
+//
 //    }
 //}
 
@@ -66,7 +66,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     private lazy var maternityVM = MaternityCardViewModel()
     var appointmentsInfo: ConsultEntity?
     //Variable to know wich treemester is, then we can track this consult after
-
+    
     
     var cells: [CellInfo] = []
     
@@ -76,15 +76,14 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
-
-        addNewDefaultViewCell()
+        
+        constructView()
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
     }
     
     override func viewDidLoad() {
-//        print(maternityVM.createConsultID(treemesterNumber: self.treemester!))
         
         setupCollectionView()
         collectionView.isEditing = true
@@ -95,6 +94,28 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         
         self.hidesBottomBarWhenPushed = true
         
+    }
+    
+    func constructView(){
+        
+        cells.append(CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id, query: routineData.query))
+        
+        if appointmentsInfo?.tremesteer == 1 && appointmentsInfo?.consultId == 1{
+            addViews(viewType: FamilyAntecedentView.self, viewSize: familyAntecedentView.familyAntecedentViewSize, viewID: FamilyAntecedentView.id, viewQuery: familyAntecedentView.query)
+            addViews(viewType: PregnancyTypeView.self, viewSize: pregnancyTypeView.pregnancyTypeViewSize, viewID: PregnancyTypeView.id, viewQuery: pregnancyRiskView.query)
+            addViews(viewType: PregnancyRiskView.self, viewSize: pregnancyRiskView.pregnancyRiskViewSize, viewID: PregnancyRiskView.id, viewQuery: pregnancyRiskView.query)
+            addViews(viewType: PlannedView.self, viewSize: plannedView.pregnancyRiskViewSize, viewID: PlannedView.id, viewQuery: plannedView.query)
+            addViews(viewType: ClinicAntecedentsView.self, viewSize: clinicAntecedentsView.clinicAntecedentsViewSize, viewID: ClinicAntecedentsView.id, viewQuery: clinicAntecedentsView.query)
+        }else{
+            if let blood = appointmentsInfo?.bloodExam{
+                addViews(viewType: BloodView.self, viewSize: bloodView.bloodViewViewSize, viewID: BloodView.id, viewQuery: bloodView.query)
+                addViews(viewType: BloodView2.self, viewSize: bloodView2.bloodView2size, viewID: BloodView2.id, viewQuery: bloodView2.query)
+            }
+            
+            if let ultrasound = appointmentsInfo?.ultraSound{
+                addViews(viewType: UltrasoundView.self, viewSize: ultrasoundView.ultrasoundSize, viewID: UltrasoundView.id, viewQuery: ultrasoundView.query)
+            }
+        }
     }
     
     //Function of backButton
@@ -121,10 +142,10 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cells[indexPath.row].id, for: indexPath) as? MaternityCardCell else { return UICollectionViewCell() }
         cell.setUpcell(view: cells[indexPath.row].view)
-       
+        
         let zPosition = CGFloat(cells.count - indexPath.row)
-            cell.layer.zPosition = zPosition
-                
+        cell.layer.zPosition = zPosition
+        
         collectionView.addSubview(cell)
         
         cell.isEditModeActive = isEditModeActive
@@ -156,13 +177,13 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         // Return the desired size for the header
         return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.17)
     }
-        
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         
     }
-
+    
     
     var isEditModeActive = false
     

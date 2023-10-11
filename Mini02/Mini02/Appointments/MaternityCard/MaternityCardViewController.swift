@@ -372,7 +372,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         // FIX ME : Ajustar as doses das vacinas na view que nÃo existem
         let vaccine = Vaccines(hepatiteB: [DoseVaccines(date: Date(), isVaccined: antitetanic, numberOfDose: 1)], influenza: DoseVaccines(date: Date(), isVaccined: influenza, numberOfDose: 1), antitetanic: [DoseVaccines(date: Date(), isVaccined: hepatite, numberOfDose: 1)])
         
-        
         if let addConsult = self.consult{
             
             maternityVM.createNewConsult(consult: addConsult)
