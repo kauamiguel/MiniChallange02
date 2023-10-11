@@ -25,10 +25,10 @@ class UltrasoundView: UIView {
     let contentBackGround: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 25
-        view.backgroundColor = UIColor(red: 1.00, green: 0.97, blue: 0.97, alpha: 1.00)
+        view.backgroundColor = UIColor(red: 1.00, green: 0.95, blue: 0.98, alpha: 1.00)
         
         view.layer.borderWidth = 1 // Adjust the width as needed
-        view.layer.borderColor = UIColor(red: 0.23, green: 0.65, blue: 0.73, alpha: 1.00).cgColor // Change color as needed
+        view.layer.borderColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00).cgColor // Change color as needed
         
         return view
     }()
