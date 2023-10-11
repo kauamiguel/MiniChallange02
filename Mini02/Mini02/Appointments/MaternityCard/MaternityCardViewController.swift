@@ -62,14 +62,14 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         let backButton = UIButton(type: .custom)
         backButton.setImage(UIImage(named: "ChevronBackButton"), for: .normal)
         backButton.addTarget(self, action: #selector(backToView), for: .touchUpInside)
-        
-        // Create a UIBarButtonItem with the custom UIButton as the custom view
         let customBackButton = UIBarButtonItem(customView: backButton)
-        
-        // Set the custom UIBarButtonItem as the back button for the navigation item
         navigationItem.leftBarButtonItem = customBackButton
         
-        collectionView.backgroundColor = UIColor(red: 1.00, green: 0.96, blue: 0.96, alpha: 1.00)
+        let bgImage = UIImage(named: "backGroundRecurrentData")
+        if let image = bgImage{
+            self.view.backgroundColor = UIColor(patternImage: image)
+            self.collectionView.backgroundColor = UIColor(patternImage: image)
+        }
         
         self.hidesBottomBarWhenPushed = true
         

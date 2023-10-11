@@ -27,7 +27,11 @@ class ListView: UIView {
         }
         
         //UI view settings
-        vc.view.backgroundColor = UIColor(red: 1.00, green: 0.96, blue: 0.96, alpha: 1.00)
+        let bgImage = UIImage(named: "backGroundRecurrentData")
+        if let image = bgImage {
+            vc.view.backgroundColor = UIColor(patternImage: image)
+            tableController.view.backgroundColor = UIColor(patternImage: image)
+        }
         
         // Add List to the view
         vc.view.addSubview(list)
