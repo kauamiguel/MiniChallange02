@@ -69,15 +69,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         self.hidesBottomBarWhenPushed = true
         
-        //Adding the checked box logic
-        if plannedView.plannedCheckYES.checked{
-            plannedView.plannedCheckNO.checked = false
-        }else{
-            plannedView.plannedCheckYES.checked = false
-            plannedView.plannedCheckNO.checked = true
-        }
-        
-
     }
     
     //Function of backButton
@@ -141,6 +132,18 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         return cells[indexPath.row].size
     }
     
+    private lazy var confirmAlert:  UIAlertController =  {
+        let alert = UIAlertController(title: "Tem certeza que deseja salvar consulta?", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        let saveBtn = UIAlertAction(title: "Salvar", style: .default, handler: {
+            [weak self] _ in
+            self?.saveData()
+            self?.navigationController?.popViewController(animated: true)
+        })
+        alert.addAction(saveBtn)
+        return alert
+    }()
+    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
             
@@ -159,7 +162,9 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             }
             
             footerView.tapSave = { [weak self] in
-                self?.saveData()
+                if let confirm = self?.confirmAlert {
+                    self?.present(confirm, animated: true)
+                }
             }
             
             
@@ -251,9 +256,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         addNewView(views: views)
     }
-    
-    
-    
+
     
     func deleteButtonTapped(cell: MaternityCardCell) {
         if let indexPath = collectionView.indexPath(for: cell) {
@@ -270,134 +273,230 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     }
     
     func saveData(){
-        print("saved")
         
         //Adding routines
         let ig = Int(routineData.igMenu.getPickerValue())
         let edema = routineData.edemaMenu.selectedOption
-        let fetalHeart = Int(routineData.bcfMenu.selectedOption ?? "0")
+        let fetalHeart = routineData.bcfMenu.selectedOption ?? ""
         let uterine = Int(routineData.uterineHeightMenu.getPickerValue())
         let weight = routineData.wheightMenu.getPickerValue()
         let bloodPressure = routineData.arterialPressureMenu.text ?? ""
         
-        let routine = RoutineDataModel(bloodPressure: bloodPressure , edema: edema ?? "", fetalHeartHate: fetalHeart ?? 0, uterineHeight: uterine , weightAndBodyMassIndex: Float(weight ), ig: ig )
+        //Mudar o fetalHeart no CoreData para ser string
+        let routine = RoutineDataModel(bloodPressure: bloodPressure , edema: edema ?? "", fetalHeartHate: 0, uterineHeight: uterine , weightAndBodyMassIndex: Float(weight ), ig: ig )
         self.consult?.routineData = routine
         
-        
-        //Assign family BackGround
-        let hypertension = familyAntecedentView.sections[AppointmentsKeys.hipertensao.rawValue]?.getBooleanValue()
-        let diabetes = familyAntecedentView.sections[AppointmentsKeys.diabetes.rawValue]?.getBooleanValue()
-        let cardiopatia = familyAntecedentView.sections[AppointmentsKeys.cardiopatia.rawValue]?.getBooleanValue()
-        let urinary = familyAntecedentView.sections[AppointmentsKeys.outro.rawValue]?.getBooleanValue()
-        
-        var familyBg = FamilyBGModel()
-        familyBg.heartCondition = hypertension ?? false
-        familyBg.diabetes = diabetes ?? false
-        familyBg.heartCondition = cardiopatia ?? false
-        familyBg.urinaryInfection = urinary ?? false
-        //Add familyBg
-        maternityVM.coreDataManager.assignFamilylBG(familyBG: familyBg)
-        
-        //Assign pregnancy typeView
-        let gemelar = pregnancyTypeView.section[AppointmentsKeys.gemelar.rawValue]?.getBooleanValue()
-        let tripla = pregnancyTypeView.section[AppointmentsKeys.triplaOuMais.rawValue]?.getBooleanValue()
-        let ignorada = pregnancyTypeView.section[AppointmentsKeys.ignorada.rawValue]?.getBooleanValue()
-        let unique = pregnancyTypeView.section[AppointmentsKeys.unica.rawValue]?.getBooleanValue()
-        
-        let pregnancyType = PregnancyClassificationModel(ignored: ignorada ?? false, singlePregnancy: unique ?? false, tripletsOrMorePregnancy: tripla ?? false, twinPregnancy: gemelar ?? false)
-        
-        self.consult?.pregnancyClassificationModel = pregnancyType
-        
-        //Assign risk pregnancy
-        let habitualRisk = pregnancyRiskView.section[AppointmentsKeys.riscoHabitual.rawValue]?.getBooleanValue()
-        let highRisk = pregnancyRiskView.section[AppointmentsKeys.altoRisco.rawValue]?.getBooleanValue()
-        
-        let riskPregnancy = PregnancyRiskModel(highRiskPregnancy: highRisk ?? false, lowRiskPregnancy: habitualRisk ?? false)
-        
-        self.consult?.riskPregnancy = riskPregnancy
-        
-        //Planned pregnancy
-        let pregnancyPlanned = plannedView.plannedCheckYES.getBooleanValue()
-        let planned = PregnancyPlanningModel(plannedPregnancy: pregnancyPlanned)
-        self.consult?.plannedPregnancy = planned
-        
-        //Add personal BG
-        let inffection = clinicAntecedentsView.sections[AppointmentsKeys.urinary.rawValue]?.getBooleanValue()
-        let hypertensionBg = clinicAntecedentsView.sections[AppointmentsKeys.hipertensao.rawValue]?.getBooleanValue()
-        let smokeBg = clinicAntecedentsView.sections[AppointmentsKeys.fuma.rawValue]?.getBooleanValue()
-        let cardiacBg = clinicAntecedentsView.sections[AppointmentsKeys.cardiopatia.rawValue]?.getBooleanValue()
-        let diabetesBg = clinicAntecedentsView.sections[AppointmentsKeys.diabetes.rawValue]?.getBooleanValue()
-        
-        var personalBg = PersonalBGModel()
-        personalBg.diabetes = diabetesBg ?? false
-        personalBg.urinaryInfection = inffection ?? false
-        personalBg.hypertension = hypertensionBg ?? false
-        personalBg.heartCondition = cardiacBg ?? false
-        personalBg.tabagism = smokeBg  ?? false
-        //Add personalBg
-        maternityVM.coreDataManager.assignPersonalBG(personalBG: personalBg)
-        
-        //Add bloodExam
-        // FIX ME : Arrumar os dropDowns do exame de sangue pois não esta retornando valor
-        let bloodType = bloodView.aboMenu.selectedOption ?? ""
-        let igm = bloodView2.igmCheckYES.getBooleanValue()
-        let igg = bloodView2.iggCheckYES.getBooleanValue()
-        let hiv = bloodView2.hivCheckYES.getBooleanValue()
-        let urea = bloodView.ureiaMenu.getPickerValue()
-        let ht = Float(bloodView.htMenu.getPickerValue())
-        let leucocitos = bloodView.leucocitosMenu.getPickerValue()
-        let plaquetas = bloodView.plaquetasMenu.getPickerValue()
-        let gliecmia = bloodView.glicemiaMenu.getPickerValue()
-        
-        //TODO Arrumar o VDRL EXAM
-        // FIX ME : Arrumar o Urea para o valor selecionado no picker
-        // FIX ME : Arrumar o Creatine para o valor selecionado no picker
-        // FIX ME : Arrumar o hb na view
-        // FIX ME : WhiteCell mudar pra inteiro na view
-        let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: 10, dL: 12.1), creatine: 1.1, ht: ht ?? 0, hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
-        
-        self.consult?.bloodExams = blood
-        
-        
-        
-        //Add new Ultrassound
-        // FIX ME : Mudar o date para do tipo date e nao string
-        let date = ultrasoundView.dataMenu.date
-        let gestacionalAge = ultrasoundView.igMenu.getPickerValue()
-        let peso = Float(ultrasoundView.pesoMenu.getPickerValue())
-        let placenta = ultrasoundView.placentaMenu.selectedOption ?? ""
-        let fetalPosition = ultrasoundView.apresentacaoFetalMenu.selectedOption ?? ""
-        let ila = ultrasoundView.ilaMenu.getPickerValue()
-        
-        // Fix ME : Arrumar o valor da placenta
-        // FIX ME : Arrumar o idade gestacional pois na view nao tem como colocar os valores
-        // FIX ME : Arrumar a data do ultrasound pois na View nao tem como pegar a data
-        // FIX ME : Arrumar o valor da posicao Fetal na View
-        // FIX ME : Arrumar o valor da placenta na View
-        let ultrassound = UltrasoundExam(date: Date(), consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), ILA: ila, weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
-        
-        self.consult?.ultraSoundExams = ultrassound
-        
-        
-        //Add vaccine
-        let antitetanic = tetanicView.yesCheckYES.checked
-        let influenza = h1N1View.h1N1YesCheckYES.checked
-        let hepatite = hepatitisBView.hepatitisBYesCheckYES.checked
-
-        
-        // FIX ME : Ajustar as doses das vacinas na view que nÃo existem
-        let vaccine = Vaccines(hepatiteB: [DoseVaccines(date: Date(), isVaccined: antitetanic, numberOfDose: 1)], influenza: DoseVaccines(date: Date(), isVaccined: influenza, numberOfDose: 1), antitetanic: [DoseVaccines(date: Date(), isVaccined: hepatite, numberOfDose: 1)])
-        
-        if let addConsult = self.consult{
+        //Check wheter is first Appointment because some data will be get just there
+        if ApplicationSettings.shouldEnterFirstAppointment(){
             
-            maternityVM.createNewConsult(consult: addConsult)
+            //Assign family BackGround
+            let hypertension = familyAntecedentView.sections[AppointmentsKeys.hipertensao.rawValue]?.getBooleanValue()
+            let diabetes = familyAntecedentView.sections[AppointmentsKeys.diabetes.rawValue]?.getBooleanValue()
+            let cardiopatia = familyAntecedentView.sections[AppointmentsKeys.cardiopatia.rawValue]?.getBooleanValue()
+            let urinary = familyAntecedentView.sections[AppointmentsKeys.outro.rawValue]?.getBooleanValue()
             
-            //Adicionar as vacinas antitetanicas e hepatite
-            self.maternityVM.coreDataManager.addVaccineInfluenza(dose: vaccine.influenza)
+            var familyBg = FamilyBGModel()
+            familyBg.heartCondition = hypertension ?? false
+            familyBg.diabetes = diabetes ?? false
+            familyBg.heartCondition = cardiopatia ?? false
+            familyBg.urinaryInfection = urinary ?? false
+            //Add familyBg
+            maternityVM.coreDataManager.assignFamilylBG(familyBG: familyBg)
+            
+            //Assign pregnancy typeView
+            let gemelar = pregnancyTypeView.section[AppointmentsKeys.gemelar.rawValue]?.getBooleanValue()
+            let tripla = pregnancyTypeView.section[AppointmentsKeys.triplaOuMais.rawValue]?.getBooleanValue()
+            let ignorada = pregnancyTypeView.section[AppointmentsKeys.ignorada.rawValue]?.getBooleanValue()
+            let unique = pregnancyTypeView.section[AppointmentsKeys.unica.rawValue]?.getBooleanValue()
+            
+            let pregnancyType = PregnancyClassificationModel(ignored: ignorada ?? false, singlePregnancy: unique ?? false, tripletsOrMorePregnancy: tripla ?? false, twinPregnancy: gemelar ?? false)
+            
+            self.consult?.pregnancyClassificationModel = pregnancyType
+            
+            //Assign risk pregnancy
+            let habitualRisk = pregnancyRiskView.section[AppointmentsKeys.riscoHabitual.rawValue]?.getBooleanValue()
+            let highRisk = pregnancyRiskView.section[AppointmentsKeys.altoRisco.rawValue]?.getBooleanValue()
+            
+            let riskPregnancy = PregnancyRiskModel(highRiskPregnancy: highRisk ?? false, lowRiskPregnancy: habitualRisk ?? false)
+            
+            self.consult?.riskPregnancy = riskPregnancy
+            
+            //Planned pregnancy
+            let pregnancyPlanned = plannedView.plannedCheckYES.getBooleanValue()
+            let planned = PregnancyPlanningModel(plannedPregnancy: pregnancyPlanned)
+            self.consult?.plannedPregnancy = planned
+            
+            //Add personal BG
+            let inffection = clinicAntecedentsView.sections[AppointmentsKeys.urinary.rawValue]?.getBooleanValue()
+            let hypertensionBg = clinicAntecedentsView.sections[AppointmentsKeys.hipertensao.rawValue]?.getBooleanValue()
+            let smokeBg = clinicAntecedentsView.sections[AppointmentsKeys.fuma.rawValue]?.getBooleanValue()
+            let cardiacBg = clinicAntecedentsView.sections[AppointmentsKeys.cardiopatia.rawValue]?.getBooleanValue()
+            let diabetesBg = clinicAntecedentsView.sections[AppointmentsKeys.diabetes.rawValue]?.getBooleanValue()
+            
+            var personalBg = PersonalBGModel()
+            personalBg.diabetes = diabetesBg ?? false
+            personalBg.urinaryInfection = inffection ?? false
+            personalBg.hypertension = hypertensionBg ?? false
+            personalBg.heartCondition = cardiacBg ?? false
+            personalBg.tabagism = smokeBg  ?? false
+            
+            //Add personalBg
+            maternityVM.coreDataManager.assignPersonalBG(personalBG: personalBg)
+            
+            
+            for cell in cells{
+                if cell.id == BloodView.id{
+                    //Add bloodExam
+                    // FIX ME : Arrumar os dropDowns do exame de sangue pois não esta retornando valor
+                    let bloodType = bloodView.aboMenu.selectedOption ?? ""
+                    let igm = bloodView2.igmCheckYES.getBooleanValue()
+                    let igg = bloodView2.iggCheckYES.getBooleanValue()
+                    let hiv = bloodView2.hivCheckYES.getBooleanValue()
+                    let urea = bloodView.ureiaMenu.numberOptions
+                    let ht = bloodView.htMenu.numberOptions.first ?? 0
+                    let leucocitos = Int(bloodView.leucocitosMenu.selectedValue)
+                    let plaquetas = Int(bloodView.plaquetasMenu.selectedValue)
+                    let gliecmia = Int(bloodView.glicemiaMenu.selectedValue)
+                    //TODO Arrumar o VDRL EXAM
+                    // FIX ME : Arrumar o Urea para o valor selecionado no picker
+                    // FIX ME : Arrumar o Creatine para o valor selecionado no picker
+                    // FIX ME : Arrumar o hb na view
+                    // FIX ME : WhiteCell mudar pra inteiro na view
+                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: 10, dL: 12.1), creatine: 1.1, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
+                    
+                    self.consult?.bloodExams = blood
+                    break
+                }
+            }
+            
+            for cell in cells{
+                if cell.id == UltrasoundView.id{
+                    //Add new Ultrassound
+                    // FIX ME : Mudar o date para do tipo date e nao string
+                    let date = ultrasoundView.dataMenu.date
+                    let gestacionalAge = ultrasoundView.igMenu.getPickerValue()
+                    let peso = Float(ultrasoundView.pesoMenu.getPickerValue())
+                    let placenta = ultrasoundView.placentaMenu.selectedOption ?? ""
+                    let fetalPosition = ultrasoundView.apresentacaoFetalMenu.selectedOption ?? ""
+                    
+                    // Fix ME : Arrumar o valor da placenta
+                    // FIX ME : Arrumar o idade gestacional pois na view nao tem como colocar os valores
+                    // FIX ME : Arrumar a data do ultrasound pois na View nao tem como pegar a data
+                    // FIX ME : Arrumar o valor da posicao Fetal na View
+                    // FIX ME : Arrumar o valor da placenta na View
+                    let ultrassound = UltrasoundExam(date: Date(), consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), ILA: 0, weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
+                    
+                    self.consult?.ultraSoundExams = ultrassound
+                    break
+                }
+            }
+            
+            //Add vaccine
+            let antitetanic = tetanicView.yesCheckYES.checked
+            let influenza = h1N1View.h1N1YesCheckYES.checked
+            let hepatite = hepatitisBView.hepatitisBYesCheckYES.checked
+            
+            for cell in cells{
+                
+                if cell.id == TetanicView.id{
+                    // FIX ME : Ajustar as doses das vacinas na view que nÃo existem
+                    let vaccine = Vaccines(hepatiteB: [DoseVaccines(date: Date(), isVaccined: antitetanic, numberOfDose: 1)], influenza: DoseVaccines(date: Date(), isVaccined: influenza, numberOfDose: 1), antitetanic: [DoseVaccines(date: Date(), isVaccined: hepatite, numberOfDose: 1)])
+                    //Adicionar as vacinas antitetanicas e hepatite
+                    self.maternityVM.coreDataManager.addVaccineInfluenza(dose: vaccine.influenza)
+                    self.maternityVM.coreDataManager.addVaccineHepatite(dose: vaccine.hepatiteB.first ?? DoseVaccines(date: Date(), isVaccined: false, numberOfDose: 0))
+                    self.maternityVM.coreDataManager.addVaccineAntitetanic(dose: vaccine.antitetanic.first ?? DoseVaccines(date: Date(), isVaccined: false, numberOfDose: 0))
+                    break
+                }
+                
+            }
+            
+            if let addConsult = self.consult{
+                
+                maternityVM.createNewConsult(consult: addConsult)
+            }
+            
+            //IF it is not the first appointment
+        }else{
+            
+            
+            for cell in cells{
+                if cell.id == BloodView.id{
+                
+                    //Add bloodExam
+                    // FIX ME : Arrumar os dropDowns do exame de sangue pois não esta retornando valor
+                    let bloodType = bloodView.aboMenu.selectedOption ?? ""
+                    let igm = bloodView2.igmCheckYES.getBooleanValue()
+                    let igg = bloodView2.iggCheckYES.getBooleanValue()
+                    let hiv = bloodView2.hivCheckYES.getBooleanValue()
+                    let urea = bloodView.ureiaMenu.numberOptions
+                    let ht = bloodView.htMenu.numberOptions.first ?? 0
+                    let leucocitos = Int(bloodView.leucocitosMenu.selectedValue)
+                    let plaquetas = Int(bloodView.plaquetasMenu.selectedValue)
+                    let gliecmia = Int(bloodView.glicemiaMenu.selectedValue)
+                    
+                    //TODO Arrumar o VDRL EXAM
+                    // FIX ME : Arrumar o Urea para o valor selecionado no picker
+                    // FIX ME : Arrumar o Creatine para o valor selecionado no picker
+                    // FIX ME : Arrumar o hb na view
+                    // FIX ME : WhiteCell mudar pra inteiro na view
+                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: 10, dL: 12.1), creatine: 1.1, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
+                    
+                    self.consult?.bloodExams = blood
+                    break
+                }
+            }
+            
+            for cell in cells{
+                if cell.id == UltrasoundView.id{
+                    
+                    //Add new Ultrassound
+                    // FIX ME : Mudar o date para do tipo date e nao string
+                    let date = ultrasoundView.dataMenu.date
+                    let gestacionalAge = ultrasoundView.igMenu.getPickerValue()
+                    let peso = Float(ultrasoundView.pesoMenu.getPickerValue())
+                    let placenta = ultrasoundView.placentaMenu.selectedOption ?? ""
+                    let fetalPosition = ultrasoundView.apresentacaoFetalMenu.selectedOption ?? ""
+                    
+                    // Fix ME : Arrumar o valor da placenta
+                    // FIX ME : Arrumar o idade gestacional pois na view nao tem como colocar os valores
+                    // FIX ME : Arrumar a data do ultrasound pois na View nao tem como pegar a data
+                    // FIX ME : Arrumar o valor da posicao Fetal na View
+                    // FIX ME : Arrumar o valor da placenta na View
+                    let ultrassound = UltrasoundExam(date: Date(), consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), ILA: 0, weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
+                    
+                    self.consult?.ultraSoundExams = ultrassound
+                    break
+                }
+            }
+            
+            //Add vaccine
+            let antitetanic = tetanicView.yesCheckYES.checked
+            let influenza = h1N1View.h1N1YesCheckYES.checked
+            let hepatite = hepatitisBView.hepatitisBYesCheckYES.checked
+            
+            for cell in cells{
+                
+                if cell.id == TetanicView.id{
+                    
+                    // FIX ME : Ajustar as doses das vacinas na view que nÃo existem
+                    let vaccine = Vaccines(hepatiteB: [DoseVaccines(date: Date(), isVaccined: antitetanic, numberOfDose: 1)], influenza: DoseVaccines(date: Date(), isVaccined: influenza, numberOfDose: 1), antitetanic: [DoseVaccines(date: Date(), isVaccined: hepatite, numberOfDose: 1)])
+                    //Adicionar as vacinas antitetanicas e hepatite
+                    self.maternityVM.coreDataManager.addVaccineInfluenza(dose: vaccine.influenza)
+                    self.maternityVM.coreDataManager.addVaccineHepatite(dose: vaccine.hepatiteB.first ?? DoseVaccines(date: Date(), isVaccined: false, numberOfDose: 0))
+                    self.maternityVM.coreDataManager.addVaccineAntitetanic(dose: vaccine.antitetanic.first ?? DoseVaccines(date: Date(), isVaccined: false, numberOfDose: 0))
+                    break
+                }
+            }
+            
+            if let addConsult = self.consult{
+                
+                maternityVM.createNewConsult(consult: addConsult)
+            }
             
         }
-
+        
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

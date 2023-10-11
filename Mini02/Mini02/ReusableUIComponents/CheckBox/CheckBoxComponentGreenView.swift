@@ -43,7 +43,6 @@ class CheckBoxComponentGreenView: UIButton {
 
     func getBooleanValue() -> Bool {
         return checked
-       
     }
     
 

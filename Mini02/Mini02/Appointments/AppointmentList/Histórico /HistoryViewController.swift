@@ -1,50 +1,4 @@
-//
-//  HistoryVC.swift
-//  Mini02
-//
-//  Created by Daniel Ishida on 28/09/23.
-//
-
 import UIKit
-
-//class HistoryViewController: UIViewController {
-//
-//    //Variable with the info of the current consult
-
-//
-//    let testview: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = .black
-//        return view
-//    }()
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        let newView = HistoryView()
-//        let dateFormatter = DateFormatter()
-//
-//        newView.controller = self
-//        dateFormatter.dateFormat = "dd/MM/yy"
-//        if let date = appointmentsInfo?.date{
-//            newView.dateLabel.text = dateFormatter.string(from: date)
-//        }
-//
-//        newView.titleLabel.text = "Informacoes da consulta \(appointmentsInfo!.consultId)"
-//
-//
-//        newView.setupView()
-//
-//        testview.anchorWithConstantValues(top: self.view.topAnchor, width: 200, height: 200)
-//
-//    }
-//}
-
-//
-//  AntenatalViewController.swift
-//  Mini02
-//
-//  Created by Gabriel Eirado on 14/09/23.
-//
 
 
 class HistoryViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
@@ -112,7 +66,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         
         cells.forEach { collectionView.register(MaternityCardCell.self, forCellWithReuseIdentifier: $0.id) }
         collectionView.register(HeaderForHistory.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderForHistory.id)
-        collectionView.reloadData() 
+        collectionView.reloadData()
     }
     
     // how many cell will be
@@ -186,7 +140,13 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     func configureView(){
         let pacient = historyVm.getPatient()
         
-            
+        routineData.igMenu.selectedValue = Int(appointmentsInfo.routineData?.ig ?? 0)
+        routineData.edemaMenu.selectedOption = appointmentsInfo.routineData?.edema
+        routineData.bcfMenu.selectedOption = String(Int(appointmentsInfo.routineData?.fetalHeartRate ?? 0) )
+        routineData.uterineHeightMenu.selectedValue = Int(appointmentsInfo.routineData?.uterineHeightInCentimeters ?? 0)
+        routineData.wheightMenu.selectedValue = Float(appointmentsInfo.routineData?.weightAndBodyMassIndex ?? 0)
+        routineData.arterialPressureMenu.text = appointmentsInfo.routineData?.bloodPressureInmmHG ?? ""
+        
         let views: [CellInfo] = [
             CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id, query: routineData.query)
         ]
@@ -250,7 +210,6 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 //Assign data antitetanic
                 let antitetanic = historyVm.coreDataMaanger.getAntitetanic()
                 tetanicView.yesCheckYES.checked = antitetanic.first?.isVaccined ?? false
-                print(antitetanic.first?.isVaccined)
                 
                 
                 

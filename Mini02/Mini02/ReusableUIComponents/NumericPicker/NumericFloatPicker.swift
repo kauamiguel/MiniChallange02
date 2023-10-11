@@ -73,6 +73,8 @@ extension NumericFloatPicker: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        pickerView.subviews.forEach { $0.backgroundColor = .clear }
+        
         let label = UILabel()
         label.font = UIFont(name: "Signika-Regular", size: 18)
         let value = numberOptions[row]
