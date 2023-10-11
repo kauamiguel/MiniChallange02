@@ -52,7 +52,6 @@
 		ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98B9D2AB3F0B2005214E5 /* RecurrentDataViewController.swift */; };
 		ABC98BA22AB3F53D005214E5 /* AppointmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BA12AB3F53D005214E5 /* AppointmentsView.swift */; };
 		ABC98BA82AB3F5E0005214E5 /* RecurrentDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BA72AB3F5E0005214E5 /* RecurrentDataView.swift */; };
-		ABC98BB42AB3FCAA005214E5 /* MaternityCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BB32AB3FCAA005214E5 /* MaternityCardViewController.swift */; };
 		ABC98BB62AB3FCC2005214E5 /* MaternityCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BB52AB3FCC2005214E5 /* MaternityCardCell.swift */; };
 		ABC98BBF2AB83BD6005214E5 /* Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BBE2AB83BD6005214E5 /* Constrains.swift */; };
 		ABC98BC12AB83C8D005214E5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC02AB83C8D005214E5 /* TextField.swift */; };
@@ -77,6 +76,7 @@
 		CE022BA92AD5FA2800946A42 /* PregnancyPlanningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE022BA82AD5FA2800946A42 /* PregnancyPlanningModel.swift */; };
 		CE022BAB2AD5FA7900946A42 /* PregnancyRiskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE022BAA2AD5FA7900946A42 /* PregnancyRiskModel.swift */; };
 		CE022BAD2AD5FAEE00946A42 /* PregnancyClassificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE022BAC2AD5FAEE00946A42 /* PregnancyClassificationModel.swift */; };
+		CE022BAF2AD6647F00946A42 /* MaternityCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE022BAE2AD6647F00946A42 /* MaternityCardViewController.swift */; };
 		CE0BFA682AC7464C0053C2A6 /* RecurrenteDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0BFA672AC7464C0053C2A6 /* RecurrenteDataViewModel.swift */; };
 		CE60D0502ACDAAB900937768 /* Vaccines.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60D04F2ACDAAB900937768 /* Vaccines.swift */; };
 		CE60D05C2ACDD6FC00937768 /* Consulta.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60D05B2ACDD6FC00937768 /* Consulta.swift */; };
@@ -157,7 +157,6 @@
 		ABC98B9D2AB3F0B2005214E5 /* RecurrentDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrentDataViewController.swift; sourceTree = "<group>"; };
 		ABC98BA12AB3F53D005214E5 /* AppointmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsView.swift; sourceTree = "<group>"; };
 		ABC98BA72AB3F5E0005214E5 /* RecurrentDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrentDataView.swift; sourceTree = "<group>"; };
-		ABC98BB32AB3FCAA005214E5 /* MaternityCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardViewController.swift; sourceTree = "<group>"; };
 		ABC98BB52AB3FCC2005214E5 /* MaternityCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardCell.swift; sourceTree = "<group>"; };
 		ABC98BBE2AB83BD6005214E5 /* Constrains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constrains.swift; sourceTree = "<group>"; };
 		ABC98BC02AB83C8D005214E5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -183,6 +182,7 @@
 		CE022BA82AD5FA2800946A42 /* PregnancyPlanningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnancyPlanningModel.swift; sourceTree = "<group>"; };
 		CE022BAA2AD5FA7900946A42 /* PregnancyRiskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnancyRiskModel.swift; sourceTree = "<group>"; };
 		CE022BAC2AD5FAEE00946A42 /* PregnancyClassificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnancyClassificationModel.swift; sourceTree = "<group>"; };
+		CE022BAE2AD6647F00946A42 /* MaternityCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaternityCardViewController.swift; sourceTree = "<group>"; };
 		CE0BFA672AC7464C0053C2A6 /* RecurrenteDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenteDataViewModel.swift; sourceTree = "<group>"; };
 		CE60D04F2ACDAAB900937768 /* Vaccines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vaccines.swift; sourceTree = "<group>"; };
 		CE60D05B2ACDD6FC00937768 /* Consulta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consulta.swift; sourceTree = "<group>"; };
@@ -412,9 +412,9 @@
 			children = (
 				ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */,
 				ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */,
+				CE022BAE2AD6647F00946A42 /* MaternityCardViewController.swift */,
 				ABC98BB52AB3FCC2005214E5 /* MaternityCardCell.swift */,
 				6241A15F2AC221D800C7921B /* ModalView.swift */,
-				ABC98BB32AB3FCAA005214E5 /* MaternityCardViewController.swift */,
 				ABFDA7802AC7437C0097656E /* Fonts */,
 				AB7852EC2AB9F92A00566EF9 /* ComponetViews */,
 			);
@@ -742,6 +742,7 @@
 				E81A267E2AD49BF1003A25E0 /* RoundedTextField.swift in Sources */,
 				CE60D0702ACDF6E000937768 /* Pacient+CoreDataProperties.swift in Sources */,
 				AB9D94272ACE3DD40064DB69 /* HepatitisBView.swift in Sources */,
+				CE022BAF2AD6647F00946A42 /* MaternityCardViewController.swift in Sources */,
 				E8135BBA2ABA1BE700E722FA /* SecondOnboardingViewController.swift in Sources */,
 				CE60D06F2ACDF6E000937768 /* Pacient+CoreDataClass.swift in Sources */,
 				62D39EAD2ABF1CCC003CF99F /* UtrasoundExam.swift in Sources */,
@@ -751,7 +752,6 @@
 				ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */,
 				ABC98BB62AB3FCC2005214E5 /* MaternityCardCell.swift in Sources */,
 				CE022BA92AD5FA2800946A42 /* PregnancyPlanningModel.swift in Sources */,
-				ABC98BB42AB3FCAA005214E5 /* MaternityCardViewController.swift in Sources */,
 				E8135BB42ABA1BA300E722FA /* FirstOnboardingView.swift in Sources */,
 				ABC98B942AB3DC9C005214E5 /* TabBarViewController.swift in Sources */,
 				ABAD4F452ABE22C1007BEC32 /* LabelComponentModel.swift in Sources */,

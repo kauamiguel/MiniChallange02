@@ -18,7 +18,6 @@ class TabBarViewController: UITabBarController {
         tbViewManager.setUpTabBarView(tb: self)
         coreDataManager.fetchPacient()
         setUpTabBarViewModel()
-
     }
     
    private func setUpTabBarViewModel(){

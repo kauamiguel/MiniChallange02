@@ -110,7 +110,7 @@ class ModalVC: UIViewController{
             case 2:
                 btn.addTarget(collectionView, action: #selector(collectionView?.addNewVaccineViewCell), for: .touchUpInside)
             case 3:
-                btn.addTarget(collectionView, action: #selector(collectionView?.addNewDefaultViewCell), for: .touchUpInside)
+                print("Mudei aqui")
             default:
                 print("Something broke")
             }
