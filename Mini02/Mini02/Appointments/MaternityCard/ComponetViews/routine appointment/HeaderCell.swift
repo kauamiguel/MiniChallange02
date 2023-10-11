@@ -29,7 +29,7 @@ class HeaderCell: UICollectionReusableView {
         btn.tintColor = UIColor(red: 1, green: 0.521, blue: 0.58, alpha: 1)
         
         // Create a template image so it scales without distortion
-        if let image = UIImage(systemName: "square.and.pencil")?.withRenderingMode(.automatic) {
+        if let image = UIImage(systemName: "square.and.pencil")?.withRenderingMode(.automatic){
             btnConfig.image = image
         }
         btnConfig.imagePadding = 13
