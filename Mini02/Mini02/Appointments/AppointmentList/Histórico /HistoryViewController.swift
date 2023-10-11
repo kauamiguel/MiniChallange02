@@ -301,7 +301,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 // FIX ME : Arrumar os valores do dropDown para poderem ser atribuidos na tela
                 
 //                ultrasoundView.dataMenu.selectedOption = appointmentsInfo.ultraSound?.date
-                ultrasoundView.igMenu.selectedOption = appointmentsInfo.ultraSound?.ig
+//                ultrasoundView.igMenu.selectedValue = appointmentsInfo.ultraSound?.ig
 //                ultrasoundView.pesoMenu.selectedOption = appointmentsInfo.ultraSound?.weight
 //                ultrasoundView.placentaMenu.selectedOptio = appointmentsInfo.ultraSound?.placenta
                 ultrasoundView.apresentacaoFetalMenu.selectedOption = appointmentsInfo.ultraSound?.fetalPosition

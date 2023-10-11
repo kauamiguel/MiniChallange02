@@ -53,7 +53,7 @@ extension UIView {
     }
 
     
-    func configureLabelAndPullDonw(stack: UIStackView ,label: LabelComponentView, pullDown: PullDownComponent, labelText: String, screenSize: CGSize) {
+    func configureLabelAndPullDown(stack: UIStackView ,label: LabelComponentView, pullDown: PullDownComponent, labelText: String, screenSize: CGSize) {
         
         label.setupLabel(labelText: labelText, labelType: .titleSemiBold, labelColor: .secondaryColor)
        
@@ -63,3 +63,4 @@ extension UIView {
         
     }
 }
+   

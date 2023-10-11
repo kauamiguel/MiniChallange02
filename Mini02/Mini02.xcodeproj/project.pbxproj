@@ -58,6 +58,7 @@
 		ABC98BC42AB83EED005214E5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC32AB83EED005214E5 /* RegisterView.swift */; };
 		ABC98BC62AB83FD0005214E5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC52AB83FD0005214E5 /* RegisterViewController.swift */; };
 		ABEAE43E2AD64BA800B23221 /* ComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEAE43D2AD64BA800B23221 /* ComponentModel.swift */; };
+		ABEAE4422AD6E3C600B23221 /* HeaderForHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEAE4412AD6E3C600B23221 /* HeaderForHistory.swift */; };
 		ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */; };
 		ABFA04E72ABCBE0000D31DEA /* MaternityCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */; };
 		ABFA04ED2ABCCF7500D31DEA /* AppointmentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */; };
@@ -102,6 +103,7 @@
 		E81A267B2AD49BCC003A25E0 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A267A2AD49BCC003A25E0 /* NextButton.swift */; };
 		E81A267E2AD49BF1003A25E0 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A267D2AD49BF1003A25E0 /* RoundedTextField.swift */; };
 		E81A26842AD64681003A25E0 /* NumericPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A26832AD64681003A25E0 /* NumericPicker.swift */; };
+		E81A26872AD6DA4E003A25E0 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A26862AD6DA4E003A25E0 /* DatePicker.swift */; };
 		E8E0D6492AC36F37003CE5CD /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6482AC36F37003CE5CD /* AboutView.swift */; };
 		E8E0D64B2AC36F41003CE5CD /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64A2AC36F41003CE5CD /* AboutViewController.swift */; };
 		E8E0D64D2AC36F55003CE5CD /* PregnantDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */; };
@@ -165,6 +167,7 @@
 		ABC98BC52AB83FD0005214E5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		ABD5E3F02AC4B20200855964 /* Mini02.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mini02.entitlements; sourceTree = "<group>"; };
 		ABEAE43D2AD64BA800B23221 /* ComponentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentModel.swift; sourceTree = "<group>"; };
+		ABEAE4412AD6E3C600B23221 /* HeaderForHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderForHistory.swift; sourceTree = "<group>"; };
 		ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardViewModel.swift; sourceTree = "<group>"; };
 		ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardModel.swift; sourceTree = "<group>"; };
 		ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListCell.swift; sourceTree = "<group>"; };
@@ -209,6 +212,7 @@
 		E81A267A2AD49BCC003A25E0 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		E81A267D2AD49BF1003A25E0 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		E81A26832AD64681003A25E0 /* NumericPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericPicker.swift; sourceTree = "<group>"; };
+		E81A26862AD6DA4E003A25E0 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		E8E0D6482AC36F37003CE5CD /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		E8E0D64A2AC36F41003CE5CD /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnantDataView.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 		ABAD4F2C2ABD25E8007BEC32 /* ReusableUIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E81A26852AD6DA39003A25E0 /* DatePicker */,
 				E81A26822AD64669003A25E0 /* NumericPicker */,
 				E81A267C2AD49BE3003A25E0 /* RoundedTextField */,
 				E81A26792AD49BBF003A25E0 /* NextButton */,
@@ -309,6 +314,7 @@
 		ABB82F102AC5FB96008B73AF /* Histórico  */ = {
 			isa = PBXGroup;
 			children = (
+				ABEAE4412AD6E3C600B23221 /* HeaderForHistory.swift */,
 				ABB82F122AC5FCF8008B73AF /* HistoryView.swift */,
 				6241A1632AC6212000C7921B /* HistoryViewController.swift */,
 				CE022BB02AD6741800946A42 /* HistoryViewModel.swift */,
@@ -592,6 +598,14 @@
 			path = NumericPicker;
 			sourceTree = "<group>";
 		};
+		E81A26852AD6DA39003A25E0 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				E81A26862AD6DA4E003A25E0 /* DatePicker.swift */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
 		E8E0D6422AC36EDC003CE5CD /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -778,6 +792,7 @@
 				6241A1642AC6212000C7921B /* HistoryViewController.swift in Sources */,
 				E81A267B2AD49BCC003A25E0 /* NextButton.swift in Sources */,
 				ABB82F132AC5FCF8008B73AF /* HistoryView.swift in Sources */,
+				ABEAE4422AD6E3C600B23221 /* HeaderForHistory.swift in Sources */,
 				E8E0D6492AC36F37003CE5CD /* AboutView.swift in Sources */,
 				ABC98BA22AB3F53D005214E5 /* AppointmentsView.swift in Sources */,
 				CE8EE3482AC5F690000E89E1 /* FamilyBGModel.swift in Sources */,
@@ -788,6 +803,7 @@
 				ABC98B9C2AB3E677005214E5 /* AppointmentsViewController.swift in Sources */,
 				ABFDA7732AC60B460097656E /* PregnancyRiskView.swift in Sources */,
 				ABFDA7792AC65A600097656E /* StackViews.swift in Sources */,
+				E81A26872AD6DA4E003A25E0 /* DatePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

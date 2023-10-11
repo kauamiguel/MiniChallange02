@@ -93,7 +93,7 @@ class CoreDataFunctions{
             let date = pacient.vaccines?.influenza?.vaccineDate
             let isVaccined = pacient.vaccines?.influenza?.isVaccined
             let numberOfDose = pacient.vaccines?.influenza?.numberOfDose
-            let dose = DoseVaccines(date: date!, isVaccined: isVaccined!, numberOfDose: Int(numberOfDose!))
+            let dose = DoseVaccines(date: date ?? Date(), isVaccined: isVaccined ?? false, numberOfDose: Int(numberOfDose ?? 0))
             return dose
         }
         return nil

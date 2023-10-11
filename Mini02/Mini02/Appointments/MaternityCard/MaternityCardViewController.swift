@@ -77,6 +77,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             plannedView.plannedCheckNO.checked = true
         }
         
+
     }
     
     //Function of backButton
@@ -263,14 +264,14 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         print("saved")
         
         //Adding routines
-        let ig = Int(routineData.igMenu.selectedOption ?? "0")
+        let ig = Int(routineData.igMenu.getPickerValue())
         let edema = routineData.edemaMenu.selectedOption
         let fetalHeart = Int(routineData.bcfMenu.selectedOption ?? "0")
-        let uterine = Int(routineData.uterineHeightMenu.selectedOption ?? "0")
-        let weight = Float(routineData.wheightMenu.selectedOption ?? "0")
-        let bloodPressure = routineData.arterialPressureMenu.selectedOption
+        let uterine = Int(routineData.uterineHeightMenu.getPickerValue())
+        let weight = routineData.wheightMenu.getPickerValue()
+        let bloodPressure = routineData.arterialPressureMenu.text ?? ""
         
-        let routine = RoutineDataModel(bloodPressure: bloodPressure ?? "", edema: edema ?? "", fetalHeartHate: fetalHeart ?? 0, uterineHeight: uterine ?? 0, weightAndBodyMassIndex: weight ?? 0, ig: ig ?? 0)
+        let routine = RoutineDataModel(bloodPressure: bloodPressure , edema: edema ?? "", fetalHeartHate: fetalHeart ?? 0, uterineHeight: uterine , weightAndBodyMassIndex: Float(weight ), ig: ig )
         self.consult?.routineData = routine
         
         
@@ -352,9 +353,9 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         //Add new Ultrassound
         // FIX ME : Mudar o date para do tipo date e nao string
-        let date = ultrasoundView.dataMenu.selectedOption
-        let gestacionalAge = Int(ultrasoundView.igMenu.selectedOption ?? "0")
-        let peso = Float(ultrasoundView.pesoMenu.selectedOption ?? "0")
+        let date = ultrasoundView.dataMenu.date
+        let gestacionalAge = ultrasoundView.igMenu.getPickerValue()
+        let peso = Float(ultrasoundView.pesoMenu.getPickerValue())
         let placenta = ultrasoundView.placentaMenu.selectedOption ?? ""
         let fetalPosition = ultrasoundView.apresentacaoFetalMenu.selectedOption ?? ""
         
@@ -363,7 +364,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         // FIX ME : Arrumar a data do ultrasound pois na View nao tem como pegar a data
         // FIX ME : Arrumar o valor da posicao Fetal na View
         // FIX ME : Arrumar o valor da placenta na View
-        let ultrassound = UltrasoundExam(date: Date(), consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), weight: peso ?? 0, placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
+        let ultrassound = UltrasoundExam(date: Date(), consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
         
         self.consult?.ultraSoundExams = ultrassound
         
