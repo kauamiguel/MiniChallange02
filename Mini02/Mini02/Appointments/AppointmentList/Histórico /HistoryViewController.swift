@@ -141,7 +141,6 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         let pacient = historyVm.getPatient()
         
         routineData.igMenu.selectedValue = Int(appointmentsInfo.routineData?.ig ?? 0)
-        print(appointmentsInfo.routineData?.ig)
         routineData.edemaMenu.selectedOption = appointmentsInfo.routineData?.edema
         routineData.bcfMenu.selectedOption = String(Int(appointmentsInfo.routineData?.fetalHeartRate ?? 0) )
         routineData.uterineHeightMenu.selectedValue = Int(appointmentsInfo.routineData?.uterineHeightInCentimeters ?? 0)
