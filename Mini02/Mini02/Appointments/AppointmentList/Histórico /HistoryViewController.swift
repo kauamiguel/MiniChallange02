@@ -155,11 +155,17 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         let pacient = historyVm.getPatient()
         
         routineData.igMenu.selectedValue = Int(appointmentsInfo.routineData?.ig ?? 0)
-        routineData.edemaMenu.selectedOption = appointmentsInfo.routineData?.edema ?? ""
+        routineData.igMenu.setPickerValue(to: Int(appointmentsInfo.routineData?.ig ?? 0))
         
+        routineData.edemaMenu.selectedOption = appointmentsInfo.routineData?.edema ?? ""
         routineData.bcfMenu.selectedOption = String(Int(appointmentsInfo.routineData?.fetalHeartRate ?? 0) )
+        
         routineData.uterineHeightMenu.selectedValue = Int(appointmentsInfo.routineData?.uterineHeightInCentimeters ?? 0)
+        routineData.uterineHeightMenu.setPickerValue(to: Int(appointmentsInfo.routineData?.uterineHeightInCentimeters ?? 0))
+        
         routineData.wheightMenu.selectedValue = Float(appointmentsInfo.routineData?.weightAndBodyMassIndex ?? 0)
+        routineData.wheightMenu.setPickerValue(to: Float(appointmentsInfo.routineData?.weightAndBodyMassIndex ?? 0))
+        
         routineData.arterialPressureMenu.text = appointmentsInfo.routineData?.bloodPressureInmmHG ?? ""
       
         let views: [CellInfo] = [
@@ -277,6 +283,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 bloodView2.iggCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igg ?? false
                 bloodView2.hivCheckYES.checked = appointmentsInfo.bloodExam?.hiv ?? false
                 bloodView.ureiaMenu.selectedValue = Int(appointmentsInfo.bloodExam?.urea?.mg ?? 0)
+                
                 bloodView.htMenu.selectedValue = Int(appointmentsInfo.bloodExam?.ht ?? 0)
                 bloodView.leucocitosMenu.selectedValue = Int(appointmentsInfo.bloodExam?.whiteCells ?? 0)
                 bloodView.plaquetasMenu.selectedValue = Int(appointmentsInfo.bloodExam?.platelets ?? 0)
