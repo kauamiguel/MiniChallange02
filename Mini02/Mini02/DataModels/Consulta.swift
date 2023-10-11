@@ -10,7 +10,7 @@ import Foundation
 
 struct Consulta{
     
-    let consultId : Int
+    var consultId : Int
     
     //This array will have all the blood exams
     var bloodExams: BloodExamModel?
@@ -18,7 +18,18 @@ struct Consulta{
     //This array will have all the US exams
     var ultraSoundExams: UltrasoundExam?
     
-    let date : Date
+    var date : Date
     
-    let trimesteer : Int?
+    var trimesteer : Int
+    
+    //Dados de rotina de todos os exames
+    var routineData : RoutineDataModel
+    
+    var dueDate : DueDateModel?
+    
+    var plannedPregnancy : PregnancyPlanningModel?
+    
+    var riskPregnancy : PregnancyRiskModel?
+    
+    var pregnancyClassificationModel : PregnancyClassificationModel?
 }

@@ -9,7 +9,6 @@ import Foundation
 import CoreData
 import UIKit
 
-
 class CoreDataFunctions{
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistenceContainer.viewContext
@@ -34,7 +33,17 @@ class CoreDataFunctions{
         if let pacient = self.pacient{
             let consult = pacient.consults as! Set<ConsultEntity>
             var consultArray = Array(consult)
-            consultArray.sort{$0.consultId < $1.consultId}
+              
+            //Sort the consult based on treemester and consultId
+            let comparator: (ConsultEntity, ConsultEntity) -> Bool = { consult1, consult2 in
+                if consult1.tremesteer == consult2.tremesteer {
+                    return consult1.consultId < consult2.consultId
+                }
+                return consult1.tremesteer < consult2.tremesteer
+            }
+            
+            consultArray.sort(by: comparator)
+            
             return consultArray
         }
         return []
@@ -62,7 +71,7 @@ class CoreDataFunctions{
             fetchPacient()
         }
     }
-
+    
     //Function to fetch the pacient
     func fetchPacient(){
         do{
@@ -273,10 +282,19 @@ class CoreDataFunctions{
         let pacient = self.pacient
         let consult = ConsultEntity(context: context)
         
+        //Create a routineData to assing to this consult
+        let routine = RoutineData(context: context)
+        routine.bloodPressureInmmHG = newConsult.routineData.bloodPressure
+        routine.edema = newConsult.routineData.edema
+        routine.fetalHeartRate = Int64(newConsult.routineData.fetalHeartHate)
+        routine.uterineHeightInCentimeters = Int64(newConsult.routineData.uterineHeight)
+        routine.weightAndBodyMassIndex = Float(newConsult.routineData.uterineHeight)
+        
         //Assing some atributes to the consult owner
-        consult.tremesteer = Int64(newConsult.trimesteer!)
+        consult.tremesteer = Int64(newConsult.trimesteer)
         consult.date = newConsult.date
         consult.consultId = Int64(newConsult.consultId)
+        consult.routineData = routine
         
         //Add a blood exam if it has
         if let blood = newConsult.bloodExams{
@@ -298,6 +316,37 @@ class CoreDataFunctions{
             newUltrasound.consultNumber = Int64(consult.consultId)
             
             consult.ultraSound = newUltrasound
+        }
+        
+        if let dueDate = newConsult.dueDate{
+            let due = DueDate(context: context)
+            due.estimatedDueDate = newConsult.dueDate?.estimatedDueDate
+            due.estimatedDueDateEco = newConsult.dueDate?.estimatedDueDateEco
+            consult.dueDate = due
+        }
+        
+        if let plannedPregnancy = newConsult.plannedPregnancy{
+            let planned = PregnancyPlanning(context: context)
+            planned.plannedPregnancy = plannedPregnancy.plannedPregnancy
+            consult.pregnancyPlanning = planned
+        }
+        
+        if let riskPregnancy = newConsult.riskPregnancy{
+            var risk = PregnancyRisk(context: context)
+            risk.highRiskPregnancy = (riskPregnancy.highRiskPregnancy)
+            risk.lowRiskPregnancy = (riskPregnancy.lowRiskPregnancy)
+            consult.pregnancyRisk = risk
+        }
+        
+        if let pregnancyClassificationModel = newConsult.pregnancyClassificationModel{
+            let classification = PregnancyClassification(context: context)
+            classification.singlePregnancy = pregnancyClassificationModel.singlePregnancy
+            
+            classification.tripletsOrMorePregnancy = pregnancyClassificationModel.tripletsOrMorePregnancy
+            
+            classification.twinPregnancy = pregnancyClassificationModel.twinPregnancy
+            
+            consult.pregnancyClassification = classification
         }
         
         //Assing the new Consult to current pacient
@@ -324,12 +373,7 @@ class CoreDataFunctions{
         personalBackGround.hypertension = personalBG.hypertension
         personalBackGround.heartCondition = personalBG.heartCondition
         personalBackGround.urinaryInfection = personalBG.urinaryInfection
-        
-        //TODO
-        //Adicionar o campo other
-        //        personal.other = personalBG.other
-        
-        
+
         //Adding the relationChip
         savedPacient?.personalBG = personalBackGround
         saveContext()
@@ -345,11 +389,6 @@ class CoreDataFunctions{
         family.hypertension = family.hypertension
         family.heartCondition = family.heartCondition
         family.urinaryInfection = family.urinaryInfection
-        
-        //TODO
-        //Adicionar o campo other
-        //        personal.other = personalBG.other
-        
         
         //Adding the relationChip
         savedPacient!.familyBG = family

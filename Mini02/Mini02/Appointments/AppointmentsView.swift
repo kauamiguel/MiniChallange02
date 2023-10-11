@@ -99,7 +99,11 @@ class AppointmentsView: UIView {
     
     func setupView(vc : AppointmentsViewController, firstTreemesterAction: Selector, secondTreemesterAction: Selector, thirdTreemesterAction: Selector){
         
-        vc.view.backgroundColor = UIColor(patternImage: UIImage(named: "backGroundImage")!)
+        let bgImage = UIImage(named: "backGroundTreemester")
+        if let image = bgImage{
+            vc.view.backgroundColor = UIColor(patternImage: image)
+        }
+        
         
         
         //Adding actions into buttons

@@ -55,14 +55,22 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     }
     
     override func viewDidLoad() {
-        print(maternityVM.createConsultID(treemesterNumber: self.treemester!))
         
         setupCollectionView()
         collectionView.isEditing = true
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<", style: .done, target: self, action: #selector(backToView))
+        // Create a custom UIButton with an image
+        let backButton = UIButton(type: .custom)
+        backButton.setImage(UIImage(named: "ChevronBackButton"), for: .normal)
+        backButton.addTarget(self, action: #selector(backToView), for: .touchUpInside)
+        let customBackButton = UIBarButtonItem(customView: backButton)
+        navigationItem.leftBarButtonItem = customBackButton
         
-        collectionView.backgroundColor = UIColor(red: 1.00, green: 0.96, blue: 0.96, alpha: 1.00)
+        let bgImage = UIImage(named: "backGroundRecurrentData")
+        if let image = bgImage{
+            self.view.backgroundColor = UIColor(patternImage: image)
+            self.collectionView.backgroundColor = UIColor(patternImage: image)
+        }
         
         self.hidesBottomBarWhenPushed = true
         

@@ -157,23 +157,22 @@ class RegisterView: UIView{
         dateOfBirthDatePicker.anchorWithConstantValues(top: dateOfBirthLabel.bottomAnchor, left: dateOfBirthLabel.leadingAnchor, topPadding: 5)
     }
     
-    private lazy var placeholderIcon: UIView = {
-       let view = UIView()
-        view.backgroundColor = .systemGray
+    private lazy var illustration: UIImageView = {
+        let img = UIImage(named: "RegisterIllustration")
+       let view = UIImageView(image: img)
         return view
     }()
     
     private func setupPlaceholder(vc: UIViewController) {
-        contentView.addSubview(placeholderIcon)
-        placeholderIcon.centerX(inView: contentView)
-        placeholderIcon.anchorWithConstantValues(top: dateOfBirthDatePicker.bottomAnchor, topPadding: 36, width: 198, height: 198)
+        contentView.addSubview(illustration)
+        illustration.centerX(inView: contentView)
+        illustration.anchorWithConstantValues(top: dateOfBirthDatePicker.bottomAnchor, topPadding: 36, width: 198, height: 198)
     }
     
     private func setupNextButton(vc: UIViewController) {
         contentView.addSubview(nextButton)
         nextButton.centerX(inView: contentView)
-        let buttonWidth = max(fieldWidth, 364)
-        nextButton.anchorWithConstantValues(top: placeholderIcon.bottomAnchor, topPadding: 36, bottomPadding: 60, width: buttonWidth, height: 66)
+        nextButton.anchorWithConstantValues(top: illustration.bottomAnchor, topPadding: 36, bottomPadding: 60, width: 364, height: 66)
         nextButton.addAction(UIAction(handler: { [weak self] _ in
             self?.viewModel?.didTapNext(nameText: self?.nameTextField.text, nicknameText: self?.nicknameTextfield.text, dateOfBirth: self?.dateOfBirthDatePicker.date ?? Date())
         }), for: .touchUpInside)
