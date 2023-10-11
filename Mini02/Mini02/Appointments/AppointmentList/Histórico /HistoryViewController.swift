@@ -204,6 +204,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             //Add vaccines view
             if let vaccines = pacient!.vaccines{
                 
+                
                 //Assign data antitetanic
                 let antitetanic = historyVm.coreDataMaanger.getAntitetanic()
                 tetanicView.yesCheckYES.checked = antitetanic.first?.isVaccined ?? false
@@ -256,9 +257,8 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             }
         }else{
             if let blood = appointmentsInfo.bloodExam{
-
                 
-                bloodView.aboMenu.selectedOption = appointmentsInfo.bloodExam?.bloodType ?? ""
+                bloodView.aboMenu.selectedOption = (appointmentsInfo.bloodExam?.bloodType)!
                 bloodView2.igmCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igm ?? false
                 bloodView2.iggCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igg ?? false
                 bloodView2.hivCheckYES.checked = appointmentsInfo.bloodExam?.hiv ?? false
