@@ -14,7 +14,7 @@ class BloodView2: UIView{
     let query = "sangue2"
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-    let bloodView2size = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded(), height: UIScreen.main.bounds.size.height * 0.25)
+    let bloodView2size = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded(), height: UIScreen.main.bounds.size.height * 0.18)
   
     let roudedBackGround: UIView = {
         let view = UIView()
@@ -149,17 +149,10 @@ class BloodView2: UIView{
         toxoplasmosisHStack.anchorWithConstantValues(top: hivSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
         
         //FIXME: THIS IS A DROPDOWN/PICKER
-        configureLabelAndPullDonw(stack: twinSubHStack, label: vdrlLabel, pullDown: vdrlMenu, labelText: "teste", screenSize: screenSize)
+        configureLabelAndPullDonw(stack: twinSubHStack, label: vdrlLabel, pullDown: vdrlMenu, labelText: "VDRL", screenSize: screenSize)
         vdrlMenu.setupButton(options: VdrlExam.allCases.map{$0.rawValue})
         contentBackGround.addSubview(twinSubHStack)
         twinSubHStack.anchorWithConstantValues(top: toxoplasmosisHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15,leftPadding: 10 ,rightPadding: -34)
-        
-        //FIXME: NOT MODELED NEVER HEARD
-        configureLabelAndGreenCheckBox(stack: inseminationSubHStack,label: inseminationLabel, checkBox: inseminationCheckYES, labelText: "Inseminação transcervical")
-        
-        contentBackGround.addSubview(inseminationSubHStack)
-        inseminationSubHStack.anchorWithConstantValues(top: twinSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor ,topPadding: 15, leftPadding: 10, rightPadding: -34)
-        
 }
     
     required init?(coder: NSCoder) {
