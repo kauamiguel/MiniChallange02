@@ -20,6 +20,12 @@ class NumericPicker: UIPickerView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setPickerValue(to: Int) {
+        guard let idx = numberOptions.firstIndex(where: { $0 == to}) else { return }
+        selectedValue = numberOptions[idx]
+        selectRow(idx, inComponent: 0, animated: true)
+    }
+    
     func setupNumericPicker(from: Int, to: Int, interval: Int = 1, startValue: Int? = nil) {
         numberOptions = generateNumbersBetween(from, to, interval)
         tintColor = .white

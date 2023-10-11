@@ -39,12 +39,20 @@ class TetanicView: UIView{
     
     let subTitleLabel = LabelComponentView()
     
-    
+    private static var checkboxManager = CheckBoxManager()
     let yesLabel = LabelComponentView()
-    let yesCheckYES = CheckBoxComponentGreenView()
+    let yesCheckYES: CheckBoxComponentGreenView = {
+       let check = CheckBoxComponentGreenView()
+        check.manager = TetanicView.checkboxManager
+        return check
+    }()
     
     let noLabel = LabelComponentView()
-    let noCheckNO = CheckBoxComponentRedView()
+    let noCheckNO: CheckBoxComponentRedView = {
+        let check = CheckBoxComponentRedView()
+         check.manager = TetanicView.checkboxManager
+         return check
+     }()
 
   
     lazy var yesSubHStackYES: UIStackView = {

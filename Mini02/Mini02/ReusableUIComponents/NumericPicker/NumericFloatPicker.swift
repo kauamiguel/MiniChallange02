@@ -19,6 +19,12 @@ class NumericFloatPicker: UIPickerView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setPickerValue(to: Float) {
+        guard let idx = numberOptions.firstIndex(where: { $0.isNearlyEqual(to: to) }) else { return }
+        selectedValue = numberOptions[idx]
+        selectRow(idx, inComponent: 0, animated: true)
+    }
+    
     func setupNumericPicker(from: Float, to: Float, interval: Float = 0.1, startValue: Float? = nil) {
         numberOptions = generateNumbersBetween(from, to, interval)
         tintColor = .white
@@ -84,3 +90,8 @@ extension NumericFloatPicker: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 }
 
+extension FloatingPoint {
+    func isNearlyEqual(to value: Self) -> Bool {
+        return abs(self - value) <= .ulpOfOne
+    }
+}
