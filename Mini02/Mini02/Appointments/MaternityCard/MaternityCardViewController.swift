@@ -141,6 +141,18 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         return cells[indexPath.row].size
     }
     
+    private lazy var confirmAlert:  UIAlertController =  {
+        let alert = UIAlertController(title: "Tem certeza que deseja salvar consulta?", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        let saveBtn = UIAlertAction(title: "Salvar", style: .default, handler: {
+            [weak self] _ in
+            self?.saveData()
+            self?.navigationController?.popViewController(animated: true)
+        })
+        alert.addAction(saveBtn)
+        return alert
+    }()
+    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
             
@@ -159,7 +171,9 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             }
             
             footerView.tapSave = { [weak self] in
-                self?.saveData()
+                if let confirm = self?.confirmAlert {
+                    self?.present(confirm, animated: true)
+                }
             }
             
             
