@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class CheckBoxComponentGreenView: UIButton {
+    weak var manager: CheckBoxManager?
 
     private var imageCheck: UIImage {
         return checked ? UIImage(named: "Property 1=Variant2")?.withRenderingMode(.alwaysOriginal) ?? UIImage() : UIImage(named: "Property 1=Default")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
@@ -17,12 +18,15 @@ class CheckBoxComponentGreenView: UIButton {
     var checked: Bool = false {
         didSet {
             self.setImage(imageCheck, for: .normal)
+            if checked {
+                manager?.uncheckEveryExcept(e: self)
+            }
         }
     }
 
     func setupButton() {
         backgroundColor = .clear
-
+        manager?.buttons.append(self)
         self.addTarget(self, action: #selector(buttonFunc), for: .touchUpInside)
     }
 
@@ -38,7 +42,6 @@ class CheckBoxComponentGreenView: UIButton {
 
     @objc func buttonFunc() {
         checked = !checked
-        print(checked)
     }
 
     func getBooleanValue() -> Bool {
