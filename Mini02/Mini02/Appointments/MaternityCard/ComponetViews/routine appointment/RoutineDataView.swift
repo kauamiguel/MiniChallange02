@@ -15,7 +15,6 @@ class RoutineDataView: UIView {
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let routineDataViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.34)
     
-    
     let roudedBackGround: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -26,10 +25,10 @@ class RoutineDataView: UIView {
     let contentBackGround: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 25
-        view.backgroundColor = UIColor(red: 1.00, green: 0.97, blue: 0.97, alpha: 1.00)
+        view.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.96, alpha: 1.00)
         
         view.layer.borderWidth = 1 // Adjust the width as needed
-        view.layer.borderColor = UIColor(red: 0.23, green: 0.65, blue: 0.73, alpha: 1.00).cgColor // Change color as needed
+        view.layer.borderColor = UIColor(red: 0.49, green: 0.74, blue: 0.50, alpha: 1.00).cgColor // Change color as needed
         
         return view
     }()
@@ -72,7 +71,6 @@ class RoutineDataView: UIView {
     
     
     func setupView(){
-        
         
         addSubview(roudedBackGround)
         
