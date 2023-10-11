@@ -54,7 +54,7 @@ class HeaderCell: UICollectionReusableView {
         return stackView
     }()
     
-    override init(frame: CGRect) {
+    override init(frame: CGRect){
         super.init(frame: frame)
             editButton.addTarget(self, action: #selector(tapEditbutton), for: .touchUpInside)
         setupview()

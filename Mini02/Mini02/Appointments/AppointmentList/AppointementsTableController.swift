@@ -14,6 +14,7 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
     var parentVC:UIViewController? // THE VIEW CONTROLLER THAT CONTAINS THIS CONTROLLER
     var appointmentVM : AppointmentsListVM?    
     
+    
     //MARK: SET THE NUMBER OF ROWS IN THE TABLE
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let consults = appointmentVM?.consults{
@@ -78,18 +79,21 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
             fatalError("No view controller to be called")
         }
         
-        let view = HistoryViewController()
+       
         
         //Gets the data related to that row
         if let consult = appointmentVM?.consults{
-            view.appointmentsInfo = consult[indexPath.row]
+           
+            let viewt = HistoryViewController(appointmentsInfo:  consult[indexPath.row])
+            
+            //Pushes the new view
+            parent.navigationController?.pushViewController(viewt, animated: true)
+            
+            
+            tableView.deselectRow(at: indexPath, animated: true)
         }
         
-        //Pushes the new view
-        parent.navigationController?.pushViewController(view, animated: true)
         
-        
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 
   

@@ -64,7 +64,8 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     private lazy var  h1N1View = H1N1View()
     private lazy var ultrasoundView = UltrasoundView()
     private lazy var maternityVM = MaternityCardViewModel()
-    var appointmentsInfo: ConsultEntity?
+    var appointmentsInfo: ConsultEntity
+
     //Variable to know wich treemester is, then we can track this consult after
 
     
@@ -72,11 +73,12 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     
     private var vm = MaternityCardViewModel()
     
-    init(){
+    init(appointmentsInfo: ConsultEntity){
+        self.appointmentsInfo = appointmentsInfo
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
-
+        
         addNewDefaultViewCell()
         
         self.collectionView.dataSource = self
@@ -86,6 +88,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     override func viewDidLoad() {
 //        print(maternityVM.createConsultID(treemesterNumber: self.treemester!))
         
+        
         setupCollectionView()
         collectionView.isEditing = true
         
@@ -94,6 +97,8 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         collectionView.backgroundColor = UIColor(red: 1.00, green: 0.96, blue: 0.96, alpha: 1.00)
         
         self.hidesBottomBarWhenPushed = true
+        
+        print(appointmentsInfo.consultId)
         
     }
     
