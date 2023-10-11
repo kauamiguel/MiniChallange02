@@ -19,8 +19,6 @@ class PullDownComponent: UIButton {
         self.backgroundColor = UIColor(red: 0.70, green: 0.82, blue: 0.84, alpha: 1.00)
         self.showsMenuAsPrimaryAction = true
         self.layer.cornerRadius = 6
-        self.setTitle("Selecione", for: .normal)
-        self.setTitleColor(.darkGray, for: .normal)
         self.titleLabel?.font = UIFont(name: "Signika-Regular", size: 16)
         var menuActions: [UIAction] = []
         

@@ -42,26 +42,26 @@ class BloodView: UIView{
     let aboMenu = PullDownComponent()
     
     let htLabel = LabelComponentView()
-    let htMenu = PullDownComponent()
+    let htMenu = NumericPicker()
     
     let hbLabel = LabelComponentView()
-    let hbMenu = PullDownComponent()
+    let hbMenu = NumericFloatPicker()
     
     let plaquetasLabel = LabelComponentView()
-    let  plaquetasMenu = PullDownComponent()
+    let  plaquetasMenu = NumericPicker()
     
    
     let leucocitosLabel = LabelComponentView()
-    let leucocitosMenu = PullDownComponent()
+    let leucocitosMenu = NumericPicker()
     
     let glicemiaLabel = LabelComponentView()
-    let glicemiaMenu = PullDownComponent()
+    let glicemiaMenu = NumericPicker()
     
     let ureiaLabel = LabelComponentView()
-    let ureiaMenu = PullDownComponent()
+    let ureiaMenu = NumericPicker()
     
     let creatineLabel = LabelComponentView()
-    let creatineMenu  = PullDownComponent()
+    let creatineMenu  = NumericFloatPicker()
     
 
     
@@ -99,44 +99,24 @@ class BloodView: UIView{
         
      
         
-        menuPlusLabel(label: aboLabel, menu: aboMenu, options: BloodType.allCases.map { $0.rawValue }, contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "ABO - RH", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        menuPlusLabel(label: aboLabel, menu: aboMenu, options: BloodType.allCases.map { $0.rawValue }, contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "ABO - RH", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
         
-        //FIXME: PICKER HERE - HT AND HB ARE TWO DIFFERENT THINGS
-        menuPlusLabelBottom(label: htLabel, menu: htMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: aboMenu, leftAnchor: contentBackGround, labelText: "HTª", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        numericPickerPlusLabel(label: htLabel, menu: htMenu, menuMinimum: 39, menuMaximum: 90, menuInterval: 1, contentBackGround: contentBackGround, topAnchor: aboMenu, leftAnchor: contentBackGround, labelText: "HTª(%)", topPadding: screenSize.height * 0.008, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
         
-        //FIXME: PICKER HERE - HT AND HB ARE TWO DIFFERENT THINGS
-        menuPlusLabelBottom(label: hbLabel, menu: hbMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: htMenu, leftAnchor: contentBackGround, labelText: "HB", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        //FIXME: FLOAT PICKER INSTEAD
+        numericFloatPickerPlusLabel(label: hbLabel, menu: hbMenu, menuMinimum: 12.0, menuMaximum: 18.0, menuInterval: 0.1, contentBackGround: contentBackGround, topAnchor: htMenu, leftAnchor: contentBackGround, labelText: "HB(g/dL)", topPadding: screenSize.height * 0.0088, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
         
-        //FIXME: PICKER HERE
-        menuPlusLabelBottom(label: plaquetasLabel, menu: plaquetasMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: hbMenu, leftAnchor: contentBackGround, labelText: "Plaquetas", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-      
-        
-        
+        numericPickerPlusLabel(label: plaquetasLabel, menu: plaquetasMenu, menuMinimum: 110000, menuMaximum: 650000, menuInterval: 5000, menuDefaultValue: 450000, contentBackGround: contentBackGround, topAnchor: hbMenu, leftAnchor: contentBackGround, labelText: "Plaquetas", topPadding: screenSize.height * 0.0085, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
 
+        // RIGHT
+        numericPickerPlusLabel(label: ureiaLabel, menu: ureiaMenu, menuMinimum: 4, menuMaximum: 25, menuInterval: 1, contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: separator, labelText: "Ureia (mg/dl)", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
         
-      
-        
-        
-       // RIGHT
-        //FIXME: THIS IS A PICKER WITH TWO VALUES: mg/dl
-        menuPlusLabel(label: ureiaLabel, menu: ureiaMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: separator, labelText: "Ureia",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        
-        
-        //FIXME: THIS IS A PICKER
-        menuPlusLabelBottom(label: leucocitosLabel, menu: leucocitosMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: ureiaMenu, leftAnchor: separator, labelText: "Leucócitos",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        numericPickerPlusLabel(label: leucocitosLabel, menu: leucocitosMenu, menuMinimum: 3000, menuMaximum: 14000, menuInterval: 1000, menuDefaultValue: 4000, contentBackGround: contentBackGround, topAnchor: ureiaMenu, leftAnchor: separator, labelText: "Leucócitos", topPadding: screenSize.height * 0.0082, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
        
-        //FIXME: THIS IS A PICKER
-        menuPlusLabelBottom(label: glicemiaLabel, menu: glicemiaMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: leucocitosMenu, leftAnchor: separator, labelText: "Glicemia",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        numericPickerPlusLabel(label: glicemiaLabel, menu: glicemiaMenu, menuMinimum: 65, menuMaximum: 170, menuInterval: 5, contentBackGround: contentBackGround, topAnchor: leucocitosMenu, leftAnchor: separator, labelText: "Glicemia(mg/dl)", topPadding: screenSize.height * 0.0085, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
         
-    
-        
-        //FIXME: THIS IS A PICKER WITH TWO VALUES: mg/dl
-        menuPlusLabelBottom(label: creatineLabel, menu: creatineMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: glicemiaMenu, leftAnchor: separator, labelText: "Creatina",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-  
-      
-        
+        // FIXME: FLOAT PICKER INSTED
+        numericFloatPickerPlusLabel(label: creatineLabel, menu: creatineMenu, menuMinimum: 0.4, menuMaximum: 1.4, menuInterval: 0.1, contentBackGround: contentBackGround, topAnchor: glicemiaMenu, leftAnchor: separator, labelText: "Creatina(mg/dl)", topPadding: screenSize.height * 0.0092, leftPadding: screenSize.width * 0.0085, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
     }
     
     required init?(coder: NSCoder) {

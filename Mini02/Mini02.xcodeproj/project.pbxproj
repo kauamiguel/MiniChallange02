@@ -104,6 +104,7 @@
 		E81A267E2AD49BF1003A25E0 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A267D2AD49BF1003A25E0 /* RoundedTextField.swift */; };
 		E81A26842AD64681003A25E0 /* NumericPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A26832AD64681003A25E0 /* NumericPicker.swift */; };
 		E81A26872AD6DA4E003A25E0 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A26862AD6DA4E003A25E0 /* DatePicker.swift */; };
+		E81A26892AD70B48003A25E0 /* NumericFloatPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A26882AD70B48003A25E0 /* NumericFloatPicker.swift */; };
 		E8E0D6492AC36F37003CE5CD /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6482AC36F37003CE5CD /* AboutView.swift */; };
 		E8E0D64B2AC36F41003CE5CD /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64A2AC36F41003CE5CD /* AboutViewController.swift */; };
 		E8E0D64D2AC36F55003CE5CD /* PregnantDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */; };
@@ -213,6 +214,7 @@
 		E81A267D2AD49BF1003A25E0 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		E81A26832AD64681003A25E0 /* NumericPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericPicker.swift; sourceTree = "<group>"; };
 		E81A26862AD6DA4E003A25E0 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		E81A26882AD70B48003A25E0 /* NumericFloatPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericFloatPicker.swift; sourceTree = "<group>"; };
 		E8E0D6482AC36F37003CE5CD /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		E8E0D64A2AC36F41003CE5CD /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnantDataView.swift; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 			isa = PBXGroup;
 			children = (
 				E81A26832AD64681003A25E0 /* NumericPicker.swift */,
+				E81A26882AD70B48003A25E0 /* NumericFloatPicker.swift */,
 			);
 			path = NumericPicker;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				ABB82F162AC60931008B73AF /* RoutineDataView.swift in Sources */,
 				AB9D942F2AD068C00064DB69 /* DropDownWithLabel.swift in Sources */,
 				E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */,
+				E81A26892AD70B48003A25E0 /* NumericFloatPicker.swift in Sources */,
 				62FA7C3A2ABE17160083F6E0 /* BloodExamModel.swift in Sources */,
 				ABC98B9E2AB3F0B2005214E5 /* RecurrentDataViewController.swift in Sources */,
 				CE022BA72AD5F9B700946A42 /* DueDateModel.swift in Sources */,

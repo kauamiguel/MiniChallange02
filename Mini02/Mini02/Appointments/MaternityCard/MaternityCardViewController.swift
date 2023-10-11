@@ -334,18 +334,18 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         let igm = bloodView2.igmCheckYES.getBooleanValue()
         let igg = bloodView2.iggCheckYES.getBooleanValue()
         let hiv = bloodView2.hivCheckYES.getBooleanValue()
-        let urea = bloodView.ureiaMenu.selectedOption
-        let ht = Float(bloodView.htMenu.selectedOption ?? "0")
-        let leucocitos = Int(bloodView.leucocitosMenu.selectedOption ?? "0")
-        let plaquetas = Int(bloodView.plaquetasMenu.selectedOption ?? "0")
-        let gliecmia = Int(bloodView.glicemiaMenu.selectedOption ?? "0")
+        let urea = bloodView.ureiaMenu.getPickerValue()
+        let ht = Float(bloodView.htMenu.getPickerValue())
+        let leucocitos = bloodView.leucocitosMenu.getPickerValue()
+        let plaquetas = bloodView.plaquetasMenu.getPickerValue()
+        let gliecmia = bloodView.glicemiaMenu.getPickerValue()
         
         //TODO Arrumar o VDRL EXAM
         // FIX ME : Arrumar o Urea para o valor selecionado no picker
         // FIX ME : Arrumar o Creatine para o valor selecionado no picker
         // FIX ME : Arrumar o hb na view
         // FIX ME : WhiteCell mudar pra inteiro na view
-        let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: 10, dL: 12.1), creatine: 1.1, ht: ht ?? 0, hb: 10, whiteCells: leucocitos ?? 0, platelets: plaquetas ?? 0, glucose: gliecmia ?? 0)
+        let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: 10, dL: 12.1), creatine: 1.1, ht: ht ?? 0, hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
         
         self.consult?.bloodExams = blood
         
@@ -385,9 +385,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             self.maternityVM.coreDataManager.addVaccineInfluenza(dose: vaccine.influenza)
             
         }
-        
+
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
