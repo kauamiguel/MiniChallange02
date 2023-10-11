@@ -54,8 +54,22 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         
         self.hidesBottomBarWhenPushed = true
         
+        let backButton = UIButton(type: .custom)
+        backButton.setImage(UIImage(named: "ChevronBackButton"), for: .normal)
+        backButton.addTarget(self, action: #selector(backToView), for: .touchUpInside)
+        let customBackButton = UIBarButtonItem(customView: backButton)
+        navigationItem.leftBarButtonItem = customBackButton
+        
+        let bgImage = UIImage(named: "backGroundRecurrentData")
+        if let image = bgImage{
+            self.view.backgroundColor = UIColor(patternImage: image)
+            self.collectionView.backgroundColor = UIColor(patternImage: image)
+        }
+        
+        self.hidesBottomBarWhenPushed = true
+        
     }
-    
+        
     //Function of backButton
     @objc func backToView(){
         self.navigationController?.popViewController(animated: true)
