@@ -28,7 +28,7 @@ class BloodView: UIView{
         view.backgroundColor = UIColor(red: 1.00, green: 0.97, blue: 0.97, alpha: 1.00)
         
         view.layer.borderWidth = 1 // Adjust the width as needed
-        view.layer.borderColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00).cgColor // Change color as needed
+        view.layer.borderColor = UIColor(red: 0.23, green: 0.65, blue: 0.73, alpha: 1.00).cgColor // Change color as needed
         
         return view
     }()
@@ -126,7 +126,6 @@ class BloodView: UIView{
         separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: 15, bottomPadding: -15, width: 1.5)
         separator.centerX(inView: contentBackGround)
         
-
         //FIXME: PICKER HERE
         menuPlusLabel(label: FerritinaLabel, menu: FerritinaMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "Ferritina", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         
@@ -186,50 +185,6 @@ class BloodView: UIView{
         menuPlusLabelBottom(label: tshLabel, menu: tshMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: ureiaMenu, leftAnchor: separator, labelText: "TSH",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         //FIXME: NOT MODELED
         menuPlusLabelBottom(label: easLabel, menu: easMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: tshMenu, leftAnchor: separator, labelText: "EAS/Cultura",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-
-        menuPlusLabel(label: FerritinaLabel, menu: FerritinaMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "Ferritina", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: aboLabel, menu: aboMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: FerritinaMenu, leftAnchor: contentBackGround, labelText: "ABO - RH", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: htLabel, menu: htMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: aboMenu, leftAnchor: contentBackGround, labelText: "HTª/HB", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: plaquetasLabel, menu: plaquetasMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: htMenu, leftAnchor: contentBackGround, labelText: "Plaquetas", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: curvaGlicemicaLabel, menu: curvaGlicemicaMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: plaquetasMenu, leftAnchor: contentBackGround, labelText: "Curva Glicêmica", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: hepatiteLabel, menu: hepatiteMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: curvaGlicemicaMenu, leftAnchor: contentBackGround, labelText: "Hepatite C", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: rubeolaLabel, menu: rubeolaMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: hepatiteMenu, leftAnchor: contentBackGround, labelText: "Rubéola", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: chagasLabel, menu: chagasMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: rubeolaMenu, leftAnchor: contentBackGround, labelText: "Chagas", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: tgoLabel, menu: tgoMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: chagasMenu, leftAnchor: contentBackGround, labelText: "TGO/TGP", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: acidoUricoLabel, menu: acidoUricoMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: tgoMenu, leftAnchor: contentBackGround, labelText: "Ácido úrico", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        
-       // RIGHT
-        
-        menuPlusLabelRight(label: vitaminaDLabel, menu: vitaminaDMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: separator, labelText: "Vitamina D", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: coombsLabel, menu: coombsMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: vitaminaDMenu, leftAnchor: separator, labelText: "COOMBS",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: leucocitosLabel, menu: leucocitosMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: coombsMenu, leftAnchor: separator, labelText: "Leucócitos",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: glicemiaLabel, menu: glicemiaMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: leucocitosMenu, leftAnchor: separator, labelText: "Glicemia",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: epfLabel, menu: epfMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: glicemiaMenu, leftAnchor: separator, labelText: "EPF",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: citomegalovirusLabel, menu: citomegalovirusMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: epfMenu, leftAnchor: separator, labelText: "Citomegalovírus",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: htlvLabel, menu: htlvMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: citomegalovirusMenu, leftAnchor: separator, labelText: "HTLV",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: ureiaLabel, menu: ureiaMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: htlvMenu, leftAnchor: separator, labelText: "Ureia/Creatina",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: tshLabel, menu: tshMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: ureiaMenu, leftAnchor: separator, labelText: "TSH",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        
-        menuPlusLabelBottom(label: easLabel, menu: easMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: tshMenu, leftAnchor: separator, labelText: "EAS/Cultura",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-
         
     }
     
@@ -238,8 +193,3 @@ class BloodView: UIView{
     }
     
 }
-
-
-
-
-
