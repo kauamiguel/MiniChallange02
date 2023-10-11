@@ -129,7 +129,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                 self?.openModal()
             }
             
-            
             return footerView
             
         default:
