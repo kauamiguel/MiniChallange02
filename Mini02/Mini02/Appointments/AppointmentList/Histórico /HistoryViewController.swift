@@ -10,7 +10,7 @@ import UIKit
 //class HistoryViewController: UIViewController {
 //    
 //    //Variable with the info of the current consult
-//    var appointmentsInfo: ConsultEntity?
+
 //    
 //    let testview: UIView = {
 //        let view = UIView()
@@ -64,7 +64,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     private lazy var  h1N1View = H1N1View()
     private lazy var ultrasoundView = UltrasoundView()
     private lazy var maternityVM = MaternityCardViewModel()
-    
+    var appointmentsInfo: ConsultEntity?
     //Variable to know wich treemester is, then we can track this consult after
 //    var treemester : Int?
     
