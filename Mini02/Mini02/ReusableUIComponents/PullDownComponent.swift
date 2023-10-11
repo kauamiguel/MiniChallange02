@@ -13,6 +13,9 @@ class PullDownComponent: UIButton {
     
     var selectedOption : String?
     
+    func forceTitle(title: String){
+        self.setTitle(title, for: .normal)
+    }
 
     func setupButton(options: [String]) {
         self.backgroundColor = UIColor(red: 0.70, green: 0.82, blue: 0.84, alpha: 1.00)
@@ -20,9 +23,9 @@ class PullDownComponent: UIButton {
         self.layer.cornerRadius = 6
         self.titleLabel?.font = UIFont(name: "Signika-Regular", size: 16)
         var menuActions: [UIAction] = []
-
-        self.setTitle(selectedOption, for: .normal)
-
+       
+      
+        
         
         for title in options {
             let action = UIAction(title: title, handler: { [weak self] action in
