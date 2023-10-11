@@ -58,21 +58,21 @@ class BloodView2: UIView{
     lazy var igmSubHStackYES: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 5
+        stackView.spacing = 2
         return stackView
     }()
     
     lazy var iggSubHStackYES: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 5
+        stackView.spacing = 2
         return stackView
     }()
     
     lazy var igmAndIggSubHStack: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 20
+        stackView.spacing = 12
         return stackView
     }()
     
@@ -149,7 +149,7 @@ class BloodView2: UIView{
         toxoplasmosisHStack.anchorWithConstantValues(top: hivSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
         
         //FIXME: THIS IS A DROPDOWN/PICKER
-        configureLabelAndPullDonw(stack: twinSubHStack, label: vdrlLabel, pullDown: vdrlMenu, labelText: "VDRL", screenSize: screenSize)
+        configureLabelAndPullDown(stack: twinSubHStack, label: vdrlLabel, pullDown: vdrlMenu, labelText: "VDRL", screenSize: screenSize)
         vdrlMenu.setupButton(options: VdrlExam.allCases.map{$0.rawValue})
         contentBackGround.addSubview(twinSubHStack)
         twinSubHStack.anchorWithConstantValues(top: toxoplasmosisHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15,leftPadding: 10 ,rightPadding: -34)

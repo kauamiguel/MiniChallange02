@@ -41,20 +41,20 @@ class RoutineDataView: UIView {
     
     let igLabel = LabelComponentView()
         
-    let igMenu = PullDownComponent()
+    let igMenu = NumericPicker()
     
     let uterineHeightLabel = LabelComponentView()
     
-    let uterineHeightMenu = PullDownComponent()
+    let uterineHeightMenu = NumericPicker()
     
     let arterialPressureLabel = LabelComponentView()
     
-    let arterialPressureMenu = PullDownComponent()
+    let arterialPressureMenu = RoundedTextField()
     
    
     let wheightLabel = LabelComponentView()
     
-    let wheightMenu = PullDownComponent()
+    let wheightMenu = NumericPicker()
     
     let bcfLabel = LabelComponentView()
     
@@ -92,28 +92,22 @@ class RoutineDataView: UIView {
         separator.centerX(inView: contentBackGround)
         separator.backgroundColor = UIColor(red: 0.49, green: 0.74, blue: 0.50, alpha: 1.00)
        
-        //FIXME: PICKER HERE
-        menuPlusLabel(label: igLabel, menu: igMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "IG -DUM/USG", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        numericPickerPlusLabel(label: igLabel, menu: igMenu, menuMinimum: 0, menuMaximum: 42, menuInterval: 1, contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "IG DUM/USG", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         
-        //FIXME: PICKER HERE
-        menuPlusLabelBottom(label: uterineHeightLabel, menu: uterineHeightMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: igMenu, leftAnchor: contentBackGround, labelText: "Altura uterina (cm)", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        numericPickerPlusLabel(label: uterineHeightLabel, menu: uterineHeightMenu, menuMinimum: 4, menuMaximum: 40, menuInterval: 1, menuDefaultValue: 5, contentBackGround: contentBackGround, topAnchor: igMenu, leftAnchor: contentBackGround, labelText: "Altura uterina(cm)", topPadding: screenSize.height * 0.0082, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         
-        //FIXME: PICKER HERE
-        menuPlusLabelBottom(label: arterialPressureLabel, menu: arterialPressureMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: uterineHeightMenu, leftAnchor: contentBackGround, labelText: "Pressão arterial ", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        textFieldPlusLabel(label: arterialPressureLabel, field: arterialPressureMenu, placeholder: "120/80", contentBackGround: contentBackGround, topAnchor: uterineHeightMenu, leftAnchor: contentBackGround, labelText: "Pressão arterial", topPadding: screenSize.height * 0.0082, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         
-        //FIXME: PICKER HERE
-        menuPlusLabelRight(label: wheightLabel, menu: wheightMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: separator, labelText: "Peso (Kg)/IMC", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        // FIXME: Wheight is a NumericPicker but IMC can be a menu, neither make much sense
+        numericPickerPlusLabel(label: wheightLabel, menu: wheightMenu, menuMinimum: 60, menuMaximum: 180, menuInterval: 5, contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: separator, labelText: "Peso (KG)/IMC", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         
-        menuPlusLabelBottom(label: bcfLabel, menu: bcfMenu, options: ["Baixo", "Moderado", "Alto"], contentBackGround: contentBackGround, topAnchor: wheightMenu, leftAnchor: separator, labelText: "BCF",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        menuPlusLabelBottom(label: bcfLabel, menu: bcfMenu, options: ["Baixo", "Moderado", "Alto"], contentBackGround: contentBackGround, topAnchor: wheightMenu, leftAnchor: separator, labelText: "BCF",  topPadding: screenSize.height * 0.0013, leftPadding: screenSize.width * 0.0065, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         
-        menuPlusLabelBottom(label: edemaLabel, menu: edemaMenu, options: ["Normal", "Leve", "Grave"], contentBackGround: contentBackGround, topAnchor: bcfMenu, leftAnchor: separator, labelText: "Edema", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        menuPlusLabelBottom(label: edemaLabel, menu: edemaMenu, options: ["Normal", "Leve", "Grave"], contentBackGround: contentBackGround, topAnchor: bcfMenu, leftAnchor: separator, labelText: "Edema", topPadding: screenSize.height * 0.0013, leftPadding: screenSize.width * 0.0065, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-
 }

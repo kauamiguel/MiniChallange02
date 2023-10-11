@@ -38,17 +38,17 @@ class UltrasoundView: UIView {
     let ultrasoundSubLabel = LabelComponentView()
     
     let dataLabel = LabelComponentView()
-    let dataMenu = PullDownComponent()
+    let dataMenu = DatePicker()
     
     let pesoLabel = LabelComponentView()
-    let pesoMenu = PullDownComponent()
+    let pesoMenu = NumericPicker()
     
     let ilaLabel = LabelComponentView()
     let ilaMenu = PullDownComponent()
     
    
     let igLabel = LabelComponentView()
-    let igMenu = PullDownComponent()
+    let igMenu = NumericPicker()
     
     let placentaLabel = LabelComponentView()
     let placentaMenu = PullDownComponent()
@@ -92,18 +92,19 @@ class UltrasoundView: UIView {
         ultrasoundSubLabel.setupLabel(labelText: "Exame mais recente", labelType: .inputLabel, labelColor: .secondaryText)
         ultrasoundSubLabel.anchorWithMultiplayerValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor ,topPadding: screenSize.height * 0.0023 ,leftPadding: screenSize.width * 0.005)
         
-        //FIXME: THIS IS A DATE PICKER
-        menuPlusLabelBottom(label: dataLabel, menu: dataMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: ultrasoundSubLabel, leftAnchor: contentBackGround, labelText: "Data", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        //FIXME: THIS IS A PICKER
-        menuPlusLabelBottom(label: pesoLabel, menu: pesoMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: dataMenu, leftAnchor: contentBackGround, labelText: "Peso", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+
+        datePickerPlusLabel(label: dataLabel, date: dataMenu, contentBackGround: contentBackGround, topAnchor: ultrasoundSubLabel, leftAnchor: contentBackGround, labelText: "Data", topPadding: screenSize.height * 0.0042, leftPadding: screenSize.width * 0.005, screenSize: screenSize, heightMultiplier: 0.052)
+
+        numericPickerPlusLabel(label: pesoLabel, menu: pesoMenu, menuMinimum: 50, menuMaximum: 180, menuInterval: 5, contentBackGround: contentBackGround, topAnchor: dataMenu, leftAnchor: contentBackGround, labelText: "Peso", topPadding: screenSize.height * 0.009, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
+        
         //FIXME: NOT MODELED
-        menuPlusLabelBottom(label: ilaLabel, menu: ilaMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: pesoMenu, leftAnchor: contentBackGround, labelText: "ILA", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
-        //FIXME: THIS IS A PICKER
-        menuPlusLabelBottom(label: igLabel, menu: igMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: ultrasoundSubLabel, leftAnchor: separator, labelText: "IG", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        menuPlusLabelBottom(label: ilaLabel, menu: ilaMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: pesoMenu, leftAnchor: contentBackGround, labelText: "ILA", topPadding: screenSize.height * 0.0036, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.045)
+
+        numericPickerPlusLabel(label: igLabel, menu: igMenu, menuMinimum: 0, menuMaximum: 42, menuInterval: 1, contentBackGround: contentBackGround, topAnchor: ultrasoundSubLabel, leftAnchor: separator, labelText: "IG", topPadding: screenSize.height * 0.0038, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
         
-        menuPlusLabelBottom(label: placentaLabel, menu: placentaMenu, options: Placenta.allCases.map { $0.rawValue }, contentBackGround: contentBackGround, topAnchor: igMenu, leftAnchor: separator, labelText: "Placenta",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        menuPlusLabelBottom(label: placentaLabel, menu: placentaMenu, options: Placenta.allCases.map { $0.rawValue }, contentBackGround: contentBackGround, topAnchor: igMenu, leftAnchor: separator, labelText: "Placenta",  topPadding: screenSize.height * 0.0032, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
         
-        menuPlusLabelBottom(label: apresentacaoFetalLabel, menu: apresentacaoFetalMenu, options: FetalPosition.allCases.map { $0.rawValue }, contentBackGround: contentBackGround, topAnchor: placentaMenu, leftAnchor: separator, labelText: "Apresentação Fetal", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        menuPlusLabelBottom(label: apresentacaoFetalLabel, menu: apresentacaoFetalMenu, options: FetalPosition.allCases.map { $0.rawValue }, contentBackGround: contentBackGround, topAnchor: placentaMenu, leftAnchor: separator, labelText: "Apresentação Fetal", topPadding: screenSize.height * 0.0042, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.042)
         
     }
     
