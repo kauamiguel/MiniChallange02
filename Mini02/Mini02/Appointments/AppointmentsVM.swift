@@ -12,6 +12,15 @@ class AppointmentsVM {
     
     var view: UIViewController?
     var coreDataManager = CoreDataFunctions()
+    
+    func getName() -> String?{
+        coreDataManager.fetchPacient()
+        
+        if let name = coreDataManager.pacient?.firstName{
+            return name
+        }
+        return nil
+    }
 
     func isFirstTreemester() -> Bool{
         let allConsults = coreDataManager.getConsults()

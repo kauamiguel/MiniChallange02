@@ -46,14 +46,7 @@ class AppointmentsView: UIView {
         return button
     }()
     
-    let userName : UILabel = {
-        let label = UILabel()
-        label.text = "Larissa alves"
-        label.textColor = .black
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    let userName = LabelComponentView()
     
     let userInfo : UILabel = {
         let label = UILabel()
@@ -104,7 +97,8 @@ class AppointmentsView: UIView {
             vc.view.backgroundColor = UIColor(patternImage: image)
         }
         
-        
+        let name = vc.appointmentViewModelManager?.getName()
+        userName.setupLabel(labelText: name ?? "", labelType: .titleSemiBold, labelColor: .secondaryColor)
         
         //Adding actions into buttons
         firstTremesterButton.addTarget(vc, action: firstTreemesterAction, for: .touchUpInside)
@@ -120,7 +114,6 @@ class AppointmentsView: UIView {
         vc.view.addSubview(thirdTremesterButton)
         thirdTremesterButton.addSubview(labelThirdTreemester)
         vc.view.addSubview(userName)
-        vc.view.addSubview(userInfo)
         
         //Adding constraints into profile image and description
         let profileButton = ProfileImageButton(controller: vc)
@@ -129,16 +122,14 @@ class AppointmentsView: UIView {
         profileButton.anchorWithConstantValues(top: vc.view.safeAreaLayoutGuide.topAnchor, width: profileButton.defaultSize, height: profileButton.defaultSize)
         userName.centerX(inView: vc.view)
         userName.anchorWithConstantValues(top: profileButton.bottomAnchor, topPadding: 5)
-        
-        userInfo.centerX(inView: vc.view)
-        userInfo.anchorWithConstantValues(top: userName.bottomAnchor, topPadding: 5)
+    
         
         
         //Check wheter is a iPhoneView or iPadView
         if UIDevice.current.userInterfaceIdiom == .phone{
             
             //Add constrains to the buttons
-            firstTremesterButton.anchorWithConstantValues(top: userInfo.bottomAnchor,left: vc.view.leadingAnchor ,topPadding: 40, leftPadding: 30)
+            firstTremesterButton.anchorWithConstantValues(top: userName.bottomAnchor,left: vc.view.leadingAnchor ,topPadding: 40, leftPadding: 30)
             
             secondTremesterButton.centerY(inView: vc.view)
             secondTremesterButton.anchorWithConstantValues(right: vc.view.trailingAnchor, rightPadding: -20)
@@ -146,7 +137,7 @@ class AppointmentsView: UIView {
             
         }else{
             //Add constrains to the buttons
-            firstTremesterButton.anchorWithConstantValues(top: userInfo.bottomAnchor,left: vc.view.leadingAnchor ,topPadding: 50, leftPadding: 200)
+            firstTremesterButton.anchorWithConstantValues(top: userName.bottomAnchor,left: vc.view.leadingAnchor ,topPadding: 50, leftPadding: 200)
             
             secondTremesterButton.centerY(inView: vc.view)
             secondTremesterButton.anchorWithConstantValues(right: vc.view.trailingAnchor, rightPadding: -150)
