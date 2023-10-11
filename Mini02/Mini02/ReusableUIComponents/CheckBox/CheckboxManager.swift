@@ -12,6 +12,7 @@ class CheckBoxManager {
     var active: UIButton?
     
     func uncheckEveryExcept(e: UIButton) {
+        active = e
         for btn in buttons {
             if let red = btn as? CheckBoxComponentRedView, red != e {
                 red.checked = false
