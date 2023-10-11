@@ -285,6 +285,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         familyBg.diabetes = diabetes ?? false
         familyBg.heartCondition = cardiopatia ?? false
         familyBg.urinaryInfection = urinary ?? false
+        //Add familyBg
+        maternityVM.coreDataManager.assignFamilylBG(familyBG: familyBg)
         
         //Assign pregnancy typeView
         let gemelar = pregnancyTypeView.section[AppointmentsKeys.gemelar.rawValue]?.getBooleanValue()
@@ -322,7 +324,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         personalBg.hypertension = hypertensionBg ?? false
         personalBg.heartCondition = cardiacBg ?? false
         personalBg.tabagism = smokeBg  ?? false
-        
+        //Add personalBg
+        maternityVM.coreDataManager.assignPersonalBG(personalBG: personalBg)
         
         //Add bloodExam
         let bloodType = bloodView.aboMenu.selectedOption ?? ""
@@ -379,12 +382,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             //Adicionar as vacinas antitetanicas e hepatite
             self.maternityVM.coreDataManager.addVaccineInfluenza(dose: vaccine.influenza)
             
-            
-            //Add familyBg
-            maternityVM.coreDataManager.assignFamilylBG(familyBG: familyBg)
-            
-            //Add personalBg
-            maternityVM.coreDataManager.assignPersonalBG(personalBG: personalBg)
         }
         
         

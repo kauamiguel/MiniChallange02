@@ -385,10 +385,10 @@ class CoreDataFunctions{
         let family = FamilyBackGround(context: context)
         let savedPacient = pacient
         
-        family.diabetes = family.diabetes
-        family.hypertension = family.hypertension
-        family.heartCondition = family.heartCondition
-        family.urinaryInfection = family.urinaryInfection
+        family.diabetes = familyBG.diabetes
+        family.hypertension = familyBG.hypertension
+        family.heartCondition = familyBG.heartCondition
+        family.urinaryInfection = familyBG.urinaryInfection
         
         //Adding the relationChip
         savedPacient!.familyBG = family
