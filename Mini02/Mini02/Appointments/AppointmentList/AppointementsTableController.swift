@@ -78,7 +78,7 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
             fatalError("No view controller to be called")
         }
         
-        let view = HistoryVC()
+        let view = HistoryViewController()
         
         //Gets the data related to that row
         if let consult = appointmentVM?.consults{

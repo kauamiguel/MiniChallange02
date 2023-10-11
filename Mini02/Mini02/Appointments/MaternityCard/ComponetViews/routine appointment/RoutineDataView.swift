@@ -15,7 +15,6 @@ class RoutineDataView: UIView {
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let routineDataViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.34)
     
-    
     let roudedBackGround: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -26,10 +25,10 @@ class RoutineDataView: UIView {
     let contentBackGround: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 25
-        view.backgroundColor = UIColor(red: 1.00, green: 0.97, blue: 0.97, alpha: 1.00)
+        view.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.96, alpha: 1.00)
         
         view.layer.borderWidth = 1 // Adjust the width as needed
-        view.layer.borderColor = UIColor(red: 0.23, green: 0.65, blue: 0.73, alpha: 1.00).cgColor // Change color as needed
+        view.layer.borderColor = UIColor(red: 0.49, green: 0.74, blue: 0.50, alpha: 1.00).cgColor // Change color as needed
         
         return view
     }()
@@ -73,7 +72,6 @@ class RoutineDataView: UIView {
     
     func setupView(){
         
-        
         addSubview(roudedBackGround)
         
         roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: routineDataViewSize.width ,height: routineDataViewSize.height)
@@ -92,6 +90,7 @@ class RoutineDataView: UIView {
         separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: 15, bottomPadding: -15, width: 1.5)
         separator.centerX(inView: contentBackGround)
        
+
         //FIXME: PICKER HERE
         menuPlusLabel(label: igLabel, menu: igMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "IG -DUM/USG", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         
@@ -107,6 +106,19 @@ class RoutineDataView: UIView {
         menuPlusLabelBottom(label: bcfLabel, menu: bcfMenu, options: ["Baixo", "Moderado", "Alto"], contentBackGround: contentBackGround, topAnchor: wheightMenu, leftAnchor: separator, labelText: "BCF",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         
         menuPlusLabelBottom(label: edemaLabel, menu: edemaMenu, options: ["Normal", "Leve", "Grave"], contentBackGround: contentBackGround, topAnchor: bcfMenu, leftAnchor: separator, labelText: "Edema", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+
+        menuPlusLabel(label: igLabel, menu: igMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "IG -DUM/USG", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        
+        menuPlusLabelBottom(label: uterineHeightLabel, menu: uterineHeightMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: igMenu, leftAnchor: contentBackGround, labelText: "Altura uterina (cm)", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        
+        menuPlusLabelBottom(label: arterialPressureLabel, menu: arterialPressureMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: uterineHeightMenu, leftAnchor: contentBackGround, labelText: "Pressão arterial ", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        
+        menuPlusLabelRight(label: wheightLabel, menu: wheightMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: separator, labelText: "Peso (Kg)/IMC", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        
+        menuPlusLabelBottom(label: bcfLabel, menu: bcfMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: wheightMenu, leftAnchor: separator, labelText: "BCF",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+        
+        menuPlusLabelBottom(label: edemaLabel, menu: edemaMenu, options: ["111", "222", "333"], contentBackGround: contentBackGround, topAnchor: bcfMenu, leftAnchor: separator, labelText: "Edema", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+
         
     }
     

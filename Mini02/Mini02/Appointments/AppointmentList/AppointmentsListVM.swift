@@ -14,6 +14,7 @@ class AppointmentsListVM{
     //Value to know wich treemester, then the MaternityCard can Assign this atribute to the new Consult
     var treemester : Int?
     
+    //Add appointment and assign the treemester number
     func AddAppointment(){
         if let numberTreemester = treemester{
             view.navigationController?.pushViewController(MaternityCardViewController(treemester: numberTreemester), animated: true)
