@@ -207,35 +207,42 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         collectionView.reloadData() // Reload the collection view to reflect the changes.
     }
     
-    // generic to add views
-    func addViews<T: UIView>(viewType: T.Type, viewSize: CGSize, viewID: String, viewQuery: String) {
-        if !cells.contains(where: { type(of: $0.view) == viewType }) {
-            let newView = viewType.init()
-            let newCellInfo = CellInfo(view: newView, size: viewSize, id: viewID, query: viewQuery)
-            cells.append(newCellInfo)
-            
-            self.collectionView.reloadData()
+    func addNewView(views: [CellInfo]){
+        for view in views {
+            cells.append(view)
             setupCollectionView()
-            
-            let lastItemIndexPath = IndexPath(item: cells.count - 1, section: 0)
-            collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
         }
     }
     
     @objc func addNewBloodViewCell(){
-        addViews(viewType: BloodView.self, viewSize: bloodView.bloodViewViewSize, viewID: BloodView.id, viewQuery: bloodView.query)
-        addViews(viewType: BloodView2.self, viewSize: bloodView2.bloodView2size, viewID: BloodView2.id, viewQuery: bloodView2.query)
+        let views: [CellInfo] = [
+            CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
+            CellInfo(view: bloodView2, size: bloodView2.bloodView2size, id: BloodView2.id, query: bloodView2.query)
+        ]
+        
+        addNewView(views: views)
+        
     }
     
     @objc func addNewVaccineViewCell(){
-        addViews(viewType: TetanicView.self, viewSize: tetanicView.tetanicViewSize, viewID: TetanicView.id, viewQuery: tetanicView.query)
-        addViews(viewType: HepatitisBView.self, viewSize: hepatitisBView.hepatitisBViewSize, viewID: HepatitisBView.id, viewQuery: hepatitisBView.query)
-        addViews(viewType: H1N1View.self, viewSize: h1N1View.h1N1ViewSize, viewID: H1N1View.id, viewQuery: h1N1View.query)
+        
+        let views: [CellInfo] = [
+            CellInfo(view: tetanicView, size: tetanicView.tetanicViewSize, id: TetanicView.id, query: tetanicView.query),
+            CellInfo(view: hepatitisBView, size: hepatitisBView.hepatitisBViewSize, id: HepatitisBView.id, query: hepatitisBView.query),
+            CellInfo(view: h1N1View, size: h1N1View.h1N1ViewSize, id: H1N1View.id, query: h1N1View.query)
+        ]
+        
+        addNewView(views: views)
     }
     
     @objc func addNewUltrassonViewCell() {
-        addViews(viewType: UltrasoundView.self, viewSize: ultrasoundView.ultrasoundSize, viewID: UltrasoundView.id, viewQuery: ultrasoundView.query)
+        let views: [CellInfo] = [
+            CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundSize, id: UltrasoundView.id, query: ultrasoundView.query),
+        ]
+        
+        addNewView(views: views)
     }
+
     
     func deleteButtonTapped(cell: MaternityCardCell) {
         if let indexPath = collectionView.indexPath(for: cell) {
@@ -253,20 +260,20 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     func saveData(){
         
+        //Adding routines
+        let ig = Int(routineData.igMenu.getPickerValue())
+        let edema = routineData.edemaMenu.selectedOption
+        let fetalHeart = routineData.bcfMenu.selectedOption ?? ""
+        let uterine = Int(routineData.uterineHeightMenu.getPickerValue())
+        let weight = routineData.wheightMenu.getPickerValue()
+        let bloodPressure = routineData.arterialPressureMenu.text ?? ""
+        
+        //Mudar o fetalHeart no CoreData para ser string
+        let routine = RoutineDataModel(bloodPressure: bloodPressure , edema: edema ?? "", fetalHeartHate: 0, uterineHeight: uterine , weightAndBodyMassIndex: Float(weight ), ig: ig )
+        self.consult?.routineData = routine
+        
         //Check wheter is first Appointment because some data will be get just there
         if ApplicationSettings.shouldEnterFirstAppointment(){
-            
-            //Adding routines
-            let ig = Int(routineData.igMenu.getPickerValue())
-            let edema = routineData.edemaMenu.selectedOption
-            let fetalHeart = Int(routineData.bcfMenu.selectedOption ?? "0")
-            let uterine = Int(routineData.uterineHeightMenu.getPickerValue())
-            let weight = routineData.wheightMenu.getPickerValue()
-            let bloodPressure = routineData.arterialPressureMenu.text ?? ""
-            
-            let routine = RoutineDataModel(bloodPressure: bloodPressure , edema: edema ?? "", fetalHeartHate: fetalHeart ?? 0, uterineHeight: uterine , weightAndBodyMassIndex: Float(weight ), ig: ig )
-            self.consult?.routineData = routine
-            
             
             //Assign family BackGround
             let hypertension = familyAntecedentView.sections[AppointmentsKeys.hipertensao.rawValue]?.getBooleanValue()
@@ -282,7 +289,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             //Add familyBg
             maternityVM.coreDataManager.assignFamilylBG(familyBG: familyBg)
             
-    
             //Assign pregnancy typeView
             let gemelar = pregnancyTypeView.section[AppointmentsKeys.gemelar.rawValue]?.getBooleanValue()
             let tripla = pregnancyTypeView.section[AppointmentsKeys.triplaOuMais.rawValue]?.getBooleanValue()
@@ -293,7 +299,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             self.consult?.pregnancyClassificationModel = pregnancyType
             
-            
             //Assign risk pregnancy
             let habitualRisk = pregnancyRiskView.section[AppointmentsKeys.riscoHabitual.rawValue]?.getBooleanValue()
             let highRisk = pregnancyRiskView.section[AppointmentsKeys.altoRisco.rawValue]?.getBooleanValue()
@@ -302,12 +307,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             self.consult?.riskPregnancy = riskPregnancy
             
-            
             //Planned pregnancy
             let pregnancyPlanned = plannedView.plannedCheckYES.getBooleanValue()
             let planned = PregnancyPlanningModel(plannedPregnancy: pregnancyPlanned)
             self.consult?.plannedPregnancy = planned
-            
             
             //Add personal BG
             let inffection = clinicAntecedentsView.sections[AppointmentsKeys.urinary.rawValue]?.getBooleanValue()
@@ -335,18 +338,17 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     let igm = bloodView2.igmCheckYES.getBooleanValue()
                     let igg = bloodView2.iggCheckYES.getBooleanValue()
                     let hiv = bloodView2.hivCheckYES.getBooleanValue()
-                    let urea = bloodView.ureiaMenu.selectedOption
-                    let ht = Float(bloodView.htMenu.selectedOption ?? "0")
-                    let leucocitos = Int(bloodView.leucocitosMenu.selectedOption ?? "0")
-                    let plaquetas = Int(bloodView.plaquetasMenu.selectedOption ?? "0")
-                    let gliecmia = Int(bloodView.glicemiaMenu.selectedOption ?? "0")
-                    
+                    let urea = bloodView.ureiaMenu.numberOptions
+                    let ht = bloodView.htMenu.numberOptions.first ?? 0
+                    let leucocitos = Int(bloodView.leucocitosMenu.selectedValue)
+                    let plaquetas = Int(bloodView.plaquetasMenu.selectedValue)
+                    let gliecmia = Int(bloodView.glicemiaMenu.selectedValue)
                     //TODO Arrumar o VDRL EXAM
                     // FIX ME : Arrumar o Urea para o valor selecionado no picker
                     // FIX ME : Arrumar o Creatine para o valor selecionado no picker
                     // FIX ME : Arrumar o hb na view
                     // FIX ME : WhiteCell mudar pra inteiro na view
-                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: 10, dL: 12.1), creatine: 1.1, ht: ht ?? 0, hb: 10, whiteCells: leucocitos ?? 0, platelets: plaquetas ?? 0, glucose: gliecmia ?? 0)
+                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: 10, dL: 12.1), creatine: 1.1, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
                     
                     self.consult?.bloodExams = blood
                     break
@@ -402,37 +404,28 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             //IF it is not the first appointment
         }else{
             
-            let ig = Int(routineData.igMenu.getPickerValue())
-            let edema = routineData.edemaMenu.selectedOption
-            let fetalHeart = Int(routineData.bcfMenu.selectedOption ?? "0")
-            let uterine = Int(routineData.uterineHeightMenu.getPickerValue())
-            let weight = routineData.wheightMenu.getPickerValue()
-            let bloodPressure = routineData.arterialPressureMenu.text ?? ""
-            
-            let routine = RoutineDataModel(bloodPressure: bloodPressure , edema: edema ?? "", fetalHeartHate: fetalHeart ?? 0, uterineHeight: uterine , weightAndBodyMassIndex: Float(weight ), ig: ig )
-            self.consult?.routineData = routine
             
             for cell in cells{
                 if cell.id == BloodView.id{
-                    print("Tem view de exame de sangue")
+                
                     //Add bloodExam
                     // FIX ME : Arrumar os dropDowns do exame de sangue pois não esta retornando valor
                     let bloodType = bloodView.aboMenu.selectedOption ?? ""
                     let igm = bloodView2.igmCheckYES.getBooleanValue()
                     let igg = bloodView2.iggCheckYES.getBooleanValue()
                     let hiv = bloodView2.hivCheckYES.getBooleanValue()
-                    let urea = bloodView.ureiaMenu.selectedOption
-                    let ht = Float(bloodView.htMenu.selectedOption ?? "0")
-                    let leucocitos = Int(bloodView.leucocitosMenu.selectedOption ?? "0")
-                    let plaquetas = Int(bloodView.plaquetasMenu.selectedOption ?? "0")
-                    let gliecmia = Int(bloodView.glicemiaMenu.selectedOption ?? "0")
+                    let urea = bloodView.ureiaMenu.numberOptions
+                    let ht = bloodView.htMenu.numberOptions.first ?? 0
+                    let leucocitos = Int(bloodView.leucocitosMenu.selectedValue)
+                    let plaquetas = Int(bloodView.plaquetasMenu.selectedValue)
+                    let gliecmia = Int(bloodView.glicemiaMenu.selectedValue)
                     
                     //TODO Arrumar o VDRL EXAM
                     // FIX ME : Arrumar o Urea para o valor selecionado no picker
                     // FIX ME : Arrumar o Creatine para o valor selecionado no picker
                     // FIX ME : Arrumar o hb na view
                     // FIX ME : WhiteCell mudar pra inteiro na view
-                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: 10, dL: 12.1), creatine: 1.1, ht: ht ?? 0, hb: 10, whiteCells: leucocitos ?? 0, platelets: plaquetas ?? 0, glucose: gliecmia ?? 0)
+                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: 10, dL: 12.1), creatine: 1.1, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
                     
                     self.consult?.bloodExams = blood
                     break
@@ -441,7 +434,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             for cell in cells{
                 if cell.id == UltrasoundView.id{
-                    print("Tem ultrasound")
+                    
                     //Add new Ultrassound
                     // FIX ME : Mudar o date para do tipo date e nao string
                     let date = ultrasoundView.dataMenu.date
@@ -468,9 +461,9 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             let hepatite = hepatitisBView.hepatitisBYesCheckYES.checked
             
             for cell in cells{
-            
+                
                 if cell.id == TetanicView.id{
-                    print("Tem vacina")
+                    
                     // FIX ME : Ajustar as doses das vacinas na view que nÃo existem
                     let vaccine = Vaccines(hepatiteB: [DoseVaccines(date: Date(), isVaccined: antitetanic, numberOfDose: 1)], influenza: DoseVaccines(date: Date(), isVaccined: influenza, numberOfDose: 1), antitetanic: [DoseVaccines(date: Date(), isVaccined: hepatite, numberOfDose: 1)])
                     //Adicionar as vacinas antitetanicas e hepatite
@@ -487,8 +480,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             }
             
         }
+        
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
