@@ -56,6 +56,7 @@ class UltrasoundView: UIView {
     let apresentacaoFetalLabel = LabelComponentView()
     let apresentacaoFetalMenu = PullDownComponent()
    
+   let datePicker = DatePickerComponent()
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -92,6 +93,9 @@ class UltrasoundView: UIView {
         ultrasoundSubLabel.setupLabel(labelText: "Exame mais recente", labelType: .inputLabel, labelColor: .secondaryText)
         ultrasoundSubLabel.anchorWithMultiplayerValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor ,topPadding: screenSize.height * 0.0023 ,leftPadding: screenSize.width * 0.005)
         
+        contentBackGround.addSubview(datePicker)
+        datePicker.anchorWithConstantValues(top: contentBackGround.topAnchor, left: ultrasoundSubLabel.leadingAnchor)
+        
         //FIXME: THIS IS A DATE PICKER
         menuPlusLabelBottom(label: dataLabel, menu: dataMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: ultrasoundSubLabel, leftAnchor: contentBackGround, labelText: "Data", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         //FIXME: THIS IS A PICKER
@@ -104,6 +108,7 @@ class UltrasoundView: UIView {
         menuPlusLabelBottom(label: placentaLabel, menu: placentaMenu, options: Placenta.allCases.map { $0.rawValue }, contentBackGround: contentBackGround, topAnchor: igMenu, leftAnchor: separator, labelText: "Placenta",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         
         menuPlusLabelBottom(label: apresentacaoFetalLabel, menu: apresentacaoFetalMenu, options: FetalPosition.allCases.map { $0.rawValue }, contentBackGround: contentBackGround, topAnchor: placentaMenu, leftAnchor: separator, labelText: "Apresentação Fetal", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+       
         
     }
     
