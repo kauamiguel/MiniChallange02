@@ -86,7 +86,9 @@ class BloodView2: UIView{
 
     let vdrlLabel = LabelComponentView()
     
-    let vdrlCheckYES = CheckBoxComponentGreenView()
+    let vdrlMenu = PullDownComponent()
+ 
+    
     
     lazy var twinSubHStack: UIStackView = {
         let stackView = UIStackView()
@@ -101,6 +103,7 @@ class BloodView2: UIView{
     
     let inseminationCheckYES = CheckBoxComponentGreenView()
    
+    
     
     lazy var inseminationSubHStack: UIStackView = {
         let stackView = UIStackView()
@@ -146,8 +149,8 @@ class BloodView2: UIView{
         toxoplasmosisHStack.anchorWithConstantValues(top: hivSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
         
         //FIXME: THIS IS A DROPDOWN/PICKER
-        configureLabelAndGreenCheckBox(stack: twinSubHStack,label: vdrlLabel,checkBox: vdrlCheckYES,labelText: "VDRL")
-        
+        configureLabelAndPullDonw(stack: twinSubHStack, label: vdrlLabel, pullDown: vdrlMenu, labelText: "teste")
+        vdrlMenu.setupButton(options: ["aaa", "bbb"])
         contentBackGround.addSubview(twinSubHStack)
         twinSubHStack.anchorWithConstantValues(top: toxoplasmosisHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15,leftPadding: 10 ,rightPadding: -34)
         

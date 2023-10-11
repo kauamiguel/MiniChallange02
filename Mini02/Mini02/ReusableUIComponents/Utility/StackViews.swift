@@ -13,8 +13,8 @@ extension UIView {
     var btnSize:CGFloat {
         UIScreen.main.bounds.height * 0.03
     }
+    
     func configureLabelAndGreenCheckBox(stack: UIStackView ,label: LabelComponentView, checkBox: CheckBoxComponentGreenView, labelText: String) {
-        
         
         label.setupLabel(labelText: labelText, labelType: .titleSemiBold, labelColor: .secondaryColor)
        
@@ -23,7 +23,6 @@ extension UIView {
         stack.addArrangedSubview(checkBox)
         checkBox.anchorWithConstantValues(width: btnSize, height:  btnSize)
         
-    
     }
     
     func configureLabelAndRedCheckBox(stack: UIStackView ,label: LabelComponentView, checkBox: CheckBoxComponentRedView, labelText: String) {
@@ -53,4 +52,14 @@ extension UIView {
 
     }
 
+    
+    func configureLabelAndPullDonw(stack: UIStackView ,label: LabelComponentView, pullDown: PullDownComponent, labelText: String) {
+        
+        label.setupLabel(labelText: labelText, labelType: .titleSemiBold, labelColor: .secondaryColor)
+       
+        stack.addArrangedSubview(label)
+        stack.addArrangedSubview(pullDown)
+        pullDown.anchorWithConstantValues(width: 100, height:  30)
+        
+    }
 }
