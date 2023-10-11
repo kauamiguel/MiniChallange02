@@ -6,13 +6,9 @@
         <attribute name="creatine" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="glucose" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="hb" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="hepatiteB" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="hiv" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="ht" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="platelets" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="syphilis" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="tcd" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="tci" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="vdrlExam" optional="YES" attributeType="String"/>
         <attribute name="whiteCells" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="consult" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConsultEntity" inverseName="bloodExam" inverseEntity="ConsultEntity"/>
@@ -112,6 +108,7 @@
     </entity>
     <entity name="UltraSoundModel" representedClassName="UltraSoundModel" syncable="YES" codeGenerationType="class">
         <attribute name="consultNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="fetalPosition" optional="YES" attributeType="String"/>
         <attribute name="ig" optional="YES" attributeType="String"/>
         <attribute name="placenta" optional="YES" attributeType="String"/>

@@ -238,15 +238,11 @@ class CoreDataFunctions{
         newExame.creatine = bloodExam.creatine
         newExame.hiv = bloodExam.hiv
         newExame.vdrlExam = bloodExam.vdrl.rawValue
-        newExame.syphilis = bloodExam.syphilis
-        newExame.tci = bloodExam.tci
-        newExame.tcd = bloodExam.tcd
         newExame.ht = bloodExam.ht
         newExame.hb = bloodExam.hb
         newExame.whiteCells = Int64(bloodExam.whiteCells)
         newExame.platelets = Int64(bloodExam.platelets)
         newExame.glucose = Int64(bloodExam.glucose)
-        newExame.hepatiteB = bloodExam.hepatiteB
         newExame.consultNumber = Int64(bloodExam.consultNumber)
         
         //Assign the relationChip of each class
@@ -270,6 +266,7 @@ class CoreDataFunctions{
         ultraSoundModel.placenta = ultraSound.placenta.rawValue
         ultraSoundModel.fetalPosition = ultraSound.fetalPosition.rawValue
         ultraSoundModel.consultNumber = Int64(ultraSound.consultNumber)
+        ultraSoundModel.date = ultraSound.date
         
         //Assign the relationChip of each class
         ultraSoundModel.idadeGestacional = idadeGestacional

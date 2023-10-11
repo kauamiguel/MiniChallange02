@@ -62,17 +62,6 @@ struct BloodExamModel{
     var hiv:Bool
     var vdrl:VdrlExam //checks if pacient has syphilis
     
-    /*If the vdrl exams is 1:16 or over var sysphilis is true,
-     below that is not confirmed and other exams are made to check*/
-    var syphilis:Bool
-    
-    /*Is positive if the mother has a Negative Rh,
-     the baby has a positive Rh and mother is on the second
-     pregnancy*/
-    var tci: Bool
-    
-    var tcd: Bool //FIXME: WE DONT USE THIS ONE 
-    
     var urea:ureaExam
     var creatine:Float
     
@@ -88,11 +77,6 @@ struct BloodExamModel{
     /*In fasting (before eating): Less than 95, between 95 and
      125 considered pre-diabetes. over that is considered diabete positive*/
     var glucose:Int 
-    
-    /* First test is the HBsAg to see if pacient is infected,
-     after there are other similiar exams, check later with the
-     doctor. Also if pacient has vacine this has to be false */
-    var hepatiteB:Bool
     
     
 }
