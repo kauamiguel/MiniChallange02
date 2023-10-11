@@ -305,7 +305,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             let urinary = familyAntecedentView.sections[AppointmentsKeys.outro.rawValue]?.getBooleanValue()
             
             var familyBg = FamilyBGModel()
-            familyBg.heartCondition = hypertension ?? false
+            familyBg.hypertension = hypertension ?? false
             familyBg.diabetes = diabetes ?? false
             familyBg.heartCondition = cardiopatia ?? false
             familyBg.urinaryInfection = urinary ?? false
@@ -393,12 +393,13 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                 }
             }
             
-            //Add vaccine
-            let antitetanic = tetanicView.yesCheckYES.checked
-            let influenza = h1N1View.h1N1YesCheckYES.checked
-            let hepatite = hepatitisBView.hepatitisBYesCheckYES.checked
+            
             
             for cell in cells{
+                //Add vaccine
+                let antitetanic = tetanicView.yesCheckYES.checked
+                let influenza = h1N1View.h1N1YesCheckYES.checked
+                let hepatite = hepatitisBView.hepatitisBYesCheckYES.checked
                 
                 if cell.id == TetanicView.id{
                     // FIX ME : Ajustar as doses das vacinas na view que nÃo existem
