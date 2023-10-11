@@ -28,32 +28,25 @@ public class FooterCell: UICollectionReusableView {
     let saveButton: UIButton = {
         let btn = UIButton()
         
-        // Set the background color and corner radius to make it a rounded rectangle
-        btn.backgroundColor = UIColor(red: 1, green: 0.521, blue: 0.58, alpha: 1)
-        btn.layer.cornerRadius = 8 // Adjust the corner radius to your preference
+        btn.backgroundColor = UIColor(red: 0.23, green: 0.65, blue: 0.73, alpha: 1.00)
+        btn.layer.cornerRadius = 6
         
+        var chevronImageView = UIImageView()
         
-        var btnConfig = UIButton.Configuration.borderless()
-        btnConfig.titleAlignment = .trailing
-        btnConfig.imagePlacement = .leading
-    
-        btnConfig.titleLineBreakMode = .byWordWrapping
-        btn.tintColor = UIColor(red: 1, green: 0.521, blue: 0.58, alpha: 1)
-        // Create a template image so it scales without distortion
-        if let image = UIImage(systemName: "doc.text")?.withRenderingMode(.automatic) {
-            btnConfig.image = image
-        }
-        btnConfig.imagePadding = 35
+        let chevronImage = UIImage(systemName: "doc.text")
+        chevronImageView = UIImageView(image: chevronImage)
+        chevronImageView.tintColor = UIColor(red: 0.97, green: 0.95, blue: 0.91, alpha: 1.00)
         
-        btn.configuration = btnConfig
-
-        // Set the image tint color
-        btn.tintColor = .white
+        btn.addSubview(chevronImageView)
+        chevronImageView.anchorWithConstantValues(left: btn.leadingAnchor, leftPadding: UIScreen.main.bounds.width * 0.03)
+        chevronImageView.centerY(inView: btn)
         
-        btn.setTitle("Salvar", for: .normal)
-        btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: "YourFontName", size: 16)
-        
+        let label = LabelComponentView()
+        label.setupLabel(labelText: "Salvar consulta", labelType: .smallInputLabel, labelColor: .notQuiteWhite)
+        btn.addSubview(label)
+        label.anchorWithMultiplayerValues(left: chevronImageView.trailingAnchor, leftPadding: UIScreen.main.bounds.width * 0.002)
+        label.centerY(inView: btn)
+     
         return btn
     }()
     
