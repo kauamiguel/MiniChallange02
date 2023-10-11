@@ -257,17 +257,45 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     func saveData(){
         print("saved")
          
-        let ig = Int(routineData.igMenu.selectedOption!)
+        //Adding routines
+        let ig = Int(routineData.igMenu.selectedOption ?? "0")
         let edema = routineData.edemaMenu.selectedOption
-        let fetalHeart = Int(routineData.bcfMenu.selectedOption!)
-        let uterine = Int(routineData.uterineHeightMenu.selectedOption!)
-        let weight = Float(routineData.wheightMenu.selectedOption!)
+        let fetalHeart = Int(routineData.bcfMenu.selectedOption ?? "0")
+        let uterine = Int(routineData.uterineHeightMenu.selectedOption ?? "0")
+        let weight = Float(routineData.wheightMenu.selectedOption ?? "0")
         let bloodPressure = routineData.arterialPressureMenu.selectedOption
         
-        let routine = RoutineDataModel(bloodPressure: bloodPressure!, edema: edema!, fetalHeartHate: fetalHeart!, uterineHeight: uterine!, weightAndBodyMassIndex: weight!, ig: ig!)
+        let routine = RoutineDataModel(bloodPressure: bloodPressure ?? "", edema: edema ?? "", fetalHeartHate: fetalHeart ?? 0, uterineHeight: uterine ?? 0, weightAndBodyMassIndex: weight ?? 0, ig: ig ?? 0)
+        self.consult?.routineData = routine
+        
+        
+        //Assign family BackGround
+        var hypertension = familyAntecedentView.sections["Hipertensão"]?.getBooleanValue()
+        var diabetes = familyAntecedentView.sections["Diabetes"]?.getBooleanValue()
+        var cardiopatia = familyAntecedentView.sections["Cardiopatia"]?.getBooleanValue()
+        var urinary = familyAntecedentView.sections["Outro"]?.getBooleanValue()
+        
+        var familyBg = FamilyBGModel()
+        familyBg.heartCondition = hypertension!
+        familyBg.diabetes = diabetes!
+        familyBg.heartCondition = cardiopatia!
+        familyBg.urinaryInfection = urinary!
+        
+        //Assign pregnancy typeView
+        let gemelar = pregnancyTypeView.section["Gemelar"]?.getBooleanValue()
+        let tripla = pregnancyTypeView.section["Tripla ou mais"]?.getBooleanValue()
+        let ignorada = pregnancyTypeView.section["Ignorada"]?.getBooleanValue()
+        let unique = pregnancyTypeView.section["Unica"]?.getBooleanValue()
+        
+        let pregnancyType = PregnancyClassificationModel(ignored: ignorada ?? false, singlePregnancy: unique ?? false, tripletsOrMorePregnancy: tripla ?? false, twinPregnancy: gemelar ?? false)
+        
+        self.consult?.pregnancyClassificationModel = pregnancyType
         
         if let addConsult = self.consult{
             maternityVM.createNewConsult(consult: addConsult)
+            
+            //Add familyBg
+            maternityVM.coreDataManager.assignFamilylBG(familyBG: familyBg)
         }
         
     }

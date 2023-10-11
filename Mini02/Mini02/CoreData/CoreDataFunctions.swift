@@ -389,7 +389,6 @@ class CoreDataFunctions{
         let savedPacient = pacient
         
         family.diabetes = family.diabetes
-        family.tabagism = family.tabagism
         family.hypertension = family.hypertension
         family.heartCondition = family.heartCondition
         family.urinaryInfection = family.urinaryInfection
