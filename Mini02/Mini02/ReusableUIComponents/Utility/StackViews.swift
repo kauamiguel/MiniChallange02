@@ -53,13 +53,13 @@ extension UIView {
     }
 
     
-    func configureLabelAndPullDonw(stack: UIStackView ,label: LabelComponentView, pullDown: PullDownComponent, labelText: String) {
+    func configureLabelAndPullDonw(stack: UIStackView ,label: LabelComponentView, pullDown: PullDownComponent, labelText: String, screenSize: CGSize) {
         
         label.setupLabel(labelText: labelText, labelType: .titleSemiBold, labelColor: .secondaryColor)
        
         stack.addArrangedSubview(label)
         stack.addArrangedSubview(pullDown)
-        pullDown.anchorWithConstantValues(width: 100, height:  30)
+        pullDown.anchorWithConstantValues(width: screenSize.width * 0.35, height: screenSize.height * 0.035)
         
     }
 }

@@ -149,7 +149,7 @@ class BloodView2: UIView{
         toxoplasmosisHStack.anchorWithConstantValues(top: hivSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
         
         //FIXME: THIS IS A DROPDOWN/PICKER
-        configureLabelAndPullDonw(stack: twinSubHStack, label: vdrlLabel, pullDown: vdrlMenu, labelText: "teste")
+        configureLabelAndPullDonw(stack: twinSubHStack, label: vdrlLabel, pullDown: vdrlMenu, labelText: "teste", screenSize: screenSize)
         vdrlMenu.setupButton(options: ["aaa", "bbb"])
         contentBackGround.addSubview(twinSubHStack)
         twinSubHStack.anchorWithConstantValues(top: toxoplasmosisHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15,leftPadding: 10 ,rightPadding: -34)
