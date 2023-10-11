@@ -50,17 +50,12 @@ class BloodView: UIView{
     let plaquetasLabel = LabelComponentView()
     let  plaquetasMenu = PullDownComponent()
     
-
-    let coombsLabel = LabelComponentView()
-    let coombsMenu = PullDownComponent()
-    
+   
     let leucocitosLabel = LabelComponentView()
     let leucocitosMenu = PullDownComponent()
     
     let glicemiaLabel = LabelComponentView()
     let glicemiaMenu = PullDownComponent()
-    
-
     
     let ureiaLabel = LabelComponentView()
     let ureiaMenu = PullDownComponent()
