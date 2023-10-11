@@ -10,6 +10,7 @@ import UIKit
 class NumericPicker: UIPickerView {
     var numberOptions = [Int]()
     var selectedValue = 0
+    var title: String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -17,6 +18,12 @@ class NumericPicker: UIPickerView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setPickerValue(to: Int) {
+        guard let idx = numberOptions.firstIndex(where: { $0 == to}) else { return }
+        selectedValue = numberOptions[idx]
+        selectRow(idx, inComponent: 0, animated: true)
     }
     
     func setupNumericPicker(from: Int, to: Int, interval: Int = 1, startValue: Int? = nil) {
@@ -33,7 +40,7 @@ class NumericPicker: UIPickerView {
                 print("Invalid start number for picker: \(startValue)")
                 return
             }
-            
+
             selectedValue = startValue
             selectRow(index, inComponent: 0, animated: false)
         }
@@ -68,9 +75,10 @@ extension NumericPicker: UIPickerViewDelegate, UIPickerViewDataSource {
         numberOptions.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         self.selectedValue = numberOptions[row]
     }
+    
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         pickerView.subviews.forEach { $0.backgroundColor = .clear }
         

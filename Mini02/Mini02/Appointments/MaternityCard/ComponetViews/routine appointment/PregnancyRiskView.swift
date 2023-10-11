@@ -11,10 +11,26 @@ class PregnancyRiskView: UIView {
     
     static let id = "PregnancyRiskCell"
     let query = "gravidez"
-    let section = [
-        AppointmentsKeys.riscoHabitual.rawValue :CheckBoxComponentGreenView(),
-        AppointmentsKeys.altoRisco.rawValue :CheckBoxComponentGreenView()
-    ]
+    private static var checkboxManager = CheckBoxManager()
+    
+    lazy var riscoHabitualGreenCheckbox: CheckBoxComponentGreenView = {
+       let checkbox = CheckBoxComponentGreenView()
+        checkbox.manager = PregnancyRiskView.checkboxManager
+        return checkbox
+    }()
+    
+    lazy var altoRiscoHabitualGreenCheckbox: CheckBoxComponentGreenView = {
+       let checkbox = CheckBoxComponentGreenView()
+        checkbox.manager = PregnancyRiskView.checkboxManager
+        return checkbox
+    }()
+    
+    var section: [String: CheckBoxComponentGreenView] {
+        return [
+            AppointmentsKeys.riscoHabitual.rawValue :riscoHabitualGreenCheckbox,
+            AppointmentsKeys.altoRisco.rawValue : altoRiscoHabitualGreenCheckbox
+        ]
+    }
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let pregnancyRiskViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.17)
     

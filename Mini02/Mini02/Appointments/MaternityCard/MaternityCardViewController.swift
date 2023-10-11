@@ -286,13 +286,13 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         //Adding routines
         let ig = Int(routineData.igMenu.getPickerValue())
         let edema = routineData.edemaMenu.selectedOption
-        let fetalHeart = routineData.bcfMenu.selectedOption ?? ""
+        let fetalHeart = routineData.bcfMenu.selectedOption 
         let uterine = Int(routineData.uterineHeightMenu.getPickerValue())
         let weight = routineData.wheightMenu.getPickerValue()
         let bloodPressure = routineData.arterialPressureMenu.text ?? ""
         
         //Mudar o fetalHeart no CoreData para ser string
-        let routine = RoutineDataModel(bloodPressure: bloodPressure , edema: edema ?? "", fetalHeartHate: 0, uterineHeight: uterine , weightAndBodyMassIndex: Float(weight ), ig: ig )
+        let routine = RoutineDataModel(bloodPressure: bloodPressure , edema: edema , fetalHeartHate: 0, uterineHeight: uterine , weightAndBodyMassIndex: Float(weight ), ig: ig )
         self.consult?.routineData = routine
         
         //Check wheter is first Appointment because some data will be get just there
@@ -355,7 +355,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             for cell in cells{
                 if cell.id == BloodView.id{
                     //Add bloodExam
-                    
+
                     let bloodType = bloodView.aboMenu.selectedOption 
                     let igm = bloodView2.igmCheckYES.getBooleanValue()
                     let igg = bloodView2.iggCheckYES.getBooleanValue()
@@ -414,6 +414,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             if let addConsult = self.consult{
                 
                 maternityVM.createNewConsult(consult: addConsult)
+                
             }
             
             //IF it is not the first appointment
@@ -426,6 +427,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     //Add bloodExam
                     // FIX ME : Arrumar os dropDowns do exame de sangue pois não esta retornando valor
                     let bloodType = bloodView.aboMenu.selectedOption
+
                     let igm = bloodView2.igmCheckYES.getBooleanValue()
                     let igg = bloodView2.iggCheckYES.getBooleanValue()
                     let hiv = bloodView2.hivCheckYES.getBooleanValue()
