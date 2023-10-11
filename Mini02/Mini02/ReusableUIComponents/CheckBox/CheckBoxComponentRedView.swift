@@ -8,12 +8,9 @@
 import Foundation
 import UIKit
 
-
-import Foundation
-import UIKit
-
 class CheckBoxComponentRedView: UIButton {
-
+    weak var manager: CheckBoxManager?
+    
     private var imageCheck: UIImage {
         return checked ? UIImage(named: "checkBoxRed")?.withRenderingMode(.alwaysOriginal) ?? UIImage() : UIImage(named: "Property 1=Default")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
     }
@@ -21,12 +18,15 @@ class CheckBoxComponentRedView: UIButton {
     var checked: Bool = false {
         didSet {
             self.setImage(imageCheck, for: .normal)
+            if checked {
+                manager?.uncheckEveryExcept(e: self)
+            }
         }
     }
 
     func setupButton() {
         backgroundColor = .clear
-    
+        manager?.buttons.append(self)
         self.addTarget(self, action: #selector(buttonFunc), for: .touchUpInside)
     }
 
@@ -45,6 +45,5 @@ class CheckBoxComponentRedView: UIButton {
 
     func getBooleanValue() -> Bool {
         return checked
-        print(checked)
     }
 }

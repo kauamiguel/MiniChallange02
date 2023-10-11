@@ -40,8 +40,17 @@ class PlannedView: UIView {
     let plannedLabelYES = LabelComponentView()
     let plannedLabelNO = LabelComponentView()
     
-    let plannedCheckYES = CheckBoxComponentGreenView()
-    let plannedCheckNO = CheckBoxComponentRedView()
+    private static var checkboxManager = CheckBoxManager()
+    let plannedCheckYES: CheckBoxComponentGreenView = {
+        let checkbox = CheckBoxComponentGreenView()
+        checkbox.manager = PlannedView.checkboxManager
+        return checkbox
+    }()
+    let plannedCheckNO: CheckBoxComponentRedView = {
+        let checkbox = CheckBoxComponentRedView()
+        checkbox.manager = PlannedView.checkboxManager
+        return checkbox
+    }()
     
     lazy var plannedHStackYES: UIStackView = {
         let stackView = UIStackView()
