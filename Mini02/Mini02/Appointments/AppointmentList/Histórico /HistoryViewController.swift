@@ -278,6 +278,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             }
         }else{
             if let blood = appointmentsInfo.bloodExam{
+                
                 bloodView.aboMenu.selectedOption = appointmentsInfo.bloodExam?.bloodType
                 bloodView2.igmCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igm ?? false
                 bloodView2.iggCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igg ?? false
