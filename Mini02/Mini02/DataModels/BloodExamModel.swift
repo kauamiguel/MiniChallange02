@@ -34,7 +34,7 @@ struct Toxoplasmosis{
 }
 
 //MARK: VDRL EXAM ENUM
-enum VdrlExam:String{
+enum VdrlExam:String, CaseIterable{
     /* the titers are reported in a pattern of doubling,
      like 1:4, 1:8, 1:16, 1:32, and so forth*/
     case none = "Não reagente"
