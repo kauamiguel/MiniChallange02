@@ -64,7 +64,9 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     private lazy var  h1N1View = H1N1View()
     private lazy var ultrasoundView = UltrasoundView()
     private lazy var maternityVM = MaternityCardViewModel()
+    var historyVm = HistoryViewModel()
     var appointmentsInfo: ConsultEntity
+    
     
     //Variable to know wich treemester is, then we can track this consult after
     
@@ -187,19 +189,95 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     }
     
     func configureView(){
+        let pacient = historyVm.getPatient()
+        
         addViews(viewType: RoutineDataView.self, viewSize: routineData.routineDataViewSize, viewID: RoutineDataView.id, viewQuery: routineData.query)
         
         if appointmentsInfo.tremesteer == 1 && appointmentsInfo.consultId == 1{
             
+            
+            //Set the data of familyAntecedents
+            familyAntecedentView.sections[AppointmentsKeys.hipertensao.rawValue]?.checked = pacient?.familyBG?.hypertension ?? false
+            familyAntecedentView.sections[AppointmentsKeys.diabetes.rawValue]?.checked = pacient?.familyBG?.diabetes ?? false
+            familyAntecedentView.sections[AppointmentsKeys.cardiopatia.rawValue]?.checked = pacient?.familyBG?.heartCondition ?? false
+            familyAntecedentView.sections[AppointmentsKeys.outro.rawValue]?.checked = pacient?.familyBG?.urinaryInfection ?? false
+            
+            //Adding the view familyAntecedent
             addViews(viewType: FamilyAntecedentView.self, viewSize: familyAntecedentView.familyAntecedentViewSize, viewID: FamilyAntecedentView.id, viewQuery: familyAntecedentView.query)
+            
+            
+           
+            
+            //Assign the values of preganancyType
+            pregnancyTypeView.section[AppointmentsKeys.gemelar.rawValue]?.checked = appointmentsInfo.pregnancyClassification?.twinPregnancy ?? false
+            pregnancyTypeView.section[AppointmentsKeys.triplaOuMais.rawValue]?.checked = appointmentsInfo.pregnancyClassification?.tripletsOrMorePregnancy ?? false
+            pregnancyTypeView.section[AppointmentsKeys.ignorada.rawValue]?.checked = appointmentsInfo.pregnancyClassification?.ignored ?? false
+            pregnancyTypeView.section[AppointmentsKeys.unica.rawValue]?.checked = appointmentsInfo.pregnancyClassification?.singlePregnancy ?? false
+            
+            //Assign the view preganancyType
             addViews(viewType: PregnancyTypeView.self, viewSize: pregnancyTypeView.pregnancyTypeViewSize, viewID: PregnancyTypeView.id, viewQuery: pregnancyRiskView.query)
-            addViews(viewType: PregnancyRiskView.self, viewSize: pregnancyRiskView.pregnancyRiskViewSize, viewID: PregnancyRiskView.id, viewQuery: pregnancyRiskView.query)
-            addViews(viewType: PlannedView.self, viewSize: plannedView.pregnancyRiskViewSize, viewID: PlannedView.id, viewQuery: plannedView.query)
-            addViews(viewType: ClinicAntecedentsView.self, viewSize: clinicAntecedentsView.clinicAntecedentsViewSize, viewID: ClinicAntecedentsView.id, viewQuery: clinicAntecedentsView.query)
-            addViews(viewType: TetanicView.self, viewSize: tetanicView.tetanicViewSize, viewID: TetanicView.id, viewQuery: tetanicView.query)
-            addViews(viewType: HepatitisBView.self, viewSize: hepatitisBView.hepatitisBViewSize, viewID: HepatitisBView.id, viewQuery: hepatitisBView.query)
+            
+            
+            
+            //Assign values of pregnancyRisk
+            pregnancyRiskView.section[AppointmentsKeys.riscoHabitual.rawValue]?.checked = appointmentsInfo.pregnancyRisk?.lowRiskPregnancy ?? false
+            pregnancyRiskView.section[AppointmentsKeys.altoRisco.rawValue]?.checked = appointmentsInfo.pregnancyRisk?.highRiskPregnancy ?? false
+            
+            //Assign influenza view
             addViews(viewType: H1N1View.self, viewSize: h1N1View.h1N1ViewSize, viewID: H1N1View.id, viewQuery: h1N1View.query)
             
+        
+            
+            //Assign the values of plannedView
+            plannedView.plannedCheckYES.checked = appointmentsInfo.pregnancyPlanning?.plannedPregnancy ?? false
+            
+            //Assign the plannedView
+            addViews(viewType: PlannedView.self, viewSize: plannedView.pregnancyRiskViewSize, viewID: PlannedView.id, viewQuery: plannedView.query)
+            
+        
+            
+            //Assign values of clinicalAntecedents
+            clinicAntecedentsView.sections[AppointmentsKeys.urinary.rawValue]?.checked = pacient?.personalBG?.urinaryInfection ?? false
+            clinicAntecedentsView.sections[AppointmentsKeys.hipertensao.rawValue]?.checked  = pacient?.personalBG?.hypertension ?? false
+            clinicAntecedentsView.sections[AppointmentsKeys.fuma.rawValue]?.checked = pacient?.personalBG?.tabagism ?? false
+            clinicAntecedentsView.sections[AppointmentsKeys.cardiopatia.rawValue]?.checked = pacient?.personalBG?.heartCondition ?? false
+            clinicAntecedentsView.sections[AppointmentsKeys.diabetes.rawValue]?.checked = pacient?.personalBG?.diabetes ?? false
+            
+            //Assigng clinical antecendentsView
+            addViews(viewType: ClinicAntecedentsView.self, viewSize: clinicAntecedentsView.clinicAntecedentsViewSize, viewID: ClinicAntecedentsView.id, viewQuery: clinicAntecedentsView.query)
+            
+            
+            //Add vaccines view
+            if let vaccines = pacient!.vaccines{
+                
+                //Assign data antitetanic
+                let antitetanic = historyVm.coreDataMaanger.getAntitetanic()
+                tetanicView.yesCheckYES.checked = antitetanic.first?.isVaccined ?? false
+                
+                //Assign View Antitetanic
+                addViews(viewType: TetanicView.self, viewSize: tetanicView.tetanicViewSize, viewID: TetanicView.id, viewQuery: tetanicView.query)
+                
+                
+                //Assign hepatite data
+                let hepatite = historyVm.coreDataMaanger.getHepatite()
+                hepatitisBView.hepatitisBYesCheckYES.checked = hepatite.first?.isVaccined ?? false
+                
+                //Assign View Hepatite
+                addViews(viewType: HepatitisBView.self, viewSize: hepatitisBView.hepatitisBViewSize, viewID: HepatitisBView.id, viewQuery: hepatitisBView.query)
+                
+                
+                
+                //Assign influenza data
+                let influenza = historyVm.coreDataMaanger.getInfluenza()
+                h1N1View.h1N1YesCheckYES.checked = influenza?.isVaccined ?? false
+                
+                //Assign influenza view
+                addViews(viewType: H1N1View.self, viewSize: h1N1View.h1N1ViewSize, viewID: H1N1View.id, viewQuery: h1N1View.query)
+            }
+            
+            
+            
+            // FIX ME : Adicionar o exame de sangue e ultrason na tela
             if let blood = appointmentsInfo.bloodExam{
                 addViews(viewType: BloodView.self, viewSize: bloodView.bloodViewViewSize, viewID: BloodView.id, viewQuery: bloodView.query)
                 addViews(viewType: BloodView2.self, viewSize: bloodView2.bloodView2size, viewID: BloodView2.id, viewQuery: bloodView2.query)
