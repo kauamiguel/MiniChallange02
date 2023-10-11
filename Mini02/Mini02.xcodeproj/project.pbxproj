@@ -105,6 +105,7 @@
 		E81A26842AD64681003A25E0 /* NumericPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A26832AD64681003A25E0 /* NumericPicker.swift */; };
 		E81A26872AD6DA4E003A25E0 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A26862AD6DA4E003A25E0 /* DatePicker.swift */; };
 		E81A26892AD70B48003A25E0 /* NumericFloatPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A26882AD70B48003A25E0 /* NumericFloatPicker.swift */; };
+		E81A268C2AD72A5C003A25E0 /* CheckboxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A268B2AD72A5C003A25E0 /* CheckboxManager.swift */; };
 		E8E0D6492AC36F37003CE5CD /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D6482AC36F37003CE5CD /* AboutView.swift */; };
 		E8E0D64B2AC36F41003CE5CD /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64A2AC36F41003CE5CD /* AboutViewController.swift */; };
 		E8E0D64D2AC36F55003CE5CD /* PregnantDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */; };
@@ -215,6 +216,7 @@
 		E81A26832AD64681003A25E0 /* NumericPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericPicker.swift; sourceTree = "<group>"; };
 		E81A26862AD6DA4E003A25E0 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		E81A26882AD70B48003A25E0 /* NumericFloatPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericFloatPicker.swift; sourceTree = "<group>"; };
+		E81A268B2AD72A5C003A25E0 /* CheckboxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxManager.swift; sourceTree = "<group>"; };
 		E8E0D6482AC36F37003CE5CD /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		E8E0D64A2AC36F41003CE5CD /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		E8E0D64C2AC36F55003CE5CD /* PregnantDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnantDataView.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			children = (
 				ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */,
 				ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */,
+				E81A268B2AD72A5C003A25E0 /* CheckboxManager.swift */,
 			);
 			path = CheckBox;
 			sourceTree = "<group>";
@@ -804,6 +807,7 @@
 				E8135BBC2ABA1BF500E722FA /* ThirdOnboardingView.swift in Sources */,
 				ABC98BC42AB83EED005214E5 /* RegisterView.swift in Sources */,
 				CEA008AB2AC5F364005F54E5 /* CoreDataModel.xcdatamodeld in Sources */,
+				E81A268C2AD72A5C003A25E0 /* CheckboxManager.swift in Sources */,
 				ABC98B9C2AB3E677005214E5 /* AppointmentsViewController.swift in Sources */,
 				ABFDA7732AC60B460097656E /* PregnancyRiskView.swift in Sources */,
 				ABFDA7792AC65A600097656E /* StackViews.swift in Sources */,
