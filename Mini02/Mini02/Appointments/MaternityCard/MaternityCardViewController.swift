@@ -370,7 +370,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     // FIX ME : Arrumar a data do ultrasound pois na View nao tem como pegar a data
                     // FIX ME : Arrumar o valor da posicao Fetal na View
                     // FIX ME : Arrumar o valor da placenta na View
-                    let ultrassound = UltrasoundExam(date: Date(), consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
+                    let ultrassound = UltrasoundExam(date: Date(), consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), ILA: 0, weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
                     
                     self.consult?.ultraSoundExams = ultrassound
                     break
@@ -448,7 +448,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     // FIX ME : Arrumar a data do ultrasound pois na View nao tem como pegar a data
                     // FIX ME : Arrumar o valor da posicao Fetal na View
                     // FIX ME : Arrumar o valor da placenta na View
-                    let ultrassound = UltrasoundExam(date: Date(), consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
+                    let ultrassound = UltrasoundExam(date: Date(), consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), ILA: 0, weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
                     
                     self.consult?.ultraSoundExams = ultrassound
                     break
@@ -482,6 +482,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         }
         
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

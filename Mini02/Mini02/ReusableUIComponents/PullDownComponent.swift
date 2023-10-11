@@ -22,6 +22,8 @@ class PullDownComponent: UIButton {
         var menuActions: [UIAction] = []
         self.setTitle(selectedOption, for: .normal)
         
+        self.setTitle(selectedOption, for: .normal)
+        
         for title in options {
             let action = UIAction(title: title, handler: { [weak self] action in
                 self?.handleActionSelected(title: title)
