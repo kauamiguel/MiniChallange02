@@ -160,8 +160,7 @@ class BloodView2: UIView{
         contentBackGround.addSubview(inseminationSubHStack)
         inseminationSubHStack.anchorWithConstantValues(top: twinSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor ,topPadding: 15, leftPadding: 10, rightPadding: -34)
         
-        
-    }
+}
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
