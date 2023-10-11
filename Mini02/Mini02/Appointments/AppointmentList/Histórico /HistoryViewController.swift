@@ -256,6 +256,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 addNewView(views: views)
             }
         }else{
+            
             if let blood = appointmentsInfo.bloodExam{
                 
                 bloodView.aboMenu.selectedOption = (appointmentsInfo.bloodExam?.bloodType)!
@@ -284,6 +285,40 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 
                 addNewView(views: views)
 
+            }
+            
+            //Add vaccines view
+            if let vaccines = pacient!.vaccines{
+                
+                
+                //Assign data antitetanic
+                let antitetanic = historyVm.coreDataMaanger.getAntitetanic()
+                tetanicView.yesCheckYES.checked = antitetanic.first?.isVaccined ?? false
+                
+                
+                
+                //Assign hepatite data
+                let hepatite = historyVm.coreDataMaanger.getHepatite()
+                hepatitisBView.hepatitisBYesCheckYES.checked = hepatite.first?.isVaccined ?? false
+                
+              
+        
+                
+                //Assign influenza data
+                let influenza = historyVm.coreDataMaanger.getInfluenza()
+                h1N1View.h1N1YesCheckYES.checked = influenza?.isVaccined ?? false
+                
+                //Assign influenza view
+
+                
+              
+                let views: [CellInfo] = [
+                    CellInfo(view: tetanicView, size: tetanicView.tetanicViewSize, id: TetanicView.id, query: tetanicView.query),
+                    CellInfo(view: hepatitisBView, size: hepatitisBView.hepatitisBViewSize, id: HepatitisBView.id, query: hepatitisBView.query),
+                    CellInfo(view: h1N1View, size: h1N1View.h1N1ViewSize, id: H1N1View.id, query: h1N1View.query)
+                ]
+                
+                addNewView(views: views)
             }
         }
     }
