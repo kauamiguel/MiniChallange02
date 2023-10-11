@@ -11,10 +11,10 @@ import UIKit
 
 class PullDownComponent: UIButton {
     
-    var selectedOption : String?
-    
-    func forceTitle(title: String){
-        self.setTitle(title, for: .normal)
+    var selectedOption: String = ""{
+        didSet{
+            self.setTitle(self.selectedOption, for: .normal)
+        }
     }
 
     func setupButton(options: [String]) {
