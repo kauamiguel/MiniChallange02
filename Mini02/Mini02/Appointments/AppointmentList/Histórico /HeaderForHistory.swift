@@ -11,10 +11,8 @@ class HeaderForHistory: UICollectionReusableView {
     static let id = "HeaderCell"
     let screenSize = UIScreen.main.bounds.size
 
-    
     let label = LabelComponentView()
     let data = LabelComponentView()
-    
     
     override init(frame: CGRect){
         super.init(frame: frame)
