@@ -82,7 +82,7 @@ class HepatitisBView: UIView{
         contentBackGround.centerX(inView: roudedBackGround)
         
         contentBackGround.addSubview(hepatitisBsubTitleLabel)
-        hepatitisBsubTitleLabel.setupLabel(labelText: "Hepatite B  AntiHBS", labelType: .medicText, labelColor: .black)
+        hepatitisBsubTitleLabel.setupLabel(labelText: "Hepatite B  AntiHBS", labelType: .titleRegular, labelColor: .secondaryText)
         hepatitisBsubTitleLabel.anchorWithConstantValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor,topPadding: 15, leftPadding: 15)
         
         invertConfigureLabelAndGreenCheckBox(stack: hepatitisBYesSubHStackYES, label: hepatitisBYesLabel, checkBox: hepatitisBYesCheckYES, labelText: "+ (Positivo) Imune")

@@ -74,7 +74,7 @@ class H1N1View: UIView{
         contentBackGround.centerX(inView: roudedBackGround)
         
         contentBackGround.addSubview(h1N1subTitleLabel)
-        h1N1subTitleLabel.setupLabel(labelText: "Gripe (H1N1)", labelType: .medicText, labelColor: .black)
+        h1N1subTitleLabel.setupLabel(labelText: "Gripe (H1N1)", labelType: .titleRegular, labelColor: .secondaryText)
         h1N1subTitleLabel.anchorWithConstantValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor,topPadding: 15, leftPadding: 15)
         
         invertConfigureLabelAndGreenCheckBox(stack: h1N1YesSubHStackYES, label: h1N1YesLabel, checkBox: h1N1YesCheckYES, labelText: "Campanha Atual")

@@ -115,7 +115,7 @@ class BloodView: UIView{
         
         
         self.addSubview(bloodExamLabel)
-        bloodExamLabel.setupLabel(labelText: "Exame de sangue", labelType: .title, labelColor: .black)
+        bloodExamLabel.setupLabel(labelText: "Exame de sangue", labelType: .titleBold, labelColor: .secondaryColor)
         bloodExamLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)

@@ -76,7 +76,7 @@ class UltrasoundView: UIView {
         
         
         self.addSubview(ultrasoundLabel)
-        ultrasoundLabel.setupLabel(labelText: "Ultra sonografia", labelType: .title, labelColor: .black)
+        ultrasoundLabel.setupLabel(labelText: "Ultra sonografia", labelType: .titleBold, labelColor: .secondaryColor)
         ultrasoundLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)
@@ -88,7 +88,7 @@ class UltrasoundView: UIView {
         separator.centerX(inView: contentBackGround)
         
         contentBackGround.addSubview(ultrasoundSubLabel)
-        ultrasoundSubLabel.setupLabel(labelText: "Exame mais recente", labelType: .medicText, labelColor: .black)
+        ultrasoundSubLabel.setupLabel(labelText: "Exame mais recente", labelType: .inputLabel, labelColor: .secondaryText)
         ultrasoundSubLabel.anchorWithMultiplayerValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor ,topPadding: screenSize.height * 0.0023 ,leftPadding: screenSize.width * 0.005)
         
         menuPlusLabelBottom(label: dataLabel, menu: dataMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: ultrasoundSubLabel, leftAnchor: contentBackGround, labelText: "Data", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)

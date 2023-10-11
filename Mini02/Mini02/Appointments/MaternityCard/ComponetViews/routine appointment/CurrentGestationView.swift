@@ -67,7 +67,7 @@ class CurrentGestationView: UIView {
         
         
         self.addSubview(currentGestationLabel)
-        currentGestationLabel.setupLabel(labelText: "Gestação atual", labelType: .title, labelColor: .black)
+        currentGestationLabel.setupLabel(labelText: "Gestação atual", labelType: .titleBold, labelColor: .secondaryColor)
         currentGestationLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)

@@ -66,7 +66,7 @@ class HeaderCell: UICollectionReusableView {
     
     func setupview(){
         
-        label.setupLabel(labelText: "Consulta \("1")", labelType: .title, labelColor: .secondaryColor)
+        label.setupLabel(labelText: "Consulta \("1")", labelType: .titleBold, labelColor: .secondaryColor)
 
         self.addSubview(editHStack)
         editHStack.addArrangedSubview(label)
@@ -74,7 +74,7 @@ class HeaderCell: UICollectionReusableView {
         editButton.anchorWithConstantValues(width: UIScreen.main.bounds.width * 0.32, height: UIScreen.main.bounds.height * 0.035)
         editHStack.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor, right: self.trailingAnchor, topPadding: screenSize.height * 0.03 ,leftPadding: screenSize.width * 0.05, rightPadding: -screenSize.width * 0.05)
         self.addSubview(data)
-        data.setupLabel(labelText: "\("data")", labelType: .smallText, labelColor: .secondaryColor)
+        data.setupLabel(labelText: "\("data")", labelType: .inputLabel, labelColor: .secondaryText)
         data.anchorWithConstantValues(top: editHStack.bottomAnchor, left: self.leadingAnchor, leftPadding: screenSize.width * 0.05)
         
         

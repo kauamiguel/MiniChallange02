@@ -16,7 +16,7 @@ extension UIView {
     func configureLabelAndGreenCheckBox(stack: UIStackView ,label: LabelComponentView, checkBox: CheckBoxComponentGreenView, labelText: String) {
         
         
-        label.setupLabel(labelText: labelText, labelType: .medicText, labelColor: .black)
+        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
        
         checkBox.setupButton()
         stack.addArrangedSubview(label)
@@ -28,7 +28,7 @@ extension UIView {
     }
     
     func configureLabelAndRedCheckBox(stack: UIStackView ,label: LabelComponentView, checkBox: CheckBoxComponentRedView, labelText: String) {
-        label.setupLabel(labelText: labelText, labelType: .medicText, labelColor: .black)
+        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
         checkBox.setupButton()
         stack.addArrangedSubview(label)
         stack.addArrangedSubview(checkBox)
@@ -37,7 +37,7 @@ extension UIView {
     }
     
     func invertConfigureLabelAndGreenCheckBox(stack: UIStackView ,label: LabelComponentView, checkBox: CheckBoxComponentGreenView, labelText: String) {
-        label.setupLabel(labelText: labelText, labelType: .medicText, labelColor: .black)
+        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
         checkBox.setupButton()
         stack.addArrangedSubview(checkBox)
         stack.addArrangedSubview(label)
@@ -45,7 +45,7 @@ extension UIView {
     }
     
     func invertConfigureLabelAndRedCheckBox(stack: UIStackView ,label: LabelComponentView, checkBox: CheckBoxComponentRedView, labelText: String) {
-        label.setupLabel(labelText: labelText, labelType: .medicText, labelColor: .black)
+        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
         checkBox.setupButton()
    
         stack.addArrangedSubview(checkBox)

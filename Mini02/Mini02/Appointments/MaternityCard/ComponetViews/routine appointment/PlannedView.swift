@@ -81,7 +81,7 @@ class PlannedView: UIView {
         
         
         self.addSubview(plannedLabel)
-        plannedLabel.setupLabel(labelText: "Gravidez planejada", labelType: .title, labelColor: .black)
+        plannedLabel.setupLabel(labelText: "Gravidez planejada", labelType: .titleBold, labelColor: .secondaryColor)
         plannedLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor , leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)

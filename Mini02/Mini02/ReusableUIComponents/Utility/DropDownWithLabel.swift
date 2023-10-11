@@ -15,7 +15,7 @@ extension UIView {
         menu.setupButton(options: options)
 
         contentBackGround.addSubview(label)
-        label.setupLabel(labelText: labelText, labelType: .medicText, labelColor: .black)
+        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
         contentBackGround.addSubview(menu)
        
         label.anchorWithMultiplayerValues(top: topAnchor.topAnchor, left: leftAnchor.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
@@ -27,7 +27,7 @@ extension UIView {
         menu.setupButton(options: options)
 
         contentBackGround.addSubview(label)
-        label.setupLabel(labelText: labelText, labelType: .medicText, labelColor: .black)
+        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
         contentBackGround.addSubview(menu)
        
         label.anchorWithMultiplayerValues(top: topAnchor.bottomAnchor, left: leftAnchor.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
@@ -40,7 +40,7 @@ extension UIView {
         menu.setupButton(options: options)
 
         contentBackGround.addSubview(label)
-        label.setupLabel(labelText: labelText, labelType: .medicText, labelColor: .black)
+        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
         contentBackGround.addSubview(menu)
        
         label.anchorWithMultiplayerValues(top: topAnchor.topAnchor, left: leftAnchor.trailingAnchor, topPadding: topPadding, leftPadding: leftPadding)

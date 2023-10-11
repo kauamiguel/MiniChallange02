@@ -62,7 +62,7 @@ class ClinicAntecedentsView: UIView {
         
         
         self.addSubview(clinicAntecedentsLabel)
-        clinicAntecedentsLabel.setupLabel(labelText: "Antecedentes clínicos obstétricos", labelType: .medicText, labelColor: .black)
+        clinicAntecedentsLabel.setupLabel(labelText: "Antecedentes clínicos obstétricos", labelType: .titleBold, labelColor: .secondaryColor)
         clinicAntecedentsLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)

@@ -68,7 +68,7 @@ class PregnancyTypeView: UIView {
         
         /* ----------------------------------------------------------risk------------------------------------------------------------- */
         self.addSubview(pregnancyTypeLabel)
-        pregnancyTypeLabel.setupLabel(labelText: "Tipos de gravidez", labelType: .title, labelColor: .black)
+        pregnancyTypeLabel.setupLabel(labelText: "Tipos de gravidez", labelType: .titleBold, labelColor: .secondaryColor)
         pregnancyTypeLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         

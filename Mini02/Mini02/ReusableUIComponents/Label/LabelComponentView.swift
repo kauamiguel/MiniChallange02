@@ -66,17 +66,15 @@ class LabelComponentView: UILabel{
             
         case .titleBold:
             self.font = UIFont(name: "Signika-Bold", size: 24)
-            self.textAlignment = .center
             self.numberOfLines = 5
             
         case .titleSemiBold:
             self.font = UIFont(name: "Signika-Semibold", size: 20)
-            self.textAlignment = .center
             self.numberOfLines = 5
             
         case .titleRegular:
             self.font = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.035)
-            self.textAlignment = .center
+            
             
         case .inputLabel:
             self.font = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.02)

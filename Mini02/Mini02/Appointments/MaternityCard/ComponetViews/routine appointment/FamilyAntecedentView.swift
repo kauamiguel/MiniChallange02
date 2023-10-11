@@ -62,7 +62,7 @@ class FamilyAntecedentView: UIView {
         
         
         self.addSubview(antecedentesLabel)
-        antecedentesLabel.setupLabel(labelText: "Antecedentes Familiares", labelType: .title, labelColor: .black)
+        antecedentesLabel.setupLabel(labelText: "Antecedentes Familiares", labelType: .titleBold, labelColor: .secondaryColor)
         antecedentesLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)

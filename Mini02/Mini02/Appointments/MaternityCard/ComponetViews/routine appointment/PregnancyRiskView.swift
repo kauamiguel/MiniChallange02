@@ -62,7 +62,7 @@ class PregnancyRiskView: UIView {
         /* ----------------------------------------------------------risk------------------------------------------------------------- */
         
         self.addSubview(riskLabel)
-        riskLabel.setupLabel(labelText: "Risco da gravidez ", labelType: .title, labelColor: .black)
+        riskLabel.setupLabel(labelText: "Risco da gravidez ", labelType: .titleBold, labelColor: .secondaryColor)
         riskLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)

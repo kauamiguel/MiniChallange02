@@ -81,7 +81,7 @@ class RoutineDataView: UIView {
         self.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor,right: roudedBackGround.trailingAnchor,bottom: roudedBackGround.bottomAnchor)
         
         self.addSubview(routineLabel)
-        routineLabel.setupLabel(labelText: "Dados de rotina", labelType: .title, labelColor: .black)
+        routineLabel.setupLabel(labelText: "Dados de rotina", labelType: .titleBold, labelColor: .secondaryColor)
         routineLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)
