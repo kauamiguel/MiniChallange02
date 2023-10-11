@@ -34,6 +34,18 @@ extension UIView {
         menu.anchorWithMultiplayerValues(top: label.bottomAnchor, left: leftAnchor.leadingAnchor, leftPadding: leftPadding, width: screenSize.width * widthMultiplier, height: screenSize.height * heightMultiplier)
     }
     
+    func numericFloatPickerPlusLabel(label: LabelComponentView, menu: NumericFloatPicker, menuMinimum: Float, menuMaximum: Float, menuInterval: Float, menuDefaultValue: Float? = nil ,contentBackGround: UIView, topAnchor: UIView, leftAnchor: UIView ,labelText: String, topPadding: CGFloat, leftPadding: CGFloat, screenSize: CGSize, widthMultiplier: CGFloat, heightMultiplier: CGFloat) {
+        
+        menu.setupNumericPicker(from: menuMinimum, to: menuMaximum, interval: menuInterval, startValue: menuDefaultValue)
+
+        contentBackGround.addSubview(label)
+        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
+        contentBackGround.addSubview(menu)
+       
+        label.anchorWithMultiplayerValues(top: topAnchor.topAnchor, left: leftAnchor.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
+        menu.anchorWithMultiplayerValues(top: label.bottomAnchor, left: leftAnchor.leadingAnchor, leftPadding: leftPadding, width: screenSize.width * widthMultiplier, height: screenSize.height * heightMultiplier)
+    }
+    
     func textFieldPlusLabel(label: LabelComponentView, field: RoundedTextField, placeholder: String? = nil, contentBackGround: UIView, topAnchor: UIView, leftAnchor: UIView ,labelText: String, topPadding: CGFloat, leftPadding: CGFloat, screenSize: CGSize, widthMultiplier: CGFloat, heightMultiplier: CGFloat) {
         
         field.layer.cornerRadius = 8
