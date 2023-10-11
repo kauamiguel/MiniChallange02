@@ -16,8 +16,7 @@ class ListViewController: UIViewController {
         
         // Create a custom UIButton with an image
             let backButton = UIButton(type: .custom)
-            backButton.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
-            backButton.tintColor = UIColor(red: 1, green: 0.521, blue: 0.58, alpha: 1)
+            backButton.setImage(UIImage(named: "ChevronBackButton"), for: .normal)
             backButton.addTarget(self, action: #selector(backToView), for: .touchUpInside)
             
             // Create a UIBarButtonItem with the custom UIButton as the custom view
