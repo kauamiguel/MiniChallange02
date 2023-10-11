@@ -66,20 +66,18 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     private lazy var maternityVM = MaternityCardViewModel()
     var appointmentsInfo: ConsultEntity?
     //Variable to know wich treemester is, then we can track this consult after
-//    var treemester : Int?
+
     
     var cells: [CellInfo] = []
     
     private var vm = MaternityCardViewModel()
     
-    init(/*treemester : Int*/){
+    init(){
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
-//        self.treemester = treemester
 
-        
-            addNewDefaultViewCell()
+        addNewDefaultViewCell()
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self

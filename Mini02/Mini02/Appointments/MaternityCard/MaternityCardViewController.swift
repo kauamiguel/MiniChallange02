@@ -55,7 +55,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     }
     
     override func viewDidLoad() {
-        print(maternityVM.createConsultID(treemesterNumber: self.treemester!))
         
         setupCollectionView()
         collectionView.isEditing = true
