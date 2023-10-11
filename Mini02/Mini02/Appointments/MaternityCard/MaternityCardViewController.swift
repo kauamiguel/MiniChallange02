@@ -352,11 +352,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             //Add personalBg
             maternityVM.coreDataManager.assignPersonalBG(personalBG: personalBg)
             
-            
             for cell in cells{
                 if cell.id == BloodView.id{
                     //Add bloodExam
-                    // FIX ME : Arrumar os dropDowns do exame de sangue pois não esta retornando valor
+
                     let bloodType = bloodView.aboMenu.selectedOption ?? ""
                     let igm = bloodView2.igmCheckYES.getBooleanValue()
                     let igg = bloodView2.iggCheckYES.getBooleanValue()
@@ -366,12 +365,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     let leucocitos = Int(bloodView.leucocitosMenu.selectedValue)
                     let plaquetas = Int(bloodView.plaquetasMenu.selectedValue)
                     let gliecmia = Int(bloodView.glicemiaMenu.selectedValue)
-                    //TODO Arrumar o VDRL EXAM
-                    // FIX ME : Arrumar o Urea para o valor selecionado no picker
-                    // FIX ME : Arrumar o Creatine para o valor selecionado no picker
-                    // FIX ME : Arrumar o hb na view
-                    // FIX ME : WhiteCell mudar pra inteiro na view
-                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: 10, dL: 12.1), creatine: 1.1, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
+
+                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: urea.first ?? 0, dL: Float(urea.first ?? 0)), creatine: 0, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
                     
                     self.consult?.bloodExams = blood
                     break
@@ -381,19 +376,16 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             for cell in cells{
                 if cell.id == UltrasoundView.id{
                     //Add new Ultrassound
-                    // FIX ME : Mudar o date para do tipo date e nao string
+
                     let date = ultrasoundView.dataMenu.date
                     let gestacionalAge = ultrasoundView.igMenu.getPickerValue()
                     let peso = Float(ultrasoundView.pesoMenu.getPickerValue())
                     let placenta = ultrasoundView.placentaMenu.selectedOption ?? ""
                     let fetalPosition = ultrasoundView.apresentacaoFetalMenu.selectedOption ?? ""
+                    let ila = ultrasoundView.ilaMenu.selectedValue
                     
-                    // Fix ME : Arrumar o valor da placenta
-                    // FIX ME : Arrumar o idade gestacional pois na view nao tem como colocar os valores
-                    // FIX ME : Arrumar a data do ultrasound pois na View nao tem como pegar a data
-                    // FIX ME : Arrumar o valor da posicao Fetal na View
-                    // FIX ME : Arrumar o valor da placenta na View
-                    let ultrassound = UltrasoundExam(date: Date(), consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), ILA: 0, weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
+
+                    let ultrassound = UltrasoundExam(date: date, consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), ILA: ila, gestacionalAge: gestacionalAge, weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
                     
                     self.consult?.ultraSoundExams = ultrassound
                     break
@@ -437,18 +429,14 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     let igm = bloodView2.igmCheckYES.getBooleanValue()
                     let igg = bloodView2.iggCheckYES.getBooleanValue()
                     let hiv = bloodView2.hivCheckYES.getBooleanValue()
-                    let urea = bloodView.ureiaMenu.numberOptions
-                    let ht = bloodView.htMenu.numberOptions.first ?? 0
+                    let urea = bloodView.ureiaMenu.selectedValue
+                    let ht = bloodView.htMenu.selectedValue 
                     let leucocitos = Int(bloodView.leucocitosMenu.selectedValue)
                     let plaquetas = Int(bloodView.plaquetasMenu.selectedValue)
                     let gliecmia = Int(bloodView.glicemiaMenu.selectedValue)
                     
-                    //TODO Arrumar o VDRL EXAM
-                    // FIX ME : Arrumar o Urea para o valor selecionado no picker
-                    // FIX ME : Arrumar o Creatine para o valor selecionado no picker
-                    // FIX ME : Arrumar o hb na view
-                    // FIX ME : WhiteCell mudar pra inteiro na view
-                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: 10, dL: 12.1), creatine: 1.1, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
+                    
+                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: urea, dL: Float(urea)), creatine: 0, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
                     
                     self.consult?.bloodExams = blood
                     break
@@ -465,13 +453,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     let peso = Float(ultrasoundView.pesoMenu.getPickerValue())
                     let placenta = ultrasoundView.placentaMenu.selectedOption ?? ""
                     let fetalPosition = ultrasoundView.apresentacaoFetalMenu.selectedOption ?? ""
+                    let ila = ultrasoundView.ilaMenu.selectedValue
                     
-                    // Fix ME : Arrumar o valor da placenta
-                    // FIX ME : Arrumar o idade gestacional pois na view nao tem como colocar os valores
-                    // FIX ME : Arrumar a data do ultrasound pois na View nao tem como pegar a data
-                    // FIX ME : Arrumar o valor da posicao Fetal na View
-                    // FIX ME : Arrumar o valor da placenta na View
-                    let ultrassound = UltrasoundExam(date: Date(), consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), ILA: 0, weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
+
+                    let ultrassound = UltrasoundExam(date: date, consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), ILA: ila, gestacionalAge: gestacionalAge, weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
                     
                     self.consult?.ultraSoundExams = ultrassound
                     break
