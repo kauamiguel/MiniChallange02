@@ -8,7 +8,7 @@
 import Foundation
 
 //MARK: BLOOD TYPE ENUM
-enum BloodType: String{
+enum BloodType: String, CaseIterable {
     case APositive = "A+"
     
     case ANegative = "A-"
@@ -71,7 +71,7 @@ struct BloodExamModel{
      pregnancy*/
     var tci: Bool
     
-    var tcd: Bool
+    var tcd: Bool //FIXME: WE DONT USE THIS ONE 
     
     var urea:ureaExam
     var creatine:Float

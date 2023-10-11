@@ -132,7 +132,7 @@ class BloodView2: UIView{
         contentBackGround.addSubview(hivSubHStack)
         hivSubHStack.anchorWithConstantValues(top: contentBackGround.topAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
    
-        toxoplasmosisLabel.setupLabel(labelText: "Toxoplasmose", labelType: .titleRegular, labelColor: .secondaryColor)
+        toxoplasmosisLabel.setupLabel(labelText: "Toxoplasmose", labelType: .titleSemiBold, labelColor: .secondaryColor)
         configureLabelAndGreenCheckBox(stack: igmSubHStackYES, label: igm, checkBox: igmCheckYES, labelText: "IGM")
         configureLabelAndGreenCheckBox(stack: iggSubHStackYES, label: igg, checkBox: iggCheckYES, labelText: "IGG")
         
@@ -145,12 +145,13 @@ class BloodView2: UIView{
         
         toxoplasmosisHStack.anchorWithConstantValues(top: hivSubHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
         
-
+        //FIXME: THIS IS A DROPDOWN/PICKER
         configureLabelAndGreenCheckBox(stack: twinSubHStack,label: vdrlLabel,checkBox: vdrlCheckYES,labelText: "VDRL")
         
         contentBackGround.addSubview(twinSubHStack)
         twinSubHStack.anchorWithConstantValues(top: toxoplasmosisHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15,leftPadding: 10 ,rightPadding: -34)
-    
+        
+        //FIXME: NOT MODELED NEVER HEARD
         configureLabelAndGreenCheckBox(stack: inseminationSubHStack,label: inseminationLabel, checkBox: inseminationCheckYES, labelText: "Inseminação transcervical")
         
         contentBackGround.addSubview(inseminationSubHStack)

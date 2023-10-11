@@ -11,7 +11,7 @@ struct IdadeGestacional{
     var semanas:Int
     var dias:Int
 }
-enum Placenta:String{
+enum Placenta:String, CaseIterable{
     case anterior = "Anterior"
     case posterior = "Posterior"
     case laterarD = "Lateral direita"
@@ -21,7 +21,7 @@ enum Placenta:String{
     case marginal = "Marginal"
     case central = "Central"
 }
-enum FetalPosition:String{
+enum FetalPosition:String, CaseIterable{
     case cefalica = "Cefálica"
     case pelvica = "Pélvica"
     case transversa = "Transversa"
