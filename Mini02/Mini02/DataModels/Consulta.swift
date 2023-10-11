@@ -23,7 +23,7 @@ struct Consulta{
     var trimesteer : Int
     
     //Dados de rotina de todos os exames
-    var routineData : RoutineDataModel
+    var routineData : RoutineDataModel?
     
     var dueDate : DueDateModel?
     
