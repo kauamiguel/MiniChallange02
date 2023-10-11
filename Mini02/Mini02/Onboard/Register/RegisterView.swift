@@ -71,15 +71,8 @@ class RegisterView: UIView{
     }()
     
     private lazy var dateOfBirthDatePicker : UIDatePicker = {
-        let date = UIDatePicker()
-        date.datePickerMode = .date
-        date.preferredDatePickerStyle = .compact
-        date.calendar = .current
-        date.setDate(Calendar.current.date(byAdding: .year, value: -18, to: Date())!, animated: false)
-        date.backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
-        date.layer.cornerRadius = 18
-        date.clipsToBounds = true
-        date.tintColor = UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1)
+        let date = DatePicker()
+        date.setupDatePicker()
         return date
     }()
     

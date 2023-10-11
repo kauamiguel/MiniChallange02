@@ -23,7 +23,7 @@ class NumericPicker: UIPickerView {
         numberOptions = generateNumbersBetween(from, to, interval)
         tintColor = .white
         backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
-        layer.cornerRadius = 18
+        layer.cornerRadius = 8
         delegate = self
         dataSource = self
         if let startValue {
@@ -66,11 +66,14 @@ extension NumericPicker: UIPickerViewDelegate, UIPickerViewDataSource {
         numberOptions.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        String(numberOptions[row])
-    }
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedValue = numberOptions[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = UILabel()
+        label.font = UIFont(name: "Signika-Regular", size: 18)
+        label.text = String(numberOptions[row])
+        label.textAlignment = .center
+        return label
     }
 }
