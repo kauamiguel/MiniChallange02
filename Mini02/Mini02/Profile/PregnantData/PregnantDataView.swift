@@ -219,7 +219,7 @@ class PregnantDataView: UIView {
         relationPullDown.anchorWithConstantValues(top: emergencyContactRelationLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 34)
     }
     
-    private func setupTempSaveButton(vc: UIViewController) {
+    private func setupTempSaveButton(vc: UIViewController){
         let btn: UIButton = UIButton(configuration: .plain())
         btn.setTitle("Salvar", for: .normal)
         btn.addAction(UIAction(handler: { [weak self] _ in
