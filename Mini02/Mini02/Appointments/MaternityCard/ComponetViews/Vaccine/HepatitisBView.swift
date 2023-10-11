@@ -37,12 +37,21 @@ class HepatitisBView: UIView{
    
     let hepatitisBsubTitleLabel = LabelComponentView()
     
+    private static var checkboxManager = CheckBoxManager()
     
     let hepatitisBYesLabel = LabelComponentView()
-    let hepatitisBYesCheckYES = CheckBoxComponentGreenView()
+    let hepatitisBYesCheckYES: CheckBoxComponentGreenView = {
+        let check = CheckBoxComponentGreenView()
+        check.manager = HepatitisBView.checkboxManager
+        return check
+    }()
     
     let hepatitisBNoLabel = LabelComponentView()
-    let hepatitisBNoCheckNO = CheckBoxComponentRedView()
+    let hepatitisBNoCheckNO: CheckBoxComponentRedView = {
+        let check = CheckBoxComponentRedView()
+        check.manager = HepatitisBView.checkboxManager
+        return check
+    }()
 
   
     lazy var hepatitisBYesSubHStackYES: UIStackView = {
