@@ -414,6 +414,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             if let addConsult = self.consult{
                 
                 maternityVM.createNewConsult(consult: addConsult)
+                
             }
             
             //IF it is not the first appointment
