@@ -207,6 +207,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             //Add vaccines view
             if let vaccines = pacient!.vaccines{
                 
+                
                 //Assign data antitetanic
                 let antitetanic = historyVm.coreDataMaanger.getAntitetanic()
                 tetanicView.yesCheckYES.checked = antitetanic.first?.isVaccined ?? false
