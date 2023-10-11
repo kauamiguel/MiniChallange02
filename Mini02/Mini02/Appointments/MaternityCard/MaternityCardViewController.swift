@@ -231,7 +231,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                 setupCollectionView()
                 
                 let lastItemIndexPath = IndexPath(item: collectionView!.self.numberOfItems(inSection: 0) - 1, section: 0)
-                            collectionView!.self.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
+                collectionView!.self.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
                 
             }
         }
@@ -265,7 +265,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         addNewView(views: views)
     }
-
+    
     
     func deleteButtonTapped(cell: MaternityCardCell) {
         if let indexPath = collectionView.indexPath(for: cell) {
@@ -355,8 +355,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             for cell in cells{
                 if cell.id == BloodView.id{
                     //Add bloodExam
-
-                    let bloodType = bloodView.aboMenu.selectedOption ?? ""
+                    
+                    let bloodType = bloodView.aboMenu.selectedOption 
                     let igm = bloodView2.igmCheckYES.getBooleanValue()
                     let igg = bloodView2.iggCheckYES.getBooleanValue()
                     let hiv = bloodView2.hivCheckYES.getBooleanValue()
@@ -365,7 +365,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     let leucocitos = Int(bloodView.leucocitosMenu.selectedValue)
                     let plaquetas = Int(bloodView.plaquetasMenu.selectedValue)
                     let gliecmia = Int(bloodView.glicemiaMenu.selectedValue)
-
+                    
                     let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: .four, urea: .init(mg: urea.first ?? 0, dL: Float(urea.first ?? 0)), creatine: 0, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
                     
                     self.consult?.bloodExams = blood
@@ -376,15 +376,15 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             for cell in cells{
                 if cell.id == UltrasoundView.id{
                     //Add new Ultrassound
-
+                    
                     let date = ultrasoundView.dataMenu.date
                     let gestacionalAge = ultrasoundView.igMenu.getPickerValue()
                     let peso = Float(ultrasoundView.pesoMenu.getPickerValue())
-                    let placenta = ultrasoundView.placentaMenu.selectedOption ?? ""
-                    let fetalPosition = ultrasoundView.apresentacaoFetalMenu.selectedOption ?? ""
+                    let placenta = ultrasoundView.placentaMenu.selectedOption 
+                    let fetalPosition = ultrasoundView.apresentacaoFetalMenu.selectedOption 
                     let ila = ultrasoundView.ilaMenu.selectedValue
                     
-
+                    
                     let ultrassound = UltrasoundExam(date: date, consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), ILA: ila, gestacionalAge: gestacionalAge, weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
                     
                     self.consult?.ultraSoundExams = ultrassound
@@ -422,15 +422,15 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             for cell in cells{
                 if cell.id == BloodView.id{
-                
+                    
                     //Add bloodExam
                     // FIX ME : Arrumar os dropDowns do exame de sangue pois não esta retornando valor
-                    let bloodType = bloodView.aboMenu.selectedOption ?? ""
+                    let bloodType = bloodView.aboMenu.selectedOption
                     let igm = bloodView2.igmCheckYES.getBooleanValue()
                     let igg = bloodView2.iggCheckYES.getBooleanValue()
                     let hiv = bloodView2.hivCheckYES.getBooleanValue()
                     let urea = bloodView.ureiaMenu.selectedValue
-                    let ht = bloodView.htMenu.selectedValue 
+                    let ht = bloodView.htMenu.selectedValue
                     let leucocitos = Int(bloodView.leucocitosMenu.selectedValue)
                     let plaquetas = Int(bloodView.plaquetasMenu.selectedValue)
                     let gliecmia = Int(bloodView.glicemiaMenu.selectedValue)
@@ -451,11 +451,11 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     let date = ultrasoundView.dataMenu.date
                     let gestacionalAge = ultrasoundView.igMenu.getPickerValue()
                     let peso = Float(ultrasoundView.pesoMenu.getPickerValue())
-                    let placenta = ultrasoundView.placentaMenu.selectedOption ?? ""
-                    let fetalPosition = ultrasoundView.apresentacaoFetalMenu.selectedOption ?? ""
+                    let placenta = ultrasoundView.placentaMenu.selectedOption
+                    let fetalPosition = ultrasoundView.apresentacaoFetalMenu.selectedOption
                     let ila = ultrasoundView.ilaMenu.selectedValue
                     
-
+                    
                     let ultrassound = UltrasoundExam(date: date, consultNumber: self.consultID!, ig: IdadeGestacional(semanas: 0, dias: 0), ILA: ila, gestacionalAge: gestacionalAge, weight: peso , placenta: Placenta(rawValue: placenta) ?? .anterior, fetalPosition: FetalPosition(rawValue: fetalPosition) ?? .pelvica)
                     
                     self.consult?.ultraSoundExams = ultrassound

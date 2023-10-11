@@ -35,7 +35,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
         
-       
+        
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         
@@ -99,7 +99,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.id, for: indexPath) as! HeaderForHistory
-        
+            
             return headerView
             
         default:
@@ -136,7 +136,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             setupCollectionView()
         }
     }
-  
+    
     func configureView(){
         let pacient = historyVm.getPatient()
         
@@ -147,7 +147,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         routineData.uterineHeightMenu.selectedValue = Int(appointmentsInfo.routineData?.uterineHeightInCentimeters ?? 0)
         routineData.wheightMenu.selectedValue = Float(appointmentsInfo.routineData?.weightAndBodyMassIndex ?? 0)
         routineData.arterialPressureMenu.text = appointmentsInfo.routineData?.bloodPressureInmmHG ?? ""
-      
+        
         let views: [CellInfo] = [
             CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id, query: routineData.query)
         ]
@@ -162,25 +162,24 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             familyAntecedentView.sections[AppointmentsKeys.diabetes.rawValue]?.checked = pacient?.familyBG?.diabetes ?? false
             familyAntecedentView.sections[AppointmentsKeys.cardiopatia.rawValue]?.checked = pacient?.familyBG?.heartCondition ?? false
             familyAntecedentView.sections[AppointmentsKeys.outro.rawValue]?.checked = pacient?.familyBG?.urinaryInfection ?? false
-
+            
             
             //Assign the values of preganancyType
             pregnancyTypeView.section[AppointmentsKeys.gemelar.rawValue]?.checked = appointmentsInfo.pregnancyClassification?.twinPregnancy ?? false
             pregnancyTypeView.section[AppointmentsKeys.triplaOuMais.rawValue]?.checked = appointmentsInfo.pregnancyClassification?.tripletsOrMorePregnancy ?? false
             pregnancyTypeView.section[AppointmentsKeys.ignorada.rawValue]?.checked = appointmentsInfo.pregnancyClassification?.ignored ?? false
             pregnancyTypeView.section[AppointmentsKeys.unica.rawValue]?.checked = appointmentsInfo.pregnancyClassification?.singlePregnancy ?? false
-         
+            
             
             //Assign values of pregnancyRisk
             pregnancyRiskView.section[AppointmentsKeys.riscoHabitual.rawValue]?.checked = appointmentsInfo.pregnancyRisk?.lowRiskPregnancy ?? false
             pregnancyRiskView.section[AppointmentsKeys.altoRisco.rawValue]?.checked = appointmentsInfo.pregnancyRisk?.highRiskPregnancy ?? false
-
+            
             
             //Assign the values of plannedView
             plannedView.plannedCheckYES.checked = appointmentsInfo.pregnancyPlanning?.plannedPregnancy ?? false
             
             
-
             //Assign values of clinicalAntecedents
             clinicAntecedentsView.sections[AppointmentsKeys.urinary.rawValue]?.checked = pacient?.personalBG?.urinaryInfection ?? false
             clinicAntecedentsView.sections[AppointmentsKeys.hipertensao.rawValue]?.checked  = pacient?.personalBG?.hypertension ?? false
@@ -189,18 +188,18 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             clinicAntecedentsView.sections[AppointmentsKeys.diabetes.rawValue]?.checked = pacient?.personalBG?.diabetes ?? false
             
             //Assigng clinical antecendentsView
-                
-          
+            
+            
             let views: [CellInfo] = [
                 CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id, query: familyAntecedentView.query),
                 CellInfo(view: h1N1View, size: h1N1View.h1N1ViewSize, id: H1N1View.id, query: h1N1View.query),
                 CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, query: plannedView.query),
                 CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, query: clinicAntecedentsView.query)
             ]
-                
+            
             addNewView(views: views)
-         
-           
+            
+            
             //Add vaccines view
             if let vaccines = pacient!.vaccines{
                 
@@ -215,17 +214,17 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 let hepatite = historyVm.coreDataMaanger.getHepatite()
                 hepatitisBView.hepatitisBYesCheckYES.checked = hepatite.first?.isVaccined ?? false
                 
-              
-        
+                
+                
                 
                 //Assign influenza data
                 let influenza = historyVm.coreDataMaanger.getInfluenza()
                 h1N1View.h1N1YesCheckYES.checked = influenza?.isVaccined ?? false
                 
                 //Assign influenza view
-
                 
-              
+                
+                
                 let views: [CellInfo] = [
                     CellInfo(view: tetanicView, size: tetanicView.tetanicViewSize, id: TetanicView.id, query: tetanicView.query),
                     CellInfo(view: hepatitisBView, size: hepatitisBView.hepatitisBViewSize, id: HepatitisBView.id, query: hepatitisBView.query),
@@ -248,7 +247,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 bloodView.leucocitosMenu.selectedValue = Int(appointmentsInfo.bloodExam?.whiteCells ?? 0)
                 bloodView.plaquetasMenu.selectedValue = Int(appointmentsInfo.bloodExam?.platelets ?? 0)
                 bloodView.glicemiaMenu.selectedValue = Int(appointmentsInfo.bloodExam?.glucose ?? 0)
-                   
+                
                 let views: [CellInfo] = [
                     CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
                     CellInfo(view: bloodView2, size: bloodView2.bloodView2size, id: BloodView2.id, query: bloodView2.query)
@@ -261,11 +260,11 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             if let _ = appointmentsInfo.ultraSound{
                 
                 ultrasoundView.dataMenu.date = appointmentsInfo.ultraSound?.date ?? Date()
-                                ultrasoundView.igMenu.selectedValue = Int(appointmentsInfo.ultraSound?.gestacionalAge ?? 0)
-                                ultrasoundView.pesoMenu.selectedValue = Int(appointmentsInfo.ultraSound?.weight ?? 0)
-                                ultrasoundView.placentaMenu.selectedOption = appointmentsInfo.ultraSound?.placenta ?? ""
-                                ultrasoundView.apresentacaoFetalMenu.selectedOption = appointmentsInfo.ultraSound?.fetalPosition ?? ""
-                                ultrasoundView.ilaMenu.selectedValue = Int(appointmentsInfo.ultraSound?.ila ?? 0)
+                ultrasoundView.igMenu.selectedValue = Int(appointmentsInfo.ultraSound?.gestacionalAge ?? 0)
+                ultrasoundView.pesoMenu.selectedValue = Int(appointmentsInfo.ultraSound?.weight ?? 0)
+                ultrasoundView.placentaMenu.selectedOption = appointmentsInfo.ultraSound?.placenta ?? ""
+                ultrasoundView.apresentacaoFetalMenu.selectedOption = appointmentsInfo.ultraSound?.fetalPosition ?? ""
+                ultrasoundView.ilaMenu.selectedValue = Int(appointmentsInfo.ultraSound?.ila ?? 0)
                 
                 let views: [CellInfo] = [
                     CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundSize, id: UltrasoundView.id, query: ultrasoundView.query),
@@ -287,7 +286,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 bloodView.plaquetasMenu.selectedValue = Int(appointmentsInfo.bloodExam?.platelets ?? 0)
                 bloodView.glicemiaMenu.selectedValue = Int(appointmentsInfo.bloodExam?.glucose ?? 0)
                 
-
+                
                 let views: [CellInfo] = [
                     CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
                     CellInfo(view: bloodView2, size: bloodView2.bloodView2size, id: BloodView2.id, query: bloodView2.query)
@@ -299,18 +298,18 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             if let _ = appointmentsInfo.ultraSound{
                 
                 ultrasoundView.dataMenu.date = appointmentsInfo.ultraSound?.date ?? Date()
-                                ultrasoundView.igMenu.selectedValue = Int(appointmentsInfo.ultraSound?.gestacionalAge ?? 0)
-                                ultrasoundView.pesoMenu.selectedValue = Int(appointmentsInfo.ultraSound?.weight ?? 0)
-                                ultrasoundView.placentaMenu.selectedOption = appointmentsInfo.ultraSound?.placenta ?? ""
-                                ultrasoundView.apresentacaoFetalMenu.selectedOption = appointmentsInfo.ultraSound?.fetalPosition ?? ""
-                                ultrasoundView.ilaMenu.selectedValue = Int(appointmentsInfo.ultraSound?.ila ?? 0)
+                ultrasoundView.igMenu.selectedValue = Int(appointmentsInfo.ultraSound?.gestacionalAge ?? 0)
+                ultrasoundView.pesoMenu.selectedValue = Int(appointmentsInfo.ultraSound?.weight ?? 0)
+                ultrasoundView.placentaMenu.selectedOption = appointmentsInfo.ultraSound?.placenta ?? ""
+                ultrasoundView.apresentacaoFetalMenu.selectedOption = appointmentsInfo.ultraSound?.fetalPosition ?? ""
+                ultrasoundView.ilaMenu.selectedValue = Int(appointmentsInfo.ultraSound?.ila ?? 0)
                 
                 let views: [CellInfo] = [
                     CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundSize, id: UltrasoundView.id, query: ultrasoundView.query),
                 ]
                 
                 addNewView(views: views)
-
+                
             }
             
             //Add vaccines view
@@ -327,15 +326,13 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 let hepatite = historyVm.coreDataMaanger.getHepatite()
                 hepatitisBView.hepatitisBYesCheckYES.checked = hepatite.first?.isVaccined ?? false
                 
-              
-        
                 
                 //Assign influenza data
                 let influenza = historyVm.coreDataMaanger.getInfluenza()
                 h1N1View.h1N1YesCheckYES.checked = influenza?.isVaccined ?? false
                 
                 //Assign Views
-
+                
                 let views: [CellInfo] = [
                     CellInfo(view: tetanicView, size: tetanicView.tetanicViewSize, id: TetanicView.id, query: tetanicView.query),
                     CellInfo(view: hepatitisBView, size: hepatitisBView.hepatitisBViewSize, id: HepatitisBView.id, query: hepatitisBView.query),

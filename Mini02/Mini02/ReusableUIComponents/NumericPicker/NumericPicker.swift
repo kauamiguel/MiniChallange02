@@ -33,6 +33,7 @@ class NumericPicker: UIPickerView {
                 print("Invalid start number for picker: \(startValue)")
                 return
             }
+            
             selectedValue = startValue
             selectRow(index, inComponent: 0, animated: false)
         }
