@@ -216,35 +216,44 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         collectionView.reloadData() // Reload the collection view to reflect the changes.
     }
     
-    // generic to add views
-    func addViews<T: UIView>(viewType: T.Type, viewSize: CGSize, viewID: String, viewQuery: String) {
-        if !cells.contains(where: { type(of: $0.view) == viewType }) {
-            let newView = viewType.init()
-            let newCellInfo = CellInfo(view: newView, size: viewSize, id: viewID, query: viewQuery)
-            cells.append(newCellInfo)
-            
-            self.collectionView.reloadData()
+    func addNewView(views: [CellInfo]){
+        for view in views {
+            cells.append(view)
             setupCollectionView()
-            
-            let lastItemIndexPath = IndexPath(item: cells.count - 1, section: 0)
-            collectionView.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
         }
     }
     
     @objc func addNewBloodViewCell(){
-        addViews(viewType: BloodView.self, viewSize: bloodView.bloodViewViewSize, viewID: BloodView.id, viewQuery: bloodView.query)
-        addViews(viewType: BloodView2.self, viewSize: bloodView2.bloodView2size, viewID: BloodView2.id, viewQuery: bloodView2.query)
+        let views: [CellInfo] = [
+            CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
+            CellInfo(view: bloodView2, size: bloodView2.bloodView2size, id: BloodView2.id, query: bloodView2.query)
+        ]
+        
+        addNewView(views: views)
+        
     }
     
     @objc func addNewVaccineViewCell(){
-        addViews(viewType: TetanicView.self, viewSize: tetanicView.tetanicViewSize, viewID: TetanicView.id, viewQuery: tetanicView.query)
-        addViews(viewType: HepatitisBView.self, viewSize: hepatitisBView.hepatitisBViewSize, viewID: HepatitisBView.id, viewQuery: hepatitisBView.query)
-        addViews(viewType: H1N1View.self, viewSize: h1N1View.h1N1ViewSize, viewID: H1N1View.id, viewQuery: h1N1View.query)
+        
+        let views: [CellInfo] = [
+            CellInfo(view: tetanicView, size: tetanicView.tetanicViewSize, id: TetanicView.id, query: tetanicView.query),
+            CellInfo(view: hepatitisBView, size: hepatitisBView.hepatitisBViewSize, id: HepatitisBView.id, query: hepatitisBView.query),
+            CellInfo(view: h1N1View, size: h1N1View.h1N1ViewSize, id: H1N1View.id, query: h1N1View.query)
+        ]
+        
+        addNewView(views: views)
     }
     
     @objc func addNewUltrassonViewCell() {
-        addViews(viewType: UltrasoundView.self, viewSize: ultrasoundView.ultrasoundSize, viewID: UltrasoundView.id, viewQuery: ultrasoundView.query)
+        let views: [CellInfo] = [
+            CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundSize, id: UltrasoundView.id, query: ultrasoundView.query),
+        ]
+        
+        addNewView(views: views)
     }
+    
+    
+    
     
     func deleteButtonTapped(cell: MaternityCardCell) {
         if let indexPath = collectionView.indexPath(for: cell) {
@@ -373,6 +382,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         let antitetanic = tetanicView.yesCheckYES.checked
         let influenza = h1N1View.h1N1YesCheckYES.checked
         let hepatite = hepatitisBView.hepatitisBYesCheckYES.checked
+
         
         // FIX ME : Ajustar as doses das vacinas na view que nÃo existem
         let vaccine = Vaccines(hepatiteB: [DoseVaccines(date: Date(), isVaccined: antitetanic, numberOfDose: 1)], influenza: DoseVaccines(date: Date(), isVaccined: influenza, numberOfDose: 1), antitetanic: [DoseVaccines(date: Date(), isVaccined: hepatite, numberOfDose: 1)])

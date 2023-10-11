@@ -45,5 +45,6 @@ class CheckBoxComponentRedView: UIButton {
 
     func getBooleanValue() -> Bool {
         return checked
+        print(checked)
     }
 }

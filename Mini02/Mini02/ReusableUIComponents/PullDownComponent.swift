@@ -50,5 +50,6 @@ class PullDownComponent: UIButton {
         self.setTitleColor(.black, for: .normal)
         self.titleLabel?.font = UIFont(name: "Signika-Regular", size: 16)
         self.selectedOption = title
+        print(self.selectedOption)
     }
 }

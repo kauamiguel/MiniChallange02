@@ -100,7 +100,6 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         
         self.hidesBottomBarWhenPushed = true
         
-     
     }
     
     //Function of backButton
@@ -192,7 +191,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id, query: routineData.query)
         ]
         
-        addViewsForHistory(views: views)
+        addNewView(views: views)
         
         if appointmentsInfo.tremesteer == 1 && appointmentsInfo.consultId == 1{
             
@@ -241,7 +240,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, query: clinicAntecedentsView.query)
             ]
                 
-            addViewsForHistory(views: views)
+            addNewView(views: views)
          
            
             
@@ -251,7 +250,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 //Assign data antitetanic
                 let antitetanic = historyVm.coreDataMaanger.getAntitetanic()
                 tetanicView.yesCheckYES.checked = antitetanic.first?.isVaccined ?? false
-                
+                print(antitetanic.first?.isVaccined)
                 
                 
                 
@@ -276,20 +275,20 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                     CellInfo(view: h1N1View, size: h1N1View.h1N1ViewSize, id: H1N1View.id, query: h1N1View.query)
                 ]
                 
-                addViewsForHistory(views: views)
+                addNewView(views: views)
             }
             
             
             
             // FIX ME : Adicionar o exame de sangue e ultrason na tela
             if let blood = appointmentsInfo.bloodExam{
-                
+                   
                 let views: [CellInfo] = [
                     CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
                     CellInfo(view: bloodView2, size: bloodView2.bloodView2size, id: BloodView2.id, query: bloodView2.query)
                 ]
                 
-                addViewsForHistory(views: views)
+                addNewView(views: views)
                 
             }
             
@@ -298,7 +297,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                     CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundSize, id: UltrasoundView.id, query: ultrasoundView.query),
                 ]
                 
-                addViewsForHistory(views: views)
+                addNewView(views: views)
             }
         }else{
             if let blood = appointmentsInfo.bloodExam{
@@ -307,7 +306,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                     CellInfo(view: bloodView2, size: bloodView2.bloodView2size, id: BloodView2.id, query: bloodView2.query)
                 ]
                 
-                addViewsForHistory(views: views)
+                addNewView(views: views)
             }
             
             if let ultrasound = appointmentsInfo.ultraSound{
@@ -315,13 +314,13 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                     CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundSize, id: UltrasoundView.id, query: ultrasoundView.query),
                 ]
                 
-                addViewsForHistory(views: views)
+                addNewView(views: views)
 
             }
         }
     }
     
-    func addViewsForHistory(views: [CellInfo]){
+    func addNewView(views: [CellInfo]){
         for view in views {
             cells.append(view)
             setupCollectionView()

@@ -97,8 +97,6 @@ class BloodView: UIView{
         separator.backgroundColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00)
         
         
-     
-        
         menuPlusLabel(label: aboLabel, menu: aboMenu, options: BloodType.allCases.map { $0.rawValue }, contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "ABO - RH", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         
         //FIXME: PICKER HERE - HT AND HB ARE TWO DIFFERENT THINGS
@@ -110,13 +108,7 @@ class BloodView: UIView{
         //FIXME: PICKER HERE
         menuPlusLabelBottom(label: plaquetasLabel, menu: plaquetasMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: hbMenu, leftAnchor: contentBackGround, labelText: "Plaquetas", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
         
-      
-        
-        
-
-        
-      
-        
+     
         
        // RIGHT
         //FIXME: THIS IS A PICKER WITH TWO VALUES: mg/dl
@@ -126,6 +118,7 @@ class BloodView: UIView{
         
         //FIXME: THIS IS A PICKER
         menuPlusLabelBottom(label: leucocitosLabel, menu: leucocitosMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: ureiaMenu, leftAnchor: separator, labelText: "Leucócitos",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
+       
        
         //FIXME: THIS IS A PICKER
         menuPlusLabelBottom(label: glicemiaLabel, menu: glicemiaMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: leucocitosMenu, leftAnchor: separator, labelText: "Glicemia",  topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.035)
