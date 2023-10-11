@@ -54,7 +54,7 @@ class RoutineDataView: UIView {
    
     let wheightLabel = LabelComponentView()
     
-    let wheightMenu = NumericPicker()
+    let wheightMenu = NumericFloatPicker()
     
     let bcfLabel = LabelComponentView()
     
@@ -97,9 +97,8 @@ class RoutineDataView: UIView {
         numericPickerPlusLabel(label: uterineHeightLabel, menu: uterineHeightMenu, menuMinimum: 4, menuMaximum: 40, menuInterval: 1, menuDefaultValue: 5, contentBackGround: contentBackGround, topAnchor: igMenu, leftAnchor: contentBackGround, labelText: "Altura uterina(cm)", topPadding: screenSize.height * 0.0082, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         
         textFieldPlusLabel(label: arterialPressureLabel, field: arterialPressureMenu, placeholder: "120/80", contentBackGround: contentBackGround, topAnchor: uterineHeightMenu, leftAnchor: contentBackGround, labelText: "Pressão arterial", topPadding: screenSize.height * 0.0082, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
-        
-        // FIXME: Wheight is a NumericPicker but IMC can be a menu, neither make much sense
-        numericPickerPlusLabel(label: wheightLabel, menu: wheightMenu, menuMinimum: 60, menuMaximum: 180, menuInterval: 5, contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: separator, labelText: "Peso (KG)/IMC", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
+    
+        numericFloatPickerPlusLabel(label: wheightLabel, menu: wheightMenu, menuMinimum: 0.0, menuMaximum: 5, menuInterval: 0.1, contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: separator, labelText: "Peso (KG)/IMC", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         
         menuPlusLabelBottom(label: bcfLabel, menu: bcfMenu, options: ["Baixo", "Moderado", "Alto"], contentBackGround: contentBackGround, topAnchor: wheightMenu, leftAnchor: separator, labelText: "BCF",  topPadding: screenSize.height * 0.0013, leftPadding: screenSize.width * 0.0065, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         

@@ -132,6 +132,18 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         return cells[indexPath.row].size
     }
     
+    private lazy var confirmAlert:  UIAlertController =  {
+        let alert = UIAlertController(title: "Tem certeza que deseja salvar consulta?", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        let saveBtn = UIAlertAction(title: "Salvar", style: .default, handler: {
+            [weak self] _ in
+            self?.saveData()
+            self?.navigationController?.popViewController(animated: true)
+        })
+        alert.addAction(saveBtn)
+        return alert
+    }()
+    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
             
@@ -150,7 +162,9 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             }
             
             footerView.tapSave = { [weak self] in
-                self?.saveData()
+                if let confirm = self?.confirmAlert {
+                    self?.present(confirm, animated: true)
+                }
             }
             
             
@@ -207,10 +221,19 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         collectionView.reloadData() // Reload the collection view to reflect the changes.
     }
     
+    
     func addNewView(views: [CellInfo]){
         for view in views {
-            cells.append(view)
-            setupCollectionView()
+            if !cells.contains(where: { info in
+                info.id == view.id
+            }){
+                cells.append(view)
+                setupCollectionView()
+                
+                let lastItemIndexPath = IndexPath(item: collectionView!.self.numberOfItems(inSection: 0) - 1, section: 0)
+                            collectionView!.self.scrollToItem(at: lastItemIndexPath, at: .bottom, animated: true)
+                
+            }
         }
     }
     
