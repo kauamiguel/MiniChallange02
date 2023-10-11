@@ -44,7 +44,7 @@ class UltrasoundView: UIView {
     let pesoMenu = NumericPicker()
     
     let ilaLabel = LabelComponentView()
-    let ilaMenu = PullDownComponent()
+    let ilaMenu = NumericPicker()
     
    
     let igLabel = LabelComponentView()
@@ -97,8 +97,10 @@ class UltrasoundView: UIView {
 
         numericPickerPlusLabel(label: pesoLabel, menu: pesoMenu, menuMinimum: 50, menuMaximum: 180, menuInterval: 5, contentBackGround: contentBackGround, topAnchor: dataMenu, leftAnchor: contentBackGround, labelText: "Peso", topPadding: screenSize.height * 0.009, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         
-        //FIXME: NOT MODELED
-        menuPlusLabelBottom(label: ilaLabel, menu: ilaMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: pesoMenu, leftAnchor: contentBackGround, labelText: "ILA", topPadding: screenSize.height * 0.0036, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.045)
+        numericPickerPlusLabel(label: ilaLabel, menu: ilaMenu, menuMinimum: 4, menuMaximum: 30, menuInterval: 1, contentBackGround: contentBackGround, topAnchor: pesoMenu, leftAnchor: contentBackGround, labelText: "ILA(cm)", topPadding: screenSize.height * 0.009, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
+        
+//        //FIXME: NOT MODELED
+//        menuPlusLabelBottom(label: ilaLabel, menu: ilaMenu, options: ["aaa", "bbb", "ccc"], contentBackGround: contentBackGround, topAnchor: pesoMenu, leftAnchor: contentBackGround, labelText: "ILA", topPadding: screenSize.height * 0.0036, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.045)
 
         numericPickerPlusLabel(label: igLabel, menu: igMenu, menuMinimum: 0, menuMaximum: 42, menuInterval: 1, contentBackGround: contentBackGround, topAnchor: ultrasoundSubLabel, leftAnchor: separator, labelText: "IG", topPadding: screenSize.height * 0.0038, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
         
