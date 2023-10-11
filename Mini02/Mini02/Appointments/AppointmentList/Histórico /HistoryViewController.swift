@@ -256,9 +256,9 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             }
         }else{
             if let blood = appointmentsInfo.bloodExam{
-<<<<<<< Updated upstream
+
                 
-                bloodView.aboMenu.selectedOption = appointmentsInfo.bloodExam?.bloodType
+                bloodView.aboMenu.selectedOption = appointmentsInfo.bloodExam?.bloodType ?? ""
                 bloodView2.igmCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igm ?? false
                 bloodView2.iggCheckYES.checked = appointmentsInfo.bloodExam?.toxoplasmosis?.igg ?? false
                 bloodView2.hivCheckYES.checked = appointmentsInfo.bloodExam?.hiv ?? false
@@ -268,8 +268,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 bloodView.plaquetasMenu.selectedValue = Int(appointmentsInfo.bloodExam?.platelets ?? 0)
                 bloodView.glicemiaMenu.selectedValue = Int(appointmentsInfo.bloodExam?.glucose ?? 0)
                 
-=======
->>>>>>> Stashed changes
+
                 let views: [CellInfo] = [
                     CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
                     CellInfo(view: bloodView2, size: bloodView2.bloodView2size, id: BloodView2.id, query: bloodView2.query)
