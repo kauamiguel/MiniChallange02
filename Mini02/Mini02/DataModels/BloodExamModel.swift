@@ -60,7 +60,7 @@ struct BloodExamModel{
     var bloodType: BloodType
     var toxoplasmosis:Toxoplasmosis
     var hiv:Bool
-    var vdrl:VdrlExam //checks if pacient has syphilis
+    var vdrl:String //checks if pacient has syphilis
     
     var urea:ureaExam
     var creatine:Float

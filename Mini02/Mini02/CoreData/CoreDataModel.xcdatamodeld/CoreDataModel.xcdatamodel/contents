@@ -92,6 +92,7 @@
         <relationship name="consult" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConsultEntity" inverseName="pregnancyRisk" inverseEntity="ConsultEntity"/>
     </entity>
     <entity name="RoutineData" representedClassName="RoutineData" syncable="YES" codeGenerationType="class">
+        <attribute name="bcf" optional="YES" attributeType="String"/>
         <attribute name="bloodPressureInmmHG" optional="YES" attributeType="String"/>
         <attribute name="edema" optional="YES" attributeType="String"/>
         <attribute name="fetalHeartRate" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
