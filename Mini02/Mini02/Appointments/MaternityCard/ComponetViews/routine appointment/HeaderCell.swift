@@ -74,7 +74,12 @@ class HeaderCell: UICollectionReusableView {
         editButton.anchorWithConstantValues(width: UIScreen.main.bounds.width * 0.32, height: UIScreen.main.bounds.height * 0.035)
         editHStack.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor, right: self.trailingAnchor, topPadding: screenSize.height * 0.03 ,leftPadding: screenSize.width * 0.05, rightPadding: -screenSize.width * 0.05)
         self.addSubview(data)
-        data.setupLabel(labelText: "\("data")", labelType: .inputLabel, labelColor: .secondaryText)
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        let date = formatter.string(from: currentDate)
+        data.setupLabel(labelText: "\(date)", labelType: .inputLabel, labelColor: .secondaryText)
         data.anchorWithConstantValues(top: editHStack.bottomAnchor, left: self.leadingAnchor, leftPadding: screenSize.width * 0.05)
         
         
