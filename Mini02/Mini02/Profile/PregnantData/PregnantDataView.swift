@@ -67,15 +67,6 @@ class PregnantDataView: UIView {
     private lazy var dateOfBirthPicker: UIDatePicker = {
        var picker = DatePicker()
         picker.setupDatePicker()
-//        picker.datePickerMode = .date
-//        picker.preferredDatePickerStyle = .automatic
-//        if let dateOfBirth = viewModel?.getPatientData()?.dateOfBirth {
-//            picker.setDate(dateOfBirth, animated: false)
-//        }
-//        picker.backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
-//        picker.layer.cornerRadius = 18
-//        picker.clipsToBounds = true
-//        picker.tintColor = UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1)
         return picker
     }()
     

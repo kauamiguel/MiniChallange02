@@ -207,7 +207,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             
             
             //Add vaccines view
-            if let vaccines = pacient!.vaccines{
+            if pacient!.vaccines != nil{
                 
                 
                 //Assign data antitetanic
@@ -358,7 +358,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             }
             
             //Add vaccines view
-            if let vaccines = pacient!.vaccines{
+            if pacient!.vaccines != nil{
                 
                 
                 //Assign data antitetanic

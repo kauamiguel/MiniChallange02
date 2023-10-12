@@ -149,9 +149,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.id, for: indexPath) as! HeaderCell
-            headerView.tapEditButtonClosure = { [weak self] in
-                self?.editButtonTapped(headerView.editButton)
-            }
+      
             return headerView
             
         case UICollectionView.elementKindSectionFooter:

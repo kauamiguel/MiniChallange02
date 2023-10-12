@@ -39,7 +39,6 @@
 		ABAD4F412ABE1C99007BEC32 /* LabelComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F402ABE1C99007BEC32 /* LabelComponentView.swift */; };
 		ABAD4F452ABE22C1007BEC32 /* LabelComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F442ABE22C1007BEC32 /* LabelComponentModel.swift */; };
 		ABAD4F472ABE2B1A007BEC32 /* AppointmentsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F462ABE2B1A007BEC32 /* AppointmentsVM.swift */; };
-		ABAD4F4B2AC1A4AB007BEC32 /* PickerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F4A2AC1A4AB007BEC32 /* PickerComponent.swift */; };
 		ABB82F132AC5FCF8008B73AF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB82F122AC5FCF8008B73AF /* HistoryView.swift */; };
 		ABB82F162AC60931008B73AF /* RoutineDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB82F152AC60931008B73AF /* RoutineDataView.swift */; };
 		ABC98B7F2AB3D9C5005214E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98B7E2AB3D9C5005214E5 /* AppDelegate.swift */; };
@@ -147,7 +146,6 @@
 		ABAD4F402ABE1C99007BEC32 /* LabelComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponentView.swift; sourceTree = "<group>"; };
 		ABAD4F442ABE22C1007BEC32 /* LabelComponentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponentModel.swift; sourceTree = "<group>"; };
 		ABAD4F462ABE2B1A007BEC32 /* AppointmentsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsVM.swift; sourceTree = "<group>"; };
-		ABAD4F4A2AC1A4AB007BEC32 /* PickerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerComponent.swift; sourceTree = "<group>"; };
 		ABB82F122AC5FCF8008B73AF /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		ABB82F152AC60931008B73AF /* RoutineDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineDataView.swift; sourceTree = "<group>"; };
 		ABC98B7B2AB3D9C5005214E5 /* Mini02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini02.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -290,7 +288,6 @@
 				E8E0D6592AC4C6E3003CE5CD /* ProfileImage */,
 				ABAD4F422ABE2275007BEC32 /* CheckBox */,
 				ABAD4F432ABE2299007BEC32 /* Label */,
-				ABAD4F4A2AC1A4AB007BEC32 /* PickerComponent.swift */,
 				6272BFAF2AD49759008B589B /* appointmentSectionBuilder.swift */,
 				AB9D94302AD0A2670064DB69 /* PullDownComponent.swift */,
 			);
@@ -751,7 +748,6 @@
 				ABC98BA82AB3F5E0005214E5 /* RecurrentDataView.swift in Sources */,
 				AB9D94292ACE3E670064DB69 /* H1N1View.swift in Sources */,
 				CE0BFA682AC7464C0053C2A6 /* RecurrenteDataViewModel.swift in Sources */,
-				ABAD4F4B2AC1A4AB007BEC32 /* PickerComponent.swift in Sources */,
 				CE8EE3462AC5F665000E89E1 /* PersonalBGModel.swift in Sources */,
 				E81A26842AD64681003A25E0 /* NumericPicker.swift in Sources */,
 				AB9D941C2ACC988B0064DB69 /* HeaderCell.swift in Sources */,
@@ -960,7 +956,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -992,12 +987,11 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Gabriel.Mini02;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
