@@ -113,9 +113,8 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.id, for: indexPath) as! HeaderForHistory
-            
+            headerView.title = appointmentsInfo.consultId
             return headerView
-            
         default:
             return UICollectionReusableView()
         }

@@ -14,15 +14,16 @@ class HeaderForHistory: UICollectionReusableView {
     let label = LabelComponentView()
     let data = LabelComponentView()
     
+    var title: Int64?
+    
     override init(frame: CGRect){
         super.init(frame: frame)
-        
         setupview()
     }
     
     func setupview(){
         
-        label.setupLabel(labelText: "teste \("1")", labelType: .titleBold, labelColor: .secondaryColor)
+        label.setupLabel(labelText: "teste \(title ?? 32)", labelType: .titleBold, labelColor: .secondaryColor)
         self.addSubview(label)
         label.anchorWithMultiplayerValues(top: self.topAnchor)
         
