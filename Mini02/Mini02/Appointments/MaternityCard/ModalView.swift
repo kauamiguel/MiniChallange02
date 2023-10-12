@@ -66,7 +66,7 @@ class ModalVC: UIViewController{
             "Notas"
         ]
         
-        for i in 0..<btnArray.count{
+        for i in 0..<btnArray.count - 1{
             let btn = UIButton()
            
             //MODAL BUTTON CONFIG
