@@ -322,7 +322,7 @@ class CoreDataFunctions{
             consult.ultraSound = newUltrasound
         }
         
-        if let dueDate = newConsult.dueDate{
+        if newConsult.dueDate != nil{
             let due = DueDate(context: context)
             due.estimatedDueDate = newConsult.dueDate?.estimatedDueDate
             due.estimatedDueDateEco = newConsult.dueDate?.estimatedDueDateEco
@@ -336,7 +336,7 @@ class CoreDataFunctions{
         }
         
         if let riskPregnancy = newConsult.riskPregnancy{
-            var risk = PregnancyRisk(context: context)
+            let risk = PregnancyRisk(context: context)
             risk.highRiskPregnancy = (riskPregnancy.highRiskPregnancy)
             risk.lowRiskPregnancy = (riskPregnancy.lowRiskPregnancy)
             consult.pregnancyRisk = risk
