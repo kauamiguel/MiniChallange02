@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreHaptics
 
 class MaternityCardViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     
@@ -149,7 +150,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.id, for: indexPath) as! HeaderCell
-      
+            
             return headerView
             
         case UICollectionView.elementKindSectionFooter:
@@ -281,10 +282,14 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     func saveData(){
         
+        //Add hapticis : After will change the place of this code
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+        
         //Adding routines
         let ig = Int(routineData.igMenu.getPickerValue())
         let edema = routineData.edemaMenu.selectedOption
-        let fetalHeart = routineData.bcfMenu.selectedOption 
+        let fetalHeart = routineData.bcfMenu.selectedOption
         let uterine = Int(routineData.uterineHeightMenu.getPickerValue())
         let weight = routineData.wheightMenu.getPickerValue()
         let bloodPressure = routineData.arterialPressureMenu.text ?? ""
@@ -333,7 +338,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             let planned = PregnancyPlanningModel(plannedPregnancy: pregnancyPlanned)
             self.consult?.plannedPregnancy = planned
             
-          
+            
             //Add personal BG
             let inffection = clinicAntecedentsView.sections[AppointmentsKeys.urinary.rawValue]?.getBooleanValue()
             let hypertensionBg = clinicAntecedentsView.sections[AppointmentsKeys.hipertensao.rawValue]?.getBooleanValue()
@@ -354,7 +359,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             for cell in cells{
                 if cell.id == BloodView.id{
                     let bloodType = bloodView.aboMenu.selectedOption
-
+                    
                     let igm = bloodView2.igmCheckYES.getBooleanValue()
                     let igg = bloodView2.iggCheckYES.getBooleanValue()
                     let hiv = bloodView2.hivCheckYES.getBooleanValue()
@@ -380,8 +385,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     let date = ultrasoundView.dataMenu.date
                     let gestacionalAge = ultrasoundView.igMenu.getPickerValue()
                     let peso = Float(ultrasoundView.pesoMenu.getPickerValue())
-                    let placenta = ultrasoundView.placentaMenu.selectedOption 
-                    let fetalPosition = ultrasoundView.apresentacaoFetalMenu.selectedOption 
+                    let placenta = ultrasoundView.placentaMenu.selectedOption
+                    let fetalPosition = ultrasoundView.apresentacaoFetalMenu.selectedOption
                     let ila = ultrasoundView.ilaMenu.selectedValue
                     
                     
@@ -428,7 +433,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     //Add bloodExam
                     // FIX ME : Arrumar os dropDowns do exame de sangue pois não esta retornando valor
                     let bloodType = bloodView.aboMenu.selectedOption
-
+                    
                     let igm = bloodView2.igmCheckYES.getBooleanValue()
                     let igg = bloodView2.iggCheckYES.getBooleanValue()
                     let hiv = bloodView2.hivCheckYES.getBooleanValue()
