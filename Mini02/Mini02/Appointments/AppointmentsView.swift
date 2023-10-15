@@ -21,46 +21,34 @@ class AppointmentsView: UIView {
     
     lazy var firstTremesterButton:UIButton = {
         let button = UIButton()
-        
         button.setImage(UIImage(named: "treemesterCircle"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
+        button.isAccessibilityElement = false
         return button
     }()
     
     lazy var secondTremesterButton:UIButton = {
         let button = UIButton()
-        
         button.setImage(UIImage(named: "treemesterCircle"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
+        button.isAccessibilityElement = false
         return button
     }()
     
     lazy var thirdTremesterButton:UIButton = {
         let button = UIButton()
-        
         button.setImage(UIImage(named: "treemesterCircle"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
+        button.isAccessibilityElement = false
         return button
     }()
     
     let userName = LabelComponentView()
     
-    let userInfo : UILabel = {
-        let label = UILabel()
-        label.text = "A+ , 30 anos , Gravidez sem risco"
-        label.textColor = .black
-        label.textAlignment = .center
-        label.font = label.font.withSize(10)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     let labelFirstTreemester : UILabel = {
         let label = UILabel()
         label.text = "1° trimestre"
+        label.accessibilityLabel = "Primeiro trimestre"
         label.textColor = .white
         label.textAlignment = .center
         label.font = label.font.withSize(20)
@@ -71,6 +59,7 @@ class AppointmentsView: UIView {
     let labelSecondTreemester : UILabel = {
         let label = UILabel()
         label.text = "2° trimestre"
+        label.accessibilityLabel = "Segundo trimestre"
         label.textColor = .white
         label.textAlignment = .center
         label.font = label.font.withSize(20)
@@ -81,6 +70,7 @@ class AppointmentsView: UIView {
     let labelThirdTreemester : UILabel = {
         let label = UILabel()
         label.text = "3° trimestre"
+        label.accessibilityLabel = "Terceiro trimestre"
         label.textColor = .white
         label.textAlignment = .center
         label.font = label.font.withSize(20)
@@ -117,6 +107,7 @@ class AppointmentsView: UIView {
         
         //Adding constraints into profile image and description
         let profileButton = ProfileImageButton(controller: vc)
+        profileButton.accessibilityLabel = "Botão de perfil"
         vc.view.addSubview(profileButton)
         profileButton.centerX(inView: vc.view)
         profileButton.anchorWithConstantValues(top: vc.view.safeAreaLayoutGuide.topAnchor, width: profileButton.defaultSize, height: profileButton.defaultSize)
