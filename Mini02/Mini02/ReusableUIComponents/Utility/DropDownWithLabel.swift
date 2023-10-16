@@ -19,6 +19,9 @@ extension UIView {
         contentBackGround.addSubview(menu)
        
         label.anchorWithMultiplayerValues(top: topAnchor.topAnchor, left: leftAnchor.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
+        label.maximumContentSizeCategory = .extraLarge
+        label.preferredMaxLayoutWidth = UIScreen.main.bounds.width * 0.96
+        label.numberOfLines = 2
         menu.anchorWithMultiplayerValues(top: label.bottomAnchor, left: leftAnchor.leadingAnchor, leftPadding: leftPadding, width: screenSize.width * widthMultiplier, height: screenSize.height * heightMultiplier)
     }
     
@@ -28,6 +31,9 @@ extension UIView {
 
         contentBackGround.addSubview(label)
         label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
+        label.maximumContentSizeCategory = .extraLarge
+        label.preferredMaxLayoutWidth = UIScreen.main.bounds.width * 0.96
+        label.numberOfLines = 2
         contentBackGround.addSubview(menu)
        
         label.anchorWithMultiplayerValues(top: topAnchor.topAnchor, left: leftAnchor.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
@@ -40,6 +46,9 @@ extension UIView {
 
         contentBackGround.addSubview(label)
         label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
+        label.maximumContentSizeCategory = .extraLarge
+        label.preferredMaxLayoutWidth = UIScreen.main.bounds.width * 0.96
+        label.numberOfLines = 2
         contentBackGround.addSubview(menu)
        
         label.anchorWithMultiplayerValues(top: topAnchor.topAnchor, left: leftAnchor.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
@@ -53,6 +62,9 @@ extension UIView {
 
         contentBackGround.addSubview(label)
         label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
+        label.maximumContentSizeCategory = .extraLarge
+        label.preferredMaxLayoutWidth = UIScreen.main.bounds.width * 0.96
+        label.numberOfLines = 2
         contentBackGround.addSubview(field)
        
         label.anchorWithMultiplayerValues(top: topAnchor.topAnchor, left: leftAnchor.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
@@ -64,6 +76,9 @@ extension UIView {
 
         contentBackGround.addSubview(label)
         label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
+        label.maximumContentSizeCategory = .extraLarge
+        label.preferredMaxLayoutWidth = UIScreen.main.bounds.width * 0.96
+        label.numberOfLines = 2
         contentBackGround.addSubview(date)
        
         label.anchorWithMultiplayerValues(top: topAnchor.topAnchor, left: leftAnchor.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
@@ -76,6 +91,9 @@ extension UIView {
 
         contentBackGround.addSubview(label)
         label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
+        label.maximumContentSizeCategory = .extraLarge
+        label.preferredMaxLayoutWidth = UIScreen.main.bounds.width * 0.96
+        label.numberOfLines = 2
         contentBackGround.addSubview(menu)
        
         label.anchorWithMultiplayerValues(top: topAnchor.bottomAnchor, left: leftAnchor.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
@@ -89,6 +107,9 @@ extension UIView {
 
         contentBackGround.addSubview(label)
         label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
+        label.maximumContentSizeCategory = .extraLarge
+        label.preferredMaxLayoutWidth = UIScreen.main.bounds.width * 0.96
+        label.numberOfLines = 2
         contentBackGround.addSubview(menu)
        
         label.anchorWithMultiplayerValues(top: topAnchor.topAnchor, left: leftAnchor.trailingAnchor, topPadding: topPadding, leftPadding: leftPadding)

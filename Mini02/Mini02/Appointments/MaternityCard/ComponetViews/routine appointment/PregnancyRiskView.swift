@@ -80,6 +80,9 @@ class PregnancyRiskView: UIView {
         self.addSubview(riskLabel)
         riskLabel.setupLabel(labelText: "Risco da gravidez".localized(), labelType: .titleBold, labelColor: .secondaryColor)
         riskLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            riskLabel.maximumContentSizeCategory = .extraLarge
+        }
         
         roudedBackGround.addSubview(contentBackGround)
         contentBackGround.anchorWithConstantValues(top: riskLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9, height: screenSize.height * 0.13)

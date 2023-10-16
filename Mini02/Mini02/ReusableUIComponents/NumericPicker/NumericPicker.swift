@@ -83,7 +83,12 @@ extension NumericPicker: UIPickerViewDelegate, UIPickerViewDataSource {
         pickerView.subviews.forEach { $0.backgroundColor = .clear }
         
         let label = UILabel()
-        label.font = UIFont(name: "Signika-Regular", size: 18)
+        let font = UIFont(name: "Signika-Regular", size: 18)
+        label.adjustsFontForContentSizeCategory = true
+        label.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: font ?? .preferredFont(forTextStyle: .headline))
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            label.maximumContentSizeCategory = .extraExtraExtraLarge
+        }
         label.text = String(numberOptions[row])
         label.textAlignment = .center
         return label

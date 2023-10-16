@@ -86,6 +86,9 @@ class BloodView: UIView{
         self.addSubview(bloodExamLabel)
         bloodExamLabel.setupLabel(labelText: "Exame de sangue".localized(), labelType: .titleBold, labelColor: .secondaryColor)
         bloodExamLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            bloodExamLabel.maximumContentSizeCategory = .extraLarge
+        }
         
         roudedBackGround.addSubview(contentBackGround)
         contentBackGround.anchorWithConstantValues(top: bloodExamLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10,width: screenSize.width * 0.9, height: screenSize.height * 0.43)
