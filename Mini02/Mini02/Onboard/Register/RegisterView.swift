@@ -34,14 +34,14 @@ class RegisterView: UIView{
     
     private lazy var titleLabel : UILabel = {
         let label = LabelComponentView()
-        let text = "Dados da gestante"
+        let text = "Dados da gestante".localized()
         label.setupLabel(labelText: text, labelType: .titleRegular, labelColor: .primaryText)
         return label
     }()
     
     private lazy var nameLabel : UILabel = {
         let label = LabelComponentView()
-        let text = "Nome da gestante:"
+        let text = "Nome da gestante:".localized()
         label.setupLabel(labelText: text, labelType: .inputLabel, labelColor: .primaryText)
         return label
     }()
@@ -53,7 +53,7 @@ class RegisterView: UIView{
     
     private lazy var nicknameLabel : UILabel = {
         let label = LabelComponentView()
-        let text = "Como gostaria de ser chamada:"
+        let text = "Como gostaria de ser chamada:".localized()
         label.setupLabel(labelText: text, labelType: .inputLabel, labelColor: .primaryText)
         return label
     }()
@@ -65,7 +65,7 @@ class RegisterView: UIView{
     
     private lazy var dateOfBirthLabel : UILabel = {
         let label = LabelComponentView()
-        let text = "Data de nascimento:"
+        let text = "Data de nascimento:".localized()
         label.setupLabel(labelText: text, labelType: .inputLabel, labelColor: .primaryText)
         return label
     }()

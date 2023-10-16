@@ -12,7 +12,7 @@ class HeaderCell: UICollectionReusableView {
     static let id = "HeaderCell"
     let screenSize = UIScreen.main.bounds.size
     var tapEditButtonClosure: (() -> Void)?
-    
+    var consultID : MaternityCardViewController?
   
     
     let label = LabelComponentView()
@@ -37,7 +37,7 @@ class HeaderCell: UICollectionReusableView {
     
     func setupview(){
         
-        label.setupLabel(labelText: "Consulta \("1")", labelType: .titleBold, labelColor: .secondaryColor)
+        label.setupLabel(labelText: "Consulta".localized(), labelType: .titleBold, labelColor: .secondaryColor)
 
         self.addSubview(editHStack)
         editHStack.addArrangedSubview(label)

@@ -1,0 +1,110 @@
+/* 
+  Localizable.strings
+  Mini02
+
+  Created by Kaua Miguel on 16/10/23.
+  
+*/
+
+"1° trimestre" = "1 treemester";
+"2° trimestre" = "2 treemester";
+"3° trimestre" = "3 treemester";
+"Consultas" = "Appointments";
+"Dados recorrentes" = "Recurrent data";
+"Perfil" = "Profile";
+"Sangue" = "Blood";
+"Ultrassom" = "Ultrasound";
+"Vacinas" = "Vaccines";
+"Notas" = "Notes";
+"Deletar" = "Delete";
+"Tem certeza que deseja salvar consulta?" = "Sure you want to save?";
+"Cancelar" = "Cancel";
+"Salvar" = "Save";
+"Consulta" = "Appointment";
+"Dados de rotina" = "Routine Data";
+"Altura uterina(cm)" = "Uterine height(cm)";
+"Pressão arterial" = "Blood pressure";
+"Peso (KG)/IMC" = "Weight (KG)/IMC";
+"Baixo" = "Low";
+"Moderado" = "Medium";
+"Alto" = "High";
+"Leve" = "Light";
+"Grave" = "Severe";
+"Antecedentes Familiares" = "Background Family";
+"Risco da gravidez" = "Pregnancy Risk";
+"Hipertensão" = "Hypertension";
+"Diabetes" = "Diabetes";
+"Cardiopatia" = "Cardiopathy";
+"Infeccao Urinaria" = "Urinary infection";
+"Fuma" = "Smoke";
+"Outro" = "Other";
+"Unica" = "Unique";
+"Gemelar" = "Twins";
+"Tripla ou mais" = "Triple";
+"Ignorada" = "Ignored";
+"Risco habitual" = "Habitual Risk";
+"Alto Risco" = "High Risk";
+"Consome alcool" = "Drinks alcohol";
+"Outras Drogas" = "Other drugs";
+"Gravidez planejada" = "Pregnancy Planned";
+"Sim" = "Yes";
+"Não" = "No";
+"Gestação atual" = "Current pregnancy";
+"Antecedentes clínicos obstétricos" = "Personal BackGround";
+"Salvar consulta" = "Save Appointment";
+"Adicionar campos a consulta" = "Add fields into appointment";
+"Exame de sangue" = "Blood Exam";
+"Ureia (mg/dl)" = "Urea (mg/dl)";
+"Plaquetas" = "Platelets";
+"Leucócitos" = "Leukocytes";
+"Glicemia(mg/dl)" = "Glucose(mg/dl)";
+"Creatina(mg/dl)" = "Creatine(mg/dl)";
+"Toxoplasmose" = "Toxoplasmosis";
+"Anti-tetânica/ dTpa" = "Anti tetanus/ dTpa";
+"sim, reforço 20 semanas: " = "yes, 20 week booster:";
+"não, esquema completo: " = "no, full schematic:";
+"Hepatite B  AntiHBS" = "Hepatitis B  AntiHBS";
+"+ (Positivo) Imune" = "+ (Positive) Immune";
+"- (Negativo) Esquema completo" = "- (Negative) Complete scheme";
+"Gripe (H1N1)" = "Flu (H1N1)";
+"Campanha Atual" = "Current Campaign";
+"Ultra sonografia" = "Ultrasound";
+"Exame mais recente" = "Most recent exam";
+"Data" = "Date";
+"Peso" = "Weight";
+"Apresentação Fetal" = "Fetal Presentation";
+"Tipos de gravidez" = "Pregnancy Type";
+"Nome da gestante:" = "Pregnant woman's name:";
+"Como gostaria de ser chamada:" = "What would you like to be called:";
+"Data de nascimento:" = "Date of birth:";
+"Em caso de emergência, ligar para:" = "In case of emergency, call:";
+"Nome:" = "Name:";
+"Telefone:" = "Phone:";
+"Vínculo:" = "Bond:";
+"Companheiro" = "Partner";
+"Familiar" = "Family";
+"Amigo" = "Friend";
+"Outro(a)" = "Other";
+"Salvar" = "Save";
+"Sobre o Projeto" = "About the project";
+"Dados da Gestante" = "Pregnant Woman's Data";
+"O projeto foi desenvolvido na Apple Developer Academy - UCB  com o intuito de digitalizar o cartão de pré natal, auxiliando assim as mamães e os profissionais da área." = "The project was developed at the Apple Developer Academy - UCB with the aim of digitizing the prenatal card, thus helping mothers and professionals in the field.";
+"O time:" = "The team";
+
+"Bem vinda mamãe, o Lumi\nestá aqui para facilitar o seu pré-natal\ne sempre ficar pertinho de você ." = "Welcome mom, Lumi\nis here to make your prenatal care easier\nand always stays close to you.";
+
+"Agora vamos começar com alguns\ndados para te conhecermos melhor!\n" = "Now let's start with some\n information so we can get to know you better!";
+
+"Seu cartão de pré-natal agora é\ndigital, chega de carregar um\npedaço de papel enorme e incomodo." = "Your prenatal card is now\ndigital, no more carrying around a\nhuge and uncomfortable piece of paper.";
+
+"Seguinte" = "Next";
+
+"Como gostaria de ser chamada:" = "What would you like to be called:";
+
+"Data de nascimento:" = "Date of birth:";
+
+"Dados da gestante" = "Pregnant woman's data";
+
+"Dados Inválidos" = "Invalid data";
+
+"Preencha os dados para continuar" = "Fill in the details to continue";

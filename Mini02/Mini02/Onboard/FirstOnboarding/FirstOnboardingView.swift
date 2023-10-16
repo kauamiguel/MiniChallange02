@@ -10,11 +10,7 @@ import UIKit
 class FirstOnboardingView: UIView {
     private lazy var textLabel: UILabel = {
         let label = LabelComponentView()
-        let text = """
-Bem vinda mamãe, o (nome do app)
-está aqui para facilitar o seu pré-natal
-e sempre ficar pertinho de você .
-"""
+        let text = "Bem vinda mamãe, o Lumi\nestá aqui para facilitar o seu pré-natal\ne sempre ficar pertinho de você .".localized()
         label.setupLabel(labelText: text, labelType: .titleSemiBold, labelColor: .primaryText)
         return label
     }()

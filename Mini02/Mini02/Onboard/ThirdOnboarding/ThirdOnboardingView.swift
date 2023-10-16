@@ -11,10 +11,7 @@ import UIKit
 class ThirdOnboardingView: UIView {
     private lazy var textLabel: UILabel = {
         let label = LabelComponentView()
-        let text = """
-Agora vamos começar com alguns
- dados para te conhecermos melhor!
-"""
+        let text = "Agora vamos começar com alguns\ndados para te conhecermos melhor!\n".localized()
         label.setupLabel(labelText: text, labelType: .titleSemiBold, labelColor: .primaryText)
         return label
     }()

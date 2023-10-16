@@ -27,8 +27,8 @@ class PregnancyRiskView: UIView {
     
     var section: [String: CheckBoxComponentGreenView] {
         return [
-            AppointmentsKeys.riscoHabitual.rawValue :riscoHabitualGreenCheckbox,
-            AppointmentsKeys.altoRisco.rawValue : altoRiscoHabitualGreenCheckbox
+            AppointmentsKeys.riscoHabitual.rawValue.localized() :riscoHabitualGreenCheckbox,
+            AppointmentsKeys.altoRisco.rawValue.localized() : altoRiscoHabitualGreenCheckbox
         ]
     }
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
@@ -78,7 +78,7 @@ class PregnancyRiskView: UIView {
         /* ----------------------------------------------------------risk------------------------------------------------------------- */
         
         self.addSubview(riskLabel)
-        riskLabel.setupLabel(labelText: "Risco da gravidez ", labelType: .titleBold, labelColor: .secondaryColor)
+        riskLabel.setupLabel(labelText: "Risco da gravidez".localized(), labelType: .titleBold, labelColor: .secondaryColor)
         riskLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)

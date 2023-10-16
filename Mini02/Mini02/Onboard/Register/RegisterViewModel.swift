@@ -48,7 +48,7 @@ class RegisterViewModel{
         let haptics = UINotificationFeedbackGenerator()
         let isValid = self.dataIsValid(name: nameText, alias: nicknameText, dateOfBirth: dateOfBirth)
         guard isValid else {
-            let alert = UIAlertController(title: "Dados Inválidos", message: "Preencha os dados para continuar", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Dados Inválidos".localized(), message: "Preencha os dados para continuar".localized(), preferredStyle: .alert)
             alert.addAction(.init(title: "Ok", style: .default))
             haptics.notificationOccurred(.error)
             viewController?.present(alert, animated: true)

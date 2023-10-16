@@ -21,7 +21,7 @@ class AboutView: UIView {
     
     private lazy var titleLabel: UILabel = {
        let label = LabelComponentView()
-        label.setupLabel(labelText: "Sobre o Projeto", labelType: .titleBold, labelColor:  .secondaryText)
+        label.setupLabel(labelText: "Sobre o Projeto".localized(), labelType: .titleBold, labelColor:  .secondaryText)
         return label
     }()
     
@@ -33,7 +33,7 @@ class AboutView: UIView {
     
     private lazy var descriptionLabel: UILabel = {
        let label = LabelComponentView()
-        let text = "O projeto foi desenvolvido na Apple Developer Academy - UCB  com o intuito de digitalizar o cartão de pré natal, auxiliando assim as mamães e os profissionais da área."
+        let text = "O projeto foi desenvolvido na Apple Developer Academy - UCB  com o intuito de digitalizar o cartão de pré natal, auxiliando assim as mamães e os profissionais da área.".localized()
         label.setupLabel(labelText: text, labelType: .description, labelColor: .secondaryText)
         return label
     }()
@@ -46,7 +46,7 @@ class AboutView: UIView {
     
     private lazy var teamLabel: UILabel = {
         let teamLabel = LabelComponentView()
-        teamLabel.setupLabel(labelText: "O time:", labelType: .highlitedBody, labelColor: .secondaryText)
+        teamLabel.setupLabel(labelText: "O time:".localized(), labelType: .highlitedBody, labelColor: .secondaryText)
         return teamLabel
     }()
     

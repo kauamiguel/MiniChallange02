@@ -1,0 +1,111 @@
+/* 
+  Localizable.strings
+  Mini02
+
+  Created by Kaua Miguel on 16/10/23.
+  
+*/
+
+"1 treemester" = "1° trimestre";
+"2 treemester" = "2° trimestre";
+"3 treemester" = "3° trimestre";
+"Appointments" = "Consultas";
+"Recurrent data" = "Dados recorrentes";
+"Profile" = "Perfil";
+"Blood" = "Sangue";
+"Ultrasound" = "Ultrassom";
+"Vaccines" = "Vacinas";
+"Notes" = "Notas";
+"Delete" = "Deletar";
+"Sure you want to save?" = "Tem certeza que deseja salvar consulta?";
+"Cancel" = "Cancelar";
+"Save" = "Salvar";
+"Appointment" = "Consulta";
+"Routine Data" = "Dados de rotina";
+"Uterine height(cm)" = "Altura uterina(cm)";
+"Blood pressure" = "Pressão arterial";
+"Weight (KG)/IMC" = "Peso (KG)/IMC";
+"Low" = "Baixo";
+"Medium" = "Moderado";
+"High" = "Alto";
+"Light" = "Leve";
+"Severe" = "Grave";
+"Background Family" = "Antecedentes Familiares";
+"Pregnancy Risk" = "Risco da gravidez";
+"Hypertension" = "Hipertensão";
+"Diabetes" = "Diabetes";
+"Cardiopathy" = "Cardiopatia";
+"Urinary infection" = "Infeccao Urinaria";
+"Smoke" = "Fuma";
+"Other" = "Other";
+"Unique" = "Unica";
+"Twins" = "Gemelar";
+"Triple" = "Tripla ou mais";
+"Ignored"= "Ignorada";
+"Habitual Risk" = "Risco habitual";
+"High Risk" = "Alto Risco";
+"Drinks alcohol" = "Consome alcool";
+"Other drugs" = "Outras Drogas";
+"Pregnancy Planned" = "Gravidez planejada";
+"Yes" = "Sim";
+"No" = "Não";
+"Current pregnancy" = "Gestação atual";
+"Personal BackGround" = "Antecedentes clínicos obstétricos";
+"Save Appointment" = "Salvar consulta";
+"Add fields into appointment" = "Adicionar campos a consulta";
+"Blood Exam" = "Exame de sangue";
+"Urea (mg/dl)" = "Ureia (mg/dl)";
+"Platelets" = "Plaquetas";
+"Leukocytes"= "Leucócitos";
+"Glucose(mg/dl)" = "Glicemia(mg/dl)";
+"Creatine(mg/dl)" = "Creatina(mg/dl)";
+"Toxoplasmosis" = "Toxoplasmose";
+"Anti tetanus/ dTpa" = "Anti-tetânica/ dTpa";
+"yes, 20 week booster:" = "sim, reforço 20 semanas: ";
+"no, full schematic:" = "não, esquema completo: ";
+"Hepatitis B  AntiHBS" = "Hepatite B  AntiHBS";
+"+ (Positive) Immune" = "+ (Positivo) Imune";
+"- (Negative) Complete scheme" = "- (Negativo) Esquema completo";
+"Flu (H1N1)" = "Gripe (H1N1)";
+"Current Campaign" = "Campanha Atual";
+"Ultrasound" = "Ultra sonografia";
+"Most recent exam" = "Exame mais recente";
+"Date" = "Data";
+"Weight" = "Peso";
+"Fetal Presentation" = "Apresentação Fetal";
+"Pregnant woman's name:" = "Nome da gestante:";
+"What would you like to be called:" = "Como gostaria de ser chamada:";
+"Date of birth:" = "Data de nascimento:";
+"In case of emergency, call:" = "Em caso de emergência, ligar para:";
+"Name:" = "Nome:";
+"Phone:" = "Telefone:";
+"Bond:" = "Vínculo:";
+"Partner" = "Companheiro";
+"Family" = "Familiar";
+"Friend" = "Amigo";
+"Other" = "Outro(a)";
+"Save" = "Salvar";
+"About the project" = "Sobre o Projeto";
+"Pregnant Woman's Data" = "Dados da Gestante";
+"The project was developed at the Apple Developer Academy - UCB with the aim of digitizing the prenatal card, thus helping mothers and professionals in the field." = "O projeto foi desenvolvido na Apple Developer Academy - UCB  com o intuito de digitalizar o cartão de pré natal, auxiliando assim as mamães e os profissionais da área.";
+
+
+"Welcome mom, Lumi\nis here to make your prenatal care easier\nand always stays close to you." = "Bem vinda mamãe, o Lumi\nestá aqui para facilitar o seu pré-natal\ne sempre ficar pertinho de você .";
+
+"Now let's start with some\n information so we can get to know you better!" = "Agora vamos começar com alguns\ndados para te conhecermos melhor!\n";
+
+"Your prenatal card is now\ndigital, no more carrying around a\nhuge and uncomfortable piece of paper." = "Seu cartão de pré-natal agora é\ndigital, chega de carregar um\npedaço de papel enorme e incomodo.";
+
+"Next" = "Seguinte";
+
+"Pregnant woman's data" = "Dados da gestante";
+
+"What would you like to be called:" = "Como gostaria de ser chamada:";
+
+"Date of birth:" = "Data de nascimento:";
+
+"Pregnant woman's data" = "Dados da gestante";
+
+"Invalid data" = "Dados Inválidos";
+
+"Fill in the details to continue" = "Preencha os dados para continuar";

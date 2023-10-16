@@ -36,7 +36,7 @@ class PregnantDataView: UIView {
     
     private lazy var pregnantNameLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Nome da gestante:", labelType: .inputLabel, labelColor: .secondaryText)
+        label.setupLabel(labelText: "Nome da gestante:".localized(), labelType: .inputLabel, labelColor: .secondaryText)
         return label
     }()
     
@@ -48,7 +48,7 @@ class PregnantDataView: UIView {
     
     private lazy var aliasLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Como gostaria de ser chamada:", labelType: .inputLabel, labelColor: .secondaryText)
+        label.setupLabel(labelText: "Como gostaria de ser chamada:".localized(), labelType: .inputLabel, labelColor: .secondaryText)
         return label
     }()
     
@@ -60,7 +60,7 @@ class PregnantDataView: UIView {
     
     private lazy var dateOfBirthLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Data de nascimento:", labelType: .inputLabel, labelColor: .secondaryText)
+        label.setupLabel(labelText: "Data de nascimento:".localized(), labelType: .inputLabel, labelColor: .secondaryText)
         return label
     }()
     
@@ -78,13 +78,13 @@ class PregnantDataView: UIView {
     
     private lazy var emergencyLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Em caso de emergência, ligar para:", labelType: .inputLabel, labelColor: .secondaryText)
+        label.setupLabel(labelText: "Em caso de emergência, ligar para:".localized(), labelType: .inputLabel, labelColor: .secondaryText)
         return label
     }()
     
     private lazy var emergencyContactNameLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Nome:", labelType: .inputLabel, labelColor: .secondaryText)
+        label.setupLabel(labelText: "Nome:".localized(), labelType: .inputLabel, labelColor: .secondaryText)
         return label
     }()
     
@@ -96,7 +96,7 @@ class PregnantDataView: UIView {
     
     private lazy var emergencyContactPhoneLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Telefone:", labelType: .inputLabel, labelColor: .secondaryText)
+        label.setupLabel(labelText: "Telefone:".localized(), labelType: .inputLabel, labelColor: .secondaryText)
         return label
     }()
     
@@ -108,7 +108,7 @@ class PregnantDataView: UIView {
     
     private lazy var emergencyContactRelationLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Vínculo:", labelType: .inputLabel, labelColor: .secondaryText)
+        label.setupLabel(labelText: "Vínculo:".localized(), labelType: .inputLabel, labelColor: .secondaryText)
         return label
     }()
     
@@ -205,7 +205,7 @@ class PregnantDataView: UIView {
         contentView.addSubview(emergencyContactRelationLabel)
         emergencyContactRelationLabel.anchorWithConstantValues(top: emergencyContactPhoneField.bottomAnchor, left: vc.view.safeAreaLayoutGuide.leadingAnchor, right: vc.view.safeAreaLayoutGuide.trailingAnchor, topPadding: 20, leftPadding: paddingSize)
         
-        relationPullDown.setupButton(options: ["Companheiro", "Familiar", "Amigo", "Outro(a)"])
+        relationPullDown.setupButton(options: ["Companheiro".localized(), "Familiar".localized(), "Amigo".localized(), "Outro(a)".localized()])
         relationPullDown.setTitle("Selecione", for: .normal)
         contentView.addSubview(relationPullDown)
         relationPullDown.anchorWithConstantValues(top: emergencyContactRelationLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 34)
@@ -213,7 +213,7 @@ class PregnantDataView: UIView {
     
     private func setupTempSaveButton(vc: UIViewController){
         let btn: UIButton = UIButton(configuration: .plain())
-        btn.setTitle("Salvar", for: .normal)
+        btn.setTitle("Salvar".localized(), for: .normal)
         btn.addAction(UIAction(handler: { [weak self] _ in
             self?.didTapTempSaveButton()
         }), for: .touchUpInside)
@@ -270,7 +270,7 @@ class PregnantDataView: UIView {
     
     func setupNavBar(vc: UIViewController) {
         let image = UIImage(systemName: "info.circle")!
-        let button = UIBarButtonItem(title: "Sobre o Projeto", image: image, target: viewModel, action:  #selector(viewModel?.didTapInfoButton))
+        let button = UIBarButtonItem(title: "Sobre o Projeto".localized(), image: image, target: viewModel, action:  #selector(viewModel?.didTapInfoButton))
         button.tintColor = UIColor(red: 0.227, green: 0.651, blue: 0.725, alpha: 1)
         vc.navigationItem.rightBarButtonItem = button
     }
@@ -278,7 +278,7 @@ class PregnantDataView: UIView {
     func setupPregnantData(vc: UIViewController,vm: PregnantDataViewModel) {
         self.viewController = vc
         self.viewModel = vm
-        vc.title = "Dados da Gestante"
+        vc.title = "Dados da Gestante".localized()
         
         setupNavBar(vc: vc)
         setupToolbarAndBG(vc: vc)

@@ -14,11 +14,11 @@ class CurrentGestationView: UIView {
     static let id = "CurrentGestationCell"
     let query = "gestacao atual"
     let sections = [
-        AppointmentsKeys.fuma.rawValue :CheckBoxComponentGreenView(),
-        AppointmentsKeys.consomeAlcool.rawValue :CheckBoxComponentGreenView(),
-        AppointmentsKeys.outrasDrogas.rawValue :CheckBoxComponentGreenView(),
-        AppointmentsKeys.hivAids.rawValue :CheckBoxComponentGreenView(),
-        AppointmentsKeys.sifilis.rawValue :CheckBoxComponentGreenView()
+        AppointmentsKeys.fuma.rawValue.localized() :CheckBoxComponentGreenView(),
+        AppointmentsKeys.consomeAlcool.rawValue.localized() :CheckBoxComponentGreenView(),
+        AppointmentsKeys.outrasDrogas.rawValue.localized() :CheckBoxComponentGreenView(),
+        AppointmentsKeys.hivAids.rawValue.localized() :CheckBoxComponentGreenView(),
+        AppointmentsKeys.sifilis.rawValue.localized() :CheckBoxComponentGreenView()
     ]
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let currentGestationViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.38)
@@ -67,7 +67,7 @@ class CurrentGestationView: UIView {
         
         
         self.addSubview(currentGestationLabel)
-        currentGestationLabel.setupLabel(labelText: "Gestação atual", labelType: .titleBold, labelColor: .secondaryColor)
+        currentGestationLabel.setupLabel(labelText: "Gestação atual".localized(), labelType: .titleBold, labelColor: .secondaryColor)
         currentGestationLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)

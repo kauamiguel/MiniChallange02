@@ -10,11 +10,7 @@ import UIKit
 class SecondOnboardingView: UIView {
     private lazy var textLabel: UILabel = {
         let label = LabelComponentView()
-        let text = """
-Seu cartão de pré-natal agora é
-digital, chega de carregar um
-pedaço de papel enorme e incomodo.
-"""
+        let text = "Seu cartão de pré-natal agora é\ndigital, chega de carregar um\npedaço de papel enorme e incomodo.".localized()
         label.setupLabel(labelText: text, labelType: .titleSemiBold, labelColor: .primaryText)
         return label
     }()

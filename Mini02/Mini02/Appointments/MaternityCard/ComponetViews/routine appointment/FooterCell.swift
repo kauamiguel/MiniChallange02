@@ -42,7 +42,7 @@ public class FooterCell: UICollectionReusableView {
         chevronImageView.centerY(inView: btn)
         
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Salvar consulta", labelType: .smallInputLabel, labelColor: .notQuiteWhite)
+        label.setupLabel(labelText: "Salvar consulta".localized(), labelType: .smallInputLabel, labelColor: .notQuiteWhite)
         btn.addSubview(label)
         label.anchorWithMultiplayerValues(left: chevronImageView.trailingAnchor, leftPadding: UIScreen.main.bounds.width * 0.002)
         label.centerY(inView: btn)
@@ -85,7 +85,7 @@ public class FooterCell: UICollectionReusableView {
          self.addSubview(separator)
          separator.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor, right: self.trailingAnchor, topPadding: UIScreen.main.bounds.size.height * 0.016, leftPadding: UIScreen.main.bounds.size.width * 0.05, rightPadding: -UIScreen.main.bounds.size.width * 0.05, height: 1.5)
 
-         label.setupLabel(labelText: "Adicionar campos a consulta", labelType: .inputLabel, labelColor: .secondaryText)
+         label.setupLabel(labelText: "Adicionar campos a consulta".localized(), labelType: .inputLabel, labelColor: .secondaryText)
          
          self.addSubview(addHStack)
          plusButton.anchorWithConstantValues(width: UIScreen.main.bounds.size.width * 0.12 , height: UIScreen.main.bounds.size.width * 0.12)

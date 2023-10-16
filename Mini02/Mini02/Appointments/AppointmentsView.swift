@@ -47,7 +47,7 @@ class AppointmentsView: UIView {
     
     let labelFirstTreemester : UILabel = {
         let label = UILabel()
-        label.text = "1° trimestre"
+        label.text = "1° trimestre".localized()
         label.accessibilityLabel = "Primeiro trimestre"
         label.textColor = .white
         label.textAlignment = .center
@@ -58,7 +58,7 @@ class AppointmentsView: UIView {
     
     let labelSecondTreemester : UILabel = {
         let label = UILabel()
-        label.text = "2° trimestre"
+        label.text = "2° trimestre".localized()
         label.accessibilityLabel = "Segundo trimestre"
         label.textColor = .white
         label.textAlignment = .center
@@ -69,7 +69,7 @@ class AppointmentsView: UIView {
     
     let labelThirdTreemester : UILabel = {
         let label = UILabel()
-        label.text = "3° trimestre"
+        label.text = "3° trimestre".localized()
         label.accessibilityLabel = "Terceiro trimestre"
         label.textColor = .white
         label.textAlignment = .center

@@ -35,15 +35,15 @@ class TabBarViewController: UITabBarController {
         let rootViewController2 = UINavigationController(rootViewController: RecurrentDataViewController())
         let rootViewController3 = UINavigationController(rootViewController: PregnantDataViewController())
         
-        rootViewController1.tabBarItem.title = "Consultas"
+       rootViewController1.tabBarItem.title = "Consultas".localized()
         rootViewController1.tabBarItem.image = UIImage(systemName: "doc")
        rootViewController1.accessibilityLabel = "ícone de consultas"
         
-        rootViewController2.tabBarItem.title = "Dados recorrentes"
+       rootViewController2.tabBarItem.title = "Dados recorrentes".localized()
         rootViewController2.tabBarItem.image = UIImage(systemName: "dice")
        rootViewController2.accessibilityLabel = "ícone de dados recorrentes"
        
-        rootViewController3.tabBarItem.title = "Perfil"
+       rootViewController3.tabBarItem.title = "Perfil".localized()
         rootViewController3.tabBarItem.image = UIImage(systemName: "person")
        rootViewController3.accessibilityLabel = "Dados da gestante"
         

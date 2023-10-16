@@ -18,7 +18,7 @@ class NextButton: UIButton {
     }
     
     private func setupButton() {
-        setTitle("Seguinte", for: .normal)
+        setTitle("Seguinte".localized(), for: .normal)
         setTitleColor(.white, for: .normal)
         titleLabel?.font = UIFont(name: "Signika-Regular", size: 24)
         backgroundColor = .lightGray

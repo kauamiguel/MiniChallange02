@@ -60,10 +60,10 @@ class ModalVC: UIViewController{
         
         //title:ImageName
         let btnArray:[String] = [
-            "Sangue",
-            "Ultrassom",
-            "Vacinas",
-            "Notas"
+            "Sangue".localized(),
+            "Ultrassom".localized(),
+            "Vacinas".localized(),
+            "Notas".localized()
         ]
         
         for i in 0..<btnArray.count - 1{

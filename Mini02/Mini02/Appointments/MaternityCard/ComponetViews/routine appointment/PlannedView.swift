@@ -90,7 +90,7 @@ class PlannedView: UIView {
         
         
         self.addSubview(plannedLabel)
-        plannedLabel.setupLabel(labelText: "Gravidez planejada", labelType: .titleBold, labelColor: .secondaryColor)
+        plannedLabel.setupLabel(labelText: "Gravidez planejada".localized(), labelType: .titleBold, labelColor: .secondaryColor)
         plannedLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor , leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)
@@ -99,10 +99,10 @@ class PlannedView: UIView {
 //        
         
         
-        configureLabelAndGreenCheckBox(stack: plannedHStackYES, label: plannedLabelYES, checkBox: plannedCheckYES, labelText: "Sim")
+        configureLabelAndGreenCheckBox(stack: plannedHStackYES, label: plannedLabelYES, checkBox: plannedCheckYES, labelText: "Sim".localized())
   
         
-        configureLabelAndRedCheckBox(stack: plannedHStackNO, label: plannedLabelNO, checkBox: plannedCheckNO, labelText: "Não")
+        configureLabelAndRedCheckBox(stack: plannedHStackNO, label: plannedLabelNO, checkBox: plannedCheckNO, labelText: "Não".localized())
        
         
         plannedSubHStack.addArrangedSubview(plannedHStackYES)

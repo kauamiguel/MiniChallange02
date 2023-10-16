@@ -134,9 +134,9 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     }
     
     private lazy var confirmAlert:  UIAlertController =  {
-        let alert = UIAlertController(title: "Tem certeza que deseja salvar consulta?", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-        let saveBtn = UIAlertAction(title: "Salvar", style: .default, handler: {
+        let alert = UIAlertController(title: "Tem certeza que deseja salvar consulta?".localized(), message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancelar".localized(), style: .cancel, handler: nil))
+        let saveBtn = UIAlertAction(title: "Salvar".localized(), style: .default, handler: {
             [weak self] _ in
             self?.saveData()
             self?.navigationController?.popViewController(animated: true)

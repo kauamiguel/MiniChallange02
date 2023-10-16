@@ -84,7 +84,7 @@ class BloodView: UIView{
         
         
         self.addSubview(bloodExamLabel)
-        bloodExamLabel.setupLabel(labelText: "Exame de sangue", labelType: .titleBold, labelColor: .secondaryColor)
+        bloodExamLabel.setupLabel(labelText: "Exame de sangue".localized(), labelType: .titleBold, labelColor: .secondaryColor)
         bloodExamLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)
@@ -106,17 +106,17 @@ class BloodView: UIView{
         //FIXME: FLOAT PICKER INSTEAD
         numericFloatPickerPlusLabel(label: hbLabel, menu: hbMenu, menuMinimum: 12.0, menuMaximum: 18.0, menuInterval: 0.1, contentBackGround: contentBackGround, topAnchor: htMenu, leftAnchor: contentBackGround, labelText: "HB(g/dL)", topPadding: screenSize.height * 0.0088, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
         
-        numericPickerPlusLabel(label: plaquetasLabel, menu: plaquetasMenu, menuMinimum: 110000, menuMaximum: 650000, menuInterval: 5000, menuDefaultValue: 450000, contentBackGround: contentBackGround, topAnchor: hbMenu, leftAnchor: contentBackGround, labelText: "Plaquetas", topPadding: screenSize.height * 0.0085, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
+        numericPickerPlusLabel(label: plaquetasLabel, menu: plaquetasMenu, menuMinimum: 110000, menuMaximum: 650000, menuInterval: 5000, menuDefaultValue: 450000, contentBackGround: contentBackGround, topAnchor: hbMenu, leftAnchor: contentBackGround, labelText: "Plaquetas".localized(), topPadding: screenSize.height * 0.0085, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
 
         // RIGHT
-        numericPickerPlusLabel(label: ureiaLabel, menu: ureiaMenu, menuMinimum: 4, menuMaximum: 25, menuInterval: 1, contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: separator, labelText: "Ureia (mg/dl)", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
+        numericPickerPlusLabel(label: ureiaLabel, menu: ureiaMenu, menuMinimum: 4, menuMaximum: 25, menuInterval: 1, contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: separator, labelText: "Ureia (mg/dl)".localized(), topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
         
-        numericPickerPlusLabel(label: leucocitosLabel, menu: leucocitosMenu, menuMinimum: 3000, menuMaximum: 14000, menuInterval: 1000, menuDefaultValue: 4000, contentBackGround: contentBackGround, topAnchor: ureiaMenu, leftAnchor: separator, labelText: "Leucócitos", topPadding: screenSize.height * 0.0082, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
+        numericPickerPlusLabel(label: leucocitosLabel, menu: leucocitosMenu, menuMinimum: 3000, menuMaximum: 14000, menuInterval: 1000, menuDefaultValue: 4000, contentBackGround: contentBackGround, topAnchor: ureiaMenu, leftAnchor: separator, labelText: "Leucócitos".localized(), topPadding: screenSize.height * 0.0082, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
        
-        numericPickerPlusLabel(label: glicemiaLabel, menu: glicemiaMenu, menuMinimum: 65, menuMaximum: 170, menuInterval: 5, contentBackGround: contentBackGround, topAnchor: leucocitosMenu, leftAnchor: separator, labelText: "Glicemia(mg/dl)", topPadding: screenSize.height * 0.0085, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
+        numericPickerPlusLabel(label: glicemiaLabel, menu: glicemiaMenu, menuMinimum: 65, menuMaximum: 170, menuInterval: 5, contentBackGround: contentBackGround, topAnchor: leucocitosMenu, leftAnchor: separator, labelText: "Glicemia(mg/dl)".localized(), topPadding: screenSize.height * 0.0085, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
         
         // FIXME: FLOAT PICKER INSTED
-        numericFloatPickerPlusLabel(label: creatineLabel, menu: creatineMenu, menuMinimum: 0.4, menuMaximum: 1.4, menuInterval: 0.1, contentBackGround: contentBackGround, topAnchor: glicemiaMenu, leftAnchor: separator, labelText: "Creatina(mg/dl)", topPadding: screenSize.height * 0.0092, leftPadding: screenSize.width * 0.0085, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
+        numericFloatPickerPlusLabel(label: creatineLabel, menu: creatineMenu, menuMinimum: 0.4, menuMaximum: 1.4, menuInterval: 0.1, contentBackGround: contentBackGround, topAnchor: glicemiaMenu, leftAnchor: separator, labelText: "Creatina(mg/dl)".localized(), topPadding: screenSize.height * 0.0092, leftPadding: screenSize.width * 0.0085, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
     }
     
     required init?(coder: NSCoder) {

@@ -20,7 +20,7 @@ class MaternityCardCell: UICollectionViewCell {
     
     private let deleteButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Delete", for: .normal)
+        button.setTitle("Delete".localized(), for: .normal)
         
         return button
     }()

@@ -15,10 +15,10 @@ class PregnancyTypeView: UIView {
     let query = "gravidez"
     
     let section = [
-        AppointmentsKeys.unica.rawValue :CheckBoxComponentGreenView(),
-        AppointmentsKeys.gemelar.rawValue :CheckBoxComponentGreenView(),
-        AppointmentsKeys.triplaOuMais.rawValue :CheckBoxComponentGreenView(),
-        AppointmentsKeys.ignorada.rawValue :CheckBoxComponentGreenView()
+        AppointmentsKeys.unica.rawValue.localized() :CheckBoxComponentGreenView(),
+        AppointmentsKeys.gemelar.rawValue.localized() :CheckBoxComponentGreenView(),
+        AppointmentsKeys.triplaOuMais.rawValue.localized() :CheckBoxComponentGreenView(),
+        AppointmentsKeys.ignorada.rawValue.localized() :CheckBoxComponentGreenView()
     ]
 
     
@@ -68,7 +68,7 @@ class PregnancyTypeView: UIView {
         
         /* ----------------------------------------------------------risk------------------------------------------------------------- */
         self.addSubview(pregnancyTypeLabel)
-        pregnancyTypeLabel.setupLabel(labelText: "Tipos de gravidez", labelType: .titleBold, labelColor: .secondaryColor)
+        pregnancyTypeLabel.setupLabel(labelText: "Tipos de gravidez".localized(), labelType: .titleBold, labelColor: .secondaryColor)
         pregnancyTypeLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         

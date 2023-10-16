@@ -88,7 +88,7 @@ class TetanicView: UIView{
         
         
         self.addSubview(tetanicLabel)
-        tetanicLabel.setupLabel(labelText: "Vacinas", labelType: .titleBold, labelColor: .secondaryColor)
+        tetanicLabel.setupLabel(labelText: "Vacinas".localized(), labelType: .titleBold, labelColor: .secondaryColor)
         tetanicLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)
@@ -96,11 +96,11 @@ class TetanicView: UIView{
         contentBackGround.centerX(inView: roudedBackGround)
         
         contentBackGround.addSubview(subTitleLabel)
-        subTitleLabel.setupLabel(labelText: "Anti-tetânica/ dTpa", labelType: .titleRegular, labelColor: .secondaryText)
+        subTitleLabel.setupLabel(labelText: "Anti-tetânica/ dTpa".localized(), labelType: .titleRegular, labelColor: .secondaryText)
         subTitleLabel.anchorWithConstantValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor,topPadding: 15, leftPadding: 15)
         
-        invertConfigureLabelAndGreenCheckBox(stack: yesSubHStackYES, label: yesLabel, checkBox: yesCheckYES, labelText: "sim, reforço 20 semanas: ")
-        invertConfigureLabelAndRedCheckBox(stack: noSubHStackNO, label: noLabel, checkBox: noCheckNO, labelText: "não, esquema completo:")
+        invertConfigureLabelAndGreenCheckBox(stack: yesSubHStackYES, label: yesLabel, checkBox: yesCheckYES, labelText: "sim, reforço 20 semanas: ".localized())
+        invertConfigureLabelAndRedCheckBox(stack: noSubHStackNO, label: noLabel, checkBox: noCheckNO, labelText: "não, esquema completo: ".localized())
         
         roudedBackGround.addSubview(yesSubHStackYES)
         yesSubHStackYES.anchorWithConstantValues(top: subTitleLabel.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 10, leftPadding: 15)
