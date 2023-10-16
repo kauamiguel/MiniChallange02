@@ -54,7 +54,6 @@ class LabelComponentView: UILabel{
         
     private func configureLabelStyle() {
         let customBody = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.035)
-        let customCallout = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.018)
         adjustsFontForContentSizeCategory = true
         numberOfLines = 2
         maximumContentSizeCategory = .accessibilityExtraExtraLarge
@@ -78,12 +77,10 @@ class LabelComponentView: UILabel{
             self.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: customInputFont ?? .preferredFont(forTextStyle: .body))
             
         case .smallInputLabel:
-//            self.font = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.018)
             self.font = UIFontMetrics(forTextStyle: .callout).scaledFont(for: customBody ?? .preferredFont(forTextStyle: .callout))
             
         case .highlitedBody:
             let customHeadline = UIFont(name: "Signika-Bold", size: 16)
-//            self.font = UIFont(name: "Signika-Bold", size: 16)
             self.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: customHeadline ?? .preferredFont(forTextStyle: .headline))
             
         case .description:
