@@ -34,7 +34,9 @@ class AboutView: UIView {
     private lazy var descriptionLabel: UILabel = {
        let label = LabelComponentView()
         let text = "O projeto foi desenvolvido na Apple Developer Academy - UCB  com o intuito de digitalizar o cartão de pré natal, auxiliando assim as mamães e os profissionais da área.".localized()
-        label.setupLabel(labelText: text, labelType: .description, labelColor: .secondaryText)
+        label.setupLabel(labelText: text, labelType: .inputLabel, labelColor: .secondaryText)
+        label.numberOfLines = 12
+        label.maximumContentSizeCategory = .extraExtraLarge
         return label
     }()
     
@@ -64,8 +66,10 @@ Fabio Freitas: Coder
 Gabriel Eirado: Coder
 Kauã Miguel: Coder
 """
-        teamMembersLabel.numberOfLines = 5
         teamMembersLabel.setupLabel(labelText: text, labelType: .inputLabel, labelColor: .secondaryText)
+        teamMembersLabel.numberOfLines = 12
+        teamMembersLabel.preferredMaxLayoutWidth = UIScreen.main.bounds.width * 0.96
+        teamMembersLabel.maximumContentSizeCategory = .extraExtraLarge
         return teamMembersLabel
     }()
     

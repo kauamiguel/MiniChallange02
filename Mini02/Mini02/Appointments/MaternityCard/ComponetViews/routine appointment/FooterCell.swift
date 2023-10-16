@@ -43,6 +43,7 @@ public class FooterCell: UICollectionReusableView {
         
         let label = LabelComponentView()
         label.setupLabel(labelText: "Salvar consulta".localized(), labelType: .smallInputLabel, labelColor: .notQuiteWhite)
+        label.maximumContentSizeCategory = .small
         btn.addSubview(label)
         label.anchorWithMultiplayerValues(left: chevronImageView.trailingAnchor, leftPadding: UIScreen.main.bounds.width * 0.002)
         label.centerY(inView: btn)
@@ -81,11 +82,16 @@ public class FooterCell: UICollectionReusableView {
     }
 
      func setupView(){
-         
          self.addSubview(separator)
          separator.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor, right: self.trailingAnchor, topPadding: UIScreen.main.bounds.size.height * 0.016, leftPadding: UIScreen.main.bounds.size.width * 0.05, rightPadding: -UIScreen.main.bounds.size.width * 0.05, height: 1.5)
 
          label.setupLabel(labelText: "Adicionar campos a consulta".localized(), labelType: .inputLabel, labelColor: .secondaryText)
+         if UIDevice.current.userInterfaceIdiom == .phone {
+             label.maximumContentSizeCategory = .extraExtraLarge
+         }
+         label.maximumContentSizeCategory = .extraExtraExtraLarge
+         label.numberOfLines = 2
+         label.preferredMaxLayoutWidth = UIScreen.main.bounds.width * 0.96
          
          self.addSubview(addHStack)
          plusButton.anchorWithConstantValues(width: UIScreen.main.bounds.size.width * 0.12 , height: UIScreen.main.bounds.size.width * 0.12)
@@ -94,7 +100,7 @@ public class FooterCell: UICollectionReusableView {
          addHStack.anchorWithConstantValues(top: separator.topAnchor, left: self.leadingAnchor, topPadding: UIScreen.main.bounds.height * 0.02, leftPadding: UIScreen.main.bounds.width * 0.04)
          
          self.addSubview(saveButton)
-         saveButton.anchorWithConstantValues(top: addHStack.bottomAnchor, left: self.leadingAnchor ,topPadding: UIScreen.main.bounds.height * 0.05, leftPadding:  UIScreen.main.bounds.width * 0.04, width: UIScreen.main.bounds.width * 0.46, height: UIScreen.main.bounds.height * 0.035)
+         saveButton.anchorWithConstantValues(top: addHStack.bottomAnchor, left: self.leadingAnchor ,topPadding: UIScreen.main.bounds.height * 0.05, leftPadding:  UIScreen.main.bounds.width * 0.04, width: UIScreen.main.bounds.width * 0.6,height: UIScreen.main.bounds.height * 0.035)
          
     }
 

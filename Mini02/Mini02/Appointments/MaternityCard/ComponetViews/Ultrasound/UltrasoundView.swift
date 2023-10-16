@@ -78,6 +78,9 @@ class UltrasoundView: UIView {
         self.addSubview(ultrasoundLabel)
         ultrasoundLabel.setupLabel(labelText: "Ultra sonografia".localized(), labelType: .titleBold, labelColor: .secondaryColor)
         ultrasoundLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            ultrasoundLabel.maximumContentSizeCategory = .extraLarge
+        }
         
         roudedBackGround.addSubview(contentBackGround)
         contentBackGround.anchorWithConstantValues(top: ultrasoundLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10,width: screenSize.width * 0.9, height: screenSize.height * 0.34)
@@ -91,6 +94,9 @@ class UltrasoundView: UIView {
         contentBackGround.addSubview(ultrasoundSubLabel)
         ultrasoundSubLabel.setupLabel(labelText: "Exame mais recente".localized(), labelType: .inputLabel, labelColor: .secondaryText)
         ultrasoundSubLabel.anchorWithMultiplayerValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor ,topPadding: screenSize.height * 0.0023 ,leftPadding: screenSize.width * 0.005)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            ultrasoundSubLabel.maximumContentSizeCategory = .extraLarge
+        }
         
 
         datePickerPlusLabel(label: dataLabel, date: dataMenu, contentBackGround: contentBackGround, topAnchor: ultrasoundSubLabel, leftAnchor: contentBackGround, labelText: "Data".localized(), topPadding: screenSize.height * 0.0042, leftPadding: screenSize.width * 0.005, screenSize: screenSize, heightMultiplier: 0.052)

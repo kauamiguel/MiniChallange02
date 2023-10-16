@@ -90,6 +90,9 @@ class TetanicView: UIView{
         self.addSubview(tetanicLabel)
         tetanicLabel.setupLabel(labelText: "Vacinas".localized(), labelType: .titleBold, labelColor: .secondaryColor)
         tetanicLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            tetanicLabel.maximumContentSizeCategory = .extraLarge
+        }
         
         roudedBackGround.addSubview(contentBackGround)
         contentBackGround.anchorWithConstantValues(top: tetanicLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10,width: screenSize.width * 0.9, height: screenSize.height * 0.26)
@@ -101,6 +104,8 @@ class TetanicView: UIView{
         
         invertConfigureLabelAndGreenCheckBox(stack: yesSubHStackYES, label: yesLabel, checkBox: yesCheckYES, labelText: "sim, reforço 20 semanas: ".localized())
         invertConfigureLabelAndRedCheckBox(stack: noSubHStackNO, label: noLabel, checkBox: noCheckNO, labelText: "não, esquema completo: ".localized())
+
+        noLabel.maximumContentSizeCategory = .accessibilityExtraLarge
         
         roudedBackGround.addSubview(yesSubHStackYES)
         yesSubHStackYES.anchorWithConstantValues(top: subTitleLabel.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 10, leftPadding: 15)
