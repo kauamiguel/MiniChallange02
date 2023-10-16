@@ -400,18 +400,19 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             
             for cell in cells{
-                //Add vaccine
-                let antitetanic = tetanicView.yesCheckYES.checked
-                let influenza = h1N1View.h1N1YesCheckYES.checked
-                let hepatite = hepatitisBView.hepatitisBYesCheckYES.checked
                 
                 if cell.id == TetanicView.id{
+                    //Add vaccine
+                    let antitetanic = tetanicView.yesCheckYES.checked
+                    let influenza = h1N1View.h1N1YesCheckYES.checked
+                    let hepatite = hepatitisBView.hepatitisBYesCheckYES.checked
+                    
                     // FIX ME : Ajustar as doses das vacinas na view que nÃo existem
                     let vaccine = Vaccines(hepatiteB: [DoseVaccines(date: Date(), isVaccined: antitetanic, numberOfDose: 1)], influenza: DoseVaccines(date: Date(), isVaccined: influenza, numberOfDose: 1), antitetanic: [DoseVaccines(date: Date(), isVaccined: hepatite, numberOfDose: 1)])
                     //Adicionar as vacinas antitetanicas e hepatite
                     self.maternityVM.coreDataManager.addVaccineInfluenza(dose: vaccine.influenza)
-                    self.maternityVM.coreDataManager.addVaccineHepatite(dose: vaccine.hepatiteB.first ?? DoseVaccines(date: Date(), isVaccined: false, numberOfDose: 0))
-                    self.maternityVM.coreDataManager.addVaccineAntitetanic(dose: vaccine.antitetanic.first ?? DoseVaccines(date: Date(), isVaccined: false, numberOfDose: 0))
+                    self.maternityVM.coreDataManager.addVaccineHepatite(dose: vaccine.hepatiteB.first ?? DoseVaccines(date: Date(), isVaccined: hepatite, numberOfDose: 0))
+                    self.maternityVM.coreDataManager.addVaccineAntitetanic(dose: vaccine.antitetanic.first ?? DoseVaccines(date: Date(), isVaccined: antitetanic, numberOfDose: 0))
                     break
                 }
                 
@@ -472,21 +473,22 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                 }
             }
             
-            //Add vaccine
-            let antitetanic = tetanicView.yesCheckYES.checked
-            let influenza = h1N1View.h1N1YesCheckYES.checked
-            let hepatite = hepatitisBView.hepatitisBYesCheckYES.checked
+            
             
             for cell in cells{
-                
                 if cell.id == TetanicView.id{
+                    //Add vaccine
+                    let antitetanic = tetanicView.yesCheckYES.checked
+                    let influenza = h1N1View.h1N1YesCheckYES.checked
+                    let hepatite = hepatitisBView.hepatitisBYesCheckYES.checked
                     
                     // FIX ME : Ajustar as doses das vacinas na view que nÃo existem
                     let vaccine = Vaccines(hepatiteB: [DoseVaccines(date: Date(), isVaccined: antitetanic, numberOfDose: 1)], influenza: DoseVaccines(date: Date(), isVaccined: influenza, numberOfDose: 1), antitetanic: [DoseVaccines(date: Date(), isVaccined: hepatite, numberOfDose: 1)])
                     //Adicionar as vacinas antitetanicas e hepatite
                     self.maternityVM.coreDataManager.addVaccineInfluenza(dose: vaccine.influenza)
-                    self.maternityVM.coreDataManager.addVaccineHepatite(dose: vaccine.hepatiteB.first ?? DoseVaccines(date: Date(), isVaccined: false, numberOfDose: 0))
-                    self.maternityVM.coreDataManager.addVaccineAntitetanic(dose: vaccine.antitetanic.first ?? DoseVaccines(date: Date(), isVaccined: false, numberOfDose: 0))
+                    self.maternityVM.coreDataManager.addVaccineHepatite(dose: vaccine.hepatiteB.first ?? DoseVaccines(date: Date(), isVaccined: hepatite, numberOfDose: 0))
+                    self.maternityVM.coreDataManager.addVaccineAntitetanic(dose: vaccine.antitetanic.first ?? DoseVaccines(date: Date(), isVaccined: antitetanic, numberOfDose: 0))
+                    
                     break
                 }
             }

@@ -198,7 +198,6 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             
             let views: [CellInfo] = [
                 CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id, query: familyAntecedentView.query),
-                CellInfo(view: h1N1View, size: h1N1View.h1N1ViewSize, id: H1N1View.id, query: h1N1View.query),
                 CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, query: plannedView.query),
                 CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, query: clinicAntecedentsView.query)
             ]
@@ -212,25 +211,32 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 
                 //Assign data antitetanic
                 let antitetanic = historyVm.coreDataMaanger.getAntitetanic()
-                tetanicView.yesCheckYES.checked = antitetanic.first?.isVaccined ?? false
-                
+                let antitetanicIsVaccined = antitetanic.first?.isVaccined ?? false
+                if antitetanicIsVaccined{
+                    tetanicView.yesCheckYES.checked = true
+                }else{
+                    tetanicView.yesCheckYES.checked = false
+                    tetanicView.noCheckNO.checked = true
+                }
                 
                 
                 //Assign hepatite data
                 let hepatite = historyVm.coreDataMaanger.getHepatite()
-                hepatitisBView.hepatitisBYesCheckYES.checked = hepatite.first?.isVaccined ?? false
-                
-                
-                
+                let hepatiteIsVaccined = hepatite.first?.isVaccined ?? false
+                if hepatiteIsVaccined{
+                    hepatitisBView.hepatitisBYesCheckYES.checked = true
+                }else{
+                    hepatitisBView.hepatitisBYesCheckYES.checked = false
+                    hepatitisBView.hepatitisBNoCheckNO.checked = true
+                }
+                       
                 
                 //Assign influenza data
                 let influenza = historyVm.coreDataMaanger.getInfluenza()
                 h1N1View.h1N1YesCheckYES.checked = influenza?.isVaccined ?? false
                 
-                //Assign influenza view
                 
-                
-                
+                //Assign all views to the array of views
                 let views: [CellInfo] = [
                     CellInfo(view: tetanicView, size: tetanicView.tetanicViewSize, id: TetanicView.id, query: tetanicView.query),
                     CellInfo(view: hepatitisBView, size: hepatitisBView.hepatitisBViewSize, id: HepatitisBView.id, query: hepatitisBView.query),
@@ -299,6 +305,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 
                 addNewView(views: views)
             }
+            
         }else{
             
             if let _ = appointmentsInfo.bloodExam{
@@ -355,36 +362,6 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 
                 addNewView(views: views)
                 
-            }
-            
-            //Add vaccines view
-            if pacient!.vaccines != nil{
-                
-                
-                //Assign data antitetanic
-                let antitetanic = historyVm.coreDataMaanger.getAntitetanic()
-                tetanicView.yesCheckYES.checked = antitetanic.first?.isVaccined ?? false
-                
-                
-                
-                //Assign hepatite data
-                let hepatite = historyVm.coreDataMaanger.getHepatite()
-                hepatitisBView.hepatitisBYesCheckYES.checked = hepatite.first?.isVaccined ?? false
-                
-                
-                //Assign influenza data
-                let influenza = historyVm.coreDataMaanger.getInfluenza()
-                h1N1View.h1N1YesCheckYES.checked = influenza?.isVaccined ?? false
-                
-                //Assign Views
-                
-                let views: [CellInfo] = [
-                    CellInfo(view: tetanicView, size: tetanicView.tetanicViewSize, id: TetanicView.id, query: tetanicView.query),
-                    CellInfo(view: hepatitisBView, size: hepatitisBView.hepatitisBViewSize, id: HepatitisBView.id, query: hepatitisBView.query),
-                    CellInfo(view: h1N1View, size: h1N1View.h1N1ViewSize, id: H1N1View.id, query: h1N1View.query)
-                ]
-                
-                addNewView(views: views)
             }
         }
     }
