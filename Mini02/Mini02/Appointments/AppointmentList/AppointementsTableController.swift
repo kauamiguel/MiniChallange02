@@ -12,7 +12,7 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
     
     var appointementListViewManager: UITableView? //THE TABLE THAT THIS CONTROLLER MANAGES
     var parentVC:UIViewController? // THE VIEW CONTROLLER THAT CONTAINS THIS CONTROLLER
-    var appointmentVM : AppointmentsListVM?    
+    var appointmentVM : AppointmentsListVM?
     
     
     //MARK: SET THE NUMBER OF ROWS IN THE TABLE

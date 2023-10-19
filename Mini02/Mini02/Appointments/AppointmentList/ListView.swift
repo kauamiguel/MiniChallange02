@@ -52,7 +52,6 @@ class ListView: UIView {
             rightPadding: -21
             
         )
-        
         //Sets target for button
         btn.addTarget(vc, action: action, for: .touchUpInside)
     }

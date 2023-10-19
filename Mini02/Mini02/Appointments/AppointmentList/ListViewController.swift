@@ -13,7 +13,6 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Create a custom UIButton with an image
             let backButton = UIButton(type: .custom)
             backButton.setImage(UIImage(named: "ChevronBackButton"), for: .normal)
@@ -31,6 +30,9 @@ class ListViewController: UIViewController {
         
         view.controller = self
         view.setupView(action: #selector(GoToNextScene))
+        
+        //Reload the tableView
+        
     }
     
     //Function of the backButton

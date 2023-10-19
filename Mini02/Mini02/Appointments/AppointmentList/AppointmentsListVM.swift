@@ -19,7 +19,6 @@ class AppointmentsListVM{
         if let numberTreemester = treemester{
             view.navigationController?.pushViewController(MaternityCardViewController(treemester: numberTreemester), animated: true)
         }
-        
     }
     
     init(view: UIViewController) {

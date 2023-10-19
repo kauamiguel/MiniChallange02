@@ -495,7 +495,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             //Saving the current consult
             if let addConsult = self.consult{
-                
                 maternityVM.createNewConsult(consult: addConsult)
             }
             
