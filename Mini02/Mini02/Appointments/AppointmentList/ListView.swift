@@ -72,6 +72,7 @@ class ListView: UIView {
     func setupList() -> UITableView{
         
         let list = UITableView()
+        list.sectionHeaderTopPadding = UIScreen.main.bounds.height * 0.075
         
         //Sets the table controller of the list
         tableController.appointementListViewManager = list

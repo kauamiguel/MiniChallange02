@@ -70,6 +70,9 @@ class PregnancyTypeView: UIView {
         self.addSubview(pregnancyTypeLabel)
         pregnancyTypeLabel.setupLabel(labelText: "Tipos de gravidez".localized(), labelType: .titleBold, labelColor: .secondaryColor)
         pregnancyTypeLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            pregnancyTypeLabel.maximumContentSizeCategory = .extraLarge
+        }
         
         
         roudedBackGround.addSubview(contentBackGround)

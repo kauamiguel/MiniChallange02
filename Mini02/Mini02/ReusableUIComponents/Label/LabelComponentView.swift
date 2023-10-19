@@ -53,32 +53,39 @@ class LabelComponentView: UILabel{
     }
         
     private func configureLabelStyle() {
+        let customBody = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.035)
+        adjustsFontForContentSizeCategory = true
+        numberOfLines = 2
+        maximumContentSizeCategory = .accessibilityExtraExtraLarge
         switch labelType {
        
         case .titleBold:
-            self.font = UIFont(name: "Signika-Bold", size: 24)
+            let customTitle2 = UIFont(name: "Signika-Bold", size: 22)
+            self.font = UIFontMetrics(forTextStyle: .title3).scaledFont(for: customTitle2 ?? .preferredFont(forTextStyle: .title3))
             self.numberOfLines = 5
             
         case .titleSemiBold:
-            self.font = UIFont(name: "Signika-Semibold", size: 20)
+            let customTitle3 = UIFont(name: "Signika-Bold", size: 20)
+            self.font = UIFontMetrics(forTextStyle: .title3).scaledFont(for: customTitle3 ?? .preferredFont(forTextStyle: .title3))
             self.numberOfLines = 5
             
         case .titleRegular:
             self.font = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.035)
             
         case .inputLabel:
-            self.font = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.02)
+            let customInputFont = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.02)
+            self.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: customInputFont ?? .preferredFont(forTextStyle: .body))
             
         case .smallInputLabel:
-            self.font = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.018)
+            self.font = UIFontMetrics(forTextStyle: .callout).scaledFont(for: customBody ?? .preferredFont(forTextStyle: .callout))
             
         case .highlitedBody:
-            self.font = UIFont(name: "Signika-Bold", size: 16)
+            let customHeadline = UIFont(name: "Signika-Bold", size: 16)
+            self.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: customHeadline ?? .preferredFont(forTextStyle: .headline))
             
         case .description:
-            self.font = UIFont(name: "Signika-Regular", size: 16)
+            self.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: customBody ?? .preferredFont(forTextStyle: .body))
             self.textAlignment = .center
-//            text.preferredMaxLayoutWidth = 348
             self.numberOfLines = 5
         default:
             self.font = UIFont.systemFont(ofSize: 10)

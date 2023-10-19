@@ -22,6 +22,7 @@ class PregnantDataView: UIView {
     private lazy var scrollView: UIScrollView = {
        let scroll = UIScrollView()
         scroll.backgroundColor = .clear
+        scroll.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: UIScreen.main.bounds.height * 0.15, right: 0)
         return scroll
     }()
     
@@ -159,21 +160,21 @@ class PregnantDataView: UIView {
         contentView.addSubview(pregnantNameLabel)
         pregnantNameLabel.anchorWithConstantValues(top: profileButton.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 30, leftPadding: paddingSize, rightPadding: -paddingSize)
         contentView.addSubview(pregnantNameField)
-        pregnantNameField.anchorWithConstantValues(top: pregnantNameLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 40)
+        pregnantNameField.anchorWithConstantValues(top: pregnantNameLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 0.047*UIScreen.main.bounds.height)
     }
     
     private func setupAlias(vc: UIViewController){
         contentView.addSubview(aliasLabel)
         aliasLabel.anchorWithConstantValues(top: pregnantNameField.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: paddingSize, rightPadding: -paddingSize)
         contentView.addSubview(aliasField)
-        aliasField.anchorWithConstantValues(top: aliasLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 40)
+        aliasField.anchorWithConstantValues(top: aliasLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 0.047*UIScreen.main.bounds.height)
     }
     
     private func setupDateOfBirth(vc: UIViewController) {
         contentView.addSubview(dateOfBirthLabel)
         dateOfBirthLabel.anchorWithConstantValues(top: aliasField.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: paddingSize, rightPadding: -paddingSize)
         contentView.addSubview(dateOfBirthPicker)
-        dateOfBirthPicker.anchorWithConstantValues(top: dateOfBirthLabel.bottomAnchor, left: vc.view.leadingAnchor, topPadding: 5, leftPadding: paddingSize, height: 34)
+        dateOfBirthPicker.anchorWithConstantValues(top: dateOfBirthLabel.bottomAnchor, left: vc.view.leadingAnchor, topPadding: 5, leftPadding: paddingSize, height: 0.045*UIScreen.main.bounds.height)
     }
     
     private func setupDivider(vc: UIViewController) {
@@ -191,14 +192,14 @@ class PregnantDataView: UIView {
         contentView.addSubview(emergencyContactNameLabel)
         emergencyContactNameLabel.anchorWithConstantValues(top: emergencyLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: paddingSize, rightPadding: -paddingSize)
         contentView.addSubview(emergencyContactNameField)
-        emergencyContactNameField.anchorWithConstantValues(top: emergencyContactNameLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 40)
+        emergencyContactNameField.anchorWithConstantValues(top: emergencyContactNameLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 0.047*UIScreen.main.bounds.height)
     }
     
     private func setupEmergencyPhone(vc: UIViewController) {
         contentView.addSubview(emergencyContactPhoneLabel)
         emergencyContactPhoneLabel.anchorWithConstantValues(top: emergencyContactNameField.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: paddingSize, rightPadding: -50)
         contentView.addSubview(emergencyContactPhoneField)
-        emergencyContactPhoneField.anchorWithConstantValues(top: emergencyContactPhoneLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 40)
+        emergencyContactPhoneField.anchorWithConstantValues(top: emergencyContactPhoneLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 0.047*UIScreen.main.bounds.height)
     }
     private lazy var relationPullDown = PullDownComponent()
     func setupEmergencyRelation(vc: UIViewController) {
@@ -208,7 +209,7 @@ class PregnantDataView: UIView {
         relationPullDown.setupButton(options: ["Companheiro".localized(), "Familiar".localized(), "Amigo".localized(), "Outro(a)".localized()])
         relationPullDown.setTitle("Selecione", for: .normal)
         contentView.addSubview(relationPullDown)
-        relationPullDown.anchorWithConstantValues(top: emergencyContactRelationLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 34)
+        relationPullDown.anchorWithConstantValues(top: emergencyContactRelationLabel.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor, topPadding: 5, leftPadding: paddingSize, rightPadding: -paddingSize, height: 0.038*UIScreen.main.bounds.height)
     }
     
     private func setupTempSaveButton(vc: UIViewController){
@@ -242,7 +243,8 @@ class PregnantDataView: UIView {
     func setupToolbarAndBG(vc: UIViewController) {
         vc.navigationController?.navigationItem.largeTitleDisplayMode = .always
         vc.navigationController?.navigationItem.titleView?.backgroundColor = .clear
-        let titleAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1), NSAttributedString.Key.font: UIFont(name: "Signika-Regular", size: 24)]
+        let customFont = UIFont(name: "Signika-Regular", size: 24)
+        let titleAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1), NSAttributedString.Key.font: customFont]
         let barAppearance = UINavigationBarAppearance()
         barAppearance.configureWithOpaqueBackground()
         barAppearance.shadowColor = .clear

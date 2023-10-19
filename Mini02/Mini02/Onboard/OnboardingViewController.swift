@@ -27,11 +27,16 @@ class OnboardingPageViewController: UIPageViewController {
         let third = ThirdOnboardingViewController()
         third.pageController = self
         
+        let firstController = UINavigationController(rootViewController: first)
+        firstController.navigationBar.isHidden = true
+        let secondController = UINavigationController(rootViewController: second)
+        secondController.navigationBar.isHidden = true
+        let thirdController = UINavigationController(rootViewController: third)
+        thirdController.navigationBar.isHidden = true
         
-        
-        self.pages.append(first)
-        self.pages.append(second)
-        self.pages.append(UINavigationController(rootViewController: third))
+        self.pages.append(firstController)
+        self.pages.append(secondController)
+        self.pages.append(thirdController)
         
         
         self.view.translatesAutoresizingMaskIntoConstraints = false

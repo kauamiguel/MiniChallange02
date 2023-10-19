@@ -96,6 +96,7 @@ class HepatitisBView: UIView{
         invertConfigureLabelAndGreenCheckBox(stack: hepatitisBYesSubHStackYES, label: hepatitisBYesLabel, checkBox: hepatitisBYesCheckYES, labelText: "+ (Positivo) Imune".localized())
         invertConfigureLabelAndRedCheckBox(stack: hepatitisBNoSubHStackNO, label: hepatitisBNoLabel, checkBox: hepatitisBNoCheckNO, labelText: "- (Negativo) Esquema completo".localized())
         
+        hepatitisBNoLabel.maximumContentSizeCategory = .accessibilityExtraLarge
         roudedBackGround.addSubview(hepatitisBYesSubHStackYES)
         hepatitisBYesSubHStackYES.anchorWithConstantValues(top: hepatitisBsubTitleLabel.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 10, leftPadding: 15)
         

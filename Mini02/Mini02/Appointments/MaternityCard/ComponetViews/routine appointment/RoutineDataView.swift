@@ -82,6 +82,9 @@ class RoutineDataView: UIView {
         self.addSubview(routineLabel)
         routineLabel.setupLabel(labelText: "Dados de rotina".localized(), labelType: .titleBold, labelColor: .secondaryColor)
         routineLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            routineLabel.maximumContentSizeCategory = .extraLarge
+        }
         
         roudedBackGround.addSubview(contentBackGround)
         contentBackGround.anchorWithConstantValues(top: routineLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10,width: screenSize.width * 0.9, height: screenSize.height * 0.3)
