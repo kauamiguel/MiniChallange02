@@ -11,8 +11,8 @@ import UIKit
 class TabBarView: UIView {  // everything that is UI
     func setUpTabBarView(tb: TabBarViewController){
         
-        tb.tabBar.unselectedItemTintColor = UIColor(red: 0.227, green: 0.651, blue: 0.725, alpha: 0.5)
-        tb.tabBar.tintColor =  UIColor(red: 0.227, green: 0.651, blue: 0.725, alpha: 1)
+        tb.tabBar.unselectedItemTintColor = UIColor(red: 0.25, green: 0.24, blue: 0.33, alpha: 0.5)
+        tb.tabBar.tintColor =  UIColor(red: 0.25, green: 0.24, blue: 0.33, alpha: 1.00)
         tb.tabBar.backgroundColor = UIColor(red: 1, green: 0.933, blue: 0.933, alpha: 1)
         let appearance = UITabBarAppearance()
         appearance.shadowColor = .clear
