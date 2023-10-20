@@ -11,9 +11,9 @@ import UIKit
 class ProfileImageButton: UIButton {
     var defaultSize: CGFloat {
         if UIDevice.current.userInterfaceIdiom == .pad {
-            return 96
+            return 113
         }
-        return 54
+        return 71
     }
     var radius: CGFloat {
         return defaultSize / 2

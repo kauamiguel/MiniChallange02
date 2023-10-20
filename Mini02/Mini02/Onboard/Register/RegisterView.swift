@@ -165,7 +165,7 @@ class RegisterView: UIView{
     private func setupNextButton(vc: UIViewController) {
         contentView.addSubview(nextButton)
         nextButton.centerX(inView: contentView)
-        nextButton.anchorWithConstantValues(top: illustration.bottomAnchor, topPadding: 36, bottomPadding: 60, width: 364, height: 66)
+        nextButton.anchorWithConstantValues(top: illustration.bottomAnchor, topPadding: 36, bottomPadding: 60, width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.078)
         nextButton.addAction(UIAction(handler: { [weak self] _ in
             self?.viewModel?.didTapNext(nameText: self?.nameTextField.text, nicknameText: self?.nicknameTextfield.text, dateOfBirth: self?.dateOfBirthDatePicker.date ?? Date())
         }), for: .touchUpInside)

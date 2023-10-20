@@ -86,7 +86,7 @@ class SecondOnboardingView: UIView {
         
         contentView.addSubview(nextButton)
         nextButton.centerX(inView: contentView)
-        nextButton.anchorWithConstantValues(top: illustration.bottomAnchor, topPadding: 0.12*UIScreen.main.bounds.height, width: 364, height: 0.071 * UIScreen.main.bounds.height)
+        nextButton.anchorWithConstantValues(top: illustration.bottomAnchor, topPadding: 0.12*UIScreen.main.bounds.height,width: UIScreen.main.bounds.width * 0.8, height: 0.071 * UIScreen.main.bounds.height)
         nextButton.addAction(UIAction(handler: { _ in
             guard let pageController = vc.pageController as? OnboardingPageViewController else { return }
             pageController.goToNextPage()
