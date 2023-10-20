@@ -20,7 +20,7 @@ class RegisterView: UIView{
     
     private lazy var scrollView: UIScrollView = {
        let scroll = UIScrollView()
-        scroll.backgroundColor = .systemBackground
+        scroll.backgroundColor = UIColor(red: 255/255, green: 245/255, blue: 245/255, alpha: 1)
         return scroll
     }()
     

@@ -33,7 +33,6 @@ class NumericPicker: UIPickerView {
         layer.cornerRadius = 8
         delegate = self
         dataSource = self
-        subviews.first?.subviews.last?.backgroundColor = .red
         if let startValue {
             guard numberOptions.contains(startValue), let index = numberOptions.firstIndex(where: { $0 == startValue})
             else {
@@ -86,6 +85,7 @@ extension NumericPicker: UIPickerViewDelegate, UIPickerViewDataSource {
         let font = UIFont(name: "Signika-Regular", size: 18)
         label.adjustsFontForContentSizeCategory = true
         label.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: font ?? .preferredFont(forTextStyle: .headline))
+        label.textColor = .white
         if UIDevice.current.userInterfaceIdiom == .phone {
             label.maximumContentSizeCategory = .extraExtraExtraLarge
         }

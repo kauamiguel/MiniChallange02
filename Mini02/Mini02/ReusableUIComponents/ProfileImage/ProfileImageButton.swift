@@ -63,7 +63,7 @@ class ProfileImageButton: UIButton {
     
     func setupUI(){
         refreshImageOrDefault()
-        self.backgroundColor = .systemGray5
+        self.backgroundColor = UIColor(red: 217/255, green: 217/255, blue: 217/255, alpha: 1)
         self.layer.cornerRadius = radius
         self.clipsToBounds = true
         self.contentMode = .scaleAspectFit

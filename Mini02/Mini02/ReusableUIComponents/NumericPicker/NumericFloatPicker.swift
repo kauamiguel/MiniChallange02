@@ -88,6 +88,7 @@ extension NumericFloatPicker: UIPickerViewDelegate, UIPickerViewDataSource {
         let value = numberOptions[row]
         label.text = String(format: "%.1f", value)
         label.textAlignment = .center
+        label.textColor = .white
         if UIDevice.current.userInterfaceIdiom == .phone {
             label.maximumContentSizeCategory = .extraExtraExtraLarge
         }
