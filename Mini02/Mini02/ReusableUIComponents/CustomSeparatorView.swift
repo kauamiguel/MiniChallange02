@@ -7,6 +7,19 @@
 
 import UIKit
 
+enum SeparatorWidth {
+    case intern
+    case extern
+    
+    var value: CGFloat {
+        switch self {
+        case .intern: return 0.1
+        case .extern: return 0.2
+        }
+    }
+}
+
+
 class CustomSeparatorView: UIView {
 
     init() {
