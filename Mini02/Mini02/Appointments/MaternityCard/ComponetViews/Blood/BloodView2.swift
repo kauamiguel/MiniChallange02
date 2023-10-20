@@ -151,6 +151,8 @@ class BloodView2: UIView{
         //FIXME: THIS IS A DROPDOWN/PICKER
         configureLabelAndPullDown(stack: twinSubHStack, label: vdrlLabel, pullDown: vdrlMenu, labelText: "VDRL", screenSize: screenSize)
         vdrlMenu.setupButton(options: VdrlExam.allCases.map{$0.rawValue})
+        vdrlMenu.backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
+        vdrlMenu.subviews.compactMap({ $0 as? UIImageView }).forEach( {$0.tintColor = UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1.00)})
         contentBackGround.addSubview(twinSubHStack)
         twinSubHStack.anchorWithConstantValues(top: toxoplasmosisHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15,leftPadding: 10 ,rightPadding: -34)
 }
