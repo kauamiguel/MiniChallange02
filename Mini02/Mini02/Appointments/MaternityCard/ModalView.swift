@@ -65,6 +65,12 @@ class ModalVC: UIViewController{
             "Vacinas".localized(),
             "Notas".localized()
         ]
+        let ImagebtnArray:[String] = [
+            "blood",
+            "ultrasound",
+            "vaccine",
+            "vaccine"
+        ]
         
         for i in 0..<btnArray.count - 1{
             let btn = UIButton()
@@ -78,7 +84,7 @@ class ModalVC: UIViewController{
             btnConfig.attributedTitle?.font = UIFont(name: "Signika-Regular", size:screenWidth * 0.03)
             btn.tintColor = UIColor(red: 1, green: 0.521, blue: 0.58, alpha: 1)
             // Create a template image so it scales without distortion
-            if let image = UIImage(systemName: "pencil.circle.fill")?.withRenderingMode(.automatic) {
+            if let image = UIImage(named: ImagebtnArray[i])?.withRenderingMode(.automatic) {
                 btnConfig.image = image
             }
 

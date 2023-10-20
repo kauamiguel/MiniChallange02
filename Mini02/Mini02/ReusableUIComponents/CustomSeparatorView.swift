@@ -8,13 +8,15 @@
 import UIKit
 
 enum SeparatorWidth {
-    case intern
+    case internVertical
+    case internHorizontal
     case extern
     
     var value: CGFloat {
         switch self {
-        case .intern: return 0.1
-        case .extern: return 0.2
+        case .internVertical: return 1
+        case .internHorizontal: return 2
+        case .extern: return 2
         }
     }
 }

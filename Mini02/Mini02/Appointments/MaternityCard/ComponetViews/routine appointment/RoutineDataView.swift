@@ -91,7 +91,7 @@ class RoutineDataView: UIView {
         contentBackGround.centerX(inView: roudedBackGround)
         
         contentBackGround.addSubview(separator)
-        separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: 15, bottomPadding: -15, width: 1.5)
+        separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: 15, bottomPadding: -15, width: SeparatorWidth.internVertical.value)
         separator.centerX(inView: contentBackGround)
         separator.backgroundColor = UIColor(red: 0.49, green: 0.74, blue: 0.50, alpha: 1.00)
        

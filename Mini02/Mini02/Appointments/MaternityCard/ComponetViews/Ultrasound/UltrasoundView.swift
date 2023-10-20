@@ -27,7 +27,7 @@ class UltrasoundView: UIView {
         view.layer.cornerRadius = 25
         view.backgroundColor = UIColor(red: 1.00, green: 0.95, blue: 0.98, alpha: 1.00)
         
-        view.layer.borderWidth = 1 // Adjust the width as needed
+        view.layer.borderWidth = SeparatorWidth.extern.value // Adjust the width as needed
         view.layer.borderColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00).cgColor // Change color as needed
         
         return view
@@ -87,7 +87,7 @@ class UltrasoundView: UIView {
         contentBackGround.centerX(inView: roudedBackGround)
         
         contentBackGround.addSubview(separator)
-        separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: screenSize.height * 0.080, bottomPadding: -15, width: 1.5)
+        separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: screenSize.height * 0.080, bottomPadding: -15, width: SeparatorWidth.internVertical.value)
         separator.centerX(inView: contentBackGround)
         separator.backgroundColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00)
         
