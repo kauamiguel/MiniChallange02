@@ -27,7 +27,7 @@ class UltrasoundView: UIView {
         view.layer.cornerRadius = 25
         view.backgroundColor = UIColor(red: 1.00, green: 0.95, blue: 0.98, alpha: 1.00)
         
-        view.layer.borderWidth = 1 // Adjust the width as needed
+        view.layer.borderWidth = SeparatorWidth.extern.value // Adjust the width as needed
         view.layer.borderColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00).cgColor // Change color as needed
         
         return view
@@ -87,7 +87,7 @@ class UltrasoundView: UIView {
         contentBackGround.centerX(inView: roudedBackGround)
         
         contentBackGround.addSubview(separator)
-        separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: screenSize.height * 0.080, bottomPadding: -15, width: 1.5)
+        separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: screenSize.height * 0.080, bottomPadding: -15, width: SeparatorWidth.internVertical.value)
         separator.centerX(inView: contentBackGround)
         separator.backgroundColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00)
         
@@ -100,7 +100,9 @@ class UltrasoundView: UIView {
         
 
         datePickerPlusLabel(label: dataLabel, date: dataMenu, contentBackGround: contentBackGround, topAnchor: ultrasoundSubLabel, leftAnchor: contentBackGround, labelText: "Data".localized(), topPadding: screenSize.height * 0.0042, leftPadding: screenSize.width * 0.005, screenSize: screenSize, heightMultiplier: 0.052)
-
+        dataMenu.backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
+        dataMenu.tintColor = UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1)
+        
         numericPickerPlusLabel(label: pesoLabel, menu: pesoMenu, menuMinimum: 50, menuMaximum: 180, menuInterval: 5, contentBackGround: contentBackGround, topAnchor: dataMenu, leftAnchor: contentBackGround, labelText: "Peso".localized(), topPadding: screenSize.height * 0.009, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         
         numericPickerPlusLabel(label: ilaLabel, menu: ilaMenu, menuMinimum: 4, menuMaximum: 30, menuInterval: 1, contentBackGround: contentBackGround, topAnchor: pesoMenu, leftAnchor: contentBackGround, labelText: "ILA(cm)", topPadding: screenSize.height * 0.009, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
@@ -110,9 +112,9 @@ class UltrasoundView: UIView {
 
         numericPickerPlusLabel(label: igLabel, menu: igMenu, menuMinimum: 0, menuMaximum: 42, menuInterval: 1, contentBackGround: contentBackGround, topAnchor: ultrasoundSubLabel, leftAnchor: separator, labelText: "IG", topPadding: screenSize.height * 0.0038, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
         
-        menuPlusLabelBottom(label: placentaLabel, menu: placentaMenu, options: Placenta.allCases.map { $0.rawValue }, contentBackGround: contentBackGround, topAnchor: igMenu, leftAnchor: separator, labelText: "Placenta",  topPadding: screenSize.height * 0.0032, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
+        menuPlusLabelBottom(label: placentaLabel, menu: placentaMenu, options: Placenta.allCases.map { $0.rawValue }, alternateBackground: true, contentBackGround: contentBackGround, topAnchor: igMenu, leftAnchor: separator, labelText: "Placenta",  topPadding: screenSize.height * 0.0032, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
         
-        menuPlusLabelBottom(label: apresentacaoFetalLabel, menu: apresentacaoFetalMenu, options: FetalPosition.allCases.map { $0.rawValue }, contentBackGround: contentBackGround, topAnchor: placentaMenu, leftAnchor: separator, labelText: "Apresentação Fetal".localized(), topPadding: screenSize.height * 0.0042, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.042)
+        menuPlusLabelBottom(label: apresentacaoFetalLabel, menu: apresentacaoFetalMenu, options: FetalPosition.allCases.map { $0.rawValue }, alternateBackground: true, contentBackGround: contentBackGround, topAnchor: placentaMenu, leftAnchor: separator, labelText: "Apresentação Fetal".localized(), topPadding: screenSize.height * 0.0042, leftPadding: screenSize.width * 0.0079, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.042)
         
     }
     

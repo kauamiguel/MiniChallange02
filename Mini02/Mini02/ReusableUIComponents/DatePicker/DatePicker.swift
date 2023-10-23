@@ -21,9 +21,9 @@ class DatePicker: UIDatePicker {
         preferredDatePickerStyle = .compact
         calendar = .current
         setDate(defaultDate, animated: false)
-        backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
+        backgroundColor = UIColor(red: 255/255, green: 208/255, blue: 208/255, alpha: 1)
         layer.cornerRadius = round
         clipsToBounds = true
-        tintColor = UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1)
+        tintColor = UIColor(red: 255/255, green: 208/255, blue: 208/255, alpha: 1)
     }
 }

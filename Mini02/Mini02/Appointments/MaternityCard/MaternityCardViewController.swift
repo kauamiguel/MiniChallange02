@@ -69,7 +69,12 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         }
         
         self.hidesBottomBarWhenPushed = true
-        
+        setupDismissKeyboard()
+    }
+    private func setupDismissKeyboard() {
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
     //Function of backButton

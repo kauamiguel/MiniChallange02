@@ -27,7 +27,7 @@ class BloodView: UIView{
         view.layer.cornerRadius = 25
         view.backgroundColor = UIColor(red: 1.00, green: 0.97, blue: 0.97, alpha: 1.00)
         
-        view.layer.borderWidth = 1 // Adjust the width as needed
+        view.layer.borderWidth = SeparatorWidth.extern.value // Adjust the width as needed
         view.layer.borderColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00).cgColor // Change color as needed
         
         return view
@@ -95,14 +95,14 @@ class BloodView: UIView{
         contentBackGround.centerX(inView: roudedBackGround)
         
         contentBackGround.addSubview(separator)
-        separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: 15, bottomPadding: -15, width: 1.5)
+        separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: 15, bottomPadding: -15, width: SeparatorWidth.internVertical.value)
         separator.centerX(inView: contentBackGround)
         separator.backgroundColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00)
         
         
      
         
-        menuPlusLabel(label: aboLabel, menu: aboMenu, options: BloodType.allCases.map { $0.rawValue }, contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "ABO - RH", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
+        menuPlusLabel(label: aboLabel, menu: aboMenu, alternateBackground: true, options: BloodType.allCases.map { $0.rawValue }, contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "ABO - RH", topPadding: screenSize.height * 0.0046, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
         
         numericPickerPlusLabel(label: htLabel, menu: htMenu, menuMinimum: 39, menuMaximum: 90, menuInterval: 1, contentBackGround: contentBackGround, topAnchor: aboMenu, leftAnchor: contentBackGround, labelText: "HTª(%)", topPadding: screenSize.height * 0.008, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
         

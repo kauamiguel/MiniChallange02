@@ -28,7 +28,7 @@ class RoutineDataView: UIView {
         view.layer.cornerRadius = 25
         view.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.96, alpha: 1.00)
         
-        view.layer.borderWidth = 1 // Adjust the width as needed
+        view.layer.borderWidth = 2 // Adjust the width as needed
         view.layer.borderColor = UIColor(red: 0.49, green: 0.74, blue: 0.50, alpha: 1.00).cgColor // Change color as needed
         
         return view
@@ -91,21 +91,20 @@ class RoutineDataView: UIView {
         contentBackGround.centerX(inView: roudedBackGround)
         
         contentBackGround.addSubview(separator)
-        separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: 15, bottomPadding: -15, width: 1.5)
+        separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: 15, bottomPadding: -15, width: SeparatorWidth.internVertical.value)
         separator.centerX(inView: contentBackGround)
         separator.backgroundColor = UIColor(red: 0.49, green: 0.74, blue: 0.50, alpha: 1.00)
        
         numericPickerPlusLabel(label: igLabel, menu: igMenu, menuMinimum: 0, menuMaximum: 42, menuInterval: 1, contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "IG DUM/USG", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         
         numericPickerPlusLabel(label: uterineHeightLabel, menu: uterineHeightMenu, menuMinimum: 4, menuMaximum: 40, menuInterval: 1, menuDefaultValue: 5, contentBackGround: contentBackGround, topAnchor: igMenu, leftAnchor: contentBackGround, labelText: "Altura uterina(cm)".localized(), topPadding: screenSize.height * 0.0082, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
-        
-        textFieldPlusLabel(label: arterialPressureLabel, field: arterialPressureMenu, placeholder: "120/80", contentBackGround: contentBackGround, topAnchor: uterineHeightMenu, leftAnchor: contentBackGround, labelText: "Pressão arterial".localized(), topPadding: screenSize.height * 0.0082, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
+        textFieldPlusLabel(label: arterialPressureLabel, field: arterialPressureMenu, placeholder: "120/80", alternateBackground: true, contentBackGround: contentBackGround, topAnchor: uterineHeightMenu, leftAnchor: contentBackGround, labelText: "Pressão arterial".localized(), topPadding: screenSize.height * 0.0082, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
     
         numericFloatPickerPlusLabel(label: wheightLabel, menu: wheightMenu, menuMinimum: 0.0, menuMaximum: 5, menuInterval: 0.1, contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: separator, labelText: "Peso (KG)/IMC".localized(), topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         
-        menuPlusLabelBottom(label: bcfLabel, menu: bcfMenu, options: ["Baixo".localized(), "Moderado".localized(), "Alto".localized()], contentBackGround: contentBackGround, topAnchor: wheightMenu, leftAnchor: separator, labelText: "BCF",  topPadding: screenSize.height * 0.0013, leftPadding: screenSize.width * 0.0065, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
+        menuPlusLabelBottom(label: bcfLabel, menu: bcfMenu, options: ["Baixo".localized(), "Moderado".localized(), "Alto".localized()], alternateBackground: true, contentBackGround: contentBackGround, topAnchor: wheightMenu, leftAnchor: separator, labelText: "BCF",  topPadding: screenSize.height * 0.0013, leftPadding: screenSize.width * 0.0065, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         
-        menuPlusLabelBottom(label: edemaLabel, menu: edemaMenu, options: ["Normal", "Leve".localized(), "Grave".localized()], contentBackGround: contentBackGround, topAnchor: bcfMenu, leftAnchor: separator, labelText: "Edema", topPadding: screenSize.height * 0.0013, leftPadding: screenSize.width * 0.0065, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
+        menuPlusLabelBottom(label: edemaLabel, menu: edemaMenu, options: ["Normal", "Leve".localized(), "Grave".localized()], alternateBackground: true, contentBackGround: contentBackGround, topAnchor: bcfMenu, leftAnchor: separator, labelText: "Edema", topPadding: screenSize.height * 0.0013, leftPadding: screenSize.width * 0.0065, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         
     }
     

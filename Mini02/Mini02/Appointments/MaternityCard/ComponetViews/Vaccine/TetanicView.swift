@@ -28,7 +28,7 @@ class TetanicView: UIView{
         view.layer.cornerRadius = 25
         view.backgroundColor = UIColor(red: 0.95, green: 0.98, blue: 1.00, alpha: 1.00)
         
-        view.layer.borderWidth = 1 // Adjust the width as needed
+        view.layer.borderWidth = SeparatorWidth.extern.value // Adjust the width as needed
         view.layer.borderColor = UIColor(red: 0.32, green: 0.67, blue: 0.86, alpha: 1.00).cgColor // Change color as needed
         
         return view

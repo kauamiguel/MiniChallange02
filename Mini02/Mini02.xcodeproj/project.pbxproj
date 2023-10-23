@@ -971,8 +971,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mini02/Mini02.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.2;
-				DEVELOPMENT_TEAM = 7PL64AUG55;
+				CURRENT_PROJECT_VERSION = 2.3;
+				DEVELOPMENT_TEAM = 6FXWX5Z987;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini02/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Lumi: Caderneta da Gestante";
@@ -981,12 +981,13 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
-				PRODUCT_BUNDLE_IDENTIFIER = MindMath;
+				MARKETING_VERSION = 2.3;
+				PRODUCT_BUNDLE_IDENTIFIER = Gabriel.Mini02;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1004,8 +1005,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mini02/Mini02.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.2;
-				DEVELOPMENT_TEAM = 7PL64AUG55;
+				CURRENT_PROJECT_VERSION = 2.3;
+				DEVELOPMENT_TEAM = 6FXWX5Z987;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini02/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Lumi: Caderneta da Gestante";
@@ -1014,12 +1015,13 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
-				PRODUCT_BUNDLE_IDENTIFIER = MindMath;
+				MARKETING_VERSION = 2.3;
+				PRODUCT_BUNDLE_IDENTIFIER = Gabriel.Mini02;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

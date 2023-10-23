@@ -83,11 +83,11 @@ class ThirdOnboardingView: UIView {
         ])
         contentView.addSubview(illustration)
         illustration.centerX(inView: contentView)
-        illustration.anchorWithConstantValues( top: textLabel.bottomAnchor,  topPadding: 82, width: min(UIScreen.main.bounds.width * 0.9, 390), height: min(0.35 * UIScreen.main.bounds.height, 336) )
+        illustration.anchorWithConstantValues(top: textLabel.bottomAnchor,  topPadding: 82, width: min(UIScreen.main.bounds.width * 0.9, 390), height: min(0.35 * UIScreen.main.bounds.height, 336))
         
         contentView.addSubview(nextButton)
         nextButton.centerX(inView: contentView)
-        nextButton.anchorWithConstantValues(top: illustration.bottomAnchor, topPadding: 0.096*UIScreen.main.bounds.height, width: 364, height: 0.071 * UIScreen.main.bounds.height)
+        nextButton.anchorWithConstantValues(top: illustration.bottomAnchor, topPadding: 0.096*UIScreen.main.bounds.height, width: UIScreen.main.bounds.width * 0.8, height: 0.071 * UIScreen.main.bounds.height)
         nextButton.addAction(UIAction(handler: { _ in
             vc.didTapNext()
         }), for: .touchUpInside)

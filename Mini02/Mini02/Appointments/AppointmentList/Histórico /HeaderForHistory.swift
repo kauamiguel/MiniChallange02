@@ -27,7 +27,6 @@ class HeaderForHistory: UICollectionReusableView {
         self.addSubview(label)
         label.anchorWithMultiplayerValues(top: self.topAnchor, left: self.leadingAnchor, topPadding: screenSize.height * 0.003 ,leftPadding: screenSize.width * 0.005)
         
-        
         data.setupLabel(labelText: "\("data")", labelType: .inputLabel, labelColor: .secondaryText)
         self.addSubview(data)
     }
