@@ -10,14 +10,14 @@ import UIKit
 class ListView: UIView {
     
     var controller : UIViewController?
-    var tableController = AppointementsListVC()
+    var tableController = AppointementsListViewController()
     
     
     //MARK: Setup View Stack
-    func setupView(action: Selector){
+    func setupView(action: Selector, viewModel : AppointmentsListVM){
         //Initialize elements
         let header = createHeader()
-        let list = setupList()
+        let list = setupList(viewModel : viewModel)
         let title = setupTitle()
         let btn = AddButton()
         
@@ -41,6 +41,7 @@ class ListView: UIView {
 
         title.centerY(inView: header)
         btn.centerY(inView: header)
+        
         // Cofnigure list constraints
         list.anchorWithConstantValues(
             top: header.bottomAnchor,
@@ -50,8 +51,8 @@ class ListView: UIView {
             topPadding: vc.view.bounds.height * 0.06,
             leftPadding: 21,
             rightPadding: -21
-            
         )
+        
         //Sets target for button
         btn.addTarget(vc, action: action, for: .touchUpInside)
     }
@@ -69,7 +70,7 @@ class ListView: UIView {
     }
     
     //MARK: List setup function
-    func setupList() -> UITableView{
+    func setupList(viewModel : AppointmentsListVM) -> UITableView{
         
         let list = UITableView()
         list.sectionHeaderTopPadding = UIScreen.main.bounds.height * 0.075
@@ -79,6 +80,10 @@ class ListView: UIView {
         
         //Sets the parent of the table view controller
         tableController.parentVC = controller
+        
+        //Set the view model as the same of listViewController
+        tableController.appointmentVM = viewModel
+        
         //UI SETUP
         list.backgroundColor = .clear
         
@@ -134,10 +139,7 @@ class ListView: UIView {
             leftPadding: vc.view.bounds.width * 0.06,
             rightPadding: -vc.view.bounds.width * 0.06
         )
-    
         
-        
-
         return Hstack
     }
 }

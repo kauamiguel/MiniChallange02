@@ -8,7 +8,7 @@
 import UIKit
 
 
-class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
+class AppointementsListViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
     
     var appointementListViewManager: UITableView? //THE TABLE THAT THIS CONTROLLER MANAGES
     var parentVC:UIViewController? // THE VIEW CONTROLLER THAT CONTAINS THIS CONTROLLER
@@ -28,7 +28,7 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
         
         //Gets the cell
         guard let cell = appointementListViewManager?.dequeueReusableCell(withIdentifier:  AppointmentListCell.identifier, for: indexPath) as? AppointmentListCell else{
-            fatalError("The consequences of XGH")
+            fatalError("Could not recivie the cell in AppointmentsListViewController")
         }
         
         // Get the data for the current row based on indexPath.row
@@ -78,7 +78,6 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
         guard let parent = parentVC else{
             fatalError("No view controller to be called")
         }
-        
        
         
         //Gets the data related to that row
@@ -92,10 +91,7 @@ class AppointementsListVC: UIViewController,UITableViewDelegate, UITableViewData
             
             tableView.deselectRow(at: indexPath, animated: true)
         }
-        
-        
     }
 
-  
     
 }

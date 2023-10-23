@@ -11,6 +11,7 @@ import UIKit
 class AppointmentsListVM{
     var view: UIViewController
     var consults : [ConsultEntity]?
+    var coreDataManager = CoreDataFunctions()
     //Value to know wich treemester, then the MaternityCard can Assign this atribute to the new Consult
     var treemester : Int?
     
@@ -24,6 +25,18 @@ class AppointmentsListVM{
     init(view: UIViewController) {
         self.view = view
     }
-
     
+    func updateConsultsOfThisTreemester(){
+        let allConsults = coreDataManager.getConsults()
+        var consultUpdated = [ConsultEntity]()
+        
+        //Get the consults just relationaded of this semester
+        guard let treemesterNumber = treemester else{return}
+        for consult in allConsults{
+            if consult.tremesteer == treemesterNumber{
+                consultUpdated.append(consult)
+            }
+        }
+        self.consults = consultUpdated
+    }
 }

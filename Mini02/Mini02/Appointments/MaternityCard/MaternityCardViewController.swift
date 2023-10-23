@@ -139,6 +139,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         let saveBtn = UIAlertAction(title: "Salvar".localized(), style: .default, handler: {
             [weak self] _ in
             self?.saveData()
+            
             self?.navigationController?.popViewController(animated: true)
         })
         alert.addAction(saveBtn)

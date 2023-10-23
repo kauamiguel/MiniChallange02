@@ -37,7 +37,7 @@ class AppointmentsVM {
     func buttonFuncionality(treemesterNumber : Int){
         
         //Chete wheter is first consult to push the firsConsult View
-        if ApplicationSettings.shouldEnterFirstAppointment() {
+        if ApplicationSettings.shouldEnterFirstAppointment() && treemesterNumber == 1{
             view?.navigationController?.pushViewController(MaternityCardViewController(treemester: 1), animated: true)
         }else{
             let allConsults = coreDataManager.getConsults()
@@ -51,13 +51,13 @@ class AppointmentsVM {
             }
             
             let listController = ListViewController()
-            listController.AppoimentListViewModelManager = AppointmentsListVM(view: listController)
+            listController.appoimentListViewModelManager = AppointmentsListVM(view: listController)
             //Assign the consult of this semester to the listViewController
-            listController.AppoimentListViewModelManager?.consults = consultsOfThisSemester
-            listController.AppoimentListViewModelManager?.treemester = treemesterNumber
+            listController.appoimentListViewModelManager?.consults = consultsOfThisSemester
+            listController.appoimentListViewModelManager?.treemester = treemesterNumber
             //Create a listView and assign to his tableViewController the viewModel wiht the Consults
-            listController.ListViewManager = ListView()
-            listController.ListViewManager?.tableController.appointmentVM = listController.AppoimentListViewModelManager
+            listController.listViewManager = ListView()
+            listController.listViewManager?.tableController.appointmentVM = listController.appoimentListViewModelManager
             view?.navigationController?.pushViewController(listController, animated: true)
         }
     }

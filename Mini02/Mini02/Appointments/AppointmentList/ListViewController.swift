@@ -8,8 +8,15 @@
 import UIKit
 
 class ListViewController: UIViewController {
-    var ListViewManager: ListView?
-    var AppoimentListViewModelManager:AppointmentsListVM?
+    var listViewManager: ListView?
+    var appoimentListViewModelManager:AppointmentsListVM?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        appoimentListViewModelManager?.updateConsultsOfThisTreemester()
+        if let list = self.listViewManager, let viewModelManager = appoimentListViewModelManager{
+            list.setupView(action: #selector(GoToNextScene), viewModel: viewModelManager)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,15 +31,11 @@ class ListViewController: UIViewController {
             // Set the custom UIBarButtonItem as the back button for the navigation item
             navigationItem.leftBarButtonItem = customBackButton
        
-        guard let view = ListViewManager else {
+        guard let view = listViewManager else {
             fatalError("no view was passed")
         }
-        
+                
         view.controller = self
-        view.setupView(action: #selector(GoToNextScene))
-        
-        //Reload the tableView
-        
     }
     
     //Function of the backButton
@@ -41,6 +44,7 @@ class ListViewController: UIViewController {
     }
     
     @objc func GoToNextScene(){
-        AppoimentListViewModelManager?.AddAppointment()
+        appoimentListViewModelManager?.AddAppointment()
     }
+    
 }

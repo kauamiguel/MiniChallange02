@@ -43,7 +43,6 @@ enum VdrlExam:String, CaseIterable{
     case sixteen = "1:16"
     case thirtyTwo = "1:32"
     case over = "acima de 1:32"
-    
 }
 
 //MARK: UREA EXAM STRUCT

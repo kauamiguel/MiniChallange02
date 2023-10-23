@@ -63,7 +63,7 @@
 		ABFA04ED2ABCCF7500D31DEA /* AppointmentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */; };
 		ABFA04EE2ABCCF7500D31DEA /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */; };
 		ABFA04EF2ABCCF7500D31DEA /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EB2ABCCF7500D31DEA /* ListView.swift */; };
-		ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */; };
+		ABFA04F02ABCCF7500D31DEA /* AppointementsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04EC2ABCCF7500D31DEA /* AppointementsListViewController.swift */; };
 		ABFDA7732AC60B460097656E /* PregnancyRiskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA7722AC60B460097656E /* PregnancyRiskView.swift */; };
 		ABFDA7752AC646470097656E /* PlannedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA7742AC646470097656E /* PlannedView.swift */; };
 		ABFDA7772AC656030097656E /* PregnancyTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA7762AC656030097656E /* PregnancyTypeView.swift */; };
@@ -175,7 +175,7 @@
 		ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListCell.swift; sourceTree = "<group>"; };
 		ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		ABFA04EB2ABCCF7500D31DEA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
-		ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointementsTableController.swift; sourceTree = "<group>"; };
+		ABFA04EC2ABCCF7500D31DEA /* AppointementsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointementsListViewController.swift; sourceTree = "<group>"; };
 		ABFDA7722AC60B460097656E /* PregnancyRiskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnancyRiskView.swift; sourceTree = "<group>"; };
 		ABFDA7742AC646470097656E /* PlannedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedView.swift; sourceTree = "<group>"; };
 		ABFDA7762AC656030097656E /* PregnancyTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PregnancyTypeView.swift; sourceTree = "<group>"; };
@@ -504,7 +504,7 @@
 				ABFA04EB2ABCCF7500D31DEA /* ListView.swift */,
 				6220F7CA2ABCD32A00CB5230 /* AppointmentsListVM.swift */,
 				ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */,
-				ABFA04EC2ABCCF7500D31DEA /* AppointementsTableController.swift */,
+				ABFA04EC2ABCCF7500D31DEA /* AppointementsListViewController.swift */,
 				ABFA04EA2ABCCF7500D31DEA /* ListViewController.swift */,
 				ABB82F102AC5FB96008B73AF /* Histórico  */,
 			);
@@ -734,7 +734,7 @@
 				CE9F790B2AC4A27A0081AB5A /* PregnantDataViewController.swift in Sources */,
 				ABFA04EF2ABCCF7500D31DEA /* ListView.swift in Sources */,
 				CE8EE34B2AC5F7F1000E89E1 /* PacientModel.swift in Sources */,
-				ABFA04F02ABCCF7500D31DEA /* AppointementsTableController.swift in Sources */,
+				ABFA04F02ABCCF7500D31DEA /* AppointementsListViewController.swift in Sources */,
 				AB9D94212ACE3D0B0064DB69 /* BloodView2.swift in Sources */,
 				ABAD4F472ABE2B1A007BEC32 /* AppointmentsVM.swift in Sources */,
 				6241A1602AC221D800C7921B /* ModalView.swift in Sources */,

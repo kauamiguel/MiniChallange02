@@ -48,8 +48,7 @@ class TabBarViewController: UITabBarController {
        rootViewController3.accessibilityLabel = "Dados da gestante"
         
        
-       
-       self.setViewControllers([rootViewController1, rootViewController2 , rootViewController3], animated: true)
+       self.setViewControllers([rootViewController1, rootViewController2 ,  rootViewController3], animated: true)
     }
 
 }
