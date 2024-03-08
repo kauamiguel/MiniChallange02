@@ -47,7 +47,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         self.treemester = treemester
         self.consultID = maternityVM.createConsultID(treemesterNumber: self.treemester!)
         self.consult = Consulta(consultId: consultID!, date: Date(), trimesteer: self.treemester!)
-        
     }
     
     override func viewDidLoad() {

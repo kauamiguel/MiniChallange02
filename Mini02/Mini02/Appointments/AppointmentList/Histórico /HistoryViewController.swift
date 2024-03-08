@@ -21,10 +21,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     var historyVm = HistoryViewModel()
     var appointmentsInfo: ConsultEntity
     
-    
     //Variable to know wich treemester is, then we can track this consult after
-    
-    
     var cells: [CellInfo] = []
     
     private var vm = MaternityCardViewModel()
@@ -47,8 +44,6 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         
         setupCollectionView()
         collectionView.isEditing = true
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<", style: .done, target: self, action: #selector(backToView))
         
         collectionView.backgroundColor = UIColor(red: 1.00, green: 0.96, blue: 0.96, alpha: 1.00)
         
