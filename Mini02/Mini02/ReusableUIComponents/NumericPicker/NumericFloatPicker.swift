@@ -7,9 +7,11 @@
 
 import UIKit
 
-class NumericFloatPicker: UIPickerView {
+class NumericFloatPicker: UITextField {
     var numberOptions = [Float]()
     var selectedValue: Float = 0
+    
+    private var picker = UIPickerView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,7 +24,6 @@ class NumericFloatPicker: UIPickerView {
     func setPickerValue(to: Float) {
         guard let idx = numberOptions.firstIndex(where: { $0.isNearlyEqual(to: to) }) else { return }
         selectedValue = numberOptions[idx]
-        selectRow(idx, inComponent: 0, animated: true)
     }
     
     func setupNumericPicker(from: Float, to: Float, interval: Float = 0.1, startValue: Float? = nil) {
@@ -30,16 +31,21 @@ class NumericFloatPicker: UIPickerView {
         tintColor = .white
         backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
         layer.cornerRadius = 8
-        delegate = self
-        dataSource = self
+        picker.delegate = self
+        picker.dataSource = self
+        let font = UIFont(name: "Signika-Regular", size: 18)
+        adjustsFontForContentSizeCategory = true
+        self.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: font ?? .preferredFont(forTextStyle: .headline))
+        textAlignment = .center
+        textColor = .white
+        inputView = picker
         if let startValue {
-            guard numberOptions.contains(startValue), let index = numberOptions.firstIndex(where: { $0 == startValue})
+            guard numberOptions.contains(startValue)
             else {
                 print("Invalid start number for picker: \(startValue)")
                 return
             }
             selectedValue = startValue
-            selectRow(index, inComponent: 0, animated: false)
         }
     }
     
@@ -76,13 +82,13 @@ extension NumericFloatPicker: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedValue = numberOptions[row]
+        text = String(format: "%.1f", numberOptions[row])
+        self.resignFirstResponder()
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        pickerView.subviews.forEach { $0.backgroundColor = .clear }
-        
         let label = UILabel()
-        let font = UIFont(name: "Signika-Regular", size: 18)
+        let font = UIFont(name: "Signika-Regular", size: 24)
         label.adjustsFontForContentSizeCategory = true
         label.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: font ?? .preferredFont(forTextStyle: .headline))
         let value = numberOptions[row]
