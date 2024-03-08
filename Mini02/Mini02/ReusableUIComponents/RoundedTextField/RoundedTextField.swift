@@ -32,7 +32,7 @@ class RoundedTextField: UITextField {
         adjustsFontForContentSizeCategory = true
         let customFont = UIFont(name: "Signika-Regular", size: 18)
         font = UIFontMetrics(forTextStyle: .title3).scaledFont(for: customFont ?? .preferredFont(forTextStyle: .title3))
-//        font = customFont
+        textAlignment = .center
     }
 
     override func prepareForInterfaceBuilder() {
