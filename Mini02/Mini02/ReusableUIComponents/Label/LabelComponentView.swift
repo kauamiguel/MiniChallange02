@@ -79,8 +79,8 @@ class LabelComponentView: UILabel{
         case .smallInputLabel:
             self.font = UIFontMetrics(forTextStyle: .callout).scaledFont(for: customBody ?? .preferredFont(forTextStyle: .callout))
             
-        case .highlitedBody:
-            let customHeadline = UIFont(name: "Signika-Bold", size: 16)
+        case .bigTitle:
+            let customHeadline = UIFont(name: "Signika-Bold", size: UIScreen.main.bounds.height * 0.04)
             self.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: customHeadline ?? .preferredFont(forTextStyle: .headline))
             
         case .description:

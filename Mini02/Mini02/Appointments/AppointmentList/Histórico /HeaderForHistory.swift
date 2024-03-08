@@ -15,7 +15,7 @@ class HeaderForHistory: UICollectionReusableView {
     let data = LabelComponentView()
     
     static var currentConsult: Int64?
-    static var currentDate : Date?
+    static var currentDate: Date?
     
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -24,7 +24,7 @@ class HeaderForHistory: UICollectionReusableView {
     
     func setupview(){
         
-        label.setupLabel(labelText: "Consulta \(HeaderForHistory.currentConsult ?? 2)", labelType: .titleBold, labelColor: .secondaryColor)
+        label.setupLabel(labelText: "\(HeaderForHistory.currentConsult ?? 2)° Consulta", labelType: .bigTitle, labelColor: .secondaryColor)
         self.addSubview(label)
         label.anchorWithMultiplayerValues(top: self.topAnchor, left: self.leadingAnchor, topPadding: screenSize.height * 0.003 ,leftPadding: screenSize.width * 0.005)
   
