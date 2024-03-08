@@ -30,6 +30,7 @@ class HeaderForHistory: UICollectionReusableView {
   
         data.setupLabel(labelText: "\(HeaderForHistory.currentDate ?? Date())", labelType: .inputLabel, labelColor: .secondaryText)
         self.addSubview(data)
+        data.anchorWithMultiplayerValues(top: label.bottomAnchor, left: self.leadingAnchor, topPadding: 20)
     }
     
     required init?(coder: NSCoder) {
