@@ -27,8 +27,8 @@ class HeaderForHistory: UICollectionReusableView {
         label.setupLabel(labelText: "Consulta \(HeaderForHistory.currentConsult ?? 2)", labelType: .titleBold, labelColor: .secondaryColor)
         self.addSubview(label)
         label.anchorWithMultiplayerValues(top: self.topAnchor, left: self.leadingAnchor, topPadding: screenSize.height * 0.003 ,leftPadding: screenSize.width * 0.005)
-        
-        data.setupLabel(labelText: "\("data")", labelType: .inputLabel, labelColor: .secondaryText)
+  
+        data.setupLabel(labelText: "\(HeaderForHistory.currentDate ?? Date())", labelType: .inputLabel, labelColor: .secondaryText)
         self.addSubview(data)
     }
     
