@@ -27,7 +27,9 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     private var vm = MaternityCardViewModel()
     
     init(appointmentsInfo: ConsultEntity){
+        
         self.appointmentsInfo = appointmentsInfo
+        
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.init(collectionViewLayout: layout)
@@ -43,6 +45,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     override func viewDidLoad() {
         
         setupCollectionView()
+        
         collectionView.isEditing = true
         
         collectionView.backgroundColor = UIColor(red: 1.00, green: 0.96, blue: 0.96, alpha: 1.00)
@@ -72,6 +75,9 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     
     //register the cell to the indentifiers
     func setupCollectionView(){
+        
+        HeaderForHistory.currentConsult = appointmentsInfo.consultId
+        HeaderForHistory.currentDate = appointmentsInfo.date
         
         cells.forEach { collectionView.register(MaternityCardCell.self, forCellWithReuseIdentifier: $0.id) }
         collectionView.register(HeaderForHistory.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderForHistory.id)
@@ -108,7 +114,9 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.id, for: indexPath) as! HeaderForHistory
-            headerView.currentConsult = appointmentsInfo.consultId
+            
+            HeaderForHistory.currentConsult = appointmentsInfo.consultId
+            
             return headerView
         default:
             return UICollectionReusableView()

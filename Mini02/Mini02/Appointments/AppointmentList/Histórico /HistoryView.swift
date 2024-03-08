@@ -11,7 +11,6 @@ class HistoryView: UIView {
     
     var controller:UIViewController? 
     
-    
     func setupView(){
         guard let vc = controller else{
             fatalError("No view controller was passed")
