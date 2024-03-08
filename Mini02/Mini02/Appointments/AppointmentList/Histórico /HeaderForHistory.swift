@@ -29,7 +29,7 @@ class HeaderForHistory: UICollectionReusableView {
         label.anchorWithMultiplayerValues(top: self.topAnchor, left: self.leadingAnchor, topPadding: screenSize.height * 0.003 ,leftPadding: screenSize.width * 0.005)
   
         let dataFormated = DateFormatter()
-        dataFormated.dateFormat = "dd/MM/yyyy"
+        dataFormated.dateFormat = "dd/MM/yy"
         let date = dataFormated.string(from: HeaderForHistory.currentDate!)
         data.setupLabel(labelText: "\(date)", labelType: .inputLabel, labelColor: .secondaryText)
         self.addSubview(data)
