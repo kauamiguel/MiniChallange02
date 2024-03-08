@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="23B74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BloodExam" representedClassName="BloodExam" syncable="YES" codeGenerationType="class">
         <attribute name="bloodType" optional="YES" attributeType="String"/>
         <attribute name="consultNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -76,7 +76,6 @@
         <relationship name="pacient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pacient" inverseName="personalBG" inverseEntity="Pacient"/>
     </entity>
     <entity name="PregnancyClassification" representedClassName="PregnancyClassification" syncable="YES" codeGenerationType="class">
-        <attribute name="ignored" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="singlePregnancy" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="tripletsOrMorePregnancy" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="twinPregnancy" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>

@@ -9,7 +9,6 @@ import Foundation
 
 
 struct PregnancyClassificationModel{
-    var ignored : Bool
     var singlePregnancy : Bool
     var tripletsOrMorePregnancy : Bool
     var twinPregnancy : Bool

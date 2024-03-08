@@ -17,13 +17,12 @@ class PregnancyTypeView: UIView {
     let section = [
         AppointmentsKeys.unica.rawValue.localized() :CheckBoxComponentGreenView(),
         AppointmentsKeys.gemelar.rawValue.localized() :CheckBoxComponentGreenView(),
-        AppointmentsKeys.triplaOuMais.rawValue.localized() :CheckBoxComponentGreenView(),
-        AppointmentsKeys.ignorada.rawValue.localized() :CheckBoxComponentGreenView()
+        AppointmentsKeys.triplaOuMais.rawValue.localized() :CheckBoxComponentGreenView()
     ]
 
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-    let pregnancyTypeViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.33)
+    let pregnancyTypeViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.25)
     
     
     let roudedBackGround: UIView = {
@@ -66,7 +65,6 @@ class PregnancyTypeView: UIView {
         
         
         
-        /* ----------------------------------------------------------risk------------------------------------------------------------- */
         self.addSubview(pregnancyTypeLabel)
         pregnancyTypeLabel.setupLabel(labelText: "Tipos de gravidez".localized(), labelType: .titleBold, labelColor: .secondaryColor)
         pregnancyTypeLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
@@ -76,10 +74,9 @@ class PregnancyTypeView: UIView {
         
         
         roudedBackGround.addSubview(contentBackGround)
-        contentBackGround.anchorWithConstantValues(top: pregnancyTypeLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9, height: screenSize.height * 0.28)
+        contentBackGround.anchorWithConstantValues(top: pregnancyTypeLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9, height: screenSize.height * 0.20)
         contentBackGround.centerX(inView: roudedBackGround)
-        
-        /* ----------------------------------------------------------Tipos de gravidez------------------------------------------------------------- */
+ 
         createSection(bg: contentBackGround, titles: section)
         
     }
