@@ -21,8 +21,6 @@ class AppointmentListCell: UITableViewCell {
         title.font = UIFont(name: "Signika-Regular", size: 24)
       
         
-        
-        
         return title
     }()
     
