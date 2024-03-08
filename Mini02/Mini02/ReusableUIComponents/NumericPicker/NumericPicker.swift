@@ -7,10 +7,12 @@
 
 import UIKit
 
-class NumericPicker: UIPickerView {
+class NumericPicker: UITextField {
     var numberOptions = [Int]()
     var selectedValue = 0
     var title: String?
+    
+    private var picker = UIPickerView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +25,7 @@ class NumericPicker: UIPickerView {
     func setPickerValue(to: Int) {
         guard let idx = numberOptions.firstIndex(where: { $0 == to}) else { return }
         selectedValue = numberOptions[idx]
-        selectRow(idx, inComponent: 0, animated: true)
+//        selectRow(idx, inComponent: 0, animated: true)
     }
     
     func setupNumericPicker(from: Int, to: Int, interval: Int = 1, startValue: Int? = nil) {
@@ -31,17 +33,22 @@ class NumericPicker: UIPickerView {
         tintColor = .white
         backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
         layer.cornerRadius = 8
-        delegate = self
-        dataSource = self
+        picker.delegate = self
+        picker.dataSource = self
+        let font = UIFont(name: "Signika-Regular", size: 18)
+        adjustsFontForContentSizeCategory = true
+        self.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: font ?? .preferredFont(forTextStyle: .headline))
+        textAlignment = .center
+        textColor = .white
+        inputView = picker
         if let startValue {
-            guard numberOptions.contains(startValue), let index = numberOptions.firstIndex(where: { $0 == startValue})
+            guard numberOptions.contains(startValue)
             else {
                 print("Invalid start number for picker: \(startValue)")
                 return
             }
 
             selectedValue = startValue
-            selectRow(index, inComponent: 0, animated: false)
         }
     }
     
@@ -66,23 +73,10 @@ class NumericPicker: UIPickerView {
 }
 
 extension NumericPicker: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        numberOptions.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        self.selectedValue = numberOptions[row]
-    }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        pickerView.subviews.forEach { $0.backgroundColor = .clear }
-        
         let label = UILabel()
-        let font = UIFont(name: "Signika-Regular", size: 18)
+        let font = UIFont(name: "Signika-Regular", size: 24)
         label.adjustsFontForContentSizeCategory = true
         label.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: font ?? .preferredFont(forTextStyle: .headline))
         label.textColor = .white
@@ -92,5 +86,19 @@ extension NumericPicker: UIPickerViewDelegate, UIPickerViewDataSource {
         label.text = String(numberOptions[row])
         label.textAlignment = .center
         return label
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return numberOptions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedValue = numberOptions[row]
+        text = "\(numberOptions[row])"
+        self.resignFirstResponder()
     }
 }
