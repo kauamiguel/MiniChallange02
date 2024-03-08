@@ -46,8 +46,7 @@ class HeaderCell: UICollectionReusableView {
         self.addSubview(data)
         let currentDate = Date()
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .none
+        formatter.dateFormat = "dd/MM/yy"
         let date = formatter.string(from: currentDate)
         data.setupLabel(labelText: "\(date)", labelType: .inputLabel, labelColor: .secondaryText)
         data.anchorWithConstantValues(top: editHStack.bottomAnchor, left: self.leadingAnchor, leftPadding: screenSize.width * 0.05)
