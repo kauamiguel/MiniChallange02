@@ -17,7 +17,6 @@ enum AppointmentsKeys: String {
     case unica = "Unica"
     case gemelar = "Gemelar"
     case triplaOuMais = "Tripla ou mais"
-    case ignorada = "Ignorada"
     case riscoHabitual = "Risco habitual"
     case altoRisco = "Alto Risco"
     case consomeAlcool = "Consome alcool"
