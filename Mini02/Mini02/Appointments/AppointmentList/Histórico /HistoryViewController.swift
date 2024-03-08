@@ -97,7 +97,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         cell.layer.zPosition = zPosition
         
         collectionView.addSubview(cell)
-        
+        cell.isUserInteractionEnabled = false
         cell.isEditModeActive = isEditModeActive
         
         return cell
