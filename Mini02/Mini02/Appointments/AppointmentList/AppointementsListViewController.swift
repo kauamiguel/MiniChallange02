@@ -92,6 +92,4 @@ class AppointementsListViewController: UIViewController,UITableViewDelegate, UIT
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
-
-    
 }

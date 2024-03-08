@@ -971,7 +971,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mini02/Mini02.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.3;
+				CURRENT_PROJECT_VERSION = 2.5;
 				DEVELOPMENT_TEAM = 6FXWX5Z987;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini02/Info.plist;
@@ -986,7 +986,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = Gabriel.Mini02;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1006,7 +1006,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mini02/Mini02.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.3;
+				CURRENT_PROJECT_VERSION = 2.5;
 				DEVELOPMENT_TEAM = 6FXWX5Z987;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini02/Info.plist;
@@ -1021,7 +1021,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = Gabriel.Mini02;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
