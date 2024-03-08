@@ -37,7 +37,7 @@ class HeaderCell: UICollectionReusableView {
     
     func setupview(){
         
-        label.setupLabel(labelText: "Consulta".localized(), labelType: .titleBold, labelColor: .secondaryColor)
+        label.setupLabel(labelText: "Consulta".localized(), labelType: .bigTitle, labelColor: .secondaryColor)
 
         self.addSubview(editHStack)
         editHStack.addArrangedSubview(label)

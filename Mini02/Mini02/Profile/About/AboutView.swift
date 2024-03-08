@@ -48,7 +48,7 @@ class AboutView: UIView {
     
     private lazy var teamLabel: UILabel = {
         let teamLabel = LabelComponentView()
-        teamLabel.setupLabel(labelText: "O time:".localized(), labelType: .highlitedBody, labelColor: .secondaryText)
+        teamLabel.setupLabel(labelText: "O time:".localized(), labelType: .inputLabel, labelColor: .secondaryText)
         return teamLabel
     }()
     

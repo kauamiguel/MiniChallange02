@@ -23,11 +23,11 @@ class HeaderForHistory: UICollectionReusableView {
     
     func setupview(){
         
-        label.setupLabel(labelText: "Consulta \(currentConsult ?? 2)", labelType: .titleBold, labelColor: .secondaryColor)
+        label.setupLabel(labelText: "\(currentConsult ?? 2)° Consulta", labelType: .bigTitle, labelColor: .secondaryColor)
         self.addSubview(label)
-        label.anchorWithMultiplayerValues(top: self.topAnchor, left: self.leadingAnchor, topPadding: screenSize.height * 0.003 ,leftPadding: screenSize.width * 0.005)
+        label.anchorWithMultiplayerValues(top: self.topAnchor, left: self.leadingAnchor, topPadding: screenSize.height * 0.0001 ,leftPadding: screenSize.width * 0.005)
         
-        data.setupLabel(labelText: "\("data")", labelType: .inputLabel, labelColor: .secondaryText)
+        data.setupLabel(labelText: "\("data")", labelType: .titleBold, labelColor: .secondaryText)
         self.addSubview(data)
     }
     

@@ -14,7 +14,7 @@ enum labelTypeEnum {
     case titleRegular
     case inputLabel
     case smallInputLabel
-    case highlitedBody
+    case bigTitle
     case description
 }
 
