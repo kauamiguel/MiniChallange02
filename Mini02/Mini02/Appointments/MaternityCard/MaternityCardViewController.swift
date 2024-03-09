@@ -297,6 +297,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         addNewView(views: views)
     }
     
+    @objc func addTextFiellViewCell(){
+        
+    }
+    
     
     func deleteButtonTapped(cell: MaternityCardCell) {
         if let indexPath = collectionView.indexPath(for: cell) {
