@@ -73,7 +73,7 @@ class PregnantDataView: UIView {
     
     private lazy var divider: UIView = {
        let view = UIView()
-        view.backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
+        view.backgroundColor = UIColor.lilLessDarkPink()
         return view
     }()
     
@@ -267,7 +267,7 @@ class PregnantDataView: UIView {
         vc.navigationController?.toolbar.standardAppearance = toolbarAppearance
         vc.navigationController?.toolbar.scrollEdgeAppearance = toolbarAppearance
         vc.navigationController?.toolbar.compactScrollEdgeAppearance = toolbarAppearance
-        vc.view.backgroundColor = UIColor(patternImage: UIImage(named: "backGroundTreemester")!)
+        vc.view.backgroundColor = UIColor(patternImage: UIImage(named: "backGroundRecurrentData")!)
 
     }
     
