@@ -82,7 +82,7 @@ class SecondOnboardingView: UIView {
         ])
         contentView.addSubview(illustration)
         illustration.centerX(inView: contentView)
-        illustration.anchorWithConstantValues( top: textLabel.bottomAnchor,  topPadding: 82, width: min(UIScreen.main.bounds.width * 0.9, 390), height: min(0.35 * UIScreen.main.bounds.height, 336) )
+        illustration.anchorWithConstantValues( top: textLabel.bottomAnchor,  topPadding: 82, width: min(UIScreen.main.bounds.width * 0.95, 390), height: min(0.35 * UIScreen.main.bounds.height, 336) )
         
         contentView.addSubview(nextButton)
         nextButton.centerX(inView: contentView)

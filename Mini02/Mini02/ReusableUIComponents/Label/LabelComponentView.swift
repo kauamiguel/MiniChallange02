@@ -42,7 +42,7 @@ class LabelComponentView: UILabel{
         case .secondaryColor:
             self.textColor = UIColor(red: 0.227, green: 0.651, blue: 0.725, alpha: 1)
         case .primaryText:
-            self.textColor = UIColor(red: 255/255, green: 133/255, blue: 148/255, alpha: 1)
+            self.textColor = UIColor(red: 125/255, green: 34/255, blue: 66/255, alpha: 1)
         case .secondaryText:
             self.textColor = UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1)
         case .notQuiteWhite:

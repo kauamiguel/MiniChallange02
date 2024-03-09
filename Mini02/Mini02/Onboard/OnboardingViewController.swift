@@ -42,7 +42,7 @@ class OnboardingPageViewController: UIPageViewController {
         self.view.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(pageControl)
         pageControl.isUserInteractionEnabled = false
-        self.pageControl.currentPageIndicatorTintColor = UIColor(red: 255/255, green: 133/255, blue: 148/255, alpha: 1)
+        self.pageControl.currentPageIndicatorTintColor = UIColor(red: 125/255, green: 34/255, blue: 66/255, alpha: 1)
         self.pageControl.pageIndicatorTintColor = UIColor(red: 255/255, green: 208/255, blue: 208/255, alpha: 1)
         self.pageControl.numberOfPages = self.pages.count
         self.pageControl.currentPage = initialPage
