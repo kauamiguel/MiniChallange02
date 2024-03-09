@@ -69,10 +69,10 @@ class ModalVC: UIViewController{
             "blood",
             "ultrasound",
             "vaccine",
-            "vaccine"
+            "note"
         ]
         
-        for i in 0..<btnArray.count - 1{
+        for i in 0..<btnArray.count{
             let btn = UIButton()
            
             //MODAL BUTTON CONFIG
@@ -115,7 +115,10 @@ class ModalVC: UIViewController{
                 btn.addTarget(collectionView, action: #selector(collectionView?.addNewUltrassonViewCell), for: .touchUpInside)
             case 2:
                 btn.addTarget(collectionView, action: #selector(collectionView?.addNewVaccineViewCell), for: .touchUpInside)
-           
+                
+           //MARK: EIRADO SUBSTITUIR O ACTION PELA NOVA FUNÇÃO DE ADICIONAR CELULA DE NOTAS
+            case 3:
+                btn.addTarget(collectionView, action: #selector(collectionView?.addNewVaccineViewCell), for: .touchUpInside)
             default:
                 print("Something broke")
             }
