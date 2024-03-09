@@ -28,7 +28,7 @@ public class FooterCell: UICollectionReusableView {
     let saveButton: UIButton = {
         let btn = UIButton()
         
-        btn.backgroundColor = UIColor(red: 0.23, green: 0.65, blue: 0.73, alpha: 1.00)
+        btn.backgroundColor = UIColor.darkPink()
         btn.layer.cornerRadius = 6
         
         var chevronImageView = UIImageView()
@@ -42,7 +42,7 @@ public class FooterCell: UICollectionReusableView {
         chevronImageView.centerY(inView: btn)
         
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Salvar consulta".localized(), labelType: .smallInputLabel, labelColor: .notQuiteWhite)
+        label.setupLabel(labelText: "Salvar consulta".localized(), labelType: .inputLabel, labelColor: .notQuiteWhite)
         label.maximumContentSizeCategory = .small
         btn.addSubview(label)
         label.anchorWithMultiplayerValues(left: chevronImageView.trailingAnchor, leftPadding: UIScreen.main.bounds.width * 0.002)
