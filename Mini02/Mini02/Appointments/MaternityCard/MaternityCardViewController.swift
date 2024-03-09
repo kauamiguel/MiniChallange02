@@ -379,8 +379,16 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
       
             //Planned pregnancy
             let pregnancyPlanned = plannedView.plannedCheckYES.getBooleanValue()
-            let planned = PregnancyPlanningModel(plannedPregnancy: pregnancyPlanned)
-            self.consult?.plannedPregnancy = planned
+            let pregnancyNotPlanned = plannedView.plannedCheckNO.getBooleanValue()
+            
+            if pregnancyPlanned{
+                let planned = PregnancyPlanningModel(plannedPregnancy: pregnancyPlanned)
+                self.consult?.plannedPregnancy = planned
+            }else{
+                let planned = PregnancyPlanningModel(plannedPregnancy: false)
+                self.consult?.plannedPregnancy = planned
+            }
+            
             
             
             //Add personal BG

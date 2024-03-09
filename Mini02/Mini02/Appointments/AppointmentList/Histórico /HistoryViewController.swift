@@ -213,9 +213,17 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             
             
             //Assign the values of plannedView
+            if let planned = appointmentsInfo.pregnancyPlanning?.plannedPregnancy{
+                if planned{
+                    plannedView.plannedCheckYES.checked = true
+                    plannedView.plannedCheckNO.checked = false
+                }else{
+                    plannedView.plannedCheckNO.checked = true
+                    plannedView.plannedCheckYES.checked = false
+                }
+            }
+           
             
-            //FIX : AJUSTAR O PREGNANCY PLANNED PARA APRECER NA UI
-            plannedView.plannedCheckYES.checked = appointmentsInfo.pregnancyPlanning?.plannedPregnancy ?? false
             
             
             //Assign values of clinicalAntecedents
