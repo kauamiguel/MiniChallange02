@@ -341,9 +341,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         if ApplicationSettings.shouldEnterFirstAppointment(){
             
             //Assign family BackGround
-            
-            // FIX : HYPERTESION, CARDIOPATIA E URINARIA NAO ESTAO RETORNANDO O VALOR CORRETOR
-            
             let hypertension = familyAntecedentView.sections[AppointmentsKeys.hipertensao.rawValue]?.getBooleanValue()
             let diabetes = familyAntecedentView.sections[AppointmentsKeys.diabetes.rawValue]?.getBooleanValue()
             let cardiopatia = familyAntecedentView.sections[AppointmentsKeys.cardiopatia.rawValue]?.getBooleanValue()
@@ -360,8 +357,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             
             //Assign pregnancy typeView
-            
-            // FIX : GEMELAR, TRIPLA E UNICA NAO ESTAO RETORNANDO O VALOR CORRETO
+    
             let gemelar = pregnancyTypeView.section[AppointmentsKeys.gemelar.rawValue]?.getBooleanValue()
             let tripla = pregnancyTypeView.section[AppointmentsKeys.triplaOuMais.rawValue]?.getBooleanValue()
             let unique = pregnancyTypeView.section[AppointmentsKeys.unica.rawValue]?.getBooleanValue()
@@ -373,9 +369,6 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             
             //Assign risk pregnancy
-            
-            //FIX : HABITUALRISK E HIGHRISK NAO ESTAO RETORNANDO O VALOR ESPERADO
-            
             let habitualRisk = pregnancyRiskView.section[AppointmentsKeys.riscoHabitual.rawValue]?.getBooleanValue()
             let highRisk = pregnancyRiskView.section[AppointmentsKeys.altoRisco.rawValue]?.getBooleanValue()
             
@@ -383,17 +376,14 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             self.consult?.riskPregnancy = riskPregnancy
             
-            
-            
-            //Planned pregnancy //Everthing correct here
+      
+            //Planned pregnancy
             let pregnancyPlanned = plannedView.plannedCheckYES.getBooleanValue()
             let planned = PregnancyPlanningModel(plannedPregnancy: pregnancyPlanned)
             self.consult?.plannedPregnancy = planned
             
             
             //Add personal BG
-            
-            //FIX : INFECTION, HYPERTENSION, SMOKE E CARDIAC NAO ESTAO RETORNANDO O VALOR
             let inffection = clinicAntecedentsView.sections[AppointmentsKeys.urinary.rawValue]?.getBooleanValue()
             let hypertensionBg = clinicAntecedentsView.sections[AppointmentsKeys.hipertensao.rawValue]?.getBooleanValue()
             let smokeBg = clinicAntecedentsView.sections[AppointmentsKeys.fuma.rawValue]?.getBooleanValue()

@@ -15,9 +15,9 @@ class PregnancyTypeView: UIView {
     let query = "gravidez"
     
     let section = [
-        AppointmentsKeys.unica.rawValue.localized() :CheckBoxComponentGreenView(),
-        AppointmentsKeys.gemelar.rawValue.localized() :CheckBoxComponentGreenView(),
-        AppointmentsKeys.triplaOuMais.rawValue.localized() :CheckBoxComponentGreenView()
+        AppointmentsKeys.unica.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.gemelar.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.triplaOuMais.rawValue :CheckBoxComponentGreenView()
     ]
 
     
