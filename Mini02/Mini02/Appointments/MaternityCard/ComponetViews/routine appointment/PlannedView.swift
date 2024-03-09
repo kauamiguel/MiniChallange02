@@ -90,7 +90,7 @@ class PlannedView: UIView {
         
         
         self.addSubview(plannedLabel)
-        plannedLabel.setupLabel(labelText: "Gravidez planejada".localized(), labelType: .titleBold, labelColor: .darkPink)
+        plannedLabel.setupLabel(labelText: "Gravidez planejada".localized(), labelType:  .titleRegular, labelColor: .darkPink)
         plannedLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor , leftPadding: 1.4)
         if UIDevice.current.userInterfaceIdiom == .phone {
             plannedLabel.maximumContentSizeCategory = .extraLarge

@@ -62,7 +62,7 @@ class ClinicAntecedentsView: UIView {
         
         
         self.addSubview(clinicAntecedentsLabel)
-        clinicAntecedentsLabel.setupLabel(labelText: "Antecedentes clínicos obstétricos".localized(), labelType: .titleBold, labelColor: .darkPink)
+        clinicAntecedentsLabel.setupLabel(labelText: "Antecedentes clínicos obstétricos".localized(), labelType:  .titleRegular, labelColor: .darkPink)
         clinicAntecedentsLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         if UIDevice.current.userInterfaceIdiom == .pad {
             clinicAntecedentsLabel.maximumContentSizeCategory = .accessibilityExtraLarge

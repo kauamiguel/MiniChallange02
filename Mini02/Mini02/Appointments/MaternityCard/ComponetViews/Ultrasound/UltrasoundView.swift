@@ -76,7 +76,7 @@ class UltrasoundView: UIView {
         
         
         self.addSubview(ultrasoundLabel)
-        ultrasoundLabel.setupLabel(labelText: "Ultra sonografia".localized(), labelType: .titleBold, labelColor: .darkPink)
+        ultrasoundLabel.setupLabel(labelText: "Ultra sonografia".localized(), labelType:  .titleRegular, labelColor: .darkPink)
         ultrasoundLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         if UIDevice.current.userInterfaceIdiom == .phone {
             ultrasoundLabel.maximumContentSizeCategory = .extraLarge
