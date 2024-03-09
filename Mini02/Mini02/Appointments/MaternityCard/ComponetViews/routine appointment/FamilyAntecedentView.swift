@@ -14,10 +14,10 @@ class FamilyAntecedentView: UIView {
     let query = "antecedente familiar"
    
     let sections = [
-        AppointmentsKeys.hipertensao.rawValue.localized() :CheckBoxComponentGreenView(),
-        AppointmentsKeys.diabetes.rawValue.localized() :CheckBoxComponentGreenView(),
-        AppointmentsKeys.cardiopatia.rawValue.localized() :CheckBoxComponentGreenView(),
-        AppointmentsKeys.outro.rawValue.localized() :CheckBoxComponentGreenView()
+        AppointmentsKeys.hipertensao.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.diabetes.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.cardiopatia.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.outro.rawValue :CheckBoxComponentGreenView()
     ]
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)

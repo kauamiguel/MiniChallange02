@@ -42,9 +42,11 @@ class CheckBoxComponentGreenView: UIButton {
 
     @objc func buttonFunc() {
         checked = !checked
+        
     }
 
     func getBooleanValue() -> Bool {
+        
         return checked
     }
     

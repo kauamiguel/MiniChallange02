@@ -27,8 +27,8 @@ class PregnancyRiskView: UIView {
     
     var section: [String: CheckBoxComponentGreenView] {
         return [
-            AppointmentsKeys.riscoHabitual.rawValue.localized() :riscoHabitualGreenCheckbox,
-            AppointmentsKeys.altoRisco.rawValue.localized() : altoRiscoHabitualGreenCheckbox
+            AppointmentsKeys.riscoHabitual.rawValue :riscoHabitualGreenCheckbox,
+            AppointmentsKeys.altoRisco.rawValue : altoRiscoHabitualGreenCheckbox
         ]
     }
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)

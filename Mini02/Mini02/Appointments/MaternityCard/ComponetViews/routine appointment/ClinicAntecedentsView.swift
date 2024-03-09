@@ -12,11 +12,11 @@ class ClinicAntecedentsView: UIView {
     static let id = "ClinicAntecedentsCell"
     let query = "antecedentes clinicos"
     let sections = [
-        AppointmentsKeys.diabetes.rawValue.localized() :CheckBoxComponentGreenView(),
-        AppointmentsKeys.fuma.rawValue.localized() :CheckBoxComponentGreenView(),
-        AppointmentsKeys.hipertensao.rawValue.localized() :CheckBoxComponentGreenView(),
-        AppointmentsKeys.cardiopatia.rawValue.localized() :CheckBoxComponentGreenView(),
-        AppointmentsKeys.urinary.rawValue.localized() :CheckBoxComponentGreenView()
+        AppointmentsKeys.diabetes.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.fuma.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.hipertensao.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.cardiopatia.rawValue :CheckBoxComponentGreenView(),
+        AppointmentsKeys.urinary.rawValue :CheckBoxComponentGreenView()
     ]
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let clinicAntecedentsViewSize = CGSize(width: trunc((UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04)), height: UIScreen.main.bounds.size.height * 0.38)
