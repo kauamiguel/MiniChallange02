@@ -118,7 +118,7 @@ class ModalVC: UIViewController{
                 
            //MARK: EIRADO SUBSTITUIR O ACTION PELA NOVA FUNÇÃO DE ADICIONAR CELULA DE NOTAS
             case 3:
-                btn.addTarget(collectionView, action: #selector(collectionView?.addNewVaccineViewCell), for: .touchUpInside)
+                btn.addTarget(collectionView, action: #selector(collectionView?.addTextViewCell), for: .touchUpInside)
             default:
                 print("Something broke")
             }

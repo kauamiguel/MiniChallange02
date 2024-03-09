@@ -23,6 +23,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     private lazy var h1N1View = H1N1View()
     private lazy var ultrasoundView = UltrasoundView()
     private lazy var maternityVM = MaternityCardViewModel()
+    private lazy var textView = TextView()
     var consultID : Int?
     
     //Variable to know wich treemester is, then we can track this consult after
@@ -297,8 +298,12 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         addNewView(views: views)
     }
     
-    @objc func addTextFiellViewCell(){
+    @objc func addTextViewCell(){
+        let views: [CellInfo] = [
+            CellInfo(view: textView, size: textView.viewSize, id: TextView.id, query: textView.query),
+        ]
         
+        addNewView(views: views)
     }
     
     
