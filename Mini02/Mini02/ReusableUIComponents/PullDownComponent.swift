@@ -19,6 +19,7 @@ class PullDownComponent: UIButton {
 
     func setupButton(options: [String]) {
         self.backgroundColor = UIColor.lightPink()
+        self.setTitleColor(UIColor.darkPink(), for: .normal)
         self.showsMenuAsPrimaryAction = true
         self.layer.cornerRadius = 6
         self.titleLabel?.font = UIFont(name: "Signika-Regular", size: 16)
