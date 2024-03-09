@@ -7,6 +7,7 @@ class TextView: UIView, UITextViewDelegate{
     
     private let placeholderText = "Digite suas notas aqui"
     private var isPlaceholderShown = true
+    private var typedText: String?
     
     private let textView: UITextView = {
         let textView = UITextView()
@@ -42,7 +43,10 @@ class TextView: UIView, UITextViewDelegate{
         
         self.backgroundColor = .white
         textView.delegate = self
-        textView.text = placeholderText
+        if typedText != nil {
+            isPlaceholderShown = false
+        }
+        textView.text = typedText ?? placeholderText
         textView.textColor = .lightGray
         setupUI()
     }
@@ -74,6 +78,13 @@ class TextView: UIView, UITextViewDelegate{
             textView.textColor = .lightGray
             isPlaceholderShown = true
         }
+    }
+    func textViewDidChange(_ textView: UITextView) {
+        typedText = textView.text // Update typedText property when text changes
+    }
+    
+    func getTypedText() -> String? {
+        return typedText // Function to return the typed text
     }
     
     required init?(coder: NSCoder) {
