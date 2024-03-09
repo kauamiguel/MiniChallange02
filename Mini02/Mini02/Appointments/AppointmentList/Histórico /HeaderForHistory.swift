@@ -26,14 +26,14 @@ class HeaderForHistory: UICollectionReusableView {
         
         label.setupLabel(labelText: "\(HeaderForHistory.currentConsult ?? 2)° Consulta", labelType: .bigTitle, labelColor: .secondaryColor)
         self.addSubview(label)
-        label.anchorWithMultiplayerValues(top: self.topAnchor, left: self.leadingAnchor, topPadding: screenSize.height * 0.003 ,leftPadding: screenSize.width * 0.005)
+        label.anchorWithMultiplayerValues(top: self.topAnchor, left: self.leadingAnchor, topPadding: screenSize.height * 0.002 ,leftPadding: screenSize.width * 0.005)
   
         let dataFormated = DateFormatter()
         dataFormated.dateFormat = "dd/MM/yy"
         let date = dataFormated.string(from: HeaderForHistory.currentDate!)
         data.setupLabel(labelText: "\(date)", labelType: .inputLabel, labelColor: .secondaryText)
         self.addSubview(data)
-        data.anchorWithMultiplayerValues(top: label.bottomAnchor, left: self.leadingAnchor, topPadding: screenSize.height * 0.001, leftPadding: screenSize.width * 0.005)
+        data.anchorWithMultiplayerValues(top: label.bottomAnchor, left: self.leadingAnchor, leftPadding: screenSize.width * 0.005)
     }
     
     required init?(coder: NSCoder) {

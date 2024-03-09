@@ -18,13 +18,6 @@ class HeaderCell: UICollectionReusableView {
     let label = LabelComponentView()
     let data = LabelComponentView()
     
-    lazy var editHStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 5
-        return stackView
-    }()
-    
     override init(frame: CGRect){
         super.init(frame: frame)
           
@@ -38,19 +31,16 @@ class HeaderCell: UICollectionReusableView {
     func setupview(){
         
         label.setupLabel(labelText: "Consulta".localized(), labelType: .bigTitle, labelColor: .secondaryColor)
-
-        self.addSubview(editHStack)
-        editHStack.addArrangedSubview(label)
-
-        editHStack.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor, right: self.trailingAnchor, topPadding: screenSize.height * 0.03 ,leftPadding: screenSize.width * 0.05, rightPadding: -screenSize.width * 0.05)
+        self.addSubview(label)
+        label.anchorWithMultiplayerValues(top: self.topAnchor, left: self.leadingAnchor, topPadding: screenSize.height * 0.002 ,leftPadding: screenSize.width * 0.005)
+        
         self.addSubview(data)
         let currentDate = Date()
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .none
+        formatter.dateFormat = "dd/MM/yy"
         let date = formatter.string(from: currentDate)
         data.setupLabel(labelText: "\(date)", labelType: .inputLabel, labelColor: .secondaryText)
-        data.anchorWithConstantValues(top: editHStack.bottomAnchor, left: self.leadingAnchor, leftPadding: screenSize.width * 0.05)
+        data.anchorWithConstantValues(top: label.bottomAnchor, left: self.leadingAnchor, leftPadding: screenSize.width * 0.05)
         
         
     }
