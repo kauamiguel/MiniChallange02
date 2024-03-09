@@ -30,7 +30,7 @@ class HeaderCell: UICollectionReusableView {
     
     func setupview(){
         
-        label.setupLabel(labelText: "Consulta".localized(), labelType: .bigTitle, labelColor: .darkPink)
+        label.setupLabel(labelText: "Sua consulta".localized(), labelType: .bigTitle, labelColor: .darkPink)
         self.addSubview(label)
         label.anchorWithMultiplayerValues(top: self.topAnchor, left: self.leadingAnchor, topPadding: screenSize.height * 0.002 ,leftPadding: screenSize.width * 0.005)
         

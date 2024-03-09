@@ -30,7 +30,7 @@ class RecurrentDataView: UIView {
         }
         
         //Setup titleConfig
-        pageTitle.setupLabel(labelText: "Dados Recorrentes", labelType: .titleBold, labelColor: .secondaryColor)
+        pageTitle.setupLabel(labelText: "Dados Recorrentes", labelType: .titleBold, labelColor: .darkPink)
         
         vc.view.addSubview(pageTitle)
         vc.view.addSubview(searchBar)
