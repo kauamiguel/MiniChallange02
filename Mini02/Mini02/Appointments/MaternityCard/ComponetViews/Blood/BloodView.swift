@@ -84,7 +84,7 @@ class BloodView: UIView{
         
         
         self.addSubview(bloodExamLabel)
-        bloodExamLabel.setupLabel(labelText: "Exame de sangue".localized(), labelType: .titleBold, labelColor: .darkPink)
+        bloodExamLabel.setupLabel(labelText: "Exame de sangue".localized(), labelType: .titleRegular, labelColor: .darkPink)
         bloodExamLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         if UIDevice.current.userInterfaceIdiom == .phone {
             bloodExamLabel.maximumContentSizeCategory = .extraLarge

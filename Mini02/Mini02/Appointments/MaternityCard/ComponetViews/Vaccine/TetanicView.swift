@@ -88,7 +88,7 @@ class TetanicView: UIView{
         
         
         self.addSubview(tetanicLabel)
-        tetanicLabel.setupLabel(labelText: "Vacinas".localized(), labelType: .titleBold, labelColor: .darkPink)
+        tetanicLabel.setupLabel(labelText: "Vacinas".localized(), labelType:  .titleRegular, labelColor: .darkPink)
         tetanicLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         if UIDevice.current.userInterfaceIdiom == .phone {
             tetanicLabel.maximumContentSizeCategory = .extraLarge

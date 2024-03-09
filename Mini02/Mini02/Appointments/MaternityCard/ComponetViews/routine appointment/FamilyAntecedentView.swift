@@ -61,7 +61,7 @@ class FamilyAntecedentView: UIView {
         self.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor,right: roudedBackGround.trailingAnchor,bottom: roudedBackGround.bottomAnchor)
         
         self.addSubview(antecedentesLabel)
-        antecedentesLabel.setupLabel(labelText: "Antecedentes Familiares".localized(), labelType: .titleBold, labelColor: .darkPink)
+        antecedentesLabel.setupLabel(labelText: "Antecedentes Familiares".localized(), labelType:  .titleRegular, labelColor: .darkPink)
         antecedentesLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         if UIDevice.current.userInterfaceIdiom == .phone {
             antecedentesLabel.maximumContentSizeCategory = .extraLarge
