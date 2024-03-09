@@ -16,7 +16,7 @@ class AppointmentListCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let title = LabelComponentView()
         
-        title.textColor = UIColor.lilLessDarkPink()
+        title.textColor = UIColor.darkPink()
         title.textAlignment = .left
         title.font = UIFont(name: "Signika-Regular", size: 24)
       
