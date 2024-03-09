@@ -32,10 +32,10 @@ class ClinicAntecedentsView: UIView {
     let contentBackGround: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 25
-        view.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.96, alpha: 1.00)
+        view.backgroundColor = UIColor.notQuiteWhite()
         
         view.layer.borderWidth = SeparatorWidth.extern.value // Adjust the width as needed
-        view.layer.borderColor = UIColor(red: 0.49, green: 0.74, blue: 0.50, alpha: 1.00).cgColor // Change color as needed
+        view.layer.borderColor = UIColor.darkPink().cgColor // Change color as needed
         
         return view
     }()
@@ -62,7 +62,7 @@ class ClinicAntecedentsView: UIView {
         
         
         self.addSubview(clinicAntecedentsLabel)
-        clinicAntecedentsLabel.setupLabel(labelText: "Antecedentes clínicos obstétricos".localized(), labelType: .titleBold, labelColor: .secondaryColor)
+        clinicAntecedentsLabel.setupLabel(labelText: "Antecedentes clínicos obstétricos".localized(), labelType: .titleBold, labelColor: .darkPink)
         clinicAntecedentsLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         if UIDevice.current.userInterfaceIdiom == .pad {
             clinicAntecedentsLabel.maximumContentSizeCategory = .accessibilityExtraLarge

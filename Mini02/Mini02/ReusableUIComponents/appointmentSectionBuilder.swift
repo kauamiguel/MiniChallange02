@@ -33,7 +33,7 @@ extension UIView{
             //FIRST ELEMENT CASE
             if i == 0{
                 let separator = CustomSeparatorView()
-                separator.backgroundColor = UIColor(red: 0.49, green: 0.74, blue: 0.50, alpha: 1.00)
+                separator.backgroundColor = UIColor.lilLessDarkPink()
                 stack.anchorWithMultiplayerValues(
                     top: bg.topAnchor,
                     topPadding:screen.height * 0.0022,
@@ -65,7 +65,7 @@ extension UIView{
             //NOT THE FIRTS NOT THE LAST CASE
             else{
                 let separator = CustomSeparatorView()
-                separator.backgroundColor = UIColor(red: 0.49, green: 0.74, blue: 0.50, alpha: 1.00)
+                separator.backgroundColor = UIColor.lilLessDarkPink()
                 stack.anchorWithMultiplayerValues(
                     top: currentSep.bottomAnchor,
                     topPadding: screen.height * 0.0022,

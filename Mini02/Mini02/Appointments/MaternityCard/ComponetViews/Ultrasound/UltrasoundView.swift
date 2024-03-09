@@ -25,10 +25,10 @@ class UltrasoundView: UIView {
     let contentBackGround: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 25
-        view.backgroundColor = UIColor(red: 1.00, green: 0.95, blue: 0.98, alpha: 1.00)
+        view.backgroundColor = UIColor.notQuiteWhite()
         
         view.layer.borderWidth = SeparatorWidth.extern.value // Adjust the width as needed
-        view.layer.borderColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00).cgColor // Change color as needed
+        view.layer.borderColor = UIColor.darkPink().cgColor // Change color as needed
         
         return view
     }()
@@ -76,7 +76,7 @@ class UltrasoundView: UIView {
         
         
         self.addSubview(ultrasoundLabel)
-        ultrasoundLabel.setupLabel(labelText: "Ultra sonografia".localized(), labelType: .titleBold, labelColor: .secondaryColor)
+        ultrasoundLabel.setupLabel(labelText: "Ultra sonografia".localized(), labelType: .titleBold, labelColor: .darkPink)
         ultrasoundLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         if UIDevice.current.userInterfaceIdiom == .phone {
             ultrasoundLabel.maximumContentSizeCategory = .extraLarge
@@ -89,10 +89,10 @@ class UltrasoundView: UIView {
         contentBackGround.addSubview(separator)
         separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: screenSize.height * 0.080, bottomPadding: -15, width: SeparatorWidth.internVertical.value)
         separator.centerX(inView: contentBackGround)
-        separator.backgroundColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00)
+        separator.backgroundColor = UIColor.lilLessDarkPink()
         
         contentBackGround.addSubview(ultrasoundSubLabel)
-        ultrasoundSubLabel.setupLabel(labelText: "Exame mais recente".localized(), labelType: .inputLabel, labelColor: .secondaryText)
+        ultrasoundSubLabel.setupLabel(labelText: "Exame mais recente".localized(), labelType: .inputLabel, labelColor: .lilLessDarkPink)
         ultrasoundSubLabel.anchorWithMultiplayerValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor ,topPadding: screenSize.height * 0.0023 ,leftPadding: screenSize.width * 0.005)
         if UIDevice.current.userInterfaceIdiom == .phone {
             ultrasoundSubLabel.maximumContentSizeCategory = .extraLarge
@@ -100,8 +100,8 @@ class UltrasoundView: UIView {
         
 
         datePickerPlusLabel(label: dataLabel, date: dataMenu, contentBackGround: contentBackGround, topAnchor: ultrasoundSubLabel, leftAnchor: contentBackGround, labelText: "Data".localized(), topPadding: screenSize.height * 0.0042, leftPadding: screenSize.width * 0.005, screenSize: screenSize, heightMultiplier: 0.052)
-        dataMenu.backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
-        dataMenu.tintColor = UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1)
+        dataMenu.backgroundColor = UIColor.lightPink()
+        dataMenu.tintColor = UIColor.lightPink()
         
         numericPickerPlusLabel(label: pesoLabel, menu: pesoMenu, menuMinimum: 50, menuMaximum: 180, menuInterval: 5, contentBackGround: contentBackGround, topAnchor: dataMenu, leftAnchor: contentBackGround, labelText: "Peso".localized(), topPadding: screenSize.height * 0.009, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         

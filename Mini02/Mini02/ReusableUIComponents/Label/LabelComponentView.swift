@@ -31,8 +31,8 @@ class LabelComponentView: UILabel{
         switch labelColor {
         case .black:
             self.textColor = .black
-        case .grey1:
-            self.textColor = .gray
+        case .lilLessDarkPink:
+            self.textColor = UIColor.lilLessDarkPink()
         case .wierdGray:
             self.textColor =  UIColor.wierdGray()
         case .darkPink:

@@ -25,10 +25,10 @@ class BloodView: UIView{
     let contentBackGround: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 25
-        view.backgroundColor = UIColor(red: 1.00, green: 0.97, blue: 0.97, alpha: 1.00)
+        view.backgroundColor = UIColor.notQuiteWhite()
         
         view.layer.borderWidth = SeparatorWidth.extern.value // Adjust the width as needed
-        view.layer.borderColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00).cgColor // Change color as needed
+        view.layer.borderColor = UIColor.darkPink().cgColor // Change color as needed
         
         return view
     }()
@@ -84,7 +84,7 @@ class BloodView: UIView{
         
         
         self.addSubview(bloodExamLabel)
-        bloodExamLabel.setupLabel(labelText: "Exame de sangue".localized(), labelType: .titleBold, labelColor: .secondaryColor)
+        bloodExamLabel.setupLabel(labelText: "Exame de sangue".localized(), labelType: .titleBold, labelColor: .darkPink)
         bloodExamLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         if UIDevice.current.userInterfaceIdiom == .phone {
             bloodExamLabel.maximumContentSizeCategory = .extraLarge
@@ -97,7 +97,7 @@ class BloodView: UIView{
         contentBackGround.addSubview(separator)
         separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: 15, bottomPadding: -15, width: SeparatorWidth.internVertical.value)
         separator.centerX(inView: contentBackGround)
-        separator.backgroundColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00)
+        separator.backgroundColor = UIColor.darkPink()
         
         
      

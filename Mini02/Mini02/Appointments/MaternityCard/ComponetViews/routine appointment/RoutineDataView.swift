@@ -26,10 +26,10 @@ class RoutineDataView: UIView {
     let contentBackGround: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 25
-        view.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.96, alpha: 1.00)
+        view.backgroundColor = UIColor.notQuiteWhite()
         
         view.layer.borderWidth = 2 // Adjust the width as needed
-        view.layer.borderColor = UIColor(red: 0.49, green: 0.74, blue: 0.50, alpha: 1.00).cgColor // Change color as needed
+        view.layer.borderColor = UIColor.darkPink().cgColor // Change color as needed
         
         return view
     }()
@@ -80,7 +80,7 @@ class RoutineDataView: UIView {
         self.anchorWithConstantValues(top: roudedBackGround.topAnchor, left: roudedBackGround.leadingAnchor,right: roudedBackGround.trailingAnchor,bottom: roudedBackGround.bottomAnchor)
         
         self.addSubview(routineLabel)
-        routineLabel.setupLabel(labelText: "Dados de rotina".localized(), labelType: .titleBold, labelColor: .secondaryColor)
+        routineLabel.setupLabel(labelText: "Dados de rotina".localized(), labelType: .titleBold, labelColor: .darkPink)
         routineLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         if UIDevice.current.userInterfaceIdiom == .phone {
             routineLabel.maximumContentSizeCategory = .extraLarge
@@ -93,7 +93,7 @@ class RoutineDataView: UIView {
         contentBackGround.addSubview(separator)
         separator.anchorWithConstantValues(top: contentBackGround.topAnchor, bottom: contentBackGround.bottomAnchor,topPadding: 15, bottomPadding: -15, width: SeparatorWidth.internVertical.value)
         separator.centerX(inView: contentBackGround)
-        separator.backgroundColor = UIColor(red: 0.49, green: 0.74, blue: 0.50, alpha: 1.00)
+        separator.backgroundColor = UIColor.lilLessDarkPink()
        
         numericPickerPlusLabel(label: igLabel, menu: igMenu, menuMinimum: 0, menuMaximum: 42, menuInterval: 1, contentBackGround: contentBackGround, topAnchor: contentBackGround, leftAnchor: contentBackGround, labelText: "IG DUM/USG", topPadding: screenSize.height * 0.0023, leftPadding: screenSize.width * 0.005, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         

@@ -30,8 +30,8 @@ class NumericPicker: UITextField {
     
     func setupNumericPicker(from: Int, to: Int, interval: Int = 1, startValue: Int? = nil) {
         numberOptions = generateNumbersBetween(from, to, interval)
-        tintColor = .white
-        backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
+        tintColor = UIColor.darkPink()
+        backgroundColor = UIColor.lightPink()
         layer.cornerRadius = 8
         picker.delegate = self
         picker.dataSource = self
@@ -39,8 +39,9 @@ class NumericPicker: UITextField {
         adjustsFontForContentSizeCategory = true
         self.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: font ?? .preferredFont(forTextStyle: .headline))
         textAlignment = .center
-        textColor = .white
+        textColor = UIColor.darkPink()
         inputView = picker
+        picker.backgroundColor = UIColor.lightPink().withAlphaComponent(0.9)
         if let startValue {
             guard numberOptions.contains(startValue)
             else {
@@ -79,7 +80,7 @@ extension NumericPicker: UIPickerViewDelegate, UIPickerViewDataSource {
         let font = UIFont(name: "Signika-Regular", size: 24)
         label.adjustsFontForContentSizeCategory = true
         label.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: font ?? .preferredFont(forTextStyle: .headline))
-        label.textColor = .white
+        label.textColor = UIColor.darkPink()
         if UIDevice.current.userInterfaceIdiom == .phone {
             label.maximumContentSizeCategory = .extraExtraExtraLarge
         }

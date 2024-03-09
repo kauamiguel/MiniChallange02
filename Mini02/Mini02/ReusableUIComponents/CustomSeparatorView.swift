@@ -26,7 +26,7 @@ class CustomSeparatorView: UIView {
 
     init() {
         super.init(frame: .zero)
-        self.backgroundColor = UIColor(red: 0.70, green: 0.82, blue: 0.84, alpha: 1.00)
+        self.backgroundColor = UIColor.lilLessDarkPink()
     }
     
     required init?(coder aDecoder: NSCoder) {

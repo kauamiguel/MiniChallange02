@@ -34,10 +34,10 @@ class CurrentGestationView: UIView {
     let contentBackGround: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 25
-        view.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.96, alpha: 1.00)
+        view.backgroundColor = UIColor.notQuiteWhite()
         
         view.layer.borderWidth = SeparatorWidth.extern.value // Adjust the width as needed
-        view.layer.borderColor = UIColor(red: 0.49, green: 0.74, blue: 0.50, alpha: 1.00).cgColor // Change color as needed
+        view.layer.borderColor = UIColor.darkPink().cgColor // Change color as needed
         
         return view
     }()
@@ -67,7 +67,7 @@ class CurrentGestationView: UIView {
         
         
         self.addSubview(currentGestationLabel)
-        currentGestationLabel.setupLabel(labelText: "Gestação atual".localized(), labelType: .titleBold, labelColor: .secondaryColor)
+        currentGestationLabel.setupLabel(labelText: "Gestação atual".localized(), labelType: .titleBold, labelColor: .darkPink)
         currentGestationLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         
         roudedBackGround.addSubview(contentBackGround)

@@ -20,7 +20,7 @@ class RoundedTextField: UITextField {
     }
 
     private func setupUI() {
-        backgroundColor = UIColor(red: 255/255, green: 208/255, blue: 208/255, alpha: 1)
+        backgroundColor = UIColor.lightPink()
         layer.cornerRadius = 10.0
         clipsToBounds = true
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 0.051*UIScreen.main.bounds.width, height: frame.height))
@@ -28,7 +28,7 @@ class RoundedTextField: UITextField {
         leftViewMode = .always
         rightView = paddingView
         rightViewMode = .always
-        textColor = .white
+        textColor = UIColor.darkPink()
         adjustsFontForContentSizeCategory = true
         let customFont = UIFont(name: "Signika-Regular", size: 18)
         font = UIFontMetrics(forTextStyle: .title3).scaledFont(for: customFont ?? .preferredFont(forTextStyle: .title3))

@@ -20,7 +20,7 @@ enum labelTypeEnum {
 
 enum colorStyle {
     case black
-    case grey1
+    case lilLessDarkPink
     case wierdGray
     case darkPink
     case white

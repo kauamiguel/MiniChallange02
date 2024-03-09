@@ -14,12 +14,12 @@ extension UIView {
         
         menu.setupButton(options: options)
         if alternateBackground {
-            menu.backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
-            menu.subviews.compactMap({ $0 as? UIImageView }).forEach( {$0.tintColor = UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1.00)})
+            menu.backgroundColor = UIColor.lightPink()
+            menu.subviews.compactMap({ $0 as? UIImageView }).forEach( {$0.tintColor = UIColor.darkPink()})
         }
 
         contentBackGround.addSubview(label)
-        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
+        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .darkPink)
         contentBackGround.addSubview(menu)
        
         label.anchorWithMultiplayerValues(top: topAnchor.topAnchor, left: leftAnchor.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
@@ -34,7 +34,7 @@ extension UIView {
         menu.setupNumericPicker(from: menuMinimum, to: menuMaximum, interval: menuInterval, startValue: menuDefaultValue)
 
         contentBackGround.addSubview(label)
-        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
+        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .darkPink)
         label.maximumContentSizeCategory = .extraLarge
         label.preferredMaxLayoutWidth = UIScreen.main.bounds.width * 0.96
         label.numberOfLines = 2
@@ -49,7 +49,7 @@ extension UIView {
         menu.setupNumericPicker(from: menuMinimum, to: menuMaximum, interval: menuInterval, startValue: menuDefaultValue)
 
         contentBackGround.addSubview(label)
-        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
+        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .darkPink)
         label.maximumContentSizeCategory = .extraLarge
         label.preferredMaxLayoutWidth = UIScreen.main.bounds.width * 0.96
         label.numberOfLines = 2
@@ -64,7 +64,7 @@ extension UIView {
         field.layer.cornerRadius = 8
         field.placeholder = placeholder
         if alternateBackground {
-            field.backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
+            field.backgroundColor = UIColor.lightPink()
             if let placeholder {
                 let whiteWithOpacity = UIColor(white: 1, alpha: 0.45)
                 field.attributedPlaceholder = NSAttributedString(
@@ -75,7 +75,7 @@ extension UIView {
         }
 
         contentBackGround.addSubview(label)
-        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
+        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .darkPink)
         label.maximumContentSizeCategory = .extraLarge
         label.preferredMaxLayoutWidth = UIScreen.main.bounds.width * 0.96
         label.numberOfLines = 2
@@ -89,7 +89,7 @@ extension UIView {
         date.setupDatePicker(defaultDate: defaultDate ?? Date(),round: 8)
 
         contentBackGround.addSubview(label)
-        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
+        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .darkPink)
         label.maximumContentSizeCategory = .extraLarge
         label.preferredMaxLayoutWidth = UIScreen.main.bounds.width * 0.96
         label.numberOfLines = 2
@@ -103,12 +103,12 @@ extension UIView {
         
         menu.setupButton(options: options)
         if alternateBackground {
-            menu.backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
-            menu.subviews.compactMap({ $0 as? UIImageView }).forEach( {$0.tintColor = UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1.00)})
+            menu.backgroundColor = UIColor.lightPink()
+            menu.subviews.compactMap({ $0 as? UIImageView }).forEach( {$0.tintColor = UIColor.darkPink()})
         }
 
         contentBackGround.addSubview(label)
-        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
+        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .darkPink)
         label.maximumContentSizeCategory = .extraLarge
         label.preferredMaxLayoutWidth = UIScreen.main.bounds.width * 0.96
         label.numberOfLines = 2
@@ -124,7 +124,7 @@ extension UIView {
         menu.setupButton(options: options)
 
         contentBackGround.addSubview(label)
-        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .secondaryColor)
+        label.setupLabel(labelText: labelText, labelType: .inputLabel, labelColor: .darkPink)
         label.maximumContentSizeCategory = .extraLarge
         label.preferredMaxLayoutWidth = UIScreen.main.bounds.width * 0.96
         label.numberOfLines = 2

@@ -26,10 +26,10 @@ class HepatitisBView: UIView{
     let contentBackGround: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 25
-        view.backgroundColor = UIColor(red: 0.95, green: 0.98, blue: 1.00, alpha: 1.00)
+        view.backgroundColor = UIColor.notQuiteWhite()
         
         view.layer.borderWidth = SeparatorWidth.extern.value // Adjust the width as needed
-        view.layer.borderColor = UIColor(red: 0.32, green: 0.67, blue: 0.86, alpha: 1.00).cgColor // Change color as needed
+        view.layer.borderColor = UIColor.darkPink().cgColor // Change color as needed
         
         return view
     }()
@@ -90,7 +90,7 @@ class HepatitisBView: UIView{
         contentBackGround.centerX(inView: roudedBackGround)
         
         contentBackGround.addSubview(hepatitisBsubTitleLabel)
-        hepatitisBsubTitleLabel.setupLabel(labelText: "Hepatite B  AntiHBS".localized(), labelType: .titleRegular, labelColor: .secondaryText)
+        hepatitisBsubTitleLabel.setupLabel(labelText: "Hepatite B  AntiHBS".localized(), labelType: .titleRegular, labelColor: .darkPink)
         hepatitisBsubTitleLabel.anchorWithConstantValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor,topPadding: 15, leftPadding: 15)
         
         invertConfigureLabelAndGreenCheckBox(stack: hepatitisBYesSubHStackYES, label: hepatitisBYesLabel, checkBox: hepatitisBYesCheckYES, labelText: "+ (Positivo) Imune".localized())
@@ -102,14 +102,6 @@ class HepatitisBView: UIView{
         
         roudedBackGround.addSubview(hepatitisBNoSubHStackNO)
         hepatitisBNoSubHStackNO.anchorWithConstantValues(top: hepatitisBYesSubHStackYES.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 10, leftPadding: 15)
-        
-//        igDropDown.setupButton()
-//        igDropDown.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd" , "fffffff"]
-    
-//        contentBackGround.addSubview(igDropDown)
-//        igDropDown.anchorWithConstantValues(top: contentBackGround.topAnchor ,width: screenSize.width * 0.35, height: screenSize.height * 0.035)
-        
-        
         
     }
     

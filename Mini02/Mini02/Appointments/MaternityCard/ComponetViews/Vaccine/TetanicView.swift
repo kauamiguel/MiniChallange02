@@ -26,10 +26,10 @@ class TetanicView: UIView{
     let contentBackGround: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 25
-        view.backgroundColor = UIColor(red: 0.95, green: 0.98, blue: 1.00, alpha: 1.00)
+        view.backgroundColor = UIColor.notQuiteWhite()
         
         view.layer.borderWidth = SeparatorWidth.extern.value // Adjust the width as needed
-        view.layer.borderColor = UIColor(red: 0.32, green: 0.67, blue: 0.86, alpha: 1.00).cgColor // Change color as needed
+        view.layer.borderColor = UIColor.darkPink().cgColor // Change color as needed
         
         return view
     }()
@@ -88,7 +88,7 @@ class TetanicView: UIView{
         
         
         self.addSubview(tetanicLabel)
-        tetanicLabel.setupLabel(labelText: "Vacinas".localized(), labelType: .titleBold, labelColor: .secondaryColor)
+        tetanicLabel.setupLabel(labelText: "Vacinas".localized(), labelType: .titleBold, labelColor: .darkPink)
         tetanicLabel.anchorWithMultiplayerValues(top: self.topAnchor, left: roudedBackGround.leadingAnchor, leftPadding: 1.4)
         if UIDevice.current.userInterfaceIdiom == .phone {
             tetanicLabel.maximumContentSizeCategory = .extraLarge
@@ -99,7 +99,7 @@ class TetanicView: UIView{
         contentBackGround.centerX(inView: roudedBackGround)
         
         contentBackGround.addSubview(subTitleLabel)
-        subTitleLabel.setupLabel(labelText: "Anti-tetânica/ dTpa".localized(), labelType: .titleRegular, labelColor: .secondaryText)
+        subTitleLabel.setupLabel(labelText: "Anti-tetânica/ dTpa".localized(), labelType: .titleRegular, labelColor: .darkPink)
         subTitleLabel.anchorWithConstantValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor,topPadding: 15, leftPadding: 15)
         
         invertConfigureLabelAndGreenCheckBox(stack: yesSubHStackYES, label: yesLabel, checkBox: yesCheckYES, labelText: "sim, reforço 20 semanas: ".localized())
@@ -112,11 +112,6 @@ class TetanicView: UIView{
         
         roudedBackGround.addSubview(noSubHStackNO)
         noSubHStackNO.anchorWithConstantValues(top: yesSubHStackYES.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 10, leftPadding: 15)
-//        igDropDown.setupButton()
-//        igDropDown.tableBarView.setupDropDownOptions = ["aaaa", "bbbbb", "ccccc", "ddddd" , "fffffff"]
-
-//        contentBackGround.addSubview(igDropDown)
-//        igDropDown.anchorWithConstantValues(top: contentBackGround.topAnchor ,width: screenSize.width * 0.35, height: screenSize.height * 0.035)
         
         
         

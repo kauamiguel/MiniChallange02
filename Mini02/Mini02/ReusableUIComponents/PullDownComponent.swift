@@ -18,7 +18,7 @@ class PullDownComponent: UIButton {
     }
 
     func setupButton(options: [String]) {
-        self.backgroundColor = UIColor(red: 255/255, green: 208/255, blue: 208/255, alpha: 1)
+        self.backgroundColor = UIColor.lightPink()
         self.showsMenuAsPrimaryAction = true
         self.layer.cornerRadius = 6
         self.titleLabel?.font = UIFont(name: "Signika-Regular", size: 16)
@@ -40,7 +40,7 @@ class PullDownComponent: UIButton {
         
         let chevronImage = UIImage(systemName: "chevron.up.chevron.down")
         chevronImageView = UIImageView(image: chevronImage)
-        chevronImageView.tintColor = UIColor(red: 255/255, green: 113/255, blue: 148/255, alpha: 1.00)
+        chevronImageView.tintColor = UIColor.darkPink()
    
         self.addSubview(chevronImageView)
         chevronImageView.anchorWithConstantValues(right: self.trailingAnchor, rightPadding: -UIScreen.main.bounds.width * 0.03)
@@ -50,7 +50,7 @@ class PullDownComponent: UIButton {
     
     func handleActionSelected(title: String) {
         self.setTitle(title, for: .normal)
-        self.setTitleColor(.white, for: .normal)
+        self.setTitleColor(.darkPink(), for: .normal)
         self.titleLabel?.font = UIFont(name: "Signika-Regular", size: 16)
         self.selectedOption = title
     }

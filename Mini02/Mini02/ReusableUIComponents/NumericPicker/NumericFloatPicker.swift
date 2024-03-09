@@ -10,7 +10,7 @@ import UIKit
 class NumericFloatPicker: UITextField {
     var numberOptions = [Float]()
     var selectedValue: Float = 0
-    
+        
     private var picker = UIPickerView()
     
     override init(frame: CGRect) {
@@ -28,8 +28,8 @@ class NumericFloatPicker: UITextField {
     
     func setupNumericPicker(from: Float, to: Float, interval: Float = 0.1, startValue: Float? = nil) {
         numberOptions = generateNumbersBetween(from, to, interval)
-        tintColor = .white
-        backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
+        tintColor = UIColor.darkPink()
+        backgroundColor = UIColor.lightPink()
         layer.cornerRadius = 8
         picker.delegate = self
         picker.dataSource = self
@@ -37,8 +37,9 @@ class NumericFloatPicker: UITextField {
         adjustsFontForContentSizeCategory = true
         self.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: font ?? .preferredFont(forTextStyle: .headline))
         textAlignment = .center
-        textColor = .white
+        textColor = UIColor.darkPink()
         inputView = picker
+        picker.backgroundColor = UIColor.lightPink().withAlphaComponent(0.9)
         if let startValue {
             guard numberOptions.contains(startValue)
             else {
@@ -94,7 +95,7 @@ extension NumericFloatPicker: UIPickerViewDelegate, UIPickerViewDataSource {
         let value = numberOptions[row]
         label.text = String(format: "%.1f", value)
         label.textAlignment = .center
-        label.textColor = .white
+        label.textColor = UIColor.darkPink()
         if UIDevice.current.userInterfaceIdiom == .phone {
             label.maximumContentSizeCategory = .extraExtraExtraLarge
         }

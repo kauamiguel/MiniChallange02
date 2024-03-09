@@ -16,7 +16,7 @@ extension UIView {
     
     func configureLabelAndGreenCheckBox(stack: UIStackView ,label: LabelComponentView, checkBox: CheckBoxComponentGreenView, labelText: String) {
         
-        label.setupLabel(labelText: labelText, labelType: .titleSemiBold, labelColor: .secondaryColor)
+        label.setupLabel(labelText: labelText, labelType: .titleSemiBold, labelColor: .darkPink)
        
         checkBox.setupButton()
         stack.addArrangedSubview(label)
@@ -26,7 +26,7 @@ extension UIView {
     }
     
     func configureLabelAndRedCheckBox(stack: UIStackView ,label: LabelComponentView, checkBox: CheckBoxComponentRedView, labelText: String) {
-        label.setupLabel(labelText: labelText, labelType: .titleSemiBold, labelColor: .secondaryColor)
+        label.setupLabel(labelText: labelText, labelType: .titleSemiBold, labelColor: .darkPink)
         checkBox.setupButton()
         stack.addArrangedSubview(label)
         stack.addArrangedSubview(checkBox)
@@ -35,7 +35,7 @@ extension UIView {
     }
     
     func invertConfigureLabelAndGreenCheckBox(stack: UIStackView ,label: LabelComponentView, checkBox: CheckBoxComponentGreenView, labelText: String) {
-        label.setupLabel(labelText: labelText, labelType: .titleSemiBold, labelColor: .secondaryColor)
+        label.setupLabel(labelText: labelText, labelType: .titleSemiBold, labelColor: .darkPink)
         checkBox.setupButton()
         stack.addArrangedSubview(checkBox)
         stack.addArrangedSubview(label)
@@ -43,7 +43,7 @@ extension UIView {
     }
     
     func invertConfigureLabelAndRedCheckBox(stack: UIStackView ,label: LabelComponentView, checkBox: CheckBoxComponentRedView, labelText: String) {
-        label.setupLabel(labelText: labelText, labelType: .titleSemiBold, labelColor: .secondaryColor)
+        label.setupLabel(labelText: labelText, labelType: .titleSemiBold, labelColor: .darkPink)
         checkBox.setupButton()
    
         stack.addArrangedSubview(checkBox)
@@ -55,7 +55,7 @@ extension UIView {
     
     func configureLabelAndPullDown(stack: UIStackView ,label: LabelComponentView, pullDown: PullDownComponent, labelText: String, screenSize: CGSize) {
         
-        label.setupLabel(labelText: labelText, labelType: .titleSemiBold, labelColor: .secondaryColor)
+        label.setupLabel(labelText: labelText, labelType: .titleSemiBold, labelColor: .darkPink)
        
         stack.addArrangedSubview(label)
         stack.addArrangedSubview(pullDown)

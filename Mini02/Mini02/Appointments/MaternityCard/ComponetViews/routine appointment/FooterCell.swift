@@ -20,7 +20,7 @@ public class FooterCell: UICollectionReusableView {
         //UI settings of the button
         btn.contentMode = .scaleAspectFill // Set content mode to scaleAspectFill
         btn.setBackgroundImage(UIImage(systemName: "plus.circle"), for: .normal)
-        btn.tintColor = UIColor(red: 1.00, green: 0.52, blue: 0.58, alpha: 1.00)
+        btn.tintColor = UIColor.darkPink()
         
         return btn
     }()
@@ -85,7 +85,7 @@ public class FooterCell: UICollectionReusableView {
          self.addSubview(separator)
          separator.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor, right: self.trailingAnchor, topPadding: UIScreen.main.bounds.size.height * 0.016, leftPadding: UIScreen.main.bounds.size.width * 0.05, rightPadding: -UIScreen.main.bounds.size.width * 0.05, height: 1.5)
 
-         label.setupLabel(labelText: "Adicionar campos a consulta".localized(), labelType: .inputLabel, labelColor: .secondaryText)
+         label.setupLabel(labelText: "Adicionar campos a consulta".localized(), labelType: .inputLabel, labelColor: .wierdGray)
          if UIDevice.current.userInterfaceIdiom == .phone {
              label.maximumContentSizeCategory = .extraExtraLarge
          }

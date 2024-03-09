@@ -26,10 +26,10 @@ class BloodView2: UIView{
     let contentBackGround: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 25
-        view.backgroundColor = UIColor(red: 1.00, green: 0.97, blue: 0.97, alpha: 1.00)
+        view.backgroundColor = UIColor.notQuiteWhite()
         
         view.layer.borderWidth = SeparatorWidth.extern.value // Adjust the width as needed
-        view.layer.borderColor = UIColor(red: 0.91, green: 0.41, blue: 0.41, alpha: 1.00).cgColor // Change color as needed
+        view.layer.borderColor = UIColor.darkPink().cgColor // Change color as needed
         
         return view
     }()
@@ -135,7 +135,7 @@ class BloodView2: UIView{
         contentBackGround.addSubview(hivSubHStack)
         hivSubHStack.anchorWithConstantValues(top: contentBackGround.topAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15, leftPadding: 10,rightPadding: -34)
    
-        toxoplasmosisLabel.setupLabel(labelText: "Toxoplasmose".localized(), labelType: .titleSemiBold, labelColor: .secondaryColor)
+        toxoplasmosisLabel.setupLabel(labelText: "Toxoplasmose".localized(), labelType: .titleSemiBold, labelColor: .darkPink)
         configureLabelAndGreenCheckBox(stack: igmSubHStackYES, label: igm, checkBox: igmCheckYES, labelText: "IGM")
         configureLabelAndGreenCheckBox(stack: iggSubHStackYES, label: igg, checkBox: iggCheckYES, labelText: "IGG")
         
@@ -151,8 +151,8 @@ class BloodView2: UIView{
         //FIXME: THIS IS A DROPDOWN/PICKER
         configureLabelAndPullDown(stack: twinSubHStack, label: vdrlLabel, pullDown: vdrlMenu, labelText: "VDRL", screenSize: screenSize)
         vdrlMenu.setupButton(options: VdrlExam.allCases.map{$0.rawValue})
-        vdrlMenu.backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
-        vdrlMenu.subviews.compactMap({ $0 as? UIImageView }).forEach( {$0.tintColor = UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1.00)})
+        vdrlMenu.backgroundColor = UIColor.lightPink()
+        vdrlMenu.subviews.compactMap({ $0 as? UIImageView }).forEach( {$0.tintColor = UIColor.darkPink()})
         contentBackGround.addSubview(twinSubHStack)
         twinSubHStack.anchorWithConstantValues(top: toxoplasmosisHStack.bottomAnchor,left: contentBackGround.leadingAnchor, right: contentBackGround.trailingAnchor, topPadding: 15,leftPadding: 10 ,rightPadding: -34)
 }

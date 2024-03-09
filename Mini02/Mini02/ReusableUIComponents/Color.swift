@@ -18,4 +18,11 @@ extension UIColor {
     static func wierdGray() -> UIColor {
         return UIColor(red: 0.58, green: 0.49, blue: 0.49, alpha: 1.00)
     }
+    
+    static func lightPink() -> UIColor {
+        return UIColor(red: 1.00, green: 0.86, blue: 0.86, alpha: 1.00)
+    }
+    static func notQuiteWhite() -> UIColor {
+        return  UIColor(red: 1.00, green: 0.96, blue: 0.96, alpha: 1.00)
+    }
 }
