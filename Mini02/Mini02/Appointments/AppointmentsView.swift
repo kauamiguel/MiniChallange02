@@ -82,9 +82,24 @@ class AppointmentsView: UIView {
     
     func setupView(vc : AppointmentsViewController, firstTreemesterAction: Selector, secondTreemesterAction: Selector, thirdTreemesterAction: Selector){
         
+        //Set the background
         let bgImage = UIImage(named: "backGroundTreemester")
-        if let image = bgImage{
-            vc.view.backgroundColor = UIColor(patternImage: image)
+
+        if let image = bgImage {
+            
+            let screenSize = UIScreen.main.bounds.size
+
+            UIGraphicsBeginImageContextWithOptions(screenSize, false, 0.0)
+            image.draw(in: CGRect(origin: .zero, size: screenSize))
+
+            
+            if let newImage = UIGraphicsGetImageFromCurrentImageContext() {
+               
+                UIGraphicsEndImageContext()
+
+               
+                vc.view.backgroundColor = UIColor(patternImage: newImage)
+            }
         }
         
         let name = vc.appointmentViewModelManager?.getName()
