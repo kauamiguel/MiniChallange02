@@ -292,6 +292,9 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         generator.impactOccurred()
         
         //Adding routines
+        
+        //FIX:  IG, UTERINE, WHEIGHT NAO ESTAO NO PICKER, LOGO O COREDATA ESTA SALVANDO VALORES ERRADOS
+        
         let ig = Int(routineData.igMenu.getPickerValue())
         let edema = routineData.edemaMenu.selectedOption
         let fetalHeart = routineData.bcfMenu.selectedOption
@@ -303,10 +306,16 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         let routine = RoutineDataModel(bloodPressure: bloodPressure , edema: edema , fetalHeartHate: 0, uterineHeight: uterine , weightAndBodyMassIndex: weight, ig: ig, bcf: fetalHeart)
         self.consult?.routineData = routine
         
+        
+        
+        
         //Check wheter is first Appointment because some data will be get just there
         if ApplicationSettings.shouldEnterFirstAppointment(){
             
             //Assign family BackGround
+            
+            // FIX : HYPERTESION, CARDIOPATIA E URINARIA NAO ESTAO RETORNANDO O VALOR CORRETOR
+            
             let hypertension = familyAntecedentView.sections[AppointmentsKeys.hipertensao.rawValue]?.getBooleanValue()
             let diabetes = familyAntecedentView.sections[AppointmentsKeys.diabetes.rawValue]?.getBooleanValue()
             let cardiopatia = familyAntecedentView.sections[AppointmentsKeys.cardiopatia.rawValue]?.getBooleanValue()
@@ -320,7 +329,11 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             //Add familyBg
             maternityVM.coreDataManager.assignFamilylBG(familyBG: familyBg)
             
+            
+            
             //Assign pregnancy typeView
+            
+            // FIX : GEMELAR, TRIPLA E UNICA NAO ESTAO RETORNANDO O VALOR CORRETO
             let gemelar = pregnancyTypeView.section[AppointmentsKeys.gemelar.rawValue]?.getBooleanValue()
             let tripla = pregnancyTypeView.section[AppointmentsKeys.triplaOuMais.rawValue]?.getBooleanValue()
             let unique = pregnancyTypeView.section[AppointmentsKeys.unica.rawValue]?.getBooleanValue()
@@ -329,7 +342,12 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             self.consult?.pregnancyClassificationModel = pregnancyType
             
+            
+            
             //Assign risk pregnancy
+            
+            //FIX : HABITUALRISK E HIGHRISK NAO ESTAO RETORNANDO O VALOR ESPERADO
+            
             let habitualRisk = pregnancyRiskView.section[AppointmentsKeys.riscoHabitual.rawValue]?.getBooleanValue()
             let highRisk = pregnancyRiskView.section[AppointmentsKeys.altoRisco.rawValue]?.getBooleanValue()
             
@@ -337,13 +355,17 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             self.consult?.riskPregnancy = riskPregnancy
             
-            //Planned pregnancy
+            
+            
+            //Planned pregnancy //Everthing correct here
             let pregnancyPlanned = plannedView.plannedCheckYES.getBooleanValue()
             let planned = PregnancyPlanningModel(plannedPregnancy: pregnancyPlanned)
             self.consult?.plannedPregnancy = planned
             
             
             //Add personal BG
+            
+            //FIX : INFECTION, HYPERTENSION, SMOKE E CARDIAC NAO ESTAO RETORNANDO O VALOR
             let inffection = clinicAntecedentsView.sections[AppointmentsKeys.urinary.rawValue]?.getBooleanValue()
             let hypertensionBg = clinicAntecedentsView.sections[AppointmentsKeys.hipertensao.rawValue]?.getBooleanValue()
             let smokeBg = clinicAntecedentsView.sections[AppointmentsKeys.fuma.rawValue]?.getBooleanValue()
@@ -359,6 +381,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             //Add personalBg
             maternityVM.coreDataManager.assignPersonalBG(personalBG: personalBg)
+            
             
             for cell in cells{
                 if cell.id == BloodView.id{
@@ -482,16 +505,18 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             for cell in cells{
                 if cell.id == TetanicView.id{
                     //Add vaccine
-                    let antitetanic = tetanicView.yesCheckYES.checked
-                    let influenza = h1N1View.h1N1YesCheckYES.checked
-                    let hepatite = hepatitisBView.hepatitisBYesCheckYES.checked
+                    let isVaccinedAgainstAntitetanic = tetanicView.yesCheckYES.checked
+                    let isVaccinedAgainstHepatite = hepatitisBView.hepatitisBYesCheckYES.checked
+                    let isVaccinedAgainstInfluenza = h1N1View.h1N1YesCheckYES.checked
+                    
                     
                     // FIX ME : Ajustar as doses das vacinas na view que nÃo existem
-                    let vaccine = Vaccines(hepatiteB: [DoseVaccines(date: Date(), isVaccined: antitetanic, numberOfDose: 1)], influenza: DoseVaccines(date: Date(), isVaccined: influenza, numberOfDose: 1), antitetanic: [DoseVaccines(date: Date(), isVaccined: hepatite, numberOfDose: 1)])
+                    let vaccine = Vaccines(hepatiteB: [DoseVaccines(date: Date(), isVaccined: isVaccinedAgainstAntitetanic, numberOfDose: 1)], influenza: DoseVaccines(date: Date(), isVaccined: isVaccinedAgainstInfluenza, numberOfDose: 1), antitetanic: [DoseVaccines(date: Date(), isVaccined: isVaccinedAgainstHepatite, numberOfDose: 1)])
+                    
                     //Adicionar as vacinas antitetanicas e hepatite
                     self.maternityVM.coreDataManager.addVaccineInfluenza(dose: vaccine.influenza)
-                    self.maternityVM.coreDataManager.addVaccineHepatite(dose: vaccine.hepatiteB.first ?? DoseVaccines(date: Date(), isVaccined: hepatite, numberOfDose: 0))
-                    self.maternityVM.coreDataManager.addVaccineAntitetanic(dose: vaccine.antitetanic.first ?? DoseVaccines(date: Date(), isVaccined: antitetanic, numberOfDose: 0))
+                    self.maternityVM.coreDataManager.addVaccineHepatite(dose: vaccine.hepatiteB.first ?? DoseVaccines(date: Date(), isVaccined: isVaccinedAgainstHepatite, numberOfDose: 0))
+                    self.maternityVM.coreDataManager.addVaccineAntitetanic(dose: vaccine.antitetanic.first ?? DoseVaccines(date: Date(), isVaccined: isVaccinedAgainstAntitetanic, numberOfDose: 0))
                     
                     break
                 }
