@@ -106,6 +106,7 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: filteredCell[indexPath.row].id, for: indexPath) as? MaternityCardCell else { return UICollectionViewCell() }
         cell.setUpcellDataView(view: filteredCell[indexPath.row].view)
+        cell.isUserInteractionEnabled = false
         return cell
     }
     
