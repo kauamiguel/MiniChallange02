@@ -61,4 +61,9 @@ class AppointmentsVM {
             view?.navigationController?.pushViewController(listController, animated: true)
         }
     }
+    
+    func didTapPageControl(_ sender: UIPageControl, collection: UICollectionView) {
+        let indexPath = IndexPath(item: sender.currentPage, section: 0)
+        collection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
 }

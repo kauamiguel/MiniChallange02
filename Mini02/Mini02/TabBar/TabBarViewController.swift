@@ -37,7 +37,7 @@ class TabBarViewController: UITabBarController {
         
         rootViewController1.tabBarItem.title = "Consultas".localized()
         rootViewController1.tabBarItem.image = UIImage(named: "0")
-        rootViewController1.tabBarItem.selectedImage = UIImage(named: "fill0")
+        rootViewController1.tabBarItem.selectedImage = UIImage(named: "Fill0")
         rootViewController1.accessibilityLabel = "ícone de consultas"
         
         rootViewController2.tabBarItem.title = "Dados recorrentes".localized()

@@ -29,4 +29,5 @@ enum colorStyle {
     case primaryText
     case secondaryText
     case notQuiteWhite
+    case lightPink
 }

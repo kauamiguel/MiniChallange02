@@ -47,6 +47,8 @@ class LabelComponentView: UILabel{
             self.textColor = UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1)
         case .notQuiteWhite:
             self.textColor = UIColor(red: 0.97, green: 0.95, blue: 0.91, alpha: 1.00)
+        case .lightPink:
+            self.textColor = UIColor.lightPink()
         default:
             self.textColor = .white
         }
