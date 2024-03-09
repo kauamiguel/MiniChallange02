@@ -37,7 +37,7 @@ class PregnantDataView: UIView {
     
     private lazy var pregnantNameLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Nome da gestante:".localized(), labelType: .inputLabel, labelColor: .secondaryText)
+        label.setupLabel(labelText: "Nome da gestante:".localized(), labelType: .inputLabel, labelColor: .darkPink)
         return label
     }()
     
@@ -49,7 +49,7 @@ class PregnantDataView: UIView {
     
     private lazy var aliasLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Como gostaria de ser chamada:".localized(), labelType: .inputLabel, labelColor: .secondaryText)
+        label.setupLabel(labelText: "Como gostaria de ser chamada:".localized(), labelType: .inputLabel, labelColor: .darkPink)
         return label
     }()
     
@@ -61,7 +61,7 @@ class PregnantDataView: UIView {
     
     private lazy var dateOfBirthLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Data de nascimento:".localized(), labelType: .inputLabel, labelColor: .secondaryText)
+        label.setupLabel(labelText: "Data de nascimento:".localized(), labelType: .inputLabel, labelColor: .darkPink)
         return label
     }()
     
@@ -73,19 +73,19 @@ class PregnantDataView: UIView {
     
     private lazy var divider: UIView = {
        let view = UIView()
-        view.backgroundColor = UIColor(red: 178/255, green: 208/255, blue: 214/255, alpha: 1)
+        view.backgroundColor = UIColor.lilLessDarkPink()
         return view
     }()
     
     private lazy var emergencyLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Em caso de emergência, ligar para:".localized(), labelType: .inputLabel, labelColor: .secondaryText)
+        label.setupLabel(labelText: "Em caso de emergência, ligar para:".localized(), labelType: .inputLabel, labelColor: .darkPink)
         return label
     }()
     
     private lazy var emergencyContactNameLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Nome:".localized(), labelType: .inputLabel, labelColor: .secondaryText)
+        label.setupLabel(labelText: "Nome:".localized(), labelType: .inputLabel, labelColor: .darkPink)
         return label
     }()
     
@@ -97,7 +97,7 @@ class PregnantDataView: UIView {
     
     private lazy var emergencyContactPhoneLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Telefone:".localized(), labelType: .inputLabel, labelColor: .secondaryText)
+        label.setupLabel(labelText: "Telefone:".localized(), labelType: .inputLabel, labelColor: .darkPink)
         return label
     }()
     
@@ -109,7 +109,7 @@ class PregnantDataView: UIView {
     
     private lazy var emergencyContactRelationLabel: UILabel = {
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Vínculo:".localized(), labelType: .inputLabel, labelColor: .secondaryText)
+        label.setupLabel(labelText: "Vínculo:".localized(), labelType: .inputLabel, labelColor: .darkPink)
         return label
     }()
     
@@ -171,6 +171,7 @@ class PregnantDataView: UIView {
     }
     
     private func setupDateOfBirth(vc: UIViewController) {
+        contentView.addSubview(dateOfBirthLabel)
         contentView.addSubview(dateOfBirthLabel)
         dateOfBirthLabel.anchorWithConstantValues(top: aliasField.bottomAnchor, left: vc.view.leadingAnchor, right: vc.view.trailingAnchor,topPadding: 20, leftPadding: paddingSize, rightPadding: -paddingSize)
         contentView.addSubview(dateOfBirthPicker)
@@ -244,7 +245,7 @@ class PregnantDataView: UIView {
         vc.navigationController?.navigationItem.largeTitleDisplayMode = .always
         vc.navigationController?.navigationItem.titleView?.backgroundColor = .clear
         let customFont = UIFont(name: "Signika-Regular", size: 24)
-        let titleAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 58/255, green: 166/255, blue: 185/255, alpha: 1), NSAttributedString.Key.font: customFont]
+        let titleAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkPink(), NSAttributedString.Key.font: customFont]
         let barAppearance = UINavigationBarAppearance()
         barAppearance.configureWithOpaqueBackground()
         barAppearance.shadowColor = .clear
@@ -266,14 +267,14 @@ class PregnantDataView: UIView {
         vc.navigationController?.toolbar.standardAppearance = toolbarAppearance
         vc.navigationController?.toolbar.scrollEdgeAppearance = toolbarAppearance
         vc.navigationController?.toolbar.compactScrollEdgeAppearance = toolbarAppearance
-        vc.view.backgroundColor = UIColor(patternImage: UIImage(named: "backGroundTreemester")!)
+        vc.view.backgroundColor = UIColor(patternImage: UIImage(named: "backGroundRecurrentData")!)
 
     }
     
     func setupNavBar(vc: UIViewController) {
         let image = UIImage(systemName: "info.circle")!
         let button = UIBarButtonItem(title: "Sobre o Projeto".localized(), image: image, target: viewModel, action:  #selector(viewModel?.didTapInfoButton))
-        button.tintColor = UIColor(red: 0.227, green: 0.651, blue: 0.725, alpha: 1)
+        button.tintColor = UIColor.darkPink()
         vc.navigationItem.rightBarButtonItem = button
     }
 
@@ -281,6 +282,7 @@ class PregnantDataView: UIView {
         self.viewController = vc
         self.viewModel = vm
         vc.title = "Dados da Gestante".localized()
+        
         
         setupNavBar(vc: vc)
         setupToolbarAndBG(vc: vc)
