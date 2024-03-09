@@ -210,6 +210,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             //Add vaccines view
             if pacient!.vaccines != nil{
                 
+                //FIX : Get the tree vaccines models
                 
                 //Assign data antitetanic
                 let antitetanic = historyVm.coreDataMaanger.getAntitetanic()
