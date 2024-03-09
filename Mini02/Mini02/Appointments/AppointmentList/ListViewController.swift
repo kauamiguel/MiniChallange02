@@ -20,16 +20,40 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Create a custom UIButton with an image
-            let backButton = UIButton(type: .custom)
-            backButton.setImage(UIImage(named: "ChevronBackButton"), for: .normal)
-            backButton.addTarget(self, action: #selector(backToView), for: .touchUpInside)
-            
-            // Create a UIBarButtonItem with the custom UIButton as the custom view
-            let customBackButton = UIBarButtonItem(customView: backButton)
-            
-            // Set the custom UIBarButtonItem as the back button for the navigation item
-            navigationItem.leftBarButtonItem = customBackButton
+        // Create a custom UIButton
+        let customButton = UIButton(type: .custom)
+
+        // Set the image for the button
+        let image = UIImage(named: "ChevronBackButton")
+  
+        customButton.setImage(image, for: .normal)
+        
+
+        // Set the title for the button
+        customButton.setTitle("  Trimestres", for: .normal)
+        customButton.setTitleColor(UIColor.darkPink(), for: .normal) // Adjust text color as needed
+        // Get the preferred body font
+        let bodyFont = UIFont.preferredFont(forTextStyle: .body)
+
+        // Calculate the scaled font size
+        let scaledFontSize = bodyFont.pointSize * 0.9
+
+        let signikaBoldFont = UIFont(name: "Signika-Bold", size: scaledFontSize)
+
+        // Set the scaled font for the title
+        customButton.titleLabel?.font = signikaBoldFont
+        
+        // Set the action for the button
+        customButton.addTarget(self, action: #selector(backToView), for: .touchUpInside)
+
+        // Adjust the size of the button to fit its content
+        customButton.sizeToFit()
+
+        // Create a UIBarButtonItem with the custom UIButton as the custom view
+        let customBarButtonItem = UIBarButtonItem(customView: customButton)
+
+        // Set the custom UIBarButtonItem as the back button for the navigation item
+        navigationItem.leftBarButtonItem = customBarButtonItem
        
         guard let view = listViewManager else {
             fatalError("no view was passed")

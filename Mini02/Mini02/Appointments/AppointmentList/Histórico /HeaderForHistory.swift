@@ -24,14 +24,14 @@ class HeaderForHistory: UICollectionReusableView {
     
     func setupview(){
         
-        label.setupLabel(labelText: "\(HeaderForHistory.currentConsult ?? 2)° Consulta", labelType: .bigTitle, labelColor: .secondaryColor)
+        label.setupLabel(labelText: "\(HeaderForHistory.currentConsult ?? 2)° Consulta", labelType: .bigTitle, labelColor: .darkPink)
         self.addSubview(label)
         label.anchorWithMultiplayerValues(top: self.topAnchor, left: self.leadingAnchor, topPadding: screenSize.height * 0.002 ,leftPadding: screenSize.width * 0.005)
   
         let dataFormated = DateFormatter()
         dataFormated.dateFormat = "dd/MM/yy"
         let date = dataFormated.string(from: HeaderForHistory.currentDate!)
-        data.setupLabel(labelText: "\(date)", labelType: .inputLabel, labelColor: .secondaryText)
+        data.setupLabel(labelText: "\(date)", labelType: .inputLabel, labelColor: .wierdGray)
         self.addSubview(data)
         data.anchorWithMultiplayerValues(top: label.bottomAnchor, left: self.leadingAnchor, leftPadding: screenSize.width * 0.005)
     }

@@ -33,10 +33,10 @@ class LabelComponentView: UILabel{
             self.textColor = .black
         case .grey1:
             self.textColor = .gray
-        case .grey2:
-            self.textColor = .gray
-        case .grey3:
-            self.textColor = .gray
+        case .wierdGray:
+            self.textColor =  UIColor.wierdGray()
+        case .darkPink:
+            self.textColor =  UIColor.darkPink()
         case .white:
             self.textColor = .white
         case .secondaryColor:

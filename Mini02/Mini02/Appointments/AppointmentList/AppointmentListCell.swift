@@ -16,7 +16,7 @@ class AppointmentListCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let title = LabelComponentView()
         
-        title.textColor = UIColor(red: 0.227, green: 0.651, blue: 0.725, alpha: 1)
+        title.textColor = UIColor.lilLessDarkPink()
         title.textAlignment = .left
         title.font = UIFont(name: "Signika-Regular", size: 24)
       
@@ -29,7 +29,7 @@ class AppointmentListCell: UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yy"
         
-        date.textColor = UIColor(red: 0.70, green: 0.82, blue: 0.84, alpha: 1.00)
+        date.textColor = UIColor.wierdGray()
         date.textAlignment = .left
         date.font = UIFont(name: "Signika-Regular", size: 16)
      

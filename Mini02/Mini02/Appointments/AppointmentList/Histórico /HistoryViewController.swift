@@ -51,12 +51,40 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         collectionView.backgroundColor = UIColor(red: 1.00, green: 0.96, blue: 0.96, alpha: 1.00)
         
         self.hidesBottomBarWhenPushed = true
-        // Create a custom UIButton with an image
-        let backButton = UIButton(type: .custom)
-        backButton.setImage(UIImage(named: "ChevronBackButton"), for: .normal)
-        backButton.addTarget(self, action: #selector(backToView), for: .touchUpInside)
-        let customBackButton = UIBarButtonItem(customView: backButton)
-        navigationItem.leftBarButtonItem = customBackButton
+        // Create a custom UIButton
+        let customButton = UIButton(type: .custom)
+
+        // Set the image for the button
+        let image = UIImage(named: "ChevronBackButton")
+  
+        customButton.setImage(image, for: .normal)
+        
+
+        // Set the title for the button
+        customButton.setTitle("  Consultas", for: .normal)
+        customButton.setTitleColor(UIColor.darkPink(), for: .normal) // Adjust text color as needed
+        // Get the preferred body font
+        let bodyFont = UIFont.preferredFont(forTextStyle: .body)
+
+        // Calculate the scaled font size
+        let scaledFontSize = bodyFont.pointSize * 0.9
+
+        let signikaBoldFont = UIFont(name: "Signika-Bold", size: scaledFontSize)
+
+        // Set the scaled font for the title
+        customButton.titleLabel?.font = signikaBoldFont
+        
+        // Set the action for the button
+        customButton.addTarget(self, action: #selector(backToView), for: .touchUpInside)
+
+        // Adjust the size of the button to fit its content
+        customButton.sizeToFit()
+
+        // Create a UIBarButtonItem with the custom UIButton as the custom view
+        let customBarButtonItem = UIBarButtonItem(customView: customButton)
+
+        // Set the custom UIBarButtonItem as the back button for the navigation item
+        navigationItem.leftBarButtonItem = customBarButtonItem
         
         let bgImage = UIImage(named: "backGroundRecurrentData")
         if let image = bgImage{

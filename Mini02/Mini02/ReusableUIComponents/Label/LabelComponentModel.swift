@@ -21,8 +21,8 @@ enum labelTypeEnum {
 enum colorStyle {
     case black
     case grey1
-    case grey2
-    case grey3
+    case wierdGray
+    case darkPink
     case white
     case secondaryColor
     case primaryText

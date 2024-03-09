@@ -58,6 +58,7 @@
 		ABC98BC62AB83FD0005214E5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC98BC52AB83FD0005214E5 /* RegisterViewController.swift */; };
 		ABEAE43E2AD64BA800B23221 /* ComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEAE43D2AD64BA800B23221 /* ComponentModel.swift */; };
 		ABEAE4422AD6E3C600B23221 /* HeaderForHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEAE4412AD6E3C600B23221 /* HeaderForHistory.swift */; };
+		ABEDD84E2B9C453B0053AAD7 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEDD84D2B9C453B0053AAD7 /* Color.swift */; };
 		ABFA04E52ABC9A5200D31DEA /* MaternityCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */; };
 		ABFA04E72ABCBE0000D31DEA /* MaternityCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */; };
 		ABFA04ED2ABCCF7500D31DEA /* AppointmentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */; };
@@ -170,6 +171,7 @@
 		ABD5E3F02AC4B20200855964 /* Mini02.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mini02.entitlements; sourceTree = "<group>"; };
 		ABEAE43D2AD64BA800B23221 /* ComponentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentModel.swift; sourceTree = "<group>"; };
 		ABEAE4412AD6E3C600B23221 /* HeaderForHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderForHistory.swift; sourceTree = "<group>"; };
+		ABEDD84D2B9C453B0053AAD7 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		ABFA04E42ABC9A5200D31DEA /* MaternityCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardViewModel.swift; sourceTree = "<group>"; };
 		ABFA04E62ABCBE0000D31DEA /* MaternityCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaternityCardModel.swift; sourceTree = "<group>"; };
 		ABFA04E92ABCCF7500D31DEA /* AppointmentListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListCell.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				ABAD4F432ABE2299007BEC32 /* Label */,
 				6272BFAF2AD49759008B589B /* appointmentSectionBuilder.swift */,
 				AB9D94302AD0A2670064DB69 /* PullDownComponent.swift */,
+				ABEDD84D2B9C453B0053AAD7 /* Color.swift */,
 			);
 			path = ReusableUIComponents;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 				CE60D05C2ACDD6FC00937768 /* Consulta.swift in Sources */,
 				CE022BB12AD6741800946A42 /* HistoryViewModel.swift in Sources */,
 				ABB82F162AC60931008B73AF /* RoutineDataView.swift in Sources */,
+				ABEDD84E2B9C453B0053AAD7 /* Color.swift in Sources */,
 				AB9D942F2AD068C00064DB69 /* DropDownWithLabel.swift in Sources */,
 				E8135BB62ABA1BAC00E722FA /* FirstOnboardingViewController.swift in Sources */,
 				E81A26892AD70B48003A25E0 /* NumericFloatPicker.swift in Sources */,

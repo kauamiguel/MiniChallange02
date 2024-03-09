@@ -41,11 +41,11 @@ class AppointementsListViewController: UIViewController,UITableViewDelegate, UIT
         
         //draws top separator of row
         let topSeparator = UIView(frame: CGRect(x: 0, y: 0, width: cell.frame.width , height: 2))
-        topSeparator.backgroundColor = UIColor(red: 0.70, green: 0.82, blue: 0.84, alpha: 1)
+        topSeparator.backgroundColor = UIColor.lilLessDarkPink()
         
         //draws bottom separator of row
         let bottomSeparator = UIView(frame: CGRect(x: 0, y: cell.frame.size.height, width: cell.frame.width , height: 2))
-        bottomSeparator.backgroundColor =  UIColor(red: 0.70, green: 0.82, blue: 0.84, alpha: 1)
+        bottomSeparator.backgroundColor =  UIColor.lilLessDarkPink()
         
         // Set separator for all cells except the first one
         if indexPath.row == 0 {

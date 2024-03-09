@@ -64,7 +64,7 @@ class ListView: UIView {
         //Title UI settings
         title.text = "Consultas".localized()
         title.font = UIFont(name: "Signika-Bold", size: 30)
-        title.textColor = UIColor(red: 0.227, green: 0.651, blue: 0.725, alpha: 1)
+        title.textColor = UIColor.darkPink()
        
         return title
     }
@@ -105,7 +105,7 @@ class ListView: UIView {
         //UI settings of the button
         btn.contentMode = .scaleAspectFill // Set content mode to scaleAspectFill
         btn.setBackgroundImage(UIImage(systemName: "plus.circle"), for: .normal)
-        btn.tintColor = UIColor(red: 1.00, green: 0.52, blue: 0.58, alpha: 1.00)
+        btn.tintColor = UIColor.darkPink()
         
     
         //This contrainst set the size of the button
