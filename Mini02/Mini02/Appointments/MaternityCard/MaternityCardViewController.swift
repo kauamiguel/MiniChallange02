@@ -378,7 +378,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
       
             //Planned pregnancy
             let pregnancyPlanned = plannedView.plannedCheckYES.getBooleanValue()
-            let pregnancyNotPlanned = plannedView.plannedCheckNO.getBooleanValue()
+            _ = plannedView.plannedCheckNO.getBooleanValue()
             
             if pregnancyPlanned{
                 let planned = PregnancyPlanningModel(plannedPregnancy: pregnancyPlanned)

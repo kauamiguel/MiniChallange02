@@ -41,12 +41,14 @@ public class FooterCell: UICollectionReusableView {
         chevronImageView.anchorWithConstantValues(left: btn.leadingAnchor, leftPadding: UIScreen.main.bounds.width * 0.03)
         chevronImageView.centerY(inView: btn)
         
+        
         let label = LabelComponentView()
-        label.setupLabel(labelText: "Salvar consulta".localized(), labelType: .inputLabel, labelColor: .notQuiteWhite)
-        label.maximumContentSizeCategory = .small
+        label.setupLabel(labelText: "Salvar consulta".localized(), labelType: .smallTitle, labelColor: .notQuiteWhite)
+
         btn.addSubview(label)
-        label.anchorWithMultiplayerValues(left: chevronImageView.trailingAnchor, leftPadding: UIScreen.main.bounds.width * 0.002)
-        label.centerY(inView: btn)
+        
+        label.anchorWithMultiplayerValues(left: chevronImageView.trailingAnchor, bottom: chevronImageView.topAnchor ,leftPadding: UIScreen.main.bounds.width * 0.002, bottomPadding: UIScreen.main.bounds.height * 0.0035)
+       
      
         return btn
     }()
@@ -100,7 +102,7 @@ public class FooterCell: UICollectionReusableView {
          addHStack.anchorWithConstantValues(top: separator.topAnchor, left: self.leadingAnchor, topPadding: UIScreen.main.bounds.height * 0.02, leftPadding: UIScreen.main.bounds.width * 0.04)
          
          self.addSubview(saveButton)
-         saveButton.anchorWithConstantValues(top: addHStack.bottomAnchor, left: self.leadingAnchor ,topPadding: UIScreen.main.bounds.height * 0.05, leftPadding:  UIScreen.main.bounds.width * 0.04, width: UIScreen.main.bounds.width * 0.6,height: UIScreen.main.bounds.height * 0.035)
+         saveButton.anchorWithConstantValues(top: addHStack.bottomAnchor, left: self.leadingAnchor ,topPadding: UIScreen.main.bounds.height * 0.05, leftPadding:  UIScreen.main.bounds.width * 0.04, width: UIScreen.main.bounds.width * 0.48, height: UIScreen.main.bounds.height * 0.05)
          
     }
 

@@ -59,10 +59,9 @@ class LabelComponentView: UILabel{
         maximumContentSizeCategory = .accessibilityExtraExtraLarge
         switch labelType {
        
-        case .titleBold:
-            let customTitle2 = UIFont(name: "Signika-Bold", size: 22)
-            self.font = UIFontMetrics(forTextStyle: .title3).scaledFont(for: customTitle2 ?? .preferredFont(forTextStyle: .title3))
-            self.numberOfLines = 5
+        case .smallTitle:
+            let smallTitle = UIFont(name: "Signika-Regular", size: UIScreen.main.bounds.height * 0.025)
+            self.font = UIFontMetrics(forTextStyle: .title3).scaledFont(for: smallTitle ?? .preferredFont(forTextStyle: .body))
             
         case .titleSemiBold:
             let customTitle3 = UIFont(name: "Signika-Bold", size: 20)

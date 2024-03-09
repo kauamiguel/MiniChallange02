@@ -16,6 +16,7 @@ enum labelTypeEnum {
     case smallInputLabel
     case bigTitle
     case description
+    case smallTitle
 }
 
 enum colorStyle {
