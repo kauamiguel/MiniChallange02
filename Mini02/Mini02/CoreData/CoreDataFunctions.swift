@@ -352,6 +352,10 @@ class CoreDataFunctions{
             
             consult.pregnancyClassification = classification
         }
+
+        if let notes = newConsult.consultNotes {
+            consult.notes = notes
+        }
         
         //Assing the new Consult to current pacient
         pacient?.mutableSetValue(forKey: "consults").add(consult)

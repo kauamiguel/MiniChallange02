@@ -479,6 +479,13 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                 
             }
             
+            for cell in cells {
+                if cell.id == NotasView.id {
+                    self.consult?.consultNotes = textView.textViewComponent.getTypedText()
+                }
+            }
+            
+            
             //Save the current consult
             if let addConsult = self.consult{
                 
@@ -554,6 +561,12 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     self.maternityVM.coreDataManager.addVaccineAntitetanic(dose: vaccine.antitetanic.first ?? DoseVaccines(date: Date(), isVaccined: isVaccinedAgainstAntitetanic, numberOfDose: 0))
                     
                     break
+                }
+            }
+            
+            for cell in cells {
+                if cell.id == NotasView.id {
+                    self.consult?.consultNotes = textView.textViewComponent.getTypedText()
                 }
             }
             

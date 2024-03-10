@@ -18,6 +18,8 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     private lazy var  h1N1View = H1N1View()
     private lazy var ultrasoundView = UltrasoundView()
     private lazy var maternityVM = MaternityCardViewModel()
+    private lazy var textView = NotasView()
+    
     var historyVm = HistoryViewModel()
     var appointmentsInfo: ConsultEntity
     
@@ -195,10 +197,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         addNewView(views: views)
         
         
-        
         if appointmentsInfo.tremesteer == 1 && appointmentsInfo.consultId == 1{
-            
-            
             //Set the data of familyAntecedents
             familyAntecedentView.sections[AppointmentsKeys.hipertensao.rawValue]?.checked = pacient?.familyBG?.hypertension ?? false
             familyAntecedentView.sections[AppointmentsKeys.diabetes.rawValue]?.checked = pacient?.familyBG?.diabetes ?? false
@@ -421,7 +420,18 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 
                 addNewView(views: views)
                 
+                
+                
             }
+            
+            
+        }
+        if let notes = appointmentsInfo.notes {
+            textView.setText(notes)
+            let views = [
+                CellInfo(view: textView, size: textView.viewSize, id: NotasView.id, query: textView.query)
+            ]
+            addNewView(views: views)
         }
     }
     

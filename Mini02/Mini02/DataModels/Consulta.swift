@@ -32,4 +32,6 @@ struct Consulta{
     var riskPregnancy : PregnancyRiskModel?
     
     var pregnancyClassificationModel : PregnancyClassificationModel?
+    
+    var consultNotes: String?
 }

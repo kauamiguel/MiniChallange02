@@ -52,6 +52,10 @@ class NotasView: UIView{
        
     }
     
+    func setText(_ text: String) {
+        textViewComponent.text = text
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
