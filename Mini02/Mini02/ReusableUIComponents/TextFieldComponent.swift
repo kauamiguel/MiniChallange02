@@ -8,15 +8,15 @@
 import UIKit
 
 class TextViewComponet: UITextView, UITextViewDelegate {
+   
     let placeholderText = "Digite suas notas aqui"
     var isPlaceholderShown = true
     var typedText: String?
-        
     
     func setupTextView(){
         
         
-        self.backgroundColor = .blue
+        self.backgroundColor = .clear
         self.returnKeyType = .done
         self.autocapitalizationType = .sentences
         self.isScrollEnabled = true

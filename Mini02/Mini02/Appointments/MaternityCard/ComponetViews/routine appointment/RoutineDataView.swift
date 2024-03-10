@@ -106,6 +106,7 @@ class RoutineDataView: UIView {
         
         menuPlusLabelBottom(label: edemaLabel, menu: edemaMenu, options: ["Normal", "Leve".localized(), "Grave".localized()], alternateBackground: true, contentBackGround: contentBackGround, topAnchor: bcfMenu, leftAnchor: separator, labelText: "Edema", topPadding: screenSize.height * 0.0013, leftPadding: screenSize.width * 0.0065, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.055)
         
+        
     }
     
     required init?(coder: NSCoder) {

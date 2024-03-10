@@ -34,7 +34,7 @@
 		AB9D942D2AD0609A0064DB69 /* CustomSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D942C2AD0609A0064DB69 /* CustomSeparatorView.swift */; };
 		AB9D942F2AD068C00064DB69 /* DropDownWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D942E2AD068C00064DB69 /* DropDownWithLabel.swift */; };
 		AB9D94312AD0A2670064DB69 /* PullDownComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D94302AD0A2670064DB69 /* PullDownComponent.swift */; };
-		ABABB7A42B9CC1320037A161 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABABB7A32B9CC1320037A161 /* TextFieldView.swift */; };
+		ABABB7A42B9CC1320037A161 /* NotasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABABB7A32B9CC1320037A161 /* NotasView.swift */; };
 		ABABB7A62B9CFADD0037A161 /* TextFieldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABABB7A52B9CFADD0037A161 /* TextFieldComponent.swift */; };
 		ABAD4F2B2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */; };
 		ABAD4F2E2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */; };
@@ -146,7 +146,7 @@
 		AB9D942C2AD0609A0064DB69 /* CustomSeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSeparatorView.swift; sourceTree = "<group>"; };
 		AB9D942E2AD068C00064DB69 /* DropDownWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownWithLabel.swift; sourceTree = "<group>"; };
 		AB9D94302AD0A2670064DB69 /* PullDownComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullDownComponent.swift; sourceTree = "<group>"; };
-		ABABB7A32B9CC1320037A161 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		ABABB7A32B9CC1320037A161 /* NotasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasView.swift; sourceTree = "<group>"; };
 		ABABB7A52B9CFADD0037A161 /* TextFieldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldComponent.swift; sourceTree = "<group>"; };
 		ABAD4F2A2ABD25C3007BEC32 /* CheckBoxComponentGreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentGreenView.swift; sourceTree = "<group>"; };
 		ABAD4F2D2ABDF31B007BEC32 /* CheckBoxComponentRedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxComponentRedView.swift; sourceTree = "<group>"; };
@@ -269,12 +269,12 @@
 		AB7852EC2AB9F92A00566EF9 /* ComponetViews */ = {
 			isa = PBXGroup;
 			children = (
-				ABABB7A22B9CBF6A0037A161 /* TextField */,
 				ABEAE43D2AD64BA800B23221 /* ComponentModel.swift */,
 				ABFA04DC2ABB7FEA00D31DEA /* routine appointment */,
 				ABFA04DD2ABB800000D31DEA /* Blood */,
 				AB9D94222ACE3D1E0064DB69 /* Vaccine */,
 				ABFA04DE2ABB801400D31DEA /* Ultrasound */,
+				ABABB7A22B9CBF6A0037A161 /* NotasView */,
 			);
 			path = ComponetViews;
 			sourceTree = "<group>";
@@ -289,18 +289,18 @@
 			path = Vaccine;
 			sourceTree = "<group>";
 		};
-		ABABB7A22B9CBF6A0037A161 /* TextField */ = {
+		ABABB7A22B9CBF6A0037A161 /* NotasView */ = {
 			isa = PBXGroup;
 			children = (
-				ABABB7A32B9CC1320037A161 /* TextFieldView.swift */,
-				ABABB7A52B9CFADD0037A161 /* TextFieldComponent.swift */,
+				ABABB7A32B9CC1320037A161 /* NotasView.swift */,
 			);
-			path = TextField;
+			path = NotasView;
 			sourceTree = "<group>";
 		};
 		ABAD4F2C2ABD25E8007BEC32 /* ReusableUIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				ABABB7A52B9CFADD0037A161 /* TextFieldComponent.swift */,
 				E81A26852AD6DA39003A25E0 /* DatePicker */,
 				E81A26822AD64669003A25E0 /* NumericPicker */,
 				E81A267C2AD49BE3003A25E0 /* RoundedTextField */,
@@ -744,7 +744,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABFA04ED2ABCCF7500D31DEA /* AppointmentListCell.swift in Sources */,
-				ABABB7A42B9CC1320037A161 /* TextFieldView.swift in Sources */,
+				ABABB7A42B9CC1320037A161 /* NotasView.swift in Sources */,
 				CEB6CFE02ADD62E3000C3C7A /* Localized .swift in Sources */,
 				6272BFB02AD49759008B589B /* appointmentSectionBuilder.swift in Sources */,
 				ABFA04EE2ABCCF7500D31DEA /* ListViewController.swift in Sources */,

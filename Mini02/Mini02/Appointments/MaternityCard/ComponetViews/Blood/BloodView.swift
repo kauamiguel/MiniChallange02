@@ -62,9 +62,7 @@ class BloodView: UIView{
     
     let creatineLabel = LabelComponentView()
     let creatineMenu  = NumericFloatPicker()
-    
-
-    
+ 
     
     
     override init(frame: CGRect) {
@@ -120,6 +118,7 @@ class BloodView: UIView{
         
         // FIXME: FLOAT PICKER INSTED
         numericFloatPickerPlusLabel(label: creatineLabel, menu: creatineMenu, menuMinimum: 0.4, menuMaximum: 1.4, menuInterval: 0.1, contentBackGround: contentBackGround, topAnchor: glicemiaMenu, leftAnchor: separator, labelText: "Creatina(mg/dl)".localized(), topPadding: screenSize.height * 0.0092, leftPadding: screenSize.width * 0.0085, screenSize: screenSize, widthMultiplier: 0.35, heightMultiplier: 0.050)
+    
     }
     
     required init?(coder: NSCoder) {
