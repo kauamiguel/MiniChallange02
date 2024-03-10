@@ -428,6 +428,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         }
         if let notes = appointmentsInfo.notes {
             textView.setText(notes)
+            textView.textViewComponent.textColor = UIColor.darkPink()
             let views = [
                 CellInfo(view: textView, size: textView.viewSize, id: NotasView.id, query: textView.query)
             ]

@@ -31,15 +31,13 @@ class TextViewComponet: UITextView, UITextViewDelegate {
         
         self.delegate = self
         
-        
-        self.delegate = self
-        if typedText != nil {
-            isPlaceholderShown = false
-        }
+   
         self.text = typedText ?? placeholderText
         self.textColor = .lightGray
 
-       
+        if typedText != nil {
+            isPlaceholderShown = false
+        }
     }
     
     
