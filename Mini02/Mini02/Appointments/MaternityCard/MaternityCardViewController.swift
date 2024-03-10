@@ -23,7 +23,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     private lazy var h1N1View = H1N1View()
     private lazy var ultrasoundView = UltrasoundView()
     private lazy var maternityVM = MaternityCardViewModel()
-    private lazy var textView = TextView()
+    private lazy var textView = NotasView()
     var consultID : Int?
     
     //Variable to know wich treemester is, then we can track this consult after
@@ -50,7 +50,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     }
     
     override func viewDidLoad() {
-        
+         
         setupCollectionView()
         collectionView.isEditing = true
         
@@ -300,7 +300,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     
     @objc func addTextViewCell(){
         let views: [CellInfo] = [
-            CellInfo(view: textView, size: textView.viewSize, id: TextView.id, query: textView.query),
+            CellInfo(view: textView, size: textView.viewSize, id: NotasView.id, query: textView.query),
         ]
         
         addNewView(views: views)
@@ -464,20 +464,73 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                 
                 if cell.id == TetanicView.id{
                     //Add vaccine
-                    let antitetanic = tetanicView.yesCheckYES.checked
-                    let influenza = h1N1View.h1N1YesCheckYES.checked
-                    let hepatite = hepatitisBView.hepatitisBYesCheckYES.checked
                     
-                    // FIX ME : Ajustar as doses das vacinas na view que nÃo existem
-                    let vaccine = Vaccines(hepatiteB: [DoseVaccines(date: Date(), isVaccined: antitetanic, numberOfDose: 1)], influenza: DoseVaccines(date: Date(), isVaccined: influenza, numberOfDose: 1), antitetanic: [DoseVaccines(date: Date(), isVaccined: hepatite, numberOfDose: 1)])
+                    var antitetanicDoses : [DoseVaccines] = []
+                    var hepatiteDoses : [DoseVaccines] = []
+                    var influenzaDose = false
+                    
+                    let isVaccinedAgainstAntitetanic = tetanicView.yesCheckYES.checked
+                    
+                    if isVaccinedAgainstAntitetanic{
+                        let dateFirstDoseAntitetanic = tetanicView.firstDoseDate.date
+                        let dateSecondDoseAntitetanic = tetanicView.secondDoseDate.date
+                        let dateThirdDoseAntitetanic = tetanicView.thirdDoseDate.date
+                        
+                        
+                        let firstDoseAntitetanic = DoseVaccines(date: dateFirstDoseAntitetanic, isVaccined: true, numberOfDose: 1)
+                        let secondDoseAntitetanic = DoseVaccines(date: dateSecondDoseAntitetanic, isVaccined: true, numberOfDose: 2)
+                        let thirdDoseAntitetanic = DoseVaccines(date: dateThirdDoseAntitetanic, isVaccined: true, numberOfDose: 3)
+                        
+                        antitetanicDoses.append(firstDoseAntitetanic)
+                        antitetanicDoses.append(secondDoseAntitetanic)
+                        antitetanicDoses.append(thirdDoseAntitetanic)
+                    }
+                    
+                    let isVaccinedAgainstHepatite = hepatitisBView.hepatitisBYesCheckYES.checked
+                    
+                    if isVaccinedAgainstHepatite{
+                        let dateFirstDoseHepeatite = hepatitisBView.firstDoseDate.date
+                        let dateSecondDoseHepeatite = hepatitisBView.secondDoseDate.date
+                        let dateThirdDoseHepeatite = hepatitisBView.thirdDoseDate.date
+                        
+                        
+                        let firstDoseHepeatite = DoseVaccines(date: dateFirstDoseHepeatite, isVaccined: true, numberOfDose: 1)
+                        let secondDoseHepeatite = DoseVaccines(date: dateSecondDoseHepeatite, isVaccined: true, numberOfDose: 2)
+                        let thirdDoseHepeatite = DoseVaccines(date: dateThirdDoseHepeatite, isVaccined: true, numberOfDose: 3)
+                        
+                        hepatiteDoses.append(firstDoseHepeatite)
+                        hepatiteDoses.append(secondDoseHepeatite)
+                        hepatiteDoses.append(thirdDoseHepeatite)
+                    }
+                    
+                    
+                    
+                    
+                    let isVaccinedAgainstInfluenza = h1N1View.h1N1YesCheckYES.checked
+                    
+                    if isVaccinedAgainstInfluenza{
+                        influenzaDose = true
+                    }
+                    
+                    
+                    let vaccine = Vaccines(hepatiteB: hepatiteDoses, influenza: DoseVaccines(date: Date(), isVaccined: influenzaDose, numberOfDose: 1), antitetanic: antitetanicDoses)
+                    
                     //Adicionar as vacinas antitetanicas e hepatite
                     self.maternityVM.coreDataManager.addVaccineInfluenza(dose: vaccine.influenza)
-                    self.maternityVM.coreDataManager.addVaccineHepatite(dose: vaccine.hepatiteB.first ?? DoseVaccines(date: Date(), isVaccined: hepatite, numberOfDose: 0))
-                    self.maternityVM.coreDataManager.addVaccineAntitetanic(dose: vaccine.antitetanic.first ?? DoseVaccines(date: Date(), isVaccined: antitetanic, numberOfDose: 0))
+                    self.maternityVM.coreDataManager.addVaccineHepatite(dose: vaccine.hepatiteB)
+                    self.maternityVM.coreDataManager.addVaccineAntitetanic(dose: vaccine.antitetanic)
+      
                     break
                 }
                 
             }
+            
+            for cell in cells {
+                if cell.id == NotasView.id {
+                    self.consult?.consultNotes = textView.textViewComponent.getTypedText()
+                }
+            }
+            
             
             //Save the current consult
             if let addConsult = self.consult{
@@ -540,27 +593,16 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             for cell in cells{
                 if cell.id == TetanicView.id{
                     
-                    //Add vaccine
-                    let isVaccinedAgainstAntitetanic = tetanicView.yesCheckYES.checked
-                    let isNotVaccinedAgainstAntitetanic = tetanicView.noCheckNO.checked
-                    
-                    var firstAntitetanicDose = DoseVaccines(date: .now, isVaccined: false, numberOfDose: 0)
                     
                     
-                    
-                    let isVaccinedAgainstHepatite = hepatitisBView.hepatitisBYesCheckYES.checked
-                    let isVaccinedAgainstInfluenza = h1N1View.h1N1YesCheckYES.checked
-                    
-                    
-                    // FIX ME : Ajustar as doses das vacinas na view que nÃo existem
-                    let vaccine = Vaccines(hepatiteB: [DoseVaccines(date: Date(), isVaccined: isVaccinedAgainstAntitetanic, numberOfDose: 1)], influenza: DoseVaccines(date: Date(), isVaccined: isVaccinedAgainstInfluenza, numberOfDose: 1), antitetanic: [DoseVaccines(date: Date(), isVaccined: isVaccinedAgainstHepatite, numberOfDose: 1)])
-                    
-                    //Adicionar as vacinas antitetanicas e hepatite
-                    self.maternityVM.coreDataManager.addVaccineInfluenza(dose: vaccine.influenza)
-                    self.maternityVM.coreDataManager.addVaccineHepatite(dose: vaccine.hepatiteB.first ?? DoseVaccines(date: Date(), isVaccined: isVaccinedAgainstHepatite, numberOfDose: 0))
-                    self.maternityVM.coreDataManager.addVaccineAntitetanic(dose: vaccine.antitetanic.first ?? DoseVaccines(date: Date(), isVaccined: isVaccinedAgainstAntitetanic, numberOfDose: 0))
                     
                     break
+                }
+            }
+            
+            for cell in cells {
+                if cell.id == NotasView.id {
+                    self.consult?.consultNotes = textView.textViewComponent.getTypedText()
                 }
             }
             

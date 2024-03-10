@@ -156,18 +156,36 @@ class CoreDataFunctions{
     }
     
     //Add a new hepatite Vaccine
-    func addVaccineHepatite(dose : DoseVaccines){
+    func addVaccineHepatite(dose : [DoseVaccines]){
         if let pacient = self.pacient{
+            
             //Create a new instance to assign to the NSSet
-            let dosesEntity = VaccinesDoses(context: context)
-            dosesEntity.isVaccined = dose.isVaccined
-            dosesEntity.vaccineDate = dose.date
-            dosesEntity.numberOfDose = Int64(dose.numberOfDose)
+            let firstDosesEntity = VaccinesDoses(context: context)
+            
+            if dose.isEmpty{
+                return
+            }
+            
+            firstDosesEntity.isVaccined = dose[0].isVaccined
+            firstDosesEntity.vaccineDate = dose[0].date
+            firstDosesEntity.numberOfDose = Int64(dose[0].numberOfDose)
+            
+            let secondDosesEntity = VaccinesDoses(context: context)
+            secondDosesEntity.isVaccined = dose[1].isVaccined
+            secondDosesEntity.vaccineDate = dose[1].date
+            secondDosesEntity.numberOfDose = Int64(dose[1].numberOfDose)
+            
+            let thirdDosesEntity = VaccinesDoses(context: context)
+            thirdDosesEntity.isVaccined = dose[2].isVaccined
+            thirdDosesEntity.vaccineDate = dose[2].date
+            thirdDosesEntity.numberOfDose = Int64(dose[2].numberOfDose)
             
             //Append the new element to the set
             let setHepatite = pacient.vaccines?.hepatiteB as! Set<VaccinesDoses>
             var arrayHepatite = Array(setHepatite)
-            arrayHepatite.append(dosesEntity)
+            arrayHepatite.append(firstDosesEntity)
+            arrayHepatite.append(secondDosesEntity)
+            arrayHepatite.append(thirdDosesEntity)
             
             //Assign the new Set with the last element to the vaccines hepatite Set
             self.pacient?.vaccines?.hepatiteB = NSSet(array: arrayHepatite)
@@ -177,23 +195,42 @@ class CoreDataFunctions{
     }
     
     //Add a new antetanica Vaccine
-    func addVaccineAntitetanic(dose : DoseVaccines){
+    func addVaccineAntitetanic(dose : [DoseVaccines]){
         if let pacient = self.pacient{
             //Create a new instance to assign to the NSSet
-            let dosesEntity = VaccinesDoses(context: context)
-            dosesEntity.isVaccined = dose.isVaccined
-            dosesEntity.vaccineDate = dose.date
-            dosesEntity.numberOfDose = Int64(dose.numberOfDose)
+            let firstDosesEntity = VaccinesDoses(context: context)
+            
+            if dose.isEmpty{
+                return
+            }
+            
+            firstDosesEntity.isVaccined = dose[0].isVaccined
+            firstDosesEntity.vaccineDate = dose[0].date
+            firstDosesEntity.numberOfDose = Int64(dose[0].numberOfDose)
+            
+            let secondDosesEntity = VaccinesDoses(context: context)
+            secondDosesEntity.isVaccined = dose[1].isVaccined
+            secondDosesEntity.vaccineDate = dose[1].date
+            secondDosesEntity.numberOfDose = Int64(dose[1].numberOfDose)
+            
+            let thirdDosesEntity = VaccinesDoses(context: context)
+            thirdDosesEntity.isVaccined = dose[2].isVaccined
+            thirdDosesEntity.vaccineDate = dose[2].date
+            thirdDosesEntity.numberOfDose = Int64(dose[2].numberOfDose)
             
             //Append the new element to the set
             let setAntitetanic = pacient.vaccines?.hepatiteB as! Set<VaccinesDoses>
             var arrayAntitetanic = Array(setAntitetanic)
-            arrayAntitetanic.append(dosesEntity)
+            
+            arrayAntitetanic.append(firstDosesEntity)
+            arrayAntitetanic.append(secondDosesEntity)
+            arrayAntitetanic.append(thirdDosesEntity)
             
             //Assign the new Set with the last element to the vaccines hepatite Set
             self.pacient?.vaccines?.antitetanic = NSSet(array: arrayAntitetanic)
             saveContext()
             fetchPacient()
+            
         }
     }
     
@@ -355,6 +392,10 @@ class CoreDataFunctions{
             classification.twinPregnancy = pregnancyClassificationModel.twinPregnancy
             
             consult.pregnancyClassification = classification
+        }
+
+        if let notes = newConsult.consultNotes {
+            consult.notes = notes
         }
         
         //Assing the new Consult to current pacient

@@ -18,6 +18,8 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     private lazy var  h1N1View = H1N1View()
     private lazy var ultrasoundView = UltrasoundView()
     private lazy var maternityVM = MaternityCardViewModel()
+    private lazy var textView = NotasView()
+    
     var historyVm = HistoryViewModel()
     var appointmentsInfo: ConsultEntity
     
@@ -195,10 +197,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         addNewView(views: views)
         
         
-        
         if appointmentsInfo.tremesteer == 1 && appointmentsInfo.consultId == 1{
-            
-            
             //Set the data of familyAntecedents
             familyAntecedentView.sections[AppointmentsKeys.hipertensao.rawValue]?.checked = pacient?.familyBG?.hypertension ?? false
             familyAntecedentView.sections[AppointmentsKeys.diabetes.rawValue]?.checked = pacient?.familyBG?.diabetes ?? false
@@ -255,13 +254,22 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
             //Add vaccines view
             if pacient!.vaccines != nil{
                 
-                //FIX : Get the tree vaccines models
-                
                 //Assign data antitetanic
                 let antitetanic = historyVm.coreDataMaanger.getAntitetanic()
-                let antitetanicIsVaccined = antitetanic.first?.isVaccined ?? false
-                if antitetanicIsVaccined{
+                let antitetanicIsVaccined = antitetanic.isEmpty
+                
+                if !antitetanicIsVaccined{
+                    
                     tetanicView.yesCheckYES.checked = true
+                    tetanicView.noCheckNO.checked = false
+                    let antitetanicFirstDate = antitetanic[0].vaccineDate
+                    let antitetanicSecondDate = antitetanic[1].vaccineDate
+                    let antitetanicThirdDate = antitetanic[2].vaccineDate
+                    
+                    
+                    tetanicView.firstDoseDate.date = antitetanicFirstDate ?? Date()
+                    tetanicView.secondDoseDate.date = antitetanicSecondDate ?? Date()
+                    tetanicView.thirdDoseDate.date = antitetanicThirdDate ?? Date()
                 }else{
                     tetanicView.yesCheckYES.checked = false
                     tetanicView.noCheckNO.checked = true
@@ -270,9 +278,20 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 
                 //Assign hepatite data
                 let hepatite = historyVm.coreDataMaanger.getHepatite()
-                let hepatiteIsVaccined = hepatite.first?.isVaccined ?? false
-                if hepatiteIsVaccined{
+                let hepatiteIsVaccined = hepatite.isEmpty
+                
+                if !hepatiteIsVaccined{
                     hepatitisBView.hepatitisBYesCheckYES.checked = true
+                    hepatitisBView.hepatitisBNoCheckNO.checked = false
+                    
+                    let hepatiteFirstDate = hepatite[0].vaccineDate
+                    let hepatiteSecondDate = hepatite[1].vaccineDate
+                    let hepatiteThirdDate = hepatite[2].vaccineDate
+                    
+                    
+                    hepatitisBView.firstDoseDate.date = hepatiteFirstDate ?? Date()
+                    hepatitisBView.secondDoseDate.date = hepatiteSecondDate ?? Date()
+                    hepatitisBView.thirdDoseDate.date = hepatiteThirdDate ?? Date()
                 }else{
                     hepatitisBView.hepatitisBYesCheckYES.checked = false
                     hepatitisBView.hepatitisBNoCheckNO.checked = true
@@ -281,7 +300,14 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 
                 //Assign influenza data
                 let influenza = historyVm.coreDataMaanger.getInfluenza()
-                h1N1View.h1N1YesCheckYES.checked = influenza?.isVaccined ?? false
+                guard let influenzaVaccine = influenza else {return}
+                
+                if influenzaVaccine.isVaccined{
+                    h1N1View.h1N1YesCheckYES.checked = true
+                }else{
+                    h1N1View.h1N1YesCheckYES.checked = false
+                }
+                
                 
                 
                 //Assign all views to the array of views
@@ -422,6 +448,85 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 addNewView(views: views)
                 
             }
+    
+            //Add vaccines view
+            if pacient!.vaccines != nil{
+                
+                //Assign data antitetanic
+                let antitetanic = historyVm.coreDataMaanger.getAntitetanic()
+                let antitetanicIsVaccined = antitetanic.isEmpty
+                
+                if !antitetanicIsVaccined{
+                    
+                    tetanicView.yesCheckYES.checked = true
+                    tetanicView.noCheckNO.checked = false
+                    let antitetanicFirstDate = antitetanic[0].vaccineDate
+                    let antitetanicSecondDate = antitetanic[1].vaccineDate
+                    let antitetanicThirdDate = antitetanic[2].vaccineDate
+                    
+                    
+                    tetanicView.firstDoseDate.date = antitetanicFirstDate ?? Date()
+                    tetanicView.secondDoseDate.date = antitetanicSecondDate ?? Date()
+                    tetanicView.thirdDoseDate.date = antitetanicThirdDate ?? Date()
+                }else{
+                    tetanicView.yesCheckYES.checked = false
+                    tetanicView.noCheckNO.checked = true
+                }
+                
+                
+                //Assign hepatite data
+                let hepatite = historyVm.coreDataMaanger.getHepatite()
+                let hepatiteIsVaccined = hepatite.isEmpty
+                
+                if !hepatiteIsVaccined{
+                    hepatitisBView.hepatitisBYesCheckYES.checked = true
+                    hepatitisBView.hepatitisBNoCheckNO.checked = false
+                    
+                    let hepatiteFirstDate = hepatite[0].vaccineDate
+                    let hepatiteSecondDate = hepatite[1].vaccineDate
+                    let hepatiteThirdDate = hepatite[2].vaccineDate
+                    
+                    
+                    hepatitisBView.firstDoseDate.date = hepatiteFirstDate ?? Date()
+                    hepatitisBView.secondDoseDate.date = hepatiteSecondDate ?? Date()
+                    hepatitisBView.thirdDoseDate.date = hepatiteThirdDate ?? Date()
+                }else{
+                    hepatitisBView.hepatitisBYesCheckYES.checked = false
+                    hepatitisBView.hepatitisBNoCheckNO.checked = true
+                }
+                       
+                
+                //Assign influenza data
+                let influenza = historyVm.coreDataMaanger.getInfluenza()
+                guard let influenzaVaccine = influenza else {return}
+                
+                if influenzaVaccine.isVaccined{
+                    h1N1View.h1N1YesCheckYES.checked = true
+                }else{
+                    h1N1View.h1N1YesCheckYES.checked = false
+                }
+                
+                
+                
+                //Assign all views to the array of views
+                let views: [CellInfo] = [
+                    CellInfo(view: tetanicView, size: tetanicView.tetanicViewSize, id: TetanicView.id, query: tetanicView.query),
+                    CellInfo(view: hepatitisBView, size: hepatitisBView.hepatitisBViewSize, id: HepatitisBView.id, query: hepatitisBView.query),
+                    CellInfo(view: h1N1View, size: h1N1View.h1N1ViewSize, id: H1N1View.id, query: h1N1View.query)
+                ]
+                
+                addNewView(views: views)
+            }
+            
+        }
+        
+        if let notes = appointmentsInfo.notes {
+            textView.setText(notes)
+            textView.textViewComponent.textColor = UIColor.darkPink()
+            let views = [
+                CellInfo(view: textView, size: textView.viewSize, id: NotasView.id, query: textView.query)
+            ]
+            addNewView(views: views)
         }
     }
     
