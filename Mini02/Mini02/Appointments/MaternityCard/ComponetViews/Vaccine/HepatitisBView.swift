@@ -149,18 +149,18 @@ class HepatitisBView: UIView{
         firstDoseDate.anchorWithMultiplayerValues(top: firstDoseLabel.bottomAnchor,left: contentBackGround.leadingAnchor, leftPadding: 1)
         firstDoseDate.anchorWithConstantValues(width: screenSize.width * 0.25)
         
-        firstDoseDate.addSubview(secondDoseDate)
-        secondDoseDate.anchorWithMultiplayerValues(left: firstDoseDate.trailingAnchor)
-        secondDoseDate.addSubview(secondDoseLabel)
+        contentBackGround.addSubview(secondDoseDate)
+        secondDoseDate.anchorWithMultiplayerValues(left: firstDoseDate.trailingAnchor, leftPadding: 2)
+        contentBackGround.addSubview(secondDoseLabel)
         secondDoseLabel.setupLabel(labelText: "Dose 2", labelType: .titleSemiBold, labelColor: .darkPink)
-        secondDoseLabel.anchorWithMultiplayerValues(left: secondDoseDate.leadingAnchor,bottom: secondDoseDate.topAnchor, leftPadding: 1)
+        secondDoseLabel.anchorWithMultiplayerValues(top: hepatitisBNoSubHStackNO.bottomAnchor, left: secondDoseDate.leadingAnchor,bottom: secondDoseDate.topAnchor,topPadding: 2, leftPadding: 2)
         secondDoseDate.anchorWithConstantValues(width: screenSize.width * 0.25)
         
-        secondDoseDate.addSubview(thirdDoseDate)
-        thirdDoseDate.anchorWithMultiplayerValues(left: secondDoseDate.trailingAnchor)
-        thirdDoseDate.addSubview(thirdDoseLabel)
+        contentBackGround.addSubview(thirdDoseDate)
+        thirdDoseDate.anchorWithMultiplayerValues(left: secondDoseDate.trailingAnchor, leftPadding: 2)
+        contentBackGround.addSubview(thirdDoseLabel)
         thirdDoseLabel.setupLabel(labelText: "Dose 3", labelType: .titleSemiBold, labelColor: .darkPink)
-        thirdDoseLabel.anchorWithMultiplayerValues(left: thirdDoseDate.leadingAnchor,bottom: thirdDoseDate.topAnchor, leftPadding: 1)
+        thirdDoseLabel.anchorWithMultiplayerValues(top: hepatitisBNoSubHStackNO.bottomAnchor,left: thirdDoseDate.leadingAnchor, bottom: thirdDoseDate.topAnchor,topPadding: 2, leftPadding: 2)
         thirdDoseDate.anchorWithConstantValues(width: screenSize.width * 0.25)
     }
     
