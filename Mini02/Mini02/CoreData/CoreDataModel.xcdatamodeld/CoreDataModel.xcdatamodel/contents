@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="23B74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23D60" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BloodExam" representedClassName="BloodExam" syncable="YES" codeGenerationType="class">
         <attribute name="bloodType" optional="YES" attributeType="String"/>
         <attribute name="consultNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -95,7 +95,7 @@
         <attribute name="bloodPressureInmmHG" optional="YES" attributeType="String"/>
         <attribute name="edema" optional="YES" attributeType="String"/>
         <attribute name="fetalHeartRate" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="ig" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ig" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="uterineHeightInCentimeters" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="weightAndBodyMassIndex" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="consult" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConsultEntity" inverseName="routineData" inverseEntity="ConsultEntity"/>

@@ -172,6 +172,8 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
     func configureView(){
         let pacient = historyVm.getPatient()
         
+        // IG, Uterine, Weight
+        
         routineData.igMenu.selectedValue = Int(appointmentsInfo.routineData?.ig ?? 0)
         routineData.igMenu.setPickerValue(to: Int(appointmentsInfo.routineData?.ig ?? 0))
         
@@ -181,6 +183,7 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         routineData.uterineHeightMenu.selectedValue = Int(appointmentsInfo.routineData?.uterineHeightInCentimeters ?? 0)
         routineData.uterineHeightMenu.setPickerValue(to: Int(appointmentsInfo.routineData?.uterineHeightInCentimeters ?? 0))
         
+        routineData.wheightMenu.selectedValue = appointmentsInfo.routineData?.weightAndBodyMassIndex ?? 0.0
         routineData.wheightMenu.setPickerValue(to: appointmentsInfo.routineData?.weightAndBodyMassIndex ?? 0)
         
         routineData.arterialPressureMenu.text = appointmentsInfo.routineData?.bloodPressureInmmHG ?? ""
@@ -190,6 +193,8 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
         ]
         
         addNewView(views: views)
+        
+        
         
         if appointmentsInfo.tremesteer == 1 && appointmentsInfo.consultId == 1{
             
@@ -315,6 +320,11 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 
                 bloodView2.vdrlMenu.selectedOption = appointmentsInfo.bloodExam?.vdrlExam ?? ""
                 
+                bloodView.hbMenu.selectedValue = appointmentsInfo.bloodExam?.hb ?? 0
+                bloodView.hbMenu.setPickerValue(to: appointmentsInfo.bloodExam?.hb ?? 0)
+                
+                bloodView.creatineMenu.selectedValue = appointmentsInfo.bloodExam?.creatine ?? 0
+                bloodView.creatineMenu.setPickerValue(to: appointmentsInfo.bloodExam?.creatine ?? 0)
                 
                 let views: [CellInfo] = [
                     CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
@@ -374,6 +384,12 @@ class HistoryViewController: UICollectionViewController, UICollectionViewDelegat
                 bloodView.glicemiaMenu.setPickerValue(to: Int(appointmentsInfo.bloodExam?.glucose ?? 0))
                 
                 bloodView2.vdrlMenu.selectedOption = appointmentsInfo.bloodExam?.vdrlExam ?? ""
+                
+                bloodView.hbMenu.selectedValue = appointmentsInfo.bloodExam?.hb ?? 0
+                bloodView.hbMenu.setPickerValue(to: appointmentsInfo.bloodExam?.hb ?? 0)
+                
+                bloodView.creatineMenu.selectedValue = appointmentsInfo.bloodExam?.creatine ?? 0
+                bloodView.creatineMenu.setPickerValue(to: appointmentsInfo.bloodExam?.creatine ?? 0)
                 
                 let views: [CellInfo] = [
                     CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),

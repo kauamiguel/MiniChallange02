@@ -321,6 +321,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         }
     }
     
+    
     func saveData(){
         
         //Add hapticis : After will change the place of this code
@@ -329,9 +330,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         
         //Adding routines
         
-        //FIX:  IG, UTERINE, WHEIGHT NAO ESTAO NO PICKER, LOGO O COREDATA ESTA SALVANDO VALORES ERRADOS
-        
-        let ig = Int(routineData.igMenu.getPickerValue())
+        let ig = routineData.igMenu.getPickerValue()
         let edema = routineData.edemaMenu.selectedOption
         let fetalHeart = routineData.bcfMenu.selectedOption
         let uterine = Int(routineData.uterineHeightMenu.getPickerValue())
@@ -339,7 +338,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
         let bloodPressure = routineData.arterialPressureMenu.text ?? ""
         
         //Mudar o fetalHeart no CoreData para ser string
-        let routine = RoutineDataModel(bloodPressure: bloodPressure , edema: edema , fetalHeartHate: 0, uterineHeight: uterine , weightAndBodyMassIndex: weight, ig: ig, bcf: fetalHeart)
+        let routine = RoutineDataModel(bloodPressure: bloodPressure , edema: edema , fetalHeartHate: 0, uterineHeight: uterine , weightAndBodyMassIndex: weight, ig: Float(ig), bcf: fetalHeart)
         self.consult?.routineData = routine
         
         
@@ -430,9 +429,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     let plaquetas = Int(bloodView.plaquetasMenu.selectedValue)
                     let gliecmia = Int(bloodView.glicemiaMenu.selectedValue)
                     let vdrl = bloodView2.vdrlMenu.selectedOption
+                    let creatine = bloodView.creatineMenu.getPickerValue()
+                    let hb = bloodView.hbMenu.getPickerValue()
                     
-                    
-                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: vdrl , urea: .init(mg: urea, dL: Float(urea)), creatine: 0, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
+                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: vdrl , urea: .init(mg: urea, dL: Float(urea)), creatine: creatine, ht: Float(ht), hb: hb, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
                     
                     self.consult?.bloodExams = blood
                     break
@@ -458,7 +458,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                 }
             }
             
-            
+    
             
             for cell in cells{
                 
@@ -505,9 +505,10 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                     let plaquetas = Int(bloodView.plaquetasMenu.selectedValue)
                     let gliecmia = Int(bloodView.glicemiaMenu.selectedValue)
                     let vdrl = bloodView2.vdrlMenu.selectedOption
+                    let creatine = bloodView.creatineMenu.getPickerValue()
+                    let hb = bloodView.hbMenu.getPickerValue()
                     
-                    
-                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: vdrl, urea: .init(mg: urea, dL: Float(urea)), creatine: 0, ht: Float(ht), hb: 10, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
+                    let blood = BloodExamModel(consultNumber: self.consultID!, bloodType: BloodType(rawValue: bloodType) ?? BloodType.ANegative, toxoplasmosis: .init(igm: igm, igg: igg), hiv: hiv, vdrl: vdrl, urea: .init(mg: urea, dL: Float(urea)), creatine: creatine, ht: Float(ht), hb: hb, whiteCells: leucocitos , platelets: plaquetas , glucose: gliecmia )
                     
                     self.consult?.bloodExams = blood
                     break

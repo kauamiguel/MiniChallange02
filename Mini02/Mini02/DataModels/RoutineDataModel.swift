@@ -14,6 +14,6 @@ struct RoutineDataModel{
     var fetalHeartHate : Int
     var uterineHeight : Int
     var weightAndBodyMassIndex : Float
-    var ig : Int
+    var ig : Float
     var bcf : String
 }

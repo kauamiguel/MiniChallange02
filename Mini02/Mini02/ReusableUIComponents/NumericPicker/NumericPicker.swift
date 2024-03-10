@@ -25,7 +25,7 @@ class NumericPicker: UITextField {
     func setPickerValue(to: Int) {
         guard let idx = numberOptions.firstIndex(where: { $0 == to}) else { return }
         selectedValue = numberOptions[idx]
-//        selectRow(idx, inComponent: 0, animated: true)
+        text = String(selectedValue)
     }
     
     func setupNumericPicker(from: Int, to: Int, interval: Int = 1, startValue: Int? = nil) {
@@ -54,7 +54,7 @@ class NumericPicker: UITextField {
     }
     
     func getPickerValue() -> Int {
-        selectedValue
+        return selectedValue
     }
     
     

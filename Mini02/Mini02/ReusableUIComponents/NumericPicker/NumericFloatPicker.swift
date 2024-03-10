@@ -24,6 +24,7 @@ class NumericFloatPicker: UITextField {
     func setPickerValue(to: Float) {
         guard let idx = numberOptions.firstIndex(where: { $0.isNearlyEqual(to: to) }) else { return }
         selectedValue = numberOptions[idx]
+        text = String(format: "%.1f", selectedValue)
     }
     
     func setupNumericPicker(from: Float, to: Float, interval: Float = 0.1, startValue: Float? = nil) {
@@ -51,7 +52,7 @@ class NumericFloatPicker: UITextField {
     }
     
     func getPickerValue() -> Float {
-        selectedValue
+        return selectedValue
     }
     
     

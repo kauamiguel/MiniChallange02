@@ -289,7 +289,7 @@ class CoreDataFunctions{
             routine.fetalHeartRate = Int64(newroutine.fetalHeartHate)
             routine.uterineHeightInCentimeters = Int64(newroutine.uterineHeight)
             routine.weightAndBodyMassIndex = newroutine.weightAndBodyMassIndex
-            routine.ig = Int64(newroutine.ig)
+            routine.ig = newroutine.ig
             routine.bcf = newroutine.bcf
             consult.routineData = routine
         }
