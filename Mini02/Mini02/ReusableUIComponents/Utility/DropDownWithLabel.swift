@@ -85,7 +85,7 @@ extension UIView {
         field.anchorWithMultiplayerValues(top: label.bottomAnchor, left: leftAnchor.leadingAnchor, leftPadding: leftPadding, width: screenSize.width * widthMultiplier, height: screenSize.height * heightMultiplier)
     }
     
-    func datePickerPlusLabel(label: LabelComponentView, date: DatePicker , defaultDate: Date? = nil, contentBackGround: UIView, topAnchor: UIView, leftAnchor: UIView ,labelText: String, topPadding: CGFloat, leftPadding: CGFloat, screenSize: CGSize, heightMultiplier: CGFloat) {
+    func datePickerPlusLabel(label: LabelComponentView, date: DatePicker , defaultDate: Date? = nil, contentBackGround: UIView, topAnchor: UIView, leftAnchor: UIView? ,labelText: String, topPadding: CGFloat, leftPadding: CGFloat, screenSize: CGSize, heightMultiplier: CGFloat) {
         date.setupDatePicker(defaultDate: defaultDate ?? Date(),round: 8)
 
         contentBackGround.addSubview(label)
@@ -95,8 +95,8 @@ extension UIView {
         label.numberOfLines = 2
         contentBackGround.addSubview(date)
        
-        label.anchorWithMultiplayerValues(top: topAnchor.topAnchor, left: leftAnchor.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
-        date.anchorWithMultiplayerValues(top: label.bottomAnchor, left: leftAnchor.leadingAnchor, leftPadding: leftPadding, height: screenSize.height * heightMultiplier)
+        label.anchorWithMultiplayerValues(top: topAnchor.topAnchor, left: leftAnchor?.leadingAnchor, topPadding: topPadding, leftPadding: leftPadding)
+        date.anchorWithMultiplayerValues(top: label.bottomAnchor, left: leftAnchor?.leadingAnchor, leftPadding: leftPadding, height: screenSize.height * heightMultiplier)
     }
     
     func menuPlusLabelBottom(label: LabelComponentView, menu: PullDownComponent, options: [String], alternateBackground: Bool = false,contentBackGround: UIView, topAnchor: UIView, leftAnchor: UIView ,labelText: String, topPadding: CGFloat, leftPadding: CGFloat, screenSize: CGSize, widthMultiplier: CGFloat, heightMultiplier: CGFloat) {
