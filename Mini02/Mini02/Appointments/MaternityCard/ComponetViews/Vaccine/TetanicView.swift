@@ -58,17 +58,81 @@ class TetanicView: UIView{
     lazy var yesSubHStackYES: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 10
+        stackView.spacing = 5
         return stackView
+    }()
+    let firstDoseLabel = LabelComponentView()
+    let secondDoseLabel = LabelComponentView()
+    let thirdDoseLabel = LabelComponentView()
+    lazy var yesDate : DatePicker = {
+        let date = DatePicker()
+        date.datePickerMode = .date
+        date.preferredDatePickerStyle = .compact
+        date.calendar = .current
+        date.setDate(Date(), animated: false)
+        
+        
+        clipsToBounds = true
+        tintColor = UIColor.darkPink()
+        return date
     }()
     
     lazy var noSubHStackNO: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 10
+       stackView.spacing = 5
         return stackView
     }()
+    lazy var noDate : DatePicker = {
+        let date = DatePicker()
+        date.datePickerMode = .date
+        date.preferredDatePickerStyle = .compact
+        date.calendar = .current
+        date.setDate(Date(), animated: false)
+        date.backgroundColor = .clear
+        date.clipsToBounds = true
+        date.tintColor = UIColor.darkPink()
+        
+        return date
+    }()
     
+    lazy var firstDoseDate : DatePicker = {
+        let date = DatePicker()
+        date.datePickerMode = .date
+        date.preferredDatePickerStyle = .compact
+        date.calendar = .current
+        date.setDate(Date(), animated: false)
+        
+        
+        clipsToBounds = true
+        tintColor = UIColor.darkPink()
+        return date
+    }()
+    lazy var secondDoseDate : DatePicker = {
+        let date = DatePicker()
+        date.datePickerMode = .date
+        date.preferredDatePickerStyle = .compact
+        date.calendar = .current
+        date.setDate(Date(), animated: false)
+        
+        
+        clipsToBounds = true
+        tintColor = UIColor.darkPink()
+        return date
+    }()
+    
+    lazy var thirdDoseDate : DatePicker = {
+        let date = DatePicker()
+        date.datePickerMode = .date
+        date.preferredDatePickerStyle = .compact
+        date.calendar = .current
+        date.setDate(Date(), animated: false)
+        
+        
+        clipsToBounds = true
+        tintColor = UIColor.darkPink()
+        return date
+    }()
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -103,18 +167,48 @@ class TetanicView: UIView{
         subTitleLabel.anchorWithConstantValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor,topPadding: 15, leftPadding: 15)
         
         invertConfigureLabelAndGreenCheckBox(stack: yesSubHStackYES, label: yesLabel, checkBox: yesCheckYES, labelText: "sim, reforço 20 semanas: ".localized())
-        invertConfigureLabelAndRedCheckBox(stack: noSubHStackNO, label: noLabel, checkBox: noCheckNO, labelText: "não, esquema completo: ".localized())
+        
+      
 
+        
+        
+        invertConfigureLabelAndRedCheckBox(stack: noSubHStackNO, label: noLabel, checkBox: noCheckNO, labelText: "não, esquema completo: ".localized())
+       
+     
         noLabel.maximumContentSizeCategory = .accessibilityExtraLarge
         
         roudedBackGround.addSubview(yesSubHStackYES)
         yesSubHStackYES.anchorWithConstantValues(top: subTitleLabel.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 10, leftPadding: 15)
         
+        contentBackGround.addSubview(yesDate)
+        yesDate.anchorWithConstantValues(top: subTitleLabel.bottomAnchor,left: yesSubHStackYES.trailingAnchor,topPadding: 5,width: screenSize.width * 0.25)
+        
         roudedBackGround.addSubview(noSubHStackNO)
+        contentBackGround.addSubview(noDate)
         noSubHStackNO.anchorWithConstantValues(top: yesSubHStackYES.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 10, leftPadding: 15)
+       noDate.anchorWithConstantValues(top: yesSubHStackYES.bottomAnchor,left: noSubHStackNO.trailingAnchor,topPadding: 5,width: screenSize.width * 0.25)
         
+     
+        contentBackGround.addSubview(firstDoseLabel)
+        firstDoseLabel.setupLabel(labelText: "Dose 1", labelType: .titleSemiBold, labelColor: .darkPink)
+        firstDoseLabel.anchorWithMultiplayerValues(top: noSubHStackNO.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 2, leftPadding: 2)
+        contentBackGround.addSubview(firstDoseDate)
+        firstDoseDate.anchorWithMultiplayerValues(top: firstDoseLabel.bottomAnchor,left: contentBackGround.leadingAnchor, leftPadding: 1)
+        firstDoseDate.anchorWithConstantValues(width: screenSize.width * 0.25)
         
+        firstDoseDate.addSubview(secondDoseDate)
+        secondDoseDate.anchorWithMultiplayerValues(left: firstDoseDate.trailingAnchor)
+        secondDoseDate.addSubview(secondDoseLabel)
+        secondDoseLabel.setupLabel(labelText: "Dose 2", labelType: .titleSemiBold, labelColor: .darkPink)
+        secondDoseLabel.anchorWithMultiplayerValues(left: secondDoseDate.leadingAnchor,bottom: secondDoseDate.topAnchor, leftPadding: 1)
+        secondDoseDate.anchorWithConstantValues(width: screenSize.width * 0.25)
         
+        secondDoseDate.addSubview(thirdDoseDate)
+        thirdDoseDate.anchorWithMultiplayerValues(left: secondDoseDate.trailingAnchor)
+        thirdDoseDate.addSubview(thirdDoseLabel)
+        thirdDoseLabel.setupLabel(labelText: "Dose 3", labelType: .titleSemiBold, labelColor: .darkPink)
+        thirdDoseLabel.anchorWithMultiplayerValues(left: thirdDoseDate.leadingAnchor,bottom: thirdDoseDate.topAnchor, leftPadding: 1)
+        thirdDoseDate.anchorWithConstantValues(width: screenSize.width * 0.25)
     }
     
     
