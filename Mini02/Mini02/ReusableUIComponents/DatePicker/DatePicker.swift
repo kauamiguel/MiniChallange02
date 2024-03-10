@@ -25,5 +25,6 @@ class DatePicker: UIDatePicker {
         layer.cornerRadius = round
         clipsToBounds = true
         tintColor = UIColor.lightPink()
+        
     }
 }

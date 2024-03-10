@@ -10,6 +10,8 @@ import Foundation
 
 struct Consulta{
     
+    var notes : String?
+    
     var consultId : Int
     
     //This array will have all the blood exams

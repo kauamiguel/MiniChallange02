@@ -539,8 +539,15 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             for cell in cells{
                 if cell.id == TetanicView.id{
+                    
                     //Add vaccine
                     let isVaccinedAgainstAntitetanic = tetanicView.yesCheckYES.checked
+                    let isNotVaccinedAgainstAntitetanic = tetanicView.noCheckNO.checked
+                    
+                    var firstAntitetanicDose = DoseVaccines(date: .now, isVaccined: false, numberOfDose: 0)
+                    
+                    
+                    
                     let isVaccinedAgainstHepatite = hepatitisBView.hepatitisBYesCheckYES.checked
                     let isVaccinedAgainstInfluenza = h1N1View.h1N1YesCheckYES.checked
                     

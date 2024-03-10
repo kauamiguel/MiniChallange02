@@ -298,6 +298,10 @@ class CoreDataFunctions{
         consult.tremesteer = Int64(newConsult.trimesteer)
         consult.date = newConsult.date
         consult.consultId = Int64(newConsult.consultId)
+        
+        if let note = newConsult.notes{
+            consult.notes = note
+        }
 
         
         //Add a blood exam if it has

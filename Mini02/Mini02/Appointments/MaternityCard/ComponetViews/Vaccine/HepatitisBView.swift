@@ -75,9 +75,12 @@ class HepatitisBView: UIView{
         date.datePickerMode = .date
         date.preferredDatePickerStyle = .compact
         date.calendar = .current
-        date.setDate(Date(), animated: false)
-        
-        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        if let customDate = dateFormatter.date(from: "31/12/2023") {
+            date.setDate(customDate, animated: false)
+        }
+
         clipsToBounds = true
         tintColor = UIColor.darkPink()
         return date
@@ -87,8 +90,11 @@ class HepatitisBView: UIView{
         date.datePickerMode = .date
         date.preferredDatePickerStyle = .compact
         date.calendar = .current
-        date.setDate(Date(), animated: false)
-        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        if let customDate = dateFormatter.date(from: "31/12/2023") {
+            date.setDate(customDate, animated: false)
+        }
         
         clipsToBounds = true
         tintColor = UIColor.darkPink()
@@ -100,8 +106,11 @@ class HepatitisBView: UIView{
         date.datePickerMode = .date
         date.preferredDatePickerStyle = .compact
         date.calendar = .current
-        date.setDate(Date(), animated: false)
-        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        if let customDate = dateFormatter.date(from: "31/12/2023") {
+            date.setDate(customDate, animated: false)
+        }
         
         clipsToBounds = true
         tintColor = UIColor.darkPink()

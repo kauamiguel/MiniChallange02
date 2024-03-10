@@ -15,7 +15,7 @@ class TetanicView: UIView{
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let tetanicViewSize = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded(), height: UIScreen.main.bounds.size.height * 0.3)
-  
+    
     let roudedBackGround: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -42,7 +42,7 @@ class TetanicView: UIView{
     private static var checkboxManager = CheckBoxManager()
     let yesLabel = LabelComponentView()
     let yesCheckYES: CheckBoxComponentGreenView = {
-       let check = CheckBoxComponentGreenView()
+        let check = CheckBoxComponentGreenView()
         check.manager = TetanicView.checkboxManager
         return check
     }()
@@ -50,11 +50,11 @@ class TetanicView: UIView{
     let noLabel = LabelComponentView()
     let noCheckNO: CheckBoxComponentRedView = {
         let check = CheckBoxComponentRedView()
-         check.manager = TetanicView.checkboxManager
-         return check
-     }()
-
-  
+        check.manager = TetanicView.checkboxManager
+        return check
+    }()
+    
+    
     lazy var yesSubHStackYES: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -80,7 +80,7 @@ class TetanicView: UIView{
     lazy var noSubHStackNO: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-       stackView.spacing = 5
+        stackView.spacing = 5
         return stackView
     }()
     lazy var noDate : DatePicker = {
@@ -101,21 +101,28 @@ class TetanicView: UIView{
         date.datePickerMode = .date
         date.preferredDatePickerStyle = .compact
         date.calendar = .current
-        date.setDate(Date(), animated: false)
         
-        
+        // Criar uma data específica (31/12/2023)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        if let customDate = dateFormatter.date(from: "31/12/2023") {
+            date.setDate(customDate, animated: false)
+        }
         clipsToBounds = true
         tintColor = UIColor.darkPink()
         return date
     }()
+    
     lazy var secondDoseDate : DatePicker = {
         let date = DatePicker()
         date.datePickerMode = .date
         date.preferredDatePickerStyle = .compact
         date.calendar = .current
-        date.setDate(Date(), animated: false)
-        
-        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        if let customDate = dateFormatter.date(from: "31/12/2023") {
+            date.setDate(customDate, animated: false)
+        }
         clipsToBounds = true
         tintColor = UIColor.darkPink()
         return date
@@ -126,14 +133,17 @@ class TetanicView: UIView{
         date.datePickerMode = .date
         date.preferredDatePickerStyle = .compact
         date.calendar = .current
-        date.setDate(Date(), animated: false)
-        
-        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        if let customDate = dateFormatter.date(from: "31/12/2023") {
+            date.setDate(customDate, animated: false)
+        }
+
         clipsToBounds = true
         tintColor = UIColor.darkPink()
         return date
     }()
-        
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -142,7 +152,7 @@ class TetanicView: UIView{
     
     func setupView(){
         
-      
+        
         
         addSubview(roudedBackGround)
         
@@ -168,13 +178,13 @@ class TetanicView: UIView{
         
         invertConfigureLabelAndGreenCheckBox(stack: yesSubHStackYES, label: yesLabel, checkBox: yesCheckYES, labelText: "sim, reforço 20 semanas: ".localized())
         
-      
-
+        
+        
         
         
         invertConfigureLabelAndRedCheckBox(stack: noSubHStackNO, label: noLabel, checkBox: noCheckNO, labelText: "não, esquema completo: ".localized())
-       
-     
+        
+        
         noLabel.maximumContentSizeCategory = .accessibilityExtraLarge
         
         roudedBackGround.addSubview(yesSubHStackYES)
@@ -186,9 +196,9 @@ class TetanicView: UIView{
         roudedBackGround.addSubview(noSubHStackNO)
         contentBackGround.addSubview(noDate)
         noSubHStackNO.anchorWithConstantValues(top: yesSubHStackYES.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 10, leftPadding: 15)
-       noDate.anchorWithConstantValues(top: yesSubHStackYES.bottomAnchor,left: noSubHStackNO.trailingAnchor,topPadding: 5,width: screenSize.width * 0.25)
+        noDate.anchorWithConstantValues(top: yesSubHStackYES.bottomAnchor,left: noSubHStackNO.trailingAnchor,topPadding: 5,width: screenSize.width * 0.25)
         
-     
+        
         contentBackGround.addSubview(firstDoseLabel)
         firstDoseLabel.setupLabel(labelText: "Dose 1", labelType: .titleSemiBold, labelColor: .darkPink)
         firstDoseLabel.anchorWithMultiplayerValues(top: noSubHStackNO.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 2, leftPadding: 2)
