@@ -19,4 +19,12 @@ class RecurrenteDataViewModel {
         guard let lastConsult = consults.last else {return nil}
         return lastConsult
     }
+    
+    func getPatient() -> Pacient? {
+        coreDataManager.fetchPacient()
+        if let patient = coreDataManager.pacient{
+            return patient
+        }
+        return nil
+    }
 }
