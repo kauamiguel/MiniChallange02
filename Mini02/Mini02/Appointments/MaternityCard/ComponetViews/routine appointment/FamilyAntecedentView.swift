@@ -70,7 +70,6 @@ class FamilyAntecedentView: UIView {
         roudedBackGround.addSubview(contentBackGround)
         contentBackGround.anchorWithConstantValues(top: antecedentesLabel.bottomAnchor, bottom: self.bottomAnchor, topPadding: 10, width: screenSize.width * 0.9, height: screenSize.height * 0.27)
         contentBackGround.centerX(inView: roudedBackGround)
-        
         createSection(bg: contentBackGround, titles: sections)
         
     }
