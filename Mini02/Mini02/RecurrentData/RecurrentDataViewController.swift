@@ -24,10 +24,14 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
     var searchBar : UISearchBar?
     private var lastConsult : ConsultEntity?
     private var recurrentDataVM = RecurrenteDataViewModel()
+    private var searchTimer: Timer?
+    private var pacient: Pacient?
     
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.minimumInteritemSpacing = 40
+        layout.minimumLineSpacing = 30
         super.init(collectionViewLayout: layout)
         
         //Set the searchBar created in the view as my searchBar to respond some methods
@@ -63,28 +67,107 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
     }
     
     func populateCells(){
-        
-        //TODO : Adicionar os dados de rotina caso ja tenha uma consulta
+        self.pacient = recurrentDataVM.getPatient()
         
         //Verify wheter is in the first consult
         if !ApplicationSettings.shouldEnterFirstAppointment(){
-            cells = [
-                CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id, query: familyAntecedentView.query),
-                CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id, query: pregnancyTypeView.query),
-                CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, query: clinicAntecedentsView.query),
-                CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, query: plannedView.query)
-            ]
+            // Family Background
+            if let bg = self.pacient?.familyBG {
+                familyAntecedentView.sections[AppointmentsKeys.hipertensao.rawValue]?.checked = bg.hypertension
+                familyAntecedentView.sections[AppointmentsKeys.diabetes.rawValue]?.checked = bg.diabetes
+                familyAntecedentView.sections[AppointmentsKeys.cardiopatia.rawValue]?.checked = bg.heartCondition
+                familyAntecedentView.sections[AppointmentsKeys.outro.rawValue]?.checked = bg.urinaryInfection
+                cells.append(CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id, query: familyAntecedentView.query))
+                
+                clinicAntecedentsView.sections[AppointmentsKeys.urinary.rawValue]?.checked = bg.urinaryInfection
+                clinicAntecedentsView.sections[AppointmentsKeys.hipertensao.rawValue]?.checked  = bg.hypertension
+                clinicAntecedentsView.sections[AppointmentsKeys.fuma.rawValue]?.checked = bg.tabagism
+                clinicAntecedentsView.sections[AppointmentsKeys.cardiopatia.rawValue]?.checked = bg.heartCondition
+                clinicAntecedentsView.sections[AppointmentsKeys.diabetes.rawValue]?.checked = bg.diabetes
+                cells.append(CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, query: clinicAntecedentsView.query))
+            }
+            
+            // PregnancyType
+            if let pregnancyType = self.lastConsult?.pregnancyClassification {
+                pregnancyTypeView.section[AppointmentsKeys.gemelar.rawValue]?.checked = pregnancyType.twinPregnancy
+                pregnancyTypeView.section[AppointmentsKeys.triplaOuMais.rawValue]?.checked = pregnancyType.tripletsOrMorePregnancy
+                pregnancyTypeView.section[AppointmentsKeys.unica.rawValue]?.checked = pregnancyType.singlePregnancy
+                cells.append(CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id, query: pregnancyTypeView.query))
+            }
+            if let planned = self.lastConsult?.pregnancyPlanning {
+                plannedView.plannedCheckYES.checked = planned.plannedPregnancy
+                plannedView.plannedCheckNO.checked = !planned.plannedPregnancy
+                cells.append(CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, query: plannedView.query))
+            }
+        }
+        
+        //Last Routine Data
+        if let routine = self.lastConsult?.routineData {
+            routineData.igMenu.selectedValue = Int(routine.ig)
+            routineData.igMenu.setPickerValue(to: Int(routine.ig))
+            
+            routineData.edemaMenu.selectedOption = routine.edema ?? ""
+            routineData.bcfMenu.selectedOption = routine.bcf ?? ""
+            
+            routineData.uterineHeightMenu.selectedValue = Int(routine.uterineHeightInCentimeters)
+            routineData.uterineHeightMenu.setPickerValue(to: Int(routine.uterineHeightInCentimeters))
+            
+            routineData.wheightMenu.selectedValue = routine.weightAndBodyMassIndex
+            routineData.wheightMenu.setPickerValue(to: routine.weightAndBodyMassIndex)
+            
+            routineData.arterialPressureMenu.text = routine.bloodPressureInmmHG ?? ""
+            
+            cells.append(CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id, query: routineData.query))
         }
         
         //Verify if exist blood exam, and if has, add in the view the last exam information
-        if let _ = self.lastConsult?.bloodExam{
+        if let bloodExam = self.lastConsult?.bloodExam {
+            bloodView.aboMenu.selectedOption = (bloodExam.bloodType)!
+            
+            bloodView.ureiaMenu.selectedValue = Int(bloodExam.urea?.mg ?? 0)
+            bloodView.ureiaMenu.setPickerValue(to: Int(bloodExam.urea?.mg ?? 0))
+            
+            bloodView.htMenu.selectedValue = Int(bloodExam.ht)
+            bloodView.htMenu.setPickerValue(to: Int(bloodExam.ht))
+            
+            bloodView.leucocitosMenu.selectedValue = Int(bloodExam.whiteCells)
+            bloodView.leucocitosMenu.setPickerValue(to: Int(bloodExam.whiteCells))
+            
+            bloodView.plaquetasMenu.selectedValue = Int(bloodExam.platelets)
+            bloodView.plaquetasMenu.setPickerValue(to: Int(bloodExam.platelets))
+            
+            bloodView.glicemiaMenu.selectedValue = Int(bloodExam.glucose)
+            bloodView.glicemiaMenu.setPickerValue(to: Int(bloodExam.glucose))
+            
+            bloodView.hbMenu.selectedValue = bloodExam.hb
+            bloodView.hbMenu.setPickerValue(to: bloodExam.hb)
+            
+            bloodView.creatineMenu.selectedValue = bloodExam.creatine
+            bloodView.creatineMenu.setPickerValue(to: bloodExam.creatine)
+            
             cells.append(CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query))
         }
         
         //Verify if exist ultrasound exam, and if has, add in the view the last exam information
-        if let _ = self.lastConsult?.ultraSound{
+        if let ultrasound = self.lastConsult?.ultraSound{
+            ultrasoundView.dataMenu.date = ultrasound.date ?? Date()
+            
+            ultrasoundView.igMenu.selectedValue = Int(ultrasound.gestacionalAge)
+            ultrasoundView.igMenu.setPickerValue(to: Int(ultrasound.gestacionalAge))
+            
+            ultrasoundView.pesoMenu.selectedValue = Int(ultrasound.weight)
+            ultrasoundView.pesoMenu.setPickerValue(to: Int(ultrasound.weight))
+            
+            ultrasoundView.placentaMenu.selectedOption = ultrasound.placenta ?? ""
+            ultrasoundView.apresentacaoFetalMenu.selectedOption = ultrasound.fetalPosition ?? ""
+            
+            
+            ultrasoundView.ilaMenu.selectedValue = Int(ultrasound.ila)
+            ultrasoundView.ilaMenu.setPickerValue(to: Int(ultrasound.ila))
+            
             cells.append(CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundSize, id: UltrasoundView.id, query: ultrasoundView.query))
         }
+        
     }
     
     @objc func dismissMyKeyboard(){
@@ -115,18 +198,38 @@ class RecurrentDataViewController: UICollectionViewController, UISearchBarDelega
         return cells[indexPath.row].size
     }
     
+    
+    
+    
     //Create a search bar that filter the content of my cells
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredCell = []
+        searchTimer?.invalidate()
+        searchTimer = Timer.scheduledTimer(withTimeInterval: 0.8, repeats: false) { _ in
+            self.performSearch(searchText)
+        }
+    }
+    
+    func performSearch(_ search: String) {
         
-        if searchText == ""{
+        let keywords: [String:CellInfo] = [
+            "antecedentes familiares diabetes hipertensão cardiopatia": CellInfo(view: familyAntecedentView, size: familyAntecedentView.familyAntecedentViewSize, id: FamilyAntecedentView.id, query: familyAntecedentView.query),
+            "antecedentes clínicos cardiopatia hipertensão infecção urinaria fuma diabetes": CellInfo(view: clinicAntecedentsView, size: clinicAntecedentsView.clinicAntecedentsViewSize, id: ClinicAntecedentsView.id, query: clinicAntecedentsView.query),
+            "tipos de gravidez unica gemelar": CellInfo(view: pregnancyTypeView, size: pregnancyTypeView.pregnancyTypeViewSize, id: PregnancyTypeView.id, query: pregnancyTypeView.query),
+            "gravidez planejada": CellInfo(view: plannedView, size: plannedView.pregnancyRiskViewSize, id: PlannedView.id, query: plannedView.query),
+            "dados de rotina ig dum usg peso imc altura uterina pressão arterial bcf edema idade gestacional data última menstruação": CellInfo(view: routineData, size: routineData.routineDataViewSize, id: RoutineDataView.id, query: routineData.query),
+            "exame sangue ureia leucócitos hta hb plaquetas creatina glicemia abo rh": CellInfo(view: bloodView, size: bloodView.bloodViewViewSize, id: BloodView.id, query: bloodView.query),
+            "ultrasom ultrasonografia data idade gestacional peso placenta ila apresentação fetal exame recente": CellInfo(view: ultrasoundView, size: ultrasoundView.ultrasoundSize, id: UltrasoundView.id, query: ultrasoundView.query)
+        ]
+        if search.isEmpty {
             filteredCell = cells
-        }else{
-            for obeject in cells{
-                if let className = obeject.query, className.lowercased().localizedStandardContains(searchText){
-                    filteredCell.append(obeject)
+        } else {
+            var candidates = [CellInfo]()
+            for (keywords, containingCell) in keywords {
+                if keywords.lowercased().localizedCaseInsensitiveContains(search.lowercased()) {
+                    candidates.append(containingCell)
                 }
             }
+            filteredCell = candidates.sorted(by: { $0.query < $1.query }) // This is a trick to fix the order so the layout doesnt break as much. I know its hacky af and should no be relied on. - Fabio
         }
         self.collectionView.reloadData()
     }
