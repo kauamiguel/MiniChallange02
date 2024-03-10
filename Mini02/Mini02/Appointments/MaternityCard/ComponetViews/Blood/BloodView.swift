@@ -10,7 +10,7 @@ import UIKit
 class BloodView: UIView{
     
     static let id = "BloodCell"
-    let query = "sangue"
+    let query = "exame de sangue"
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let bloodViewViewSize = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded(), height: UIScreen.main.bounds.size.height * 0.5)

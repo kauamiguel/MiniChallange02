@@ -12,7 +12,7 @@ class PregnancyTypeView: UIView {
     
     static let id = "PregnancyTypeCell"
 
-    let query = "gravidez"
+    let query = "tipo de gravidez"
     
     let section = [
         AppointmentsKeys.unica.rawValue :CheckBoxComponentGreenView(),

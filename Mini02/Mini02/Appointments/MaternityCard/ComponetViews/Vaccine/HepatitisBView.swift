@@ -11,7 +11,7 @@ import UIKit
 class HepatitisBView: UIView{
     
     static let id = "HepatitisBCell"
-    let query = "HepatitisB"
+    let query = "vacina hepatite"
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let hepatitisBViewSize = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded(), height: UIScreen.main.bounds.size.height * 0.29)

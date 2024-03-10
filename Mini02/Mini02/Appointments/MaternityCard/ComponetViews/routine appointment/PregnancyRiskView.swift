@@ -10,7 +10,7 @@ import UIKit
 class PregnancyRiskView: UIView {
     
     static let id = "PregnancyRiskCell"
-    let query = "gravidez"
+    let query = "risco de gravidez"
     private static var checkboxManager = CheckBoxManager()
     
     lazy var riscoHabitualGreenCheckbox: CheckBoxComponentGreenView = {

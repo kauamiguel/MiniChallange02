@@ -11,7 +11,7 @@ import UIKit
 class H1N1View: UIView{
     
     static let id = "H1N1ViewCell"
-    let query = "H1N1"
+    let query = "vacina h1n1"
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let h1N1ViewSize = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded(), height: UIScreen.main.bounds.size.height * 0.14)

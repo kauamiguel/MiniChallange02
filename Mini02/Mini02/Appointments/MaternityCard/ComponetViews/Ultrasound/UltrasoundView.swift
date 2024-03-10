@@ -10,7 +10,7 @@ import UIKit
 class UltrasoundView: UIView {
 
     static let id = "UltrasoundViewCell"
-    let query = "ultrassom"
+    let query = "exame de ultrassom"
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let ultrasoundSize = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded(), height: UIScreen.main.bounds.size.height * 0.38)

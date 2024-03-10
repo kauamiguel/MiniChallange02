@@ -11,7 +11,7 @@ import UIKit
 class TetanicView: UIView{
     
     static let id = "TetanicCell"
-    let query = "tetanic"
+    let query = "vacina antitetanica"
     
     let screenSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     let tetanicViewSize = CGSize(width: (UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width * 0.04).rounded(), height: UIScreen.main.bounds.size.height * 0.3)
@@ -152,8 +152,6 @@ class TetanicView: UIView{
     
     func setupView(){
         
-        
-        
         addSubview(roudedBackGround)
         
         roudedBackGround.anchorWithConstantValues(top: self.topAnchor, left: self.leadingAnchor,right: self.trailingAnchor,bottom: self.bottomAnchor, width: tetanicViewSize.width ,height: tetanicViewSize.height)
@@ -178,10 +176,7 @@ class TetanicView: UIView{
         
         invertConfigureLabelAndGreenCheckBox(stack: yesSubHStackYES, label: yesLabel, checkBox: yesCheckYES, labelText: "sim, reforço 20 semanas: ".localized())
         
-        
-        
-        
-        
+  
         invertConfigureLabelAndRedCheckBox(stack: noSubHStackNO, label: noLabel, checkBox: noCheckNO, labelText: "não, esquema completo: ".localized())
         
         

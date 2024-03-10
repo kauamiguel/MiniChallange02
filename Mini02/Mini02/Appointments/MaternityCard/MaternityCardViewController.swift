@@ -50,6 +50,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
     }
     
     override func viewDidLoad() {
+        
+        
          
         setupCollectionView()
         collectionView.isEditing = true
@@ -462,7 +464,8 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             
             for cell in cells{
                 
-                if cell.id == TetanicView.id{
+                if cell.id == HepatitisBView.id{
+                
                     //Add vaccine
                     
                     var antitetanicDoses : [DoseVaccines] = []
@@ -512,15 +515,15 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
                         influenzaDose = true
                     }
                     
-                    
-                    let vaccine = Vaccines(hepatiteB: hepatiteDoses, influenza: DoseVaccines(date: Date(), isVaccined: influenzaDose, numberOfDose: 1), antitetanic: antitetanicDoses)
-                    
-                    //Adicionar as vacinas antitetanicas e hepatite
-                    self.maternityVM.coreDataManager.addVaccineInfluenza(dose: vaccine.influenza)
-                    self.maternityVM.coreDataManager.addVaccineHepatite(dose: vaccine.hepatiteB)
-                    self.maternityVM.coreDataManager.addVaccineAntitetanic(dose: vaccine.antitetanic)
-      
-                    break
+                    if isVaccinedAgainstAntitetanic == true{
+                        let vaccine = Vaccines(hepatiteB: hepatiteDoses, influenza: DoseVaccines(date: Date(), isVaccined: influenzaDose, numberOfDose: 1), antitetanic: antitetanicDoses)
+                        
+                        //Adicionar as vacinas antitetanicas e hepatite
+                        self.maternityVM.coreDataManager.addVaccineInfluenza(dose: vaccine.influenza)
+                        self.maternityVM.coreDataManager.addVaccineHepatite(dose: vaccine.hepatiteB)
+                        self.maternityVM.coreDataManager.addVaccineAntitetanic(dose: vaccine.antitetanic)
+                    }
+                  
                 }
                 
             }
