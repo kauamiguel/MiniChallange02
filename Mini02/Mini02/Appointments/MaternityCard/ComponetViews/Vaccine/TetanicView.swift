@@ -174,26 +174,20 @@ class TetanicView: UIView{
         subTitleLabel.setupLabel(labelText: "Anti-tetânica/ dTpa".localized(), labelType: .titleRegular, labelColor: .darkPink)
         subTitleLabel.anchorWithConstantValues(top: contentBackGround.topAnchor, left: contentBackGround.leadingAnchor,topPadding: 15, leftPadding: 15)
         
-        invertConfigureLabelAndGreenCheckBox(stack: yesSubHStackYES, label: yesLabel, checkBox: yesCheckYES, labelText: "sim, reforço 20 semanas: ".localized())
+        invertConfigureLabelAndGreenCheckBox(stack: yesSubHStackYES, label: yesLabel, checkBox: yesCheckYES, labelText: "sim, reforço 20 semanas ".localized())
         
   
-        invertConfigureLabelAndRedCheckBox(stack: noSubHStackNO, label: noLabel, checkBox: noCheckNO, labelText: "não, esquema completo: ".localized())
+        invertConfigureLabelAndRedCheckBox(stack: noSubHStackNO, label: noLabel, checkBox: noCheckNO, labelText: "não, esquema completo ".localized())
         
         
         noLabel.maximumContentSizeCategory = .accessibilityExtraLarge
         
         roudedBackGround.addSubview(yesSubHStackYES)
         yesSubHStackYES.anchorWithConstantValues(top: subTitleLabel.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 10, leftPadding: 15)
-        
-        contentBackGround.addSubview(yesDate)
-        yesDate.anchorWithConstantValues(top: subTitleLabel.bottomAnchor,left: yesSubHStackYES.trailingAnchor,topPadding: 5,width: screenSize.width * 0.25)
-        
+             
         roudedBackGround.addSubview(noSubHStackNO)
-        contentBackGround.addSubview(noDate)
         noSubHStackNO.anchorWithConstantValues(top: yesSubHStackYES.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 10, leftPadding: 15)
-        noDate.anchorWithConstantValues(top: yesSubHStackYES.bottomAnchor,left: noSubHStackNO.trailingAnchor,topPadding: 5,width: screenSize.width * 0.25)
-        
-        
+       
         contentBackGround.addSubview(firstDoseLabel)
         firstDoseLabel.setupLabel(labelText: "Dose 1", labelType: .titleSemiBold, labelColor: .darkPink)
         firstDoseLabel.anchorWithMultiplayerValues(top: noSubHStackNO.bottomAnchor, left: contentBackGround.leadingAnchor, topPadding: 2, leftPadding: 2)
