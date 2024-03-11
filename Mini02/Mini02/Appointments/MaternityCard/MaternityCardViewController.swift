@@ -208,6 +208,7 @@ class MaternityCardViewController: UICollectionViewController, UICollectionViewD
             return UICollectionReusableView()
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         // Return the desired size for the header
         return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.15)
